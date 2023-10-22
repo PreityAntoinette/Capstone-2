@@ -64,7 +64,7 @@
 </div>
 
 <section class="about-us">
-    <img src="images/aboutus.jpg">
+    <img src="assets/images/aboutus.jpg">
     <div class="content">
         <h2>Lagring Studio</h2>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Backround of Lagring Studio Back in 2010, There a woman named Alegria Garcia Established a photo studio in Salitran named it Lagring Studio. Alegria “Lagring” Garcia is  mother to 4 child. The humble start of Lagring shows that persistence is important if you want to be successful. <br> &nbsp;&nbsp;&nbsp;&nbsp;It started with a small studio offering ID pictures, photo and video packages into events. They also sell frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now covers almost 70% of public schools in Imus such as the big school of Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
@@ -80,29 +80,29 @@
 <div class="section" id="gallery">
 <div class="container">
     <div class="gallery">
-        <a href="images/pic1.jpg" data-lightbox="services" data-title="Caption1">
-            <img src="images/pic1.jpg">
+        <a href="assets/images/pic1.jpg" data-lightbox="services" data-title="Caption1">
+            <img src="assets/images/pic1.jpg">
         </a>
-        <a href="images/pic2.jpg" data-lightbox="services" data-title="Caption2">
-            <img src="images/pic2.jpg">
+        <a href="assets/images/pic2.jpg" data-lightbox="services" data-title="Caption2">
+            <img src="assets/images/pic2.jpg">
         </a>
-        <a href="images/pic3.jpg" data-lightbox="services" data-title="Caption3">
-            <img src="images/pic3.jpg">
+        <a href="assets/images/pic3.jpg" data-lightbox="services" data-title="Caption3">
+            <img src="assets/images/pic3.jpg">
         </a>
-        <a href="images/pic4.jpg" data-lightbox="services" data-title="Caption4">
-            <img src="images/pic4.jpg">
+        <a href="assets/images/pic4.jpg" data-lightbox="services" data-title="Caption4">
+            <img src="assets/images/pic4.jpg">
         </a>
-        <a href="images/pic5.jpg" data-lightbox="services" data-title="Caption5">
-            <img src="images/pic5.jpg">
+        <a href="assets/images/pic5.jpg" data-lightbox="services" data-title="Caption5">
+            <img src="assets/images/pic5.jpg">
         </a>
-        <a href="images/pic14.jpg" data-lightbox="services" data-title="Caption6">
-            <img src="images/pic14.jpg">
+        <a href="assets/images/pic14.jpg" data-lightbox="services" data-title="Caption6">
+            <img src="assets/images/pic14.jpg">
         </a>
-        <a href="images/pic7.jpg" data-lightbox="services" data-title="Caption7">
-            <img src="images/pic7.jpg">
+        <a href="assets/images/pic7.jpg" data-lightbox="services" data-title="Caption7">
+            <img src="assets/images/pic7.jpg">
         </a>
-        <a href="images/pic15.jpg" data-lightbox="services" data-title="Caption8">
-            <img src="images/pic15.jpg">
+        <a href="assets/images/pic15.jpg" data-lightbox="services" data-title="Caption8">
+            <img src="assets/images/pic15.jpg">
         </a>   
         
     </div>
