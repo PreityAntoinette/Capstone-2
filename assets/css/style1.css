@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    background-color: lightblue;
+    z-index: 10;
+}
+.navActive {
+    transform: translateX(-100%);
+}
+.navLinkActive {
+    background-color: hsl(195, 53%, 69%);
+}
+.navHead {
+    padding: 1rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navLinks {
+    list-style: none;
+}
+.navLinks a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 1rem;
+}
+.mainHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 7vh;
+    padding-left: 250px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.75);
+}
+.mainHeaderActive {
+    padding-left: 0px;
+}
+.leftSection,
+.rightSection {
+    display: flex;
+    align-items: center;
+}
+.toggleBtn {
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.toggleBtn .bi-list {
+    cursor: pointer;
+}
+.toggleBtn:hover {
+    color: blue;
+}
+.arrowToggleBtn {
+    display: none;
+}
+.arrowToggleBtn .bi-arrow-left {
+    cursor: pointer;
+}
+/* show and hide sidebar toggle */
+@media only screen and (max-width: 62em) {
+    nav {
+        transform: translateX(-100%);
+    }
+    .navActive {
+        transform: translateX(0%);
+    }
+    .mainHeader {
+        padding-left: 0px;
+    }
+    .arrowToggleBtn {
+        display: block;
+    }
+}
