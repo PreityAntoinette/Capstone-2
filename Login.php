@@ -59,11 +59,12 @@ if(isset($_POST['login'])){
         if(password_verify($password, $row->password)){
            if($row->role=='USER'){
             $_SESSION['user'] = $row;
-            header('LOCATION: userdashboard.php');
+            header('LOCATION: user/dashboard.php');
             exit();
            } 
            if($row->role=='ADMIN'){
-            header('LOCATION: admindashboard.php');
+            $_SESSION['admin'] = $row;
+            header('LOCATION: admin/dashboard.php');
             exit();
            } 
         }
