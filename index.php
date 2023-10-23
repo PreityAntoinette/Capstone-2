@@ -76,6 +76,9 @@
 <!-- about section ends-->
 
 <!-- Gallery section starts -->
+<div class="headingabout" id="about">
+    <h1 class="headingabout"> Gallery </h1>
+</div>
 
 <div class="section" id="gallery">
 <div class="container">
@@ -92,18 +95,24 @@
         <a href="assets/images/pic4.jpg" data-lightbox="services" data-title="Caption4">
             <img src="assets/images/pic4.jpg">
         </a>
-        <a href="assets/images/pic5.jpg" data-lightbox="services" data-title="Caption5">
-            <img src="assets/images/pic5.jpg">
-        </a>
-        <a href="assets/images/pic14.jpg" data-lightbox="services" data-title="Caption6">
-            <img src="assets/images/pic14.jpg">
-        </a>
-        <a href="assets/images/pic7.jpg" data-lightbox="services" data-title="Caption7">
+        <a href="assets/images/pic7.jpg" data-lightbox="services" data-title="Caption5">
             <img src="assets/images/pic7.jpg">
         </a>
-        <a href="assets/images/pic15.jpg" data-lightbox="services" data-title="Caption8">
+        <a href="assets/images/pic13.jpg" data-lightbox="services" data-title="Caption6">
+            <img src="assets/images/pic13.jpg">
+        </a>
+        <a href="assets/images/pic16.jpg" data-lightbox="services" data-title="Caption7">
+            <img src="assets/images/pic16.jpg">
+        </a>
+        <a href="assets/images/pic11.jpg" data-lightbox="services" data-title="Caption8">
+            <img src="assets/images/pic11.jpg">
+        </a>
+        <a href="assets/images/pic15.jpg" data-lightbox="services" data-title="Caption7">
             <img src="assets/images/pic15.jpg">
-        </a>   
+        </a>
+        <a href="assets/images/pic14.jpg" data-lightbox="services" data-title="Caption8">
+            <img src="assets/images/pic14.jpg">
+        </a>     
         
     </div>
 </div>

@@ -26,6 +26,7 @@ body{
     align-items: center;
     width: 85%;
     margin: auto;
+    padding-bottom:100%;
 }
 .about-us img{
     flex: 0 50%;
