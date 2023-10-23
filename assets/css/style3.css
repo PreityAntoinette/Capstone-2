@@ -1,5 +1,5 @@
 *{
-    margin: o;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
@@ -9,12 +9,12 @@ body{
 }
 .headingabout{
     text-align: center;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 .headingabout h1{
     font-size: 50px;
     color: #36455c;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .headingabout p{
     font-size: 20px;

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lagring Studio</title>
+    <link href="assets/images/logo.png" rel="icon">
 
     <!--font awesome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -22,7 +23,7 @@
     <input type="checkbox" name="" id="toggler">
     <label for="toggler" class="fas fa-bars"></label>
 
-    <a href="#" class="logo">Lagring<span>Studio</span></a>
+    <a href="#" class="logo"><img src="assets/images/logo.png" style="float:left;" height="50px"width="50px;">Lagring<span>Studio</span></a>
 
     <nav class="navbar">
         <a href="#home">Home</a>
@@ -76,6 +77,9 @@
 <!-- about section ends-->
 
 <!-- Gallery section starts -->
+<div class="headingabout" id="about">
+    <h1 class="headingabout"> Gallery </h1>
+</div>
 
 <div class="section" id="gallery">
 <div class="container">
@@ -92,18 +96,24 @@
         <a href="assets/images/pic4.jpg" data-lightbox="services" data-title="Caption4">
             <img src="assets/images/pic4.jpg">
         </a>
-        <a href="assets/images/pic5.jpg" data-lightbox="services" data-title="Caption5">
-            <img src="assets/images/pic5.jpg">
-        </a>
-        <a href="assets/images/pic14.jpg" data-lightbox="services" data-title="Caption6">
-            <img src="assets/images/pic14.jpg">
-        </a>
-        <a href="assets/images/pic7.jpg" data-lightbox="services" data-title="Caption7">
+        <a href="assets/images/pic7.jpg" data-lightbox="services" data-title="Caption5">
             <img src="assets/images/pic7.jpg">
         </a>
-        <a href="assets/images/pic15.jpg" data-lightbox="services" data-title="Caption8">
+        <a href="assets/images/pic13.jpg" data-lightbox="services" data-title="Caption6">
+            <img src="assets/images/pic13.jpg">
+        </a>
+        <a href="assets/images/pic16.jpg" data-lightbox="services" data-title="Caption7">
+            <img src="assets/images/pic16.jpg">
+        </a>
+        <a href="assets/images/pic11.jpg" data-lightbox="services" data-title="Caption8">
+            <img src="assets/images/pic11.jpg">
+        </a>
+        <a href="assets/images/pic15.jpg" data-lightbox="services" data-title="Caption7">
             <img src="assets/images/pic15.jpg">
-        </a>   
+        </a>
+        <a href="assets/images/pic14.jpg" data-lightbox="services" data-title="Caption8">
+            <img src="assets/images/pic14.jpg">
+        </a>     
         
     </div>
 </div>

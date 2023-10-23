@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="assets/css/login.css">
          
     <title>Login & Registration Form</title> 
+    <link href="assets/images/logo.png" rel="icon">
 </head>
 <body>
 
@@ -82,7 +83,7 @@ if(isset($_POST['login'])){
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fas fa-bars"></label>
     
-        <a href="#" class="logo">Lagring<span>Studio</span></a>
+        <a href="#" class="logo">Lagring<span> Studio </span></a>
     
         <nav class="navbar">
             <a href="index.php">Home</a>

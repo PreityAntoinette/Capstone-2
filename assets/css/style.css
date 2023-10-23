@@ -107,7 +107,7 @@ header .fa-bars{
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background-color: #52B2BF;
+    background-color: #2a85eed5;
     background-size: cover;
     background-position: center;
 }
@@ -122,7 +122,7 @@ header .fa-bars{
 
 .home .content span{
     font-size: 3.5rem;
-    color: var(--blue);
+    color: white;
     padding: .5rem;
     line-height: 1.5;
 }
@@ -156,6 +156,8 @@ header .fa-bars{
 }
 .gallery img{
     width: 100%;
+    min-height: 100%;
+    display:flex;
 }
 
 /*style 2.css ends*/
