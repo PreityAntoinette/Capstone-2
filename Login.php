@@ -64,7 +64,7 @@ if(isset($_POST['login'])){
            } 
            if($row->role=='ADMIN'){
             $_SESSION['admin'] = $row;
-            header('LOCATION: admin/dashboard.php');
+            header('LOCATION: admin/admindashboard.php');
             exit();
            } 
         }
