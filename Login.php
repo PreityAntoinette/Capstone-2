@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="assets/css/login.css">
          
     <title>Login & Registration Form</title> 
+    <link href="assets/images/logo.png" rel="icon">
 </head>
 <body>
 

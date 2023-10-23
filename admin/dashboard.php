@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../assets/css/dashboard.css" />
         <title>Admin Dashboard</title>
+        <link href="assets/images/logo.png" rel="icon">
     </head>
     <body>
         <!-- sidebar section -->
