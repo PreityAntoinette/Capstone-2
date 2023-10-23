@@ -1,8 +1,3 @@
-:root{
-    --blue: #4070f4;
-}
-
-
 *{
     margin:0; 
     padding: 0;
@@ -35,7 +30,7 @@ section{
 }
 
 .heading span{
-    color: var(--blue);
+    color: var(--blue3);
 }
 
 .btn{
@@ -50,7 +45,7 @@ section{
 }
 
 .btn:hover{
-    background: var(--blue);
+    background: var(--blue3);
 }
 
 header{
@@ -72,7 +67,7 @@ header .logo{
 }
 
 header .logo span{
-    color: var(--blue);
+    color: var(--blue3);
 }
 header .navbar a{
     font-size: 2rem;
@@ -80,7 +75,7 @@ header .navbar a{
     color: #666;
 }
 header .navbar a:hover{
-    color:var(--blue);
+    color:var(--blue3);
 }
 header .icons a{
     font-size: 2.5rem;
@@ -88,7 +83,7 @@ header .icons a{
     margin-left: 1.5rem;
 }
 header .icons a:hover{
-    color:var(--blue);
+    color:var(--blue3);
 }
 header #toggler{
     display: none;
@@ -107,7 +102,7 @@ header .fa-bars{
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background-color: #2a85eed5;
+    background-color: var(--light_blue);
     background-size: cover;
     background-position: center;
 }

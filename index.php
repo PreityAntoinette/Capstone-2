@@ -12,6 +12,7 @@
 
     <!--custom css file link-->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/design.css">
     <link rel="stylesheet" href="assets/css/style2.css">
     <link rel="stylesheet" href="assets/css/style3.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
