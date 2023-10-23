@@ -183,7 +183,7 @@ body{
 
 
 :root{
-    --pink: #e84393;
+    --blue: #1613d4;
 }
 
 
@@ -224,7 +224,7 @@ header .logo{
 }
 
 header .logo span{
-    color: var(--pink);
+    color: var(--blue);
 }
 header .navbar a{
     font-size: 2rem;
@@ -240,7 +240,7 @@ header .icons a{
     margin-left: 1.5rem;
 }
 header .icons a:hover{
-    color:var(--pink);
+    color:var(--blue);
 }
 header #toggler{
     display: none;
