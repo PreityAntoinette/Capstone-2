@@ -1,3 +1,7 @@
+<?php
+    include('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,7 +52,7 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="admindashboard.php" target="_blank">
               <span class="material-icons-outlined">dashboard</span> Dashboard
             </a>
           </li>
@@ -94,38 +98,102 @@
       <!-- Main -->
       <main class="main-container">
       <div class="calendar">
-        <?php
-            // Sample events or dates (you can fetch these from a database)
-            $events = [
-                '2023-10-26' => 'Event A',
-                '2023-10-28' => 'Event B',
-                '2023-11-05' => 'Event C',
-            ];
 
-            // Get the current year and month
-            $year = date('Y');
-            $month = date('m');
-
-            // Get the number of days in the current month
-            $numDays = date('t', strtotime("$year-$month-01"));
-
-            // Loop through the days of the month
-            for ($day = 1; $day <= $numDays; $day++) {
-                $date = "$year-$month-" . str_pad($day, 2, '0', STR_PAD_LEFT);
-
-                // Check if there's an event on this date
-                $eventText = isset($events[$date]) ? $events[$date] : '';
-
-                // Output the day and event
-                echo "<div class='day'>";
-                echo "<span class='date'>$day</span><br>";
-                if (!empty($eventText)) {
-                    echo "<div class='event'>$eventText</div>";
-                }
-                echo "</div>";
-            }
-        ?>
+      <!--Calendar Code Starts Here-->
+<?php
+ $sched_arr=array();
+?>
+<hr>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+        <div id="calendar"></div>
     </div>
+  </div>
+</div>
+<style>
+    .fc-event:hover, .fc-event-selected {
+        color: black !important;
+    }
+    a.fc-list-day-text {
+        color: black !important;
+    }
+    .fc-event:hover, .fc-event-selected {
+        color: black !important;
+        background: var(--light);
+        cursor: pointer;
+    }
+</style>
+
+<!--Space for query for calendar kinuha ko to sa scheduler from source code-->
+<script>
+    $(function(){
+        $('.select2').select2()
+        var Calendar = FullCalendar.Calendar;
+        var date = new Date()
+        var d    = date.getDate(),
+            m    = date.getMonth(),
+            y    = date.getFullYear()
+        var scheds = $.parseJSON('<?php echo ($sched_arr) ?>');
+
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new Calendar(calendarEl, {
+                        initialView:"dayGridMonth",
+                        headerToolbar: {
+                            right : "dayGridWeek,dayGridMonth,listDay prev,next"
+                        },
+                        buttonText:{
+                            dayGridWeek :"Week",
+                            dayGridMonth :"Month",
+                            listDay :"Day",
+                            listWeek :"Week",
+                        },
+                        themeSystem: 'bootstrap',
+                        //Random default events
+                        events:function(event,successCallback){
+                            var days = moment(event.end).diff(moment(event.start),'days')
+                            var events = []
+                            Object.keys(scheds).map(k=>{
+                                var bg = 'var(--primary)';
+                                if(scheds[k].status == 0)
+                                    bg = 'var(--primary)';
+                                if(scheds[k].status == 1)
+                                    bg = 'var(--success)';
+                                console.log(bg)
+                                events.push({
+                                    id          : scheds[k].id,
+                                    title          : scheds[k].name,
+                                    start          : moment(scheds[k].date_sched).format('YYYY-MM-DD[T]HH:mm'),
+                                    backgroundColor: bg, 
+                                    borderColor: bg, 
+                                    });
+                            })
+                            console.log(events)
+                            successCallback(events)
+
+                        },
+                        eventClick:(info)=>{
+                            uni_modal("Appointment Details","appointments/view_details.php?id="+info.event.id)
+                        },
+                        editable  : false,
+                        selectable: true,
+                        selectAllow: function(select) {
+                                console.log(moment(select.start).format('dddd'))
+                            if(moment().subtract(1, 'day').diff(select.start) < 0 && (moment(select.start).format('dddd') != 'Saturday' && moment(select.start).format('dddd') != 'Sunday'))
+                                return true;
+                            else
+                                return false;
+                        }
+                        });
+
+                        calendar.render();
+                        // $('#calendar').fullCalendar()
+        $('#location').change(function(){
+            location.href = "./?lid="+$(this).val();
+        })
+    })
+</script>
       </main>
       <!-- End Main -->
 
