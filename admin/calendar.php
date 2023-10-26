@@ -14,6 +14,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/calendar.css">
   </head>
   <body>
     <div class="grid-container">
@@ -52,7 +53,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="calendar.php" target="_blank">
+            <a href="#" target="_blank">
               <span class="material-icons-outlined">inventory_2</span> Calendar
             </a>
           </li>
@@ -92,59 +93,39 @@
 
       <!-- Main -->
       <main class="main-container">
-        <div class="main-title">
-          <p class="font-weight-bold">DASHBOARD</p>
-        </div>
+      <div class="calendar">
+        <?php
+            // Sample events or dates (you can fetch these from a database)
+            $events = [
+                '2023-10-26' => 'Event A',
+                '2023-10-28' => 'Event B',
+                '2023-11-05' => 'Event C',
+            ];
 
-        <div class="main-cards">
+            // Get the current year and month
+            $year = date('Y');
+            $month = date('m');
 
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">PRODUCTS</p>
-              <span class="material-icons-outlined text-blue">inventory_2</span>
-            </div>
-            <span class="text-primary font-weight-bold">249</span>
-          </div>
+            // Get the number of days in the current month
+            $numDays = date('t', strtotime("$year-$month-01"));
 
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">PURCHASE ORDERS</p>
-              <span class="material-icons-outlined text-orange">add_shopping_cart</span>
-            </div>
-            <span class="text-primary font-weight-bold">83</span>
-          </div>
+            // Loop through the days of the month
+            for ($day = 1; $day <= $numDays; $day++) {
+                $date = "$year-$month-" . str_pad($day, 2, '0', STR_PAD_LEFT);
 
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">SALES ORDERS</p>
-              <span class="material-icons-outlined text-green">shopping_cart</span>
-            </div>
-            <span class="text-primary font-weight-bold">79</span>
-          </div>
+                // Check if there's an event on this date
+                $eventText = isset($events[$date]) ? $events[$date] : '';
 
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">INVENTORY ALERTS</p>
-              <span class="material-icons-outlined text-red">notification_important</span>
-            </div>
-            <span class="text-primary font-weight-bold">56</span>
-          </div>
-
-        </div>
-
-        <div class="charts">
-
-          <div class="charts-card">
-            <p class="chart-title">Top 5 Products</p>
-            <div id="bar-chart"></div>
-          </div>
-
-          <div class="charts-card">
-            <p class="chart-title">Purchase and Sales Orders</p>
-            <div id="area-chart"></div>
-          </div>
-
-        </div>
+                // Output the day and event
+                echo "<div class='day'>";
+                echo "<span class='date'>$day</span><br>";
+                if (!empty($eventText)) {
+                    echo "<div class='event'>$eventText</div>";
+                }
+                echo "</div>";
+            }
+        ?>
+    </div>
       </main>
       <!-- End Main -->
 

@@ -1,0 +1,21 @@
+.calendar {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.month {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.day {
+    width: 14.2857%;
+    text-align: center;
+    float: left;
+}
+.event {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
