@@ -6,21 +6,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css ">
-   
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+
+<!-- Montserrat Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="../assets/css/styles.css">
 <link rel="stylesheet" href="../assets/css/styles.css">
 
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.min.js "></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.min.js "></script>
   <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js "></script>
   <script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js "></script>
+
+
   <script>
    document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
@@ -49,9 +57,8 @@
 
   calendar.render();
 });
-
   </script>
-    
+
 
     <title>Lagring Studio</title>
     <link href="../assets/images/logo.png" rel="icon">
@@ -235,49 +242,49 @@ a.fc-event:hover{
 <aside id="sidebar">
         <div class="sidebar-title">
           <div class="sidebar-brand">
-            <span class="material-icons-outlined"></span> Admin
+            <span class="material-icons-outlined">inventory</span> Admin
           </div>
           <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
         </div>
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="admindashboard.php">
               <span class="material-icons-outlined">dashboard</span> Dashboard
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="calendar.php" target="_blank">
+            <a href="calendar.php">
               <span class="material-icons-outlined">inventory_2</span> Calendar
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">fact_check</span> Scheduled Tasks
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">add_shopping_cart</span> Services
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">shopping_cart</span> User lists
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">poll</span> Accounts
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">settings</span> Settings
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="logout.php" target="_blank">
+            <a href="../index.php">
               <span class="material-icons-outlined">settings</span> Log out
             </a>
           </li>
@@ -324,16 +331,6 @@ a.fc-event:hover{
 
 <!-- MAIN BODY end of code -->
 
-
-
-<script src="assets/js/dataTables.bootstrap5.min.js"></script>
-<script src="assets/js/dataTables.responsive.min.js"></script>
-<script src="assets/js/jquery-3.5.1.js"></script>
-<script src="assets/js/jquery.dataTables.min.js"></script>
-<script src="assets/js/responsive.bootstrap5.min.js"></script>    
-<script src="https://code.jquery.com/jquery-3.5.1.js "></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
 
 
 </body>

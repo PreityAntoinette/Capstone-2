@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link href="../assets/images/logo.png" rel="icon">
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -47,42 +48,42 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="admindashboard.php">
               <span class="material-icons-outlined">dashboard</span> Dashboard
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="calendar.php" target="_blank">
+            <a href="calendar.php">
               <span class="material-icons-outlined">inventory_2</span> Calendar
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">fact_check</span> Scheduled Tasks
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">add_shopping_cart</span> Services
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">shopping_cart</span> User lists
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">poll</span> Accounts
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
               <span class="material-icons-outlined">settings</span> Settings
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="logout.php" target="_blank">
+            <a href="../index.php">
               <span class="material-icons-outlined">settings</span> Log out
             </a>
           </li>
