@@ -7,11 +7,57 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+<<<<<<< HEAD
+.bi-clipboard-check  {
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.bi-columns-gap {
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.bi-calendar-check {
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.bi-card-checklist {
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.bi-cart-plus {
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.bi-person-lines-fill {
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.bi-person {
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.bi-gear {
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.bi-box-arrow-right {
+    vertical-align: middle;
+    line-height: 1px;
+=======
 
 .svg-icon {
   width: 10px; /* Set your desired width */
   height: 10px; /* Set your desired height */
   fill: #2c5eab; /* Set your desired color */
+>>>>>>> refs/remotes/origin/main
 }
 
 .text-primary {
@@ -62,10 +108,6 @@ body {
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
 }
 
-.menu-icon {
-  display: none;
-}
-
 
 /* ---------- SIDEBAR ---------- */
 
@@ -101,6 +143,10 @@ body {
   padding: 0;
   margin-top: 15px;
   list-style-type: none;
+}
+
+.sidebar-list a{
+  text-align: center;
 }
 
 .sidebar-list-item {
