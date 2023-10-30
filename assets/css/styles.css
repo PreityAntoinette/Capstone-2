@@ -7,7 +7,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-<<<<<<< HEAD
+
 .bi-clipboard-check  {
     vertical-align: middle;
     line-height: 1px;
@@ -51,14 +51,8 @@ body {
 .bi-box-arrow-right {
     vertical-align: middle;
     line-height: 1px;
-=======
+  }
 
-.svg-icon {
-  width: 10px; /* Set your desired width */
-  height: 10px; /* Set your desired height */
-  fill: #2c5eab; /* Set your desired color */
->>>>>>> refs/remotes/origin/main
-}
 
 .text-primary {
   color: #666666;
