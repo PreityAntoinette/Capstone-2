@@ -24,7 +24,7 @@
     <input type="checkbox" name="" id="toggler">
     <label for="toggler" class="fas fa-bars"></label>
 
-    <a href="#" class="logo"><img src="assets/images/logo.png" style="float:left;" height="50px"width="50px;">Lagring<span>Studio</span></a>
+    <a href="#home" class="logo"><img src="assets/images/logo.png" style="float:left;" height="50px"width="50px;">Lagring<span>Studio</span></a>
 
     <nav class="navbar">
         <a href="#home">Home</a>
@@ -51,7 +51,7 @@
         <h3>Lagring studio</h3>
         <span>Photography</span>
         <p>Mama tarba</p>
-        <a href="#" class="btn">Schedule now</a>
+        <a href="Login.php" class="btn">Schedule now</a>
     </div>
 </section>
 
