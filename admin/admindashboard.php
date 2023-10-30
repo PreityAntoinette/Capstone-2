@@ -47,7 +47,7 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="#">
             <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="25"
@@ -65,37 +65,37 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="Calendar.php" target="_blank">
+            <a href="calendar.php">
               <span class="material-icons-outlined">inventory_2</span> Calendar
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="Scheduledtask.php">
               <span class="material-icons-outlined">fact_check</span> Scheduled Tasks
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="services.php">
               <span class="material-icons-outlined">add_shopping_cart</span> Services
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="userlist.php">
               <span class="material-icons-outlined">shopping_cart</span> User lists
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="accounts.php">
               <span class="material-icons-outlined">poll</span> Accounts
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="settings.php">
               <span class="material-icons-outlined">settings</span> Settings
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="logout.php" target="_blank">
+            <a href="logout.php">
               <span class="material-icons-outlined">settings</span> Log out
             </a>
           </li>

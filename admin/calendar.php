@@ -65,7 +65,7 @@
 </head>
 <style>
   /* for calendar tooltip starrrt*/
-  .popper,
+.popper,
 .tooltip {
   position: absolute;
   z-index: 9999;
@@ -331,6 +331,11 @@ a.fc-event:hover{
 </div>
 
 <!-- MAIN BODY end of code -->
+<!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/scripts.js"></script>
 
 
 
