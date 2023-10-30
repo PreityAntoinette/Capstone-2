@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link href="../assets/images/logo.png" rel="icon">
-
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -48,42 +47,55 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="admindashboard.php">
-              <span class="material-icons-outlined">dashboard</span> Dashboard
+            <a href="#" target="_blank">
+            <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-arrow-left"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M17.431,2.156h-3.715c-0.228,0-0.413,0.186-0.413,0.413v6.973h-2.89V6.687c0-0.229-0.186-0.413-0.413-0.413H6.285c-0.228,0-0.413,0.184-0.413,0.413v6.388H2.569c-0.227,0-0.413,0.187-0.413,0.413v3.942c0,0.228,0.186,0.413,0.413,0.413h14.862c0.228,0,0.413-0.186,0.413-0.413V2.569C17.844,2.342,17.658,2.156,17.431,2.156 M5.872,17.019h-2.89v-3.117h2.89V17.019zM9.587,17.019h-2.89V7.1h2.89V17.019z M13.303,17.019h-2.89v-6.651h2.89V17.019z M17.019,17.019h-2.891V2.982h2.891V17.019z"
+                        />
+                    </svg>
+                    Dashboard
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="calendar.php">
+            <a href="Calendar.php" target="_blank">
               <span class="material-icons-outlined">inventory_2</span> Calendar
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#">
+            <a href="#" target="_blank">
               <span class="material-icons-outlined">fact_check</span> Scheduled Tasks
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#">
+            <a href="#" target="_blank">
               <span class="material-icons-outlined">add_shopping_cart</span> Services
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#">
+            <a href="#" target="_blank">
               <span class="material-icons-outlined">shopping_cart</span> User lists
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#">
+            <a href="#" target="_blank">
               <span class="material-icons-outlined">poll</span> Accounts
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#">
+            <a href="#" target="_blank">
               <span class="material-icons-outlined">settings</span> Settings
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="../index.php">
+            <a href="logout.php" target="_blank">
               <span class="material-icons-outlined">settings</span> Log out
             </a>
           </li>
@@ -133,23 +145,12 @@
 
         </div>
 
-        <div class="charts">
-
-          <div class="charts-card">
-            <p class="chart-title">Top 5 Products</p>
-            <div id="bar-chart"></div>
-          </div>
-
-          <div class="charts-card">
-            <p class="chart-title">Purchase and Sales Orders</p>
-            <div id="area-chart"></div>
-          </div>
-
-        </div>
+        
       </main>
       <!-- End Main -->
 
     </div>
+
     <!-- Scripts -->
     <!-- ApexCharts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>

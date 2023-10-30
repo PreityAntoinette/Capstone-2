@@ -284,7 +284,7 @@ a.fc-event:hover{
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="../index.php">
+            <a href="../logout.php">
               <span class="material-icons-outlined">settings</span> Log out
             </a>
           </li>
@@ -297,7 +297,8 @@ a.fc-event:hover{
        </div>
  
  
-<style>.yawa:hover{
+<style>
+      .yawa:hover{
         transform: scale(1.04);
         box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
       }
