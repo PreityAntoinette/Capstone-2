@@ -158,7 +158,7 @@
         </li>
 
         <li class="sidebar-list-item">
-            <a href="logout.php">
+            <a href="../logoutmodule/logout.php">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

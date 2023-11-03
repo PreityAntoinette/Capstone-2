@@ -1,0 +1,23 @@
+/* default font family */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* 
+JAYSON NOTE 
+
+- add ako sa sunod ng root colors
+*/
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    scrollbar-color: smooth;
+    background-color: #e6e8ed;
+    color: #666666;
+}
