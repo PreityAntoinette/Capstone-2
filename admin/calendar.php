@@ -332,7 +332,7 @@ a.fc-event:hover{
 
 <!-- MAIN BODY end of code -->
 
-
+<script src="../assets/js/scripts.js"></script>
 
 </body>
 </html>
