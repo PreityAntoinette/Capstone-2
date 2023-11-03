@@ -1,16 +1,11 @@
 <!-- Sidebar -->
-<aside id="sidebar">
+<aside class="sidebar" id="sidebar">
     <div class="sidebar-title">
         <div class="sidebar-brand">
             <span class="material-icons-outlined">inventory</span>
-            Admin
+            <h3>Admin</h3>
         </div>
-
-        <span
-            class="material-icons-outlined"
-            onclick="closeSidebar()"
-            >close</span
-        >
+        <span class="material-icons-outlined mobileToggle">close</span>
     </div>
     <ul class="sidebar-list">
     <?php $current_page = basename($_SERVER['PHP_SELF']); ?>

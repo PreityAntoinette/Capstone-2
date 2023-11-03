@@ -6,37 +6,27 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <title>Admin Dashboard</title>
+        <title>Admin | Services</title>
         <link href="../assets/images/logo.png" rel="icon" />
-
         <!-- Material Icons -->
-        <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../assets/admin/css/default_style.css">
-        <link rel="stylesheet" href="../assets/css/styles.css" />
+        <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
     </head>
     <body>
-        <div class="grid-container">
-            <!-- Header -->
-            <?php require "header/header.php"?>
-            <!-- End Header -->
-            <?php require "navigation/sidebar.php"?>
-            <!-- Main -->
-            <main class="main-container">
-                <div class="main-title">
-                    <p class="font-weight-bold">SERVICES</p>
-                </div>
-            </main>
+        <!-- Header -->
+        <?php require "header/header.php"?>
+        <!-- End Header -->
+        <?php require "navigation/sidebar.php"?>
+        <!-- Main -->
+        <main class="main-container">
+            <div class="main-title">
+                <p class="font-weight-bold">SERVICES</p>
+            </div>
+        </main>
             <!-- End Main -->
-        </div>
-
-        <!-- Scripts -->
-        <!-- ApexCharts -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- Custom JS -->
-        <script src="../assets/js/scripts.js"></script>
+        <script src="../assets/admin/js/sidebar_toggle.js"></script>
     </body>
 </html>

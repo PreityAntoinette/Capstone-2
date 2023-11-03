@@ -4,13 +4,20 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <title>Admin Dashboard</title>
+        <title>Admin | Calendar</title>
         <link href="../assets/images/logo.png" rel="icon" />
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../assets/admin/css/default_style.css">
-        <link rel="stylesheet" href="../assets/css/styles.css" />
+        <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
+        <style>
+            .calendarContainer{
+                background-color: white;
+                border-radius: 10px;
+                padding: 1rem;
+            }
+        </style>
     </head>
     <body>
         <div class="grid-container">
@@ -24,17 +31,21 @@
                     <p class="font-weight-bold">CALENDAR</p>
                 </div>
                 <!-- CURRENT TIME -->
-                <div class="d-flex justify-content-start text-nowrap"style="color:gray">
+                <!-- <div class="d-flex justify-content-start text-nowrap"style="color:gray">
                     <p><?php date_default_timezone_set('Asia/Manila');echo "Today is: &nbsp;". date('F j, Y - h:i A');?></p>
-                </div>
+                </div> -->
                 <!-- CALENDAR -->
-                <div id="calendar"></div>
+                <div class="calendarContainer">
+                    <div id="calendar"></div>
+                </div>
+                
             </main>
             <!-- End Main -->
         </div>
         <!-- Custom JS -->
-        <script src="../assets/js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.min.js "></script>
+        <script src="../assets/admin/js/sidebar_toggle.js"></script>
+        <!-- edit custom scripts below this line -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
