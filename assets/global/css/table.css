@@ -1,0 +1,256 @@
+/* Apply Bootstrap-like table styles */
+.table {
+    width: 100%;
+    margin-bottom: 2px;
+    color: #212529;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.table th,
+.table td {
+    padding: 0.4rem;
+    align-items: center;
+    border-top: 1px solid #cafaca77;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #cafaca77;
+    background-color: #21232d;
+    color: white;
+    font-weight: normal;
+    text-align: center;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #cafaca77;
+}
+
+.table-sm th,
+.table-sm td {
+    padding: 0.3rem;
+}
+
+.table-bordered {
+    border: 1px solid #cafaca77;
+}
+
+.table-bordered th,
+.table-bordered td {
+    /* border: 1px solid #cafaca77; */
+    border: 1px solid hsl(0, 0%, 95%);
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+    border-bottom-width: 2px;
+}
+
+/* .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+} */
+
+.table-striped tbody tr {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    min-height: 350px;
+    border: #f0f0f0 1px solid;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .table {
+        font-size: 13px; /* Adjust font size */
+        letter-spacing: 1.5px;
+    }
+    /* You can add more responsive styles as needed */
+}
+
+#entriesPerPage {
+    background-color: white;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 2px;
+    padding: 5px 10px;
+    align-items: center;
+    margin-left: 2px;
+    outline: none;
+}
+
+#searchInput {
+    padding: 5px 10px; /* Add space for the X button */
+    outline: none;
+}
+#searchInput:hover,
+#searchInput:focus,
+#entriesPerPage:hover,
+#entriesPerPage:focus {
+    border: 2px solid var(--green);
+}
+.showAndSearch {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.resourcesrow {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 35rem) {
+    .showAndSearch {
+        display: flex;
+        justify-content: right;
+        flex-wrap: wrap;
+    }
+    #entriesPerPage {
+        margin-bottom: 2px;
+    }
+    .resourcesrow {
+        display: flex;
+        justify-content: right;
+        flex-wrap: wrap;
+    }
+}
+
+#clearButton {
+    position: absolute;
+    right: 5px;
+    top: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    width: 100%;
+}
+@media (max-width: 400px) {
+    .pagination-container {
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        margin-top: 0px;
+    }
+}
+#pagination-label {
+    color: #6c757d;
+    padding-left: 2px;
+}
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+.pagination a,
+.pagination span {
+    padding: 5px 10px;
+    color: var(--green1);
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.pagination .active {
+    background-color: var(--green1);
+    color: #fff;
+    border-color: var(--green1);
+}
+
+.pagination .disabled {
+    color: #6c757d;
+    pointer-events: none;
+}
+
+.pagination .page-link {
+    transition: background-color 0.3s ease, color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #0056b3;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+/* Ensure the button group container is scrollable */
+.button-group-container {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 10px;
+    width: 100%;
+    /* For webkit-based browsers (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+
+    /* For Firefox */
+    scrollbar-width: none;
+    -ms-overflow-style: none; /* For Microsoft Edge (if needed) */
+}
+
+.button-group {
+    display: flex;
+    white-space: nowrap; /* Prevent buttons from wrapping to the next line */
+    align-items: center; /* Align buttons vertically */
+    padding: 10px 10px 0px 10px; /* Add some padding to the container */
+    width: 100%; /* Make the button group container full width */
+}
+
+/* Your original button styles */
+.btnClass {
+    padding: 10px 20px;
+    background: none;
+    color: #6c757d;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    letter-spacing: 2px;
+    /* Add any other styles specific to your buttons */
+}
+.btnClass2 {
+    padding: 13px 15px 13px 15px;
+    background: none;
+    color: #6c757d;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    letter-spacing: 2px;
+    flex: 1; /* Distribute available space equally among buttons */
+    border-bottom-color: #afcfb46c;
+}
+
+.btnClass.active {
+    color: var(--green1);
+    border-bottom-color: var(--green1);
+    /* Add any other styles for active buttons */
+}
+
+.table-group-container {
+    display: none;
+    overflow-x: auto;
+}
+
+.table-group-container.active {
+    display: block;
+    width: 100%;
+}

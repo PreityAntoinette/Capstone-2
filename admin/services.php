@@ -11,7 +11,7 @@
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="../assets/admin/css/default_style.css">
+        <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
     </head>
     <body>

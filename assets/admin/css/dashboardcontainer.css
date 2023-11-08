@@ -30,6 +30,17 @@
     background-color: #21232d;
     color: white;
 }
+.mobileToggle {
+    padding: 0.5rem;
+    color: white;
+    display: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.mobileToggle:hover {
+    color: black;
+    background-color: white;
+}
 /* NAVIGATION */
 .sidebar {
     position: fixed;
@@ -139,5 +150,8 @@
     /* toggle action */
     .navActive {
         transform: translateX(0%);
+    }
+    .mobileToggle {
+        display: block;
     }
 }
