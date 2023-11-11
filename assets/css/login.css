@@ -217,8 +217,8 @@ header{
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
 }
 
-/* header .logo{
-    font-size: 3rem;
+header .logo{
+    font-size: 6rem;
     color: #333;
     font-weight: bolder;
     object-position: center;
@@ -226,7 +226,7 @@ header{
 
 header .logo span{
     color: var(--blue);
-} */
+}
 header .navbar a{
     font-size: 2rem;
     padding: 0 1.5rem;

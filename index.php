@@ -13,7 +13,6 @@
     <!--custom css file link-->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/global/css/design.css">
-    <link rel="stylesheet" href="assets/css/style2.css">
     <link rel="stylesheet" href="assets/css/style3.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
 </head>
@@ -33,13 +32,6 @@
         <a href="#gallery">Gallery</a>
         <a href="Login.php">Log in</a>
     </nav>
-
-    <div class="icons">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-shopping-cart"></a>
-        <a href="#" class="fas fa-user"></a>
-    </div>
-
 </header>
 
 

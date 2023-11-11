@@ -90,12 +90,6 @@ if(isset($_POST['login'])){
         <a href="index.php">Go Back to Home Page</a>
     </nav>
 
-    <div class="icons">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-shopping-cart"></a>
-        <a href="#" class="fas fa-user"></a>
-    </div>
-
 </header>
 
 
