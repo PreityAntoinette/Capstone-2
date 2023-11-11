@@ -18,6 +18,7 @@ session_start();
 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/login.css">
+    
          
     <title>Login & Registration Form</title> 
     <link href="assets/images/logo.png" rel="icon">
@@ -60,7 +61,7 @@ if(isset($_POST['login'])){
         if(password_verify($password, $row->password)){
            if($row->role=='USER'){
             $_SESSION['user'] = $row;
-            header('LOCATION: user/dashboard.php');
+            header('LOCATION: user/userdashboard.php');
             exit();
            } 
            if($row->role=='ADMIN'){
@@ -79,26 +80,24 @@ if(isset($_POST['login'])){
 }
 ?> 
 
-    <header>
-        <input type="checkbox" name="" id="toggler">
-        <label for="toggler" class="fas fa-bars"></label>
-    
-        <a href="#" class="logo">Lagring<span> Studio </span></a>
-    
-        <nav class="navbar">
-            <a href="index.php">Home</a>
-            <a href="#home">About us</a>
-            <a href="#home">Services</a>
-            <a href="#home">Gallery</a>
-            <a href="Login.php">Log in</a>
-        </nav>
-    
-        <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart"></a>
-            <a href="#" class="fas fa-user"></a>
-        </div>
-    </header>
+<header>
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+
+    <a href="index.php" class="logo"><img src="assets/images/logo.png" style="float:left;" height="50px"width="50px;">Lagring<span>Studio</span></a>
+
+    <nav class="navbar">
+        <a href="index.php">Go Back to Home Page</a>
+    </nav>
+
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+
+</header>
+
 
 
     <div class="container">
