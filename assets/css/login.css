@@ -13,7 +13,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #4070f4;
+    background-color: #1E90FF;
 }
 
 .container{
@@ -218,7 +218,7 @@ header{
 }
 
 header .logo{
-    font-size: 6rem;
+    font-size: 3rem;
     color: #333;
     font-weight: bolder;
     object-position: center;

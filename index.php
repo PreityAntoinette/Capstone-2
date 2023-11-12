@@ -42,7 +42,6 @@
     <div class="content">
         <h3>Lagring studio</h3>
         <span>Photography</span>
-        <p>Mama tarba</p>
         <a href="Login.php" class="btn">Schedule now</a>
     </div>
 </section>

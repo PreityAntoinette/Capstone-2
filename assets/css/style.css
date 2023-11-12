@@ -35,7 +35,7 @@ section{
 
 .btn{
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: -2rem;
     border-radius: 5rem;
     background: #333;
     color: #fff;
@@ -102,7 +102,7 @@ header .fa-bars{
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background-color: var(--light_blue);
+    background-color: var(--blue5);
     background-size: cover;
     background-position: center;
 }
@@ -113,21 +113,22 @@ header .fa-bars{
 .home .content h3{
     font-size: 6rem;
     color: #333;
+    position: absolute;
 }
 
 .home .content span{
     font-size: 3.5rem;
     color: white;
     padding: .5rem;
-    line-height: 1.5;
+    line-height: 19rem;
 }
 
-.home .content p{
+/* .home .content p{
     font-size: 1.5rem;
     color: #999;
     padding: 1rem 0;
     line-height: 1.5;
-}
+} */
 
 
 
