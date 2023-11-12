@@ -1,7 +1,7 @@
 .carousel-container {
-    width: 410px;
+    width: 399px;
     /* margin-left: 70rem; */
-    border: 4px solid black;
+    border: none;
     overflow: hidden;
     position: relative;
 }
