@@ -11,6 +11,7 @@
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Custom CSS -->
+        
         <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/global/css/table.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
@@ -27,8 +28,10 @@
             </div>
 
         <!-- options to set the row count -->
-                    <div class= "showAndSearch  text-secondary align-items-center mb-1">
-                        
+                   <div class= "showAndSearch  text-secondary align-items-center mb-1">
+                        <div class= "align-items-center">
+                            
+                        </div>
                         <div class= "align-items-center">
                             <label for="searchInput" class="pr-1" >Search:</label>
                             <div style="position: relative;">
@@ -49,7 +52,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php
+<?php
                                     $i = 1;
                                     $sql = mysqli_query($connection, "SELECT * FROM services") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
@@ -58,15 +61,17 @@
                                         $sername = $row['service_name'];
                                         $serdesc = $row['service_description'];
                                         $serprice = $row['service_price'];
-                                        $registeredDate = date("M j, Y", strtotime($row['registration_date']));
+                                        $email = $row[''];
+                                        $dateadd = date("M j, Y", strtotime($row['date_added']));
+                                        
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
                                         <td><?php echo strtoupper($sername);?></td>
-                                        <td><?php echo strtoupper($serprice);?></td>
-                                        <td><?php echo $serdesc; ?></td>
+                                        <td><?php echo strtoupper($serdesc);?></td>
+                                        <td><?php echo $serprice; ?></td>
                                         <td class="justify-space-evenly">
-                                            <!-- view button -->
+        <!-- view button -->
                                             <a
                                                 href="#"
                                                 title="View"
@@ -128,17 +133,6 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        <!-- table pagination -->
-                        <div class="pagination-container">
-                            <div id="pagination-label"></div>
-                            <div id="pagination" class="pagination"></div>
-                        </div>
-                    </div>
-                </div>
-
-        </main>
-            <!-- End Main -->
         <!-- Custom JS -->
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
         <script src="../assets/global/js/table.js"></script>
