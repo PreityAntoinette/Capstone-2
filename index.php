@@ -29,7 +29,6 @@
     <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#about">About us</a>
-        <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
         <a href="Login.php">Log in</a>
     </nav>
