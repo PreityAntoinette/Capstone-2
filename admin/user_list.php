@@ -237,7 +237,7 @@
                             </table>
                         </div>
                         <!-- table pagination -->
-                        <div class="pagination-container">
+                            <div class="pagination-container">
                             <div id="pagination-label"></div>
                             <div id="pagination" class="pagination"></div>
                         </div>
