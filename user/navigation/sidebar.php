@@ -97,7 +97,7 @@
         </li>
 
         <li <?php if ($current_page === 'settings.php') echo 'class="navLinkActive"';?>>
-            <a href="settings.php">
+            <!-- <a href="settings.php">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="23"
@@ -114,7 +114,7 @@
                     />
                 </svg>
                 Settings
-            </a>
+            </a> -->
         </li>
 
         <li class="sidebar-list-item">

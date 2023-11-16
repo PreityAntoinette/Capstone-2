@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/style3.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
     <link rel="stylesheet" href="assets/css/carousel.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
 </head>
 
 <body>
@@ -126,6 +127,16 @@
 </div>
 
 <!-- Gallery section ends -->
+
+<!--Footer -->
+<!-- <footer>
+<div class=”footer-content”>
+    <!–add all information –>
+    <h3>Information</h3>
+</div>
+</footer> -->
+
+<!--end of footer
 
 </body>
 </html>

@@ -28,9 +28,15 @@
             </div>
 
         <!-- options to set the row count -->
-                   <div class= "showAndSearch  text-secondary align-items-center mb-1">
+        <div class= "showAndSearch  text-secondary align-items-center mb-1">
                         <div class= "align-items-center">
-                            
+                            <label >Show entries:</label>
+                            <select id="entriesPerPage">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
                         </div>
                         <div class= "align-items-center">
                             <label for="searchInput" class="pr-1" >Search:</label>
@@ -45,6 +51,7 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
+                                        <th>Category</th>
                                         <th>Services</th>
                                         <th>Description</th>
                                         <th>Price</th>
@@ -58,15 +65,16 @@
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['service_id'];
+                                        $sercat = $row['service_category'];
                                         $sername = $row['service_name'];
                                         $serdesc = $row['service_description'];
                                         $serprice = $row['service_price'];
-                                        $email = $row[''];
-                                        $dateadd = date("M j, Y", strtotime($row['date_added']));
+                                        $dateadd = date("M j, Y", strtotime($row['service_date_added']));
                                         
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
+                                        <td><?php echo strtoupper($sercat);?></td>
                                         <td><?php echo strtoupper($sername);?></td>
                                         <td><?php echo strtoupper($serdesc);?></td>
                                         <td><?php echo $serprice; ?></td>
@@ -133,6 +141,15 @@
                                 </tbody>
                             </table>
                         </div>
+                        <!-- table pagination -->
+                        <div class="pagination-container">
+                            <div id="pagination-label"></div>
+                            <div id="pagination" class="pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- End Main -->
         <!-- Custom JS -->
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
         <script src="../assets/global/js/table.js"></script>
