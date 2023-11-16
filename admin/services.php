@@ -11,10 +11,12 @@
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Custom CSS -->
-        
         <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/global/css/table.css" />
+        <link rel="stylesheet" href="../assets/global/css/global.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
+        <link rel="stylesheet" href="../assets/admin/css/services.css" />
+
     </head>
     <body>
         <!-- Header -->
@@ -148,10 +150,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="add">
+                    <button class="modal-trigger" data-modal-id="add_service">add service</button>
+                </div>
+                <?php include ('add_service.php');?>
             </main>
             <!-- End Main -->
+
         <!-- Custom JS -->
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
         <script src="../assets/global/js/table.js"></script>
+        <script src="../assets/global/js/modal.js"></script>
+
     </body>
 </html>

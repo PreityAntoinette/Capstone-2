@@ -1,0 +1,13 @@
+.add {
+    display: flex;
+    justify-content: end;
+}
+.add button{
+    padding: 0.5rem;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    background-color: blue;
+    color: #fff;
+    border-radius: 5px;
+}
