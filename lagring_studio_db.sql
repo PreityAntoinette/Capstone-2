@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 22, 2023 at 12:46 PM
--- Server version: 5.7.36
--- PHP Version: 8.1.0
+-- Generation Time: Nov 28, 2023 at 11:26 AM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE IF NOT EXISTS `appointment` (
-  `apt_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `service_id` int(11) NOT NULL,
+  `apt_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `service_id` int NOT NULL,
   `apt_date` datetime NOT NULL,
   `apt_status` varchar(200) NOT NULL DEFAULT 'PENDING',
   `apt_remark` varchar(500) NOT NULL DEFAULT 'Please wait for approval.',
@@ -50,12 +50,12 @@ CREATE TABLE IF NOT EXISTS `appointment` (
 
 DROP TABLE IF EXISTS `services`;
 CREATE TABLE IF NOT EXISTS `services` (
-  `service_id` int(11) NOT NULL AUTO_INCREMENT,
+  `service_id` int NOT NULL AUTO_INCREMENT,
   `service_name` varchar(250) NOT NULL,
   `service_description` varchar(500) NOT NULL,
-  `service_price` int(11) NOT NULL,
+  `service_price` int NOT NULL,
   `service_date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `archived_flag` int(11) NOT NULL,
+  `archived_flag` int NOT NULL,
   PRIMARY KEY (`service_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `services` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `firstname` varchar(200) NOT NULL,
   `middlename` varchar(200) NOT NULL,
   `surname` varchar(200) NOT NULL,
@@ -93,8 +93,8 @@ INSERT INTO `users` (`user_id`, `firstname`, `middlename`, `surname`, `registrat
 -- Constraints for table `appointment`
 --
 ALTER TABLE `appointment`
-  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`),
+  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
