@@ -15,7 +15,7 @@ if (isset($_GET['date']))
             <label for="date">Date: </label>
             <input id="date" type="datetime-local"  min="<?php echo date("Y-m-d\TH:i"); ?>" value="<?php echo $selectedDate; ?>">
         </div>
-
+<!-- 
             <div class="input-container pb-2">
             <label for="service" class="input-legend text-nowrap">Service:</label>
             <select class="form-control" id="service" name="service" required>
@@ -27,17 +27,22 @@ if (isset($_GET['date']))
                 <option value="option6">Special Package</option>
                 <option value="option7">Regular Package</option>
                 <option value="option8">Budget Package</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
+                 Add more options as needed -->
+            <!-- </select>
+        </div> --> 
 
         <div class="input-container pb-2">
             <label for="service" class="input-legend text-nowrap">Service:</label>
             <select class="form-control" id="service" name="service" onchange="showOptions(this.value);" required>
                 <option value="" selected disabled>Select Service</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                <option value="option1">Photo ID</option>
+                <option value="option2">Portraits</option>
+                <option value="option3">Photo Develop</option>
+                <option value="option4">Tarpaulin</option>
+                <option value="option5">Digital Package</option>
+                <option value="option6">Special Package</option>
+                <option value="option7">Regular Package</option>
+                <option value="option8">Budget Package</option>
             </select>
         </div>
 
@@ -51,18 +56,20 @@ if (isset($_GET['date']))
         </div>
 
         <script>
-            function showOptions(selectedValue) {
+            function option1(selectedValue) {
                 var subOptionsContainer = document.getElementById("subOptionsContainer");
                 
                 // Hide the sub-options container by default
                 subOptionsContainer.style.display = "none";
                 
-                // Check if Option 1 is selected, and show the sub-options container if true
+                // Check if "Photo ID" (option1) is selected, and show the sub-options container if true
                 if (selectedValue === "option1") {
                     subOptionsContainer.style.display = "block";
                 }
             }
         </script>
+
+
 
         <div class="input-container pb-2">
             <label for="serviceInput" class="input-legend text-nowrap">Other Service:</label>

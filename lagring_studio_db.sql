@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 28, 2023 at 03:11 PM
+-- Generation Time: Nov 28, 2023 at 11:26 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -76,15 +76,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(200) NOT NULL,
   `role` varchar(200) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `middlename`, `surname`, `registration_date`, `email`, `password`, `role`) VALUES
-(2, 'Admin', 'Mname', 'Surname', '2023-10-22 16:45:44', 'admin.admin@cvsu.edu.ph', '$2y$10$OMyazDWKGNERSJW6KIfPIuZG1/ajR/tnen0g5q/zMoOm4cteM4EjK', 'ADMIN'),
-(9, 'user', 'user', 'user', '2023-11-28 20:52:07', 'user.user@cvsu.edu.ph', '$2y$10$rwhu3DyJ1iIl6iFLTp3dBeODkdCz4cLjhaCYwzub0Cd5cvhB2Qf6q', 'USER');
+(2, 'Admin', 'Mname', 'Surname', '2023-10-22 16:45:44', 'admin.admin@cvsu.edu.ph', '$2y$10$OMyazDWKGNERSJW6KIfPIuZG1/ajR/tnen0g5q/zMoOm4cteM4EjK', 'ADMIN');
 
 --
 -- Constraints for dumped tables
