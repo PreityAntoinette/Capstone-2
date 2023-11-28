@@ -32,6 +32,39 @@ if (isset($_GET['date']))
         </div>
 
         <div class="input-container pb-2">
+            <label for="service" class="input-legend text-nowrap">Service:</label>
+            <select class="form-control" id="service" name="service" onchange="showOptions(this.value);" required>
+                <option value="" selected disabled>Select Service</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+        </div>
+
+        <div class="input-container pb-2" id="subOptionsContainer" style="display:none;">
+            <label for="subOptions" class="input-legend text-nowrap">Sub-Options:</label>
+            <select class="form-control" id="subOptions" name="subOptions">
+                <!-- Options for Option 1 -->
+                <option value="subOption1">Sub-Option 1</option>
+                <option value="subOption2">Sub-Option 2</option>
+            </select>
+        </div>
+
+        <script>
+            function showOptions(selectedValue) {
+                var subOptionsContainer = document.getElementById("subOptionsContainer");
+                
+                // Hide the sub-options container by default
+                subOptionsContainer.style.display = "none";
+                
+                // Check if Option 1 is selected, and show the sub-options container if true
+                if (selectedValue === "option1") {
+                    subOptionsContainer.style.display = "block";
+                }
+            }
+        </script>
+
+        <div class="input-container pb-2">
             <label for="serviceInput" class="input-legend text-nowrap">Other Service:</label>
             <input type="text" class="form-control" id="serviceInput" name="serviceInput" maxlength="150" required>
         </div>

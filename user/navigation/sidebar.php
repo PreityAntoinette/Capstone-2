@@ -48,7 +48,7 @@
                         stroke-width="3"
                     />
                 </svg>
-                Dashboard
+                Home
             </a>
         </li>
 

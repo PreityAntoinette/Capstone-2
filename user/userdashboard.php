@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <title>User | Dashboard</title>
+        <title>User | Home</title>
         <link href="../assets/images/logo.png" rel="icon" />
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
@@ -22,7 +22,7 @@
             <!-- Main -->
             <main class="main-container">
                 <div class="main-title">
-                    <p class="font-weight-bold">DASHBOARD</p>
+                    <p class="font-weight-bold">HOME PAGE</p>
                 </div>
                 <div class="main-cards">
                     <div class="card">
