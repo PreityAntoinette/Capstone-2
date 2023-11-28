@@ -1,4 +1,5 @@
-<?php include('session.php');?>
+<?php require_once('session.php');?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,6 +12,8 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
+        <link rel="stylesheet" href="../assets/js/calendar.global.min.js" />
+        <link rel="stylesheet" href="../assets/global/css/global.css" />
         <style>
             .calendarContainer{
                 background-color: white;
@@ -28,7 +31,7 @@
             <!-- Main -->
             <main class="main-container">
                 <div class="main-title">
-                    <p class="font-weight-bold">CALENDAR</p>
+                    <p class="font-weight-bold">CALENDAR BOOK HERE</p>
                 </div>
                 <!-- CURRENT TIME -->
                 <!-- <div class="d-flex justify-content-start text-nowrap"style="color:gray">
@@ -38,6 +41,19 @@
                 <div class="calendarContainer">
                     <div id="calendar"></div>
                 </div>
+
+                <!-- reservation modal form -->
+                <div class="modal-overlay" id="myModal">
+                        <div class="modal-container">
+                            <div class="modal-header text-light">
+                            <h4 class="modal-h4-header"></h4>
+                                <span class="modal-exit close">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modalContent"></div>
+                            </div>
+                        </div>
+                    </div>
                 
             </main>
             <!-- End Main -->
@@ -45,35 +61,75 @@
         <!-- Custom JS -->
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.min.js "></script>
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
+        <script src="../assets/global/js/modal.js"></script>
         <!-- edit custom scripts below this line -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
-            const date = new Date();
-                let day = date.getDate();
-                let month = date.getMonth() + 1;
-                let year = date.getFullYear();
-                let currentDate = `${year}-${month}-${day}`;
+            
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                                initialView: 'dayGridMonth',
-                                height: "auto",
-                                displayEventTime: false,
-                                defaultDate: currentDate,
-                                eventDidMount: function(info) {
-                var tooltip = new Tooltip(info.el, {
-                    title: info.event.extendedProps.description,
-                    placement: 'top',
-                    trigger: 'hover',
-                    container: 'body'
-                });
+            initialView: 'dayGridMonth', // Default view
+            events:function (fetchInfo, successCallback, failureCallback) {
+                //Function for displaying events in calendar
+                fetch('calendarFetch.php', {
+                    method: 'GET',
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok.');
+                        }
+                        return response.json(); 
+                    })
+                    .then(data => {
+                        successCallback(data); 
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                        failureCallback(error); 
+                    });
                 },
-            
-                events: 'event.php'
+            eventDisplay: 'block',
+            displayEventTime: false,
+            headerToolbar: {
+            left: 'title',
+            center: '',
+            right: 'today prev,next'
+            },
+            buttonText: {
+            today: 'Today',  
+            },
+            contentHeight: "auto",
+            fixedWeekCount: false,
+        });
+
+        // When clicking events, show the modal
+        calendar.on('eventClick', function(info) {
+            document.querySelector(".modal-h4-header").innerHTML = "View Appointment";
+            // Pass the selected event's id to the modal through fetch
+            fetch("calendarShowAppointment.php?id=" + info.event.id)
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(data) {
+                document.querySelector(".modalContent").innerHTML = data;
+                document.getElementById("myModal").style.display = "flex";
+                document.body.style.overflow = "hidden";
             });
+        });
 
             calendar.render();
-            });
+
+
+            // Handle click on close button to hide the modal
+            var closeButton = document.querySelector(".close");
+            closeButton.addEventListener("click", function() {
+            document.getElementById("myModal").style.display = "none"; // Hide the modal when close button is clicked
+            document.body.style.overflow = "auto";
+            document.querySelector(".modalContent").innerHTML = "";
+        });
+            
+});      
         </script>
     </body>
 </html>

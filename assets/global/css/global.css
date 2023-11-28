@@ -668,8 +668,8 @@
 }
 .modal-header {
     padding: 15px;
-    border-bottom: 1px solid #68c279;
-    background-color: hsl(134, 62%, 31%);
+    border-bottom: 1px solid #bdbdbd;
+    background-color: hsl(0, 0%, 26%);
 }
 @media (max-width: 600px) {
     .modal-header .modal-h4-header {
