@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <title>Admin | Scheduled Tasks</title>
+        <title>Admin | Reservation</title>
         <link href="../assets/images/logo.png" rel="icon" />
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
@@ -21,7 +21,7 @@
             <!-- Main -->
             <main class="main-container">
                 <div class="main-title">
-                    <p class="font-weight-bold">SCHEDULED TASKS</p>
+                    <p class="font-weight-bold">RESERVATION</p>
                 </div>
             </main>
             <!-- End Main -->

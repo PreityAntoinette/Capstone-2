@@ -111,7 +111,7 @@
                 if (selectedDate < lastDay) {
                 // Show a message in the modal for current week dates if the selected dates are later than 1 more current week
                 document.querySelector(".modal-h4-header").innerHTML = "Notice";
-                document.querySelector(".modalContent").innerHTML = "<p class='alert alert-danger'>Please note that reservation for facilities and equipment should be made at least one week in advance.</p>";
+                document.querySelector(".modalContent").innerHTML = "<p class='alert alert-danger'>Please choose a date one day before the reservation.</p>";
                 document.getElementById("myModal").style.display = "flex";
                 document.body.style.overflow = "hidden";
                 } else {
