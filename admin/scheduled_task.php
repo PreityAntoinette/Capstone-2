@@ -1,10 +1,12 @@
-<?php include('session.php'); ?>
+<?php
+    include('session.php'); 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <title>Admin | Reservation</title>
+        <title>Admin | Scheduled Task</title>
         <link href="../assets/images/logo.png" rel="icon" />
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
@@ -12,164 +14,156 @@
         <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
         <link rel="stylesheet" href="../assets/global/css/table.css" />
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        
-    </head>
+
+        </head>
     <body>
-
-<!-- Student View Modal -->
-<div class="modal fade" id="studentVIEWmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Customer Appointment Information</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="student_viewing_data"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Student Delete Modal -->
-<div class="modal fade" id="deleteStudentModal" tabindex="-1" aria-labelledby="deleteStudentModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="deleteStudentModalLabel">Student Delete Data</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form action="session.php" method="POST">
-            <div class="modal-body">
-                <input type="hidden" name="user_id" id="delete_id">
-                <h4>Are You Sure you want to delete this appointment?</h4>
+        <!-- Header -->
+        <?php require "header/header.php"?>
+        <!-- End Header -->
+        <?php require "navigation/sidebar.php"?>
+        <!-- Main -->
+        <main class="main-container">
+            <div class="main-title">
+                <p class="font-weight-bold">SCHEDULED TASK</p>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="delete_student" class="btn btn-danger" >Yes</button>
+
+            <!-- options to set the row count -->
+        <div class= "showAndSearch  text-secondary align-items-center mb-1">
+            <div class= "align-items-center">
+                <label >Show entries:</label>
+                    <select id="entriesPerPage">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
             </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-        <div class="grid-container">
-            <!-- Header -->
-            <?php require "header/header.php"?>
-            <!-- End Header -->
-            <?php require "navigation/sidebar.php"?>
-            <!-- Main -->
-            <main class="main-container">
-                <div class="main-title">
-                    <p class="font-weight-bold">RESERVATION</p>
-                </div>
-                <div class= "showAndSearch  text-secondary align-items-center mb-1">
-                        <div class= "align-items-center">
-                            <label >Show entries:</label>
-                            <select id="entriesPerPage">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-                <div class= "align-items-center">
-                    <label for="searchInput" class="pr-1" >Search:</label>
+            
+            <div class= "align-items-center">
+                <label for="searchInput" class="pr-1" >Search:</label>
                     <div style="position: relative;">
                         <input type="text" id="searchInput" >
-                        <a id="clearButton" class=""> &times;</a>
+                            <a id="clearButton" class=""> &times;</a>
                     </div>
-                </div>       
-                <div id="tasktable" class="table-group-container active">
-                    <table id="tasktable" class="table table-striped table-bordered w-100">
-                        <thead>
-                            <tr>
-                                <th>Task No.</th>
-                                <th>Client Name</th>
-                                <th>Ocassion Type</th>
-                                <th>Date and Time</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $t = 1;
-                                $sql = mysqli_query($connection, "SELECT * FROM appointment WHERE apt_id > 0 ORDER BY user_id ASC") or die(mysqli_error($connection));
-                                if (mysqli_num_rows($sql) > 0){
-                                while ($row = mysqli_fetch_array($sql)){                           
-                                    $user = $row['user_id'];    
-                                    $service = $row['service_id'];
-                                    $status = $row['apt_status'];
-                                    $apt_date = date("M j, Y", strtotime($row['apt_date']));                                        
-                            ?>
+            </div>
 
-                                <tr>
-                                    <td class="apt_no"><?php echo ($t++); ?></td>
-                                    <td class="u_id"><?php echo ($user); ?></td>
-                                    <td><?php echo ($service); ?></td>
-                                    <td><?php echo ($apt_date); ?></td>
-                                    <td><?php echo ($status); ?></td>
-                                    <td class = "crudebtn">
-                                        <button class="view_btn">View</button>
-                                        <button>Accept</button>
-                                        <button class="del_btn">Delete</button>  
-                                    </td>
-                                </tr>
-                                <?php
-                                }}
-                                        // include('user_account_modals/user_account_view_user.php');
-                                    else {echo '<tr><td colspan="5" style="text-align: center;">No records found.</td></tr>';}
-                                ?>
-                        </tbody>
-                    </div>
-                </div>
-            </main>
-            <!-- End Main -->
+            <!-- Table for Services Offer -->
+            <div id="table1" class="table-group-container active">
+                <table id="table1" class="table table-striped table-bordered w-100">
+                    <thead>
+                        <tr>
+                            <th>Task No.</th>
+                            <th>Client Name</th>
+                            <th>Ocassion Type</th>
+                            <th>Date and Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                <tbody>
+
+            <?php
+                $i = 1;
+                $sql = mysqli_query($connection, "SELECT * FROM appointment") or die(mysqli_error($connection));
+                    if (mysqli_num_rows($sql) > 0) {
+                        while ($row = mysqli_fetch_array($sql)) {
+                            $id = $row['apt_id'];
+                            $sercat = $row['service_category'];
+                            $sername = $row['service_name'];
+                            $serdesc = $row['service_description'];
+                            $serprice = $row['service_price'];
+                            $dateadd = date("M j, Y", strtotime($row['apt_status_added']));
+                            $dateadd = date("M j, Y", strtotime($row['apt_date_added']));
+            ?>
+                        <tr>
+                            <td><?php echo $i++ ?></td>
+                            <td><?php echo strtoupper($sercat);?></td>
+                            <td><?php echo strtoupper($sername);?></td>
+                            <td><?php echo strtoupper($serdesc);?></td>
+                            <td><?php echo $serprice; ?></td>
+                            <td class="justify-space-evenly">
+
+             <!-- view button -->
+             <a
+                href="#"
+                title="View"
+                class="modal-trigger justify-content-center"
+                data-modal-id="<?php echo 'Services'.$id; ?>">
+                    <button class="p-1 m-0 btn btn-warning">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="25"
+                            height="25"
+                            fill="currentColor"
+                            class="bi bi-eye-fill"
+                            viewBox="0 0 16 16">
+                            <path 
+                                d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                            <path
+                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                        </svg>
+                    </button>
+            </a>
+                                            
+            <a
+                href="#"
+                rel="tooltip"
+                title="archive"
+                class="modal-trigger"
+                data-modal-id="<?php echo 'archive_announcements'; ?>">
+                    <button class="p-1 m-1 btn btn-secondary">
+                        <svg
+                            width="25px"
+                            height="25px"
+                            viewBox="0 0 24 24"
+                            fill="none" >
+                            <path
+                                opacity="0.4"
+                                d="M14.5 10.6499H9.5"
+                                stroke="#e8e8e8"
+                                stroke-width="1.5"
+                                stroke-miterlimit="10"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                            </path>
+                            <path
+                                d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2Z"
+                                stroke="#e8e8e8"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </button>
+                </a>
+                            </td>
+                        </tr>
+        <?php
+
+            // include('services_modals');
+        }}
+            else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+        ?>
+                </tbody>
+                </table>
         </div>
-        <!-- Custom JS -->
-        <script src="../assets/admin/js/sidebar_toggle.js"></script>
-        <script src="../assets/global/js/table.js"></script>
-        
-        <script>
-            $(document).ready(function () {
 
-                $('.del_btn').click(function (e) { 
-                    e.preventDefault();
-                    var u_id = $(this).closest('tr').find('.u_id').text();
-                    $('#delete_id').val(u_id);
-                    $('#deleteStudentModal').modal('show');
-                    
-                });
-                
-                $('.view_btn').click(function (e) { 
-                    e.preventDefault();
-                    //alert('Hellow');
+            <!-- table pagination -->
+        <div class="pagination-container">
+            <div id="pagination-label"></div>
+                <div id="pagination" class="pagination">
+                </div>
+            </div>
+        </div>
 
-                    var u_id = $(this).closest('tr').find('.u_id').text();
+    </div>
 
-                    $.ajax({
-                        type: "POST",
-                        url: "session.php",
-                        data: {
-                                'checking_viewbtn':true,
-                                'u_id':u_id,
-                        },
-                        success: function (response) {                 
-                            $('.student_viewing_data').html(response);
-                            $('#studentVIEWmodal').modal('show');
-                        }
-                    });
-                });
+<!-- End Main -->
 
-            });
-        </script>
+<!-- Custom JS -->
+    <script src="../assets/admin/js/sidebar_toggle.js"></script>
+    <script src="../assets/global/js/table.js"></script>
+    <script src="../assets/global/js/modal.js"></script>
+
     </body>
 </html>
