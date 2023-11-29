@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
         <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/global/css/table.css" />
+        <link rel="stylesheet" href="../assets/global/css/global.css" />
     </head>
     <body>
         <div class="grid-container">
