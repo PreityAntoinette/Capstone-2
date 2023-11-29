@@ -54,7 +54,7 @@
                                         <th>Services</th>
                                         <th>Description</th>
                                         <th>Price</th>
-                                        <th>Actions</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,58 +78,7 @@
                                         <td><?php echo strtoupper($serdesc);?></td>
                                         <td><?php echo $serprice; ?></td>
                                         <td class="justify-space-evenly">
-        <!-- view button -->
-                                            <a
-                                                href="#"
-                                                title="View"
-                                                class="modal-trigger justify-content-center"
-                                                data-modal-id="<?php echo 'Services'.$id; ?>">
-                                                <button class="p-1 m-0 btn btn-warning">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="25"
-                                                        height="25"
-                                                        fill="currentColor"
-                                                        class="bi bi-eye-fill"
-                                                        viewBox="0 0 16 16">
-                                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                                                        <path
-                                                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                                                    </svg>
-                                                </button>
-                                            </a>
-                                            
-                                            <a
-                                                href="#"
-                                                rel="tooltip"
-                                                title="archive"
-                                                class="modal-trigger"
-                                                data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-secondary">
-                                                        <svg
-                                                            width="25px"
-                                                            height="25px"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none" >
-                                                            <path
-                                                                opacity="0.4"
-                                                                d="M14.5 10.6499H9.5"
-                                                                stroke="#e8e8e8"
-                                                                stroke-width="1.5"
-                                                                stroke-miterlimit="10"
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round">
-                                                            </path>
-                                                            <path
-                                                                d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2Z"
-                                                                stroke="#e8e8e8"
-                                                                stroke-width="1.8"
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
-                                            </a>
+        
                                         </td>
                                     </tr>
                                     <?php

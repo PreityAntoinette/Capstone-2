@@ -1,5 +1,5 @@
-<?php require_once('session.php');?>
-
+<?php require_once('session.php');
+ include 'calendarSubmit.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

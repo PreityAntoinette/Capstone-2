@@ -5,7 +5,7 @@ if (isset($_GET['id']))
     {
     $apt_id = mysqli_real_escape_string($connection, $_GET['id']);
 
-    $stmt = $connection->prepare("SELECT * FROM appointment a, services b WHERE a.apt_id = ?  AND a.service_id = b.service_id;");
+    $stmt = $connection->prepare("SELECT * FROM appointment a, services b, users c WHERE a.user_id = c.user_id AND a.apt_id = ?  AND a.service_id = b.service_id;");
     $stmt->bind_param("s", $apt_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -14,17 +14,24 @@ if (isset($_GET['id']))
         $row = $result->fetch_assoc();
         $apt_date =  date("F j, Y -  g:i A", strtotime($row['apt_date']));
         $service_name = ucwords(strtolower($row['service_name']));
+        $full_name = ucwords(strtolower($row['firstname'].' '.$row['surname']));
     }
 
-echo $service_name;
 
 
     }
 ?>
-info of appointment
+
 
     <form action="">
-        form for approve and decline
+        <label for="date">Date:</label>
+        <input type="text" id="date" value="<?php echo $apt_date ?>" readonly><br>
+        <label for="date2">Service Name:</label>
+        <input type="text" id="date2" value="<?php echo $service_name ?>" readonly><br>
+        <label for="date3">Set by:</label>
+        <input type="text" id="date3" value="<?php echo $full_name ?>" readonly><br>
+        
+
     </form>
 
     
