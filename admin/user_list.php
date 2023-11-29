@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
         <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/global/css/table.css" />
+        <link rel="stylesheet" href="../assets/global/css/global.css" />
     </head>
     <body>
         <div class="grid-container">
@@ -87,7 +88,7 @@
                                                 title="View"
                                                 class="modal-trigger justify-content-center"
                                                 data-modal-id="<?php echo 'user'.$id; ?>">
-                                                <button class="p-1 m-0 btn btn-warning">
+                                                <button class="p-1 m-0 btn btn-primary">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         width="25"
@@ -108,7 +109,7 @@
                                                 title="archive"
                                                 class="modal-trigger"
                                                 data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-secondary">
+                                                    <button class="p-1 m-1 btn btn-warning">
                                                         <svg
                                                             width="25px"
                                                             height="25px"
@@ -180,7 +181,7 @@
                                                 title="View"
                                                 class="modal-trigger justify-content-center"
                                                 data-modal-id="<?php echo 'user'.$id; ?>">
-                                                <button class="p-1 m-0 btn btn-warning">
+                                                <button class="p-1 m-0 btn btn-primary">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         width="25"
@@ -201,7 +202,7 @@
                                                 title="archive"
                                                 class="modal-trigger"
                                                 data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-secondary">
+                                                    <button class="p-1 m-1 btn btn-warning">
                                                         <svg
                                                             width="25px"
                                                             height="25px"
