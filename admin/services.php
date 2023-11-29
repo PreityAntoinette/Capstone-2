@@ -138,7 +138,7 @@
                                     <?php
                                         // include('services_modals');
                                     }}
-                                    else {echo '<tr><td colspan="5" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
