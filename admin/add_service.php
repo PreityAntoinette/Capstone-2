@@ -1,7 +1,7 @@
 <div class="modal-overlay" id="add_service">
      <div class="modal-container modal-form-size modal-sm">
         <div class="modal-header text-light">
-            <h4 class="modal-h4-header">Add resources</h4>
+            <h4 class="modal-h4-header">Add Services</h4>
             <span class="modal-exit" data-modal-id="add_service">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -19,31 +19,34 @@
             <div class="modalContent">
                 <form method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="resources">Resource Name:</label>
+                        <label for="resources">Service Name:</label>
                         <input class="" type="text" name="resources_name" required />
                     </div>
+                    
                     <div class="form-group">
-                        <label>Image <i>(5mb max. size)</i></label>
-                        <input
-                            value=""
-                            onchange="validate(this)"
-                            type="file"
-                            name="image"
-                            id="file"
-                            class="file-input"
-                            accept="image/*"
-                            required
-                        />
-                        <p class="output"></p>
-                    </div>
-                    <div class="form-group">
-                    <label for="type">Type</label>
+                    <label for="type">Category</label>
                     <select name="type" id="resourceType" required>
                         <option value="" disabled selected>Select an option...</option>
-                        <option value="FACILITY">Facility</option>
-                        <option value="EQUIPMENT">Equipment</option>
+                        <option value="PHOTOID">Photo ID</option>
+                        <option value="PORTRAITS">Portraits</option>
+                        <option value="PHOTODEV">Photo Develop</option>
+                        <option value="TARPAULIN">Tarpaulin</option>
+                        <option value="DIGITAL">Digital Package</option>
+                        <option value="SPECIAL">Special Package</option>
+                        <option value="REGULAR">Regular Package</option>
+                        <option value="BUDGET">Budget Package</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                        <label for="resources">Description:</label>
+                        <input class="" type="text" name="resources_name" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resources">Price:</label>
+                        <input class="" type="text" name="resources_name" required />
+                    </div>
 
                 <div class="form-group" id="equipmentQuantity" style="display: none;">
                     <label for="quantity">Quantity</label>
@@ -68,14 +71,7 @@
                     });
                 </script>
 
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select name="status" required>
-                            <option value="" disabled selected>Select an option...</option>
-                            <option value="AVAILABLE">Available</option>
-                            <option value="UNDER MAINTENANCE">Under Maintenance</option>
-                        </select>
-                    </div>
+
                     <br />
                     <div class="modal-footer">
                         <button
