@@ -56,7 +56,7 @@ if (isset($_GET['date']))
         </div>
 
         <script>
-            function option1(selectedValue) {
+            function showOptions(selectedValue) {
                 var subOptionsContainer = document.getElementById("subOptionsContainer");
                 
                 // Hide the sub-options container by default
@@ -64,6 +64,9 @@ if (isset($_GET['date']))
                 
                 // Check if "Photo ID" (option1) is selected, and show the sub-options container if true
                 if (selectedValue === "option1") {
+                    subOptionsContainer.style.display = "block";
+                }
+                if (selectedValue === "option2") {
                     subOptionsContainer.style.display = "block";
                 }
             }
