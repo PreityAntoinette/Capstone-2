@@ -12,6 +12,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../assets/global/css/design.css" />
+        <link rel="stylesheet" href="../assets/global/css/global.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
         <link rel="stylesheet" href="../assets/global/css/table.css" />
 
@@ -37,14 +38,13 @@
                         <option value="50">50</option>
                         <option value="100">100</option>
                     </select>
-            </div>
-            
+            </div>    
             <div class= "align-items-center">
                 <label for="searchInput" class="pr-1" >Search:</label>
-                    <div style="position: relative;">
+                <div style="position: relative;">
                         <input type="text" id="searchInput" >
-                            <a id="clearButton" class=""> &times;</a>
-                    </div>
+                        <a id="clearButton" class=""> &times;</a>
+                </div>
             </div>
 
             <!-- Table for Services Offer -->
