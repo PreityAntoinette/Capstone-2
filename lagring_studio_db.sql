@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2023 at 02:56 AM
+-- Generation Time: Nov 30, 2023 at 05:03 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,10 +49,27 @@ CREATE TABLE `services` (
   `service_image` varchar(200) DEFAULT NULL,
   `service_name` varchar(250) NOT NULL,
   `service_description` varchar(500) NOT NULL,
-  `service_price` int(11) NOT NULL,
+  `service_price` int(11) DEFAULT NULL,
   `service_date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `archived_flag` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`service_id`, `service_image`, `service_name`, `service_description`, `service_price`, `service_date_added`, `archived_flag`) VALUES
+(2023001, NULL, 'Portraits\r\n(Whole/Half Body)', '4r(2pcs)', 120, '2023-11-29 18:58:11', 1),
+(2023002, NULL, 'Graduation Picture', '8r(1pc) 3r(1pc) 2r(4pcs)', 300, '2023-11-29 19:01:31', 1),
+(2023003, NULL, 'Family Package A', '8r(1pc) 3r(1pc) 2r(4pcs)', 300, '2023-11-29 19:04:00', 1),
+(2023004, NULL, 'Family Package B', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 350, '2023-11-29 19:05:42', 1),
+(2023005, NULL, 'Digital Package', 'Unlimited Shots,\r\n8x12(40pcs) w/ layout & album,\r\nVideo Coverage 2pcs flash-drives,\r\nFree 1pc 16x20 Blow up pic w/ frame plus 1 free signature frame ', NULL, '2023-11-29 19:07:48', 1),
+(2023006, NULL, 'Special Package', 'Unlimited Shots,\r\n5r(100pcs) w/ layout & Album,\r\nVideo Coverage 2pcs flash-drives,\r\nFREE 11x14 blow up pic w/ frame and signature frame(1pc)', NULL, '2023-11-29 19:21:10', 1),
+(2023007, NULL, 'Regular Package', 'Unlimited Shots,\r\n5r(80pcs) & album,\r\nVideo coverage 1 flash-drive', NULL, '2023-11-29 19:28:11', 1),
+(2023008, NULL, 'Budget Package', 'Unlimited Shots,\r\n5r(100pcs)', 6000, '2023-11-29 19:30:35', 1),
+(2023009, NULL, 'Pre-Nuptial Package', '...', 3500, '2023-11-29 19:32:02', 1),
+(2023010, NULL, 'Hire a Photographer', 'Photo only', 3500, '2023-11-29 19:34:15', 1),
+(2023011, NULL, 'Hire a Video Grapher', 'Video Only', 5000, '2023-11-29 19:35:26', 1);
 
 -- --------------------------------------------------------
 
@@ -117,7 +134,7 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2023012;
 
 --
 -- AUTO_INCREMENT for table `users`

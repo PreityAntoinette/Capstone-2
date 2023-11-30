@@ -67,7 +67,7 @@
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['service_id'];
-                                        $sercat = $row['service_category'];
+                                        $sercat = $row['service_image'];
                                         $sername = $row['service_name'];
                                         $serdesc = $row['service_description'];
                                         $serprice = $row['service_price'];
