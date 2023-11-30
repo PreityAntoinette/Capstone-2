@@ -30,7 +30,17 @@ if (isset($_GET['id']))
         <input type="text" id="date2" value="<?php echo $service_name ?>" readonly><br>
         <label for="date3">Set by:</label>
         <input type="text" id="date3" value="<?php echo $full_name ?>" readonly><br>
-        
+
+        <input type="radiobutton" class="approved">
+        <radiobutton class="declined">Decline</radiobutton>
+        <input type="radio"class="radio-input validate-on-submit" value="APPROVED">
+
+        <div class="radio-buttons-container justify-content-center pt-2">
+                       
+            <!-- Approved Button -->
+            <input type="radio"class="radio-input validate-on-submit" value="APPROVED">
+        </div>
+            
 
     </form>
 
