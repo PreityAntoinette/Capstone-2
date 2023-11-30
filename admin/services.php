@@ -53,7 +53,7 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Category</th>
+                                        <th>Image</th>
                                         <th>Services</th>
                                         <th>Description</th>
                                         <th>Price</th>
