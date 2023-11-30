@@ -1,8 +1,8 @@
-<div class="modal-overlay" id="add_service">
+<div class="modal-overlay" id="edit_service">
      <div class="modal-container modal-form-size modal-sm">
         <div class="modal-header text-light">
-            <h4 class="modal-h4-header">Add Services</h4>
-            <span class="modal-exit" data-modal-id="add_service">
+            <h4 class="modal-h4-header">Edit</h4>
+            <span class="modal-exit" data-modal-id="edit_service">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -23,6 +23,7 @@
                         <input class="" type="text" name="resources_name" required />
                     </div>
                     
+
                 <div class="form-group">
                         <label for="resources">Description:</label>
                         <input class="" type="text" name="resources_name" required />
@@ -32,8 +33,6 @@
                         <label for="resources">Price:</label>
                         <input class="" type="text" name="resources_name" required />
                     </div>
-
-                
 
                 <script>
                     const resourceTypeSelect = document.getElementById('resourceType');

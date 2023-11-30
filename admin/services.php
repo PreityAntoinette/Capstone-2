@@ -53,7 +53,6 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Image</th>
                                         <th>Services</th>
                                         <th>Description</th>
                                         <th>Price</th>
@@ -67,7 +66,6 @@
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['service_id'];
-                                        $sercat = $row['service_image'];
                                         $sername = $row['service_name'];
                                         $serdesc = $row['service_description'];
                                         $serprice = $row['service_price'];
@@ -76,7 +74,6 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
-                                        <td><?php echo strtoupper($sercat);?></td>
                                         <td><?php echo strtoupper($sername);?></td>
                                         <td><?php echo strtoupper($serdesc);?></td>
                                         <td><?php echo $serprice; ?></td>
@@ -86,7 +83,7 @@
                                                 href="#"
                                                 title="Edit"
                                                 class="modal-trigger justify-content-center"
-                                                data-modal-id="<?php echo 'Services'.$id; ?>">
+                                                data-modal-id="add_service" <?php echo 'Services'.$id; ?>>
                                                 <button class="p-1 m-0 btn btn-primary">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg" 
@@ -100,10 +97,11 @@
                                                     <path 
                                                         fill-rule="evenodd" 
                                                         d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-</svg>
+                                                    </svg>
                                                 </button>
+                                                
                                             </a>
-                                            
+                
                                             <a
                                                 href="#"
                                                 rel="tooltip"
@@ -145,6 +143,8 @@
                                 </tbody>
                             </table>
                         </div>
+                        <?php include ('edit_service.php');?>
+
                         <!-- table pagination -->
                         <div class="pagination-container">
                             <div id="pagination-label"></div>
@@ -156,6 +156,7 @@
                     <button class="modal-trigger" data-modal-id="add_service">add service</button>
                 </div>
                 <?php include ('add_service.php');?>
+
             </main>
             <!-- End Main -->
 
