@@ -40,6 +40,47 @@ if (isset($_GET['date']))
             </select>
         </div>
 
+<<<<<<< HEAD
+=======
+        <div class="input-container pb-2" id="subOptionsContainer" style="display:none;">
+            <label for="subOptions" class="input-legend text-nowrap">Sub-Options:</label>
+            <select class="form-control" id="subOptions" name="subOptions">
+                <!-- Options for Option 1 -->
+                <option value="subOption1">Sub-Option 1</option>
+                <option value="subOption2">Sub-Option 2</option>
+            </select>
+        </div>
+
+        <script>
+            function showOptions(selectedValue) {
+                var subOptionsContainer = document.getElementById("subOptionsContainer");
+                
+                // Hide the sub-options container by default
+                subOptionsContainer.style.display = "none";
+                
+                // Check if "Photo ID" (option1) is selected, and show the sub-options container if true
+                if (selectedValue === "option1") {
+                    subOptionsContainer.style.display = "block";
+                }
+                if (selectedValue === "option2") {
+                    subOptionsContainer.style.display = "block";
+                }
+            }
+        </script>
+
+
+
+        <div class="input-container pb-2">
+            <label for="serviceInput" class="input-legend text-nowrap">Other Service:</label>
+            <input type="text" class="form-control" id="serviceInput" name="serviceInput" maxlength="150" required>
+        </div>
+
+            <div class="input-container pb-3">
+                <textarea name="event_description" maxlength="500" class="form-control" placeholder="Write event's description (Maximum of 500 characters including spaces)" required></textarea>
+                <label for="eventTitle" class="input-legend text-nowrap">Event Description</label>
+            </div>
+           
+>>>>>>> 2f1116f673413b3d792d8a647ab44f7a1d45f237
 
         
             <div class="modal-footer">
