@@ -13,6 +13,7 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/global/css/table.css" />
+        <link rel="stylesheet" href="../assets/global/css/global.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
     </head>
     <body>
@@ -50,11 +51,9 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Category</th>
                                         <th>Services</th>
                                         <th>Description</th>
                                         <th>Price</th>
-                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,7 +63,6 @@
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['service_id'];
-                                        $sercat = $row['service_category'];
                                         $sername = $row['service_name'];
                                         $serdesc = $row['service_description'];
                                         $serprice = $row['service_price'];
@@ -72,19 +70,17 @@
                                         
                                     ?>
                                     <tr>
-                                        <td><?php echo $i++ ?></td>
-                                        <td><?php echo strtoupper($sercat);?></td>
+                                        <td><?php echo $i++ ?></td>      
                                         <td><?php echo strtoupper($sername);?></td>
                                         <td><?php echo strtoupper($serdesc);?></td>
                                         <td><?php echo $serprice; ?></td>
                                         <td class="justify-space-evenly">
-        
                                         </td>
                                     </tr>
                                     <?php
                                         // include('services_modals');
                                     }}
-                                    else {echo '<tr><td colspan="5" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="4" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
@@ -101,9 +97,6 @@
         <!-- Custom JS -->
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
         <script src="../assets/global/js/table.js"></script>
-        </main>
-            <!-- End Main -->
-        <!-- Custom JS -->
-        <script src="../assets/admin/js/sidebar_toggle.js"></script>
+        
     </body>
 </html>
