@@ -22,6 +22,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="login.php">login</a></li>
         </ul>
         <button class="nav__toggle-btn" id="nav__toggle-open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" id="menu"><path fill="#ffff" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm1 5a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4z"></path></svg></i></button>
         <button class="nav__toggle-btn" id="nav__toggle-close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" id="close"><path fill="#ffff" d="M10.05 23.95a1 1 0 0 0 1.414 0L17 18.414l5.536 5.536a1 1 0 0 0 1.414-1.414L18.414 17l5.536-5.536a1 1 0 0 0-1.414-1.414L17 15.586l-5.536-5.536a1 1 0 0 0-1.414 1.414L15.586 17l-5.536 5.536a1 1 0 0 0 0 1.414z"></path></svg></i></button>
@@ -197,6 +198,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="login.php">login</a></li>
         </ul>
     </div>
 </footer>
