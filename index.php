@@ -22,6 +22,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="login.php">login</a></li>
         </ul>
         <button class="nav__toggle-btn" id="nav__toggle-open"><i class="uil uil-bars"></i></button>
         <button class="nav__toggle-btn" id="nav__toggle-close"><i class="uil uil-multiply"></i></button>
@@ -197,6 +198,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="login.php">login</a></li>
         </ul>
     </div>
 </footer>
