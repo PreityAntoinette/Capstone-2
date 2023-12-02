@@ -1,142 +1,219 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lagring Studio</title>
-    <link href="assets/images/logo.png" rel="icon">
-
-    <!--font awesome cdn link-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!--custom css file link-->
+    <!--Google fonts(montserrat)-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--Iconscout cdn-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/free-release/v4.0.0/css/line.css">
+    <!--SWIPERJS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!--custom css-->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/global/css/design.css">
-    <link rel="stylesheet" href="assets/css/style3.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
-    <link rel="stylesheet" href="assets/css/carousel.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
 </head>
-
 <body>
+    <nav>
 
-<header>
-    <input type="checkbox" name="" id="toggler">
-    <label for="toggler" class="fas fa-bars"></label>
-
-    <a href="#home" class="logo"><img src="assets/images/logo.png" style="float:left;" height="50px"width="50px;">Lagring<span>Studio</span></a>
-
-    <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">About us</a>
-        <a href="#gallery">Gallery</a>
-        <a href="Login.php">Log in</a>
-    </nav>
-</header>
-
-
-<!--header section end-->
-<!--home section starts-->
-<section class="home" id="home">
-    <div class="content">
-        <h3>Lagring studio</h3>
-        <span>Photography</span>
-        <a href="Login.php" class="btn">Schedule now</a>
+    <div class="container nav__container">
+        <a href="index.html" class="nav__logo"><img src="assets/images/logo.png" alt="Nav Logo"></a>
+        <ul class="nav__links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#services">Services</a></li>
+        </ul>
+        <button class="nav__toggle-btn" id="nav__toggle-open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" id="menu"><path fill="#ffff" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm1 5a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4z"></path></svg></i></button>
+        <button class="nav__toggle-btn" id="nav__toggle-close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" id="close"><path fill="#ffff" d="M10.05 23.95a1 1 0 0 0 1.414 0L17 18.414l5.536 5.536a1 1 0 0 0 1.414-1.414L18.414 17l5.536-5.536a1 1 0 0 0-1.414-1.414L17 15.586l-5.536-5.536a1 1 0 0 0-1.414 1.414L15.586 17l-5.536 5.536a1 1 0 0 0 0 1.414z"></path></svg></i></button>
     </div>
-    <div class="carousel-container">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" id= "prevBtn"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" id= "nextBtn"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
-        <div class="carousel-slide">
-            <img src="assets/images/carousel5.jpg" id="lastClone" alt="">
-            <img src="assets/images/carousel1.jpg" alt="">
-            <img src="assets/images/carousel2.jpg" alt="">
-            <img src="assets/images/carousel3.jpg" alt="">
-            <img src="assets/images/carousel4.jpg" alt="">
-            <img src="assets/images/carousel5.jpg" alt="">
-            <img src="assets/images/carousel1.jpg" id="firstClone" alt="">
+
+
+    </nav>
+    <!--============================End of nav bar=========================================-->
+
+    <header>
+        <div class="container header__container">
+            <div class="header__left">
+                <div class="header__image-bg"></div>
+                <div class="header__image-lg">
+                    <img src="assets/images/samplepic.JPG" alt="Header Image">
+                </div>
+                <div class="header__image-sm">
+                    <img src="assets/images/samplepic.JPG" alt="Header Image">
+                </div>
+            </div>
+            <div class="header__right">
+                <div class="header__head">
+                    <div class="empty header__empty"></div>
+                    <a class="header__tag">#Best Photography</a>
+                </div>
+                <h1>See the beauty through my lense</h1>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus totam atque ad nostrum exercitationem. Totam impedit officia quisquam ut ex voluptatem explicabo nobis, perspiciatis iure obcaecati doloremque eaque et dolores?
+                </p>
+                <a href="mailto:lagringstudio@gmail.com" class="header__btn-md">Let's Talk</a>
+            </div>
+        </div>
+    </header>
+    <div class="header__frames">
+        <div class="header__frame">
+            <img src="assets/images/frame1.jpg" alt="Header Frame One">
+        </div>
+        <div class="header__frame">
+            <img src="assets/images/frame2.jpg" alt="Header Frame Two">
+        </div>
+    </div>
+    <a href="mailto:Lagringstudio@gmail.com" class="contact__btn header__btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg>
+        <p>CONTACT - SEND ME AN EMAIL</p>
+    </a>
+
+    <!--======================END OF HEADER=================-->
+
+
+
+    <section id="about">
+        <div class="container about__container">
+            <h2 class="about__title">About <br/> Lagring Studio</h2>
+            <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
+                <p>CONTACT - SEND ME AN EMAIL</p>
+            </a>
+            <div class="about__left">
+                <div class="about__image">
+                    <div class="about__image-bg"></div>
+                    <div class="about__image-lg">
+                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
+                    </div>
+                    <div class="about__image-sm">
+                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
+                    </div>
+                </div>
+            </div>
+            <div class="about__right">
+                <div class="empty about__empty"></div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Backround of Lagring Studio Back in 2010, There a woman named Alegria Garcia Established a photo studio in Salitran named it Lagring Studio. Alegria “Lagring” Garcia is  mother to 4 child. The humble start of Lagring shows that persistence is important if you want to be successful.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;It started with a small studio offering ID pictures, photo and video packages into events. They also sell frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now covers almost 70% of public schools in Imus such as the big school of Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
+            </div>
+        </div>
+    </section>
+
+<!--========================END OF ABOUT SECTION====================-->
+
+<section id="gallery">
+    <div class="container gallery__container swiper mySwiper">
+        <div class="gallery__head">
+            <h2 class="gallery__title"> My gallery</h2>
+            <div class="empty gallery__empty"></div>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit hic veritatis dolorum itaque quae. Alias, quasi enim laudantium ad fugit necessitatibus libero reiciendis recusandae, aspernatur molestias sint. Porro, dignissimos enim.</p>
+
+        <div class="swiper-wrapper">
+            <article class="swiper-slide">
+                <img src="assets/images/pic1.jpg">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic2.jpg">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic3.jpg">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic4.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic5.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic16.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic7.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic8.jpg">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic9.jpg">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic10.jpg">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic11.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic12.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic13.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic14.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic15.JPG">
+            </article>
+            <article class="swiper-slide">
+                <img src="assets/images/pic16.JPG">
+            </article>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<!--=========================END OF GALLERY========================-->
+
+<section id="services">
+    <div class="container services__container">
+        <h2 class="services__title">Services</h2>
+        <div class="empty services__empty"></div>
+        <div class="services__head">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit rerum dignissimos nisi eius non unde? Ab iste iure exercitationem doloremque tenetur nisi, eius itaque eos, maiores distinctio dolorum eligendi.</p>
+            <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
+                <p>CONTACT - SEND ME AN EMAIL</p>
+            </a>
+        </div>
+        <div class="services__gallery">
+            <article> <img src="assets/images/service1.jpg"></article>
+            <article> <img src="assets/images/service2.jpg"></article>
+            <article> <img src="assets/images/service3.jpg"></article>
+            <article> <img src="assets/images/service4.JPG"></article>
         </div>
     </div>
 </section>
 
+<!--=============================END OF EXHIBITION==========================-->
 
-<!--home section ends-->
 
 
-<!-- about section starts-->
-
-<div class="headingabout" id="about">
-    <h1 class="headingabout"> about us </h1>
-</div>
-
-<section class="about-us">
-    <img src="assets/images/aboutus.jpg">
-    <div class="content">
-        <h2>Lagring Studio</h2>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Backround of Lagring Studio Back in 2010, There a woman named Alegria Garcia Established a photo studio in Salitran named it Lagring Studio. Alegria “Lagring” Garcia is  mother to 4 child. The humble start of Lagring shows that persistence is important if you want to be successful. <br> &nbsp;&nbsp;&nbsp;&nbsp;It started with a small studio offering ID pictures, photo and video packages into events. They also sell frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now covers almost 70% of public schools in Imus such as the big school of Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
+<footer>
+    <div class="container footer__container">
+        <div class="footer__head">
+            <h2 class="footer__title">Support Lagringstudio@gmail.com</h2>
+            <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
+        </div>
+        <ul class="footer__links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#services">Services</a></li>
+        </ul>
     </div>
+</footer>
 
-    
-</section>
 
-<!-- about section ends-->
 
-<!-- Gallery section starts -->
-<div class="headingabout" id="about">
-    <h1 class="headingabout"> Gallery </h1>
-</div>
 
-<div class="section" id="gallery">
-<div class="container">
-    <div class="gallery">
-        <a href="assets/images/pic1.jpg" data-lightbox="services" data-title="Caption1">
-            <img src="assets/images/pic1.jpg">
-        </a>
-        <a href="assets/images/pic2.jpg" data-lightbox="services" data-title="Caption2">
-            <img src="assets/images/pic2.jpg">
-        </a>
-        <a href="assets/images/pic3.jpg" data-lightbox="services" data-title="Caption3">
-            <img src="assets/images/pic3.jpg">
-        </a>
-        <a href="assets/images/pic4.jpg" data-lightbox="services" data-title="Caption4">
-            <img src="assets/images/pic4.jpg">
-        </a>
-        <a href="assets/images/pic7.jpg" data-lightbox="services" data-title="Caption5">
-            <img src="assets/images/pic7.jpg">
-        </a>
-        <a href="assets/images/pic13.jpg" data-lightbox="services" data-title="Caption6">
-            <img src="assets/images/pic13.jpg">
-        </a>
-        <a href="assets/images/pic16.jpg" data-lightbox="services" data-title="Caption7">
-            <img src="assets/images/pic16.jpg">
-        </a>
-        <a href="assets/images/pic11.jpg" data-lightbox="services" data-title="Caption8">
-            <img src="assets/images/pic11.jpg">
-        </a>
-        <a href="assets/images/pic15.jpg" data-lightbox="services" data-title="Caption7">
-            <img src="assets/images/pic15.jpg">
-        </a>
-        <a href="assets/images/pic14.jpg" data-lightbox="services" data-title="Caption8">
-            <img src="assets/images/pic14.jpg">
-        </a>     
-        
-    </div>
-</div>
-    <script src="assets/js/lightbox-plus-jquery.js"></script>
-    <script src="assets/js/carousel.js"></script>
-</div>
 
-<!-- Gallery section ends -->
 
-<!--Footer -->
-<!-- <footer>
-<div class=”footer-content”>
-    <!–add all information –>
-    <h3>Information</h3>
-</div>
-</footer> -->
 
-<!--end of footer
 
+
+
+
+
+    <!--swiper js cnd-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

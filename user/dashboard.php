@@ -1,150 +1,156 @@
+<!-- copy mo -->
 <?php
     include('session.php');
 ?>
+<!-- copy mo -->
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../assets/css/dashboard.css" />
-        <link rel="stylesheet" href="../assets/css/design.css" />
-        <link rel="stylesheet" href="../assets/css/calendar.css" />
-        <title>Dashboard</title>
-    </head>
-    <body>
-        <!-- sidebar section -->
-        <nav>
-            <div class="navHead">
-                <h2>Lagring Studio</h2>
-                <div class="arrowToggleBtn">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-arrow-left"
-                        viewBox="0 0 16 16"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                        />
-                    </svg>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagring Studio</title>
+    <link href="assets/images/logo.png" rel="icon">
+
+    <!--font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--custom css file link-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/global/css/design.css">
+    <link rel="stylesheet" href="assets/css/style3.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="assets/css/carousel.css">
+    <!-- copy mo -->
+    <link rel="stylesheet" href="../assets/js/calendar.global.min.js" />
+        <link rel="stylesheet" href="../assets/global/css/global.css" />
+    <!-- copy mo -->
+    <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+
+<body>
+
+<header>
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+
+    <a href="#home" class="logo"><img src="assets/images/logo.png" style="float:left;" height="50px"width="50px;">Lagring<span>Studio</span></a>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="logoutmodule/logout.php">Log out</a>
+    </nav>
+</header>
+
+
+<!--header section end-->
+<!--home section starts-->
+<section class="home" id="home">
+    <div class="content">
+      
+    <!-- copy mo -->
+      <div class="calendarContainer">
+            <div id="calendar"></div>
+            </div>
+            <div class="modal-overlay" id="myModal">
+                    <div class="modal-container">
+                        <div class="modal-header text-light">
+                        <h4 class="modal-h4-header"></h4>
+                            <span class="modal-exit close">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modalContent"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <hr />
-            <div class="navBody">
-                <ul class="navLinks">
-                    <li>
-                        <a href="#" class="navLinkActive">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-reception-4"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-11z"
-                                />
-                            </svg>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-journal-bookmark-fill"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z"
-                                />
-                                <path
-                                    d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
-                                />
-                                <path
-                                    d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
-                                />
-                            </svg>
-                            Scheduled Task
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-people"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
-                                />
-                            </svg>
-                            User List</a
-                        >
-                    </li>
-                    <hr />
-                    <li>
-                        <a href="../logout.php">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-box-arrow-in-left"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"
-                                />
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
-                                />
-                            </svg>
-                            Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <header class="mainHeader">
-            <div class="leftSection">
-                <div class="toggleBtn" id="toggleBtn">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
-                        fill="currentColor"
-                        class="bi bi-list"
-                        viewBox="0 0 16 16"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                        />
-                    </svg>
-                </div>
-                <div class="systemName">
-                    <h1>Reservation System</h1>
-                </div>
-            </div>
-            <div class="rightSection">
-                <!-- <div class="profileImg">img</div> -->
-                <div class="profileName"><h3><?php echo $fullname; ?></h3></div>
-            </div>
-        </header>
-        <script src="../assets/js/toggle.js"></script>
-    </body>
+    <!-- copy mo -->
+    </div>
+</section>
+
+
+<!--home section ends-->
+
+
+<!-- about section starts-->
+
+<div class="headingabout" id="about">
+    <h1 class="headingabout"> about us </h1>
+</div>
+
+<section class="about-us">
+    <img src="assets/images/aboutus.jpg">
+    <div class="content">
+        <h2>Lagring Studio</h2>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Backround of Lagring Studio Back in 2010, There a woman named Alegria Garcia Established a photo studio in Salitran named it Lagring Studio. Alegria “Lagring” Garcia is  mother to 4 child. The humble start of Lagring shows that persistence is important if you want to be successful. <br> &nbsp;&nbsp;&nbsp;&nbsp;It started with a small studio offering ID pictures, photo and video packages into events. They also sell frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now covers almost 70% of public schools in Imus such as the big school of Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
+    </div>
+
+    
+</section>
+
+<!-- about section ends-->
+
+<!-- Gallery section starts -->
+<div class="headingabout" id="about">
+    <h1 class="headingabout"> Gallery </h1>
+</div>
+
+<div class="section" id="gallery">
+<div class="container">
+    <div class="gallery">
+        <a href="assets/images/pic1.jpg" data-lightbox="services" data-title="Caption1">
+            <img src="assets/images/pic1.jpg">
+        </a>
+        <a href="assets/images/pic2.jpg" data-lightbox="services" data-title="Caption2">
+            <img src="assets/images/pic2.jpg">
+        </a>
+        <a href="assets/images/pic3.jpg" data-lightbox="services" data-title="Caption3">
+            <img src="assets/images/pic3.jpg">
+        </a>
+        <a href="assets/images/pic4.jpg" data-lightbox="services" data-title="Caption4">
+            <img src="assets/images/pic4.jpg">
+        </a>
+        <a href="assets/images/pic7.jpg" data-lightbox="services" data-title="Caption5">
+            <img src="assets/images/pic7.jpg">
+        </a>
+        <a href="assets/images/pic13.jpg" data-lightbox="services" data-title="Caption6">
+            <img src="assets/images/pic13.jpg">
+        </a>
+        <a href="assets/images/pic16.jpg" data-lightbox="services" data-title="Caption7">
+            <img src="assets/images/pic16.jpg">
+        </a>
+        <a href="assets/images/pic11.jpg" data-lightbox="services" data-title="Caption8">
+            <img src="assets/images/pic11.jpg">
+        </a>
+        <a href="assets/images/pic15.jpg" data-lightbox="services" data-title="Caption7">
+            <img src="assets/images/pic15.jpg">
+        </a>
+        <a href="assets/images/pic14.jpg" data-lightbox="services" data-title="Caption8">
+            <img src="assets/images/pic14.jpg">
+        </a>     
+        
+    </div>
+</div>
+    <script src="assets/js/lightbox-plus-jquery.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <!-- copy mo -->
+    <script src="../assets/global/js/modal.js"></script>
+    <!-- copy mo -->
+</div>
+
+<!-- Gallery section ends -->
+
+<!--Footer -->
+<!-- <footer>
+<div class=”footer-content”>
+    <!–add all information –>
+    <h3>Information</h3>
+</div>
+</footer> -->
+
+<!--end of footer
+
+</body>
 </html>
