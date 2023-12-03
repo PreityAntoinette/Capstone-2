@@ -108,21 +108,20 @@ require_once 'session.php';
 <!--=============================END OF SERVICES==========================-->
 
 
-
-
-<?PHP 
-
+        <?PHP 
 
             if(isset($_POST['submit'])){
+                $serviceId = $POST['service_id'];
                 $email = $POST['email'];
-                $service = $POST['service'];
                 $apt_date = $POST['apt_date'];
-                $dateadd = date("M j, Y", strtotime($POST['date_add']));
+                $apt_time = $POST['apt_time'];
+                $dateadd = date("M j, Y", strtotime($POST['apt_status_date']));
                 $dateadd = date("M j, Y", strtotime($POST['apt_date_added']));
                 $fullName = $POST['fullName'];
 
                 $apt_occasion_type = "debut";
-                $apt_date = "2023-12-04 02:12:52";
+                $apt_date = "2023-12-04";
+                $apt_time = "02:12:52";
                 $apt_status = "PENDING";
                 $apt_remark = "Please wait for approval.";
                 $apt_status_date = "2023-12-04";
@@ -151,7 +150,7 @@ require_once 'session.php';
                 }
             }
 
-        ?>
+                    ?>
 
     <section id="book">
     
@@ -173,11 +172,12 @@ require_once 'session.php';
             </div>
 
             <div class="container-form">
-                    <form action="#" method="post">
+                    <form action="#">
                         <h2 class="heading heading-yellow">&nbsp;&nbsp;&nbsp;&nbsp;Book Appointment</h2>
+
                         <div class="form-field">
                             <p>Full Name</p>
-                            <input type="text" name="fullName" placeholder="Full name">
+                            <input type="text" name="fullname" placeholder="Full name">
                         </div>
                         <div class="form-field">
                             <p>Email</p>
@@ -216,7 +216,9 @@ require_once 'session.php';
                     </form>
             </div>
         </div>
-        </div>
+        </div>	
+
+        
         
     </section>
 
