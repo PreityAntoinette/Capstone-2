@@ -17,20 +17,21 @@
         </div>
         <div class="modal-body">
             <div class="modalContent">
-                <form method="POST" enctype="multipart/form-data">
+
+            <form method="POST" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div class="form-group">
-                        <label for="resources">Service Name:</label>
-                        <input class="" type="text" name="resources_name" required />
+                        <label for="serviceName">Service Name:</label>
+                        <input class="" type="text" name="service_name" required />
                     </div>
                     
                 <div class="form-group">
-                        <label for="resources">Description:</label>
-                        <input class="" type="text" name="resources_name" required />
+                        <label for="serviceDescription">Description:</label>
+                        <input class="" type="text" name="service_description" required />
                     </div>
 
                     <div class="form-group">
-                        <label for="resources">Price:</label>
-                        <input class="" type="text" name="resources_name" required />
+                        <label for="servicePrice">Price:</label>
+                        <input class="" type="text" name="service_price" />
                     </div>
 
                 
@@ -70,3 +71,20 @@
         </div>
     </div>
 </div>
+
+<?php
+        if (isset($_POST['add_service'])) {
+            $service_name = mysqli_real_escape_string($connection, $_POST['service_name']);
+            $service_description = mysqli_real_escape_string($connection, $_POST['service_description']);
+            $service_price = mysqli_real_escape_string($connection, $_POST['service_price']);
+
+        
+            $insertQuery = "INSERT into services (serviceName, serviceDescription, servicePrice, service_date_added) VALUES (?, ?, ?, ?)";
+            $stmt1 = mysqli_prepare($connection, $insertQuery);
+            mysqli_stmt_bind_param($stmt1, "ssis", $service_name, $service_description, $service_price, $service_date_added);
+            mysqli_stmt_execute($stmt1);
+            mysqli_stmt_close($stmt1);
+        
+        echo '<script>alert("Submitted")</script>';
+        }
+    ?>

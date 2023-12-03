@@ -61,7 +61,7 @@ if(isset($_POST['login'])){
         if(password_verify($password, $row->password)){
            if($row->role=='USER'){
             $_SESSION['user'] = $row;
-            header('LOCATION: user/userdashboard.php');
+            header('LOCATION: user/user.php');
             exit();
            } 
            if($row->role=='ADMIN'){
@@ -87,7 +87,10 @@ if(isset($_POST['login'])){
     <a href="index.php" class="logo"><img src="assets/images/logo.png" style="float:left;" height="50px"width="50px;">Lagring<span>Studio</span></a>
 
     <nav class="navbar">
-        <a href="index.php">Go Back to Home Page</a>
+        <a href="index.php">Home</a>
+        <a href="index.php">About us</a>
+        <a href="index.php">Gallery</a>
+        <a href="index.php">Services</a>
     </nav>
 
 </header>
