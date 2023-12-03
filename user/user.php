@@ -1,6 +1,5 @@
 <?php
 require_once 'session.php';
-
 ?>
 <DOCTYPE html>
 <html lang="en">
@@ -110,45 +109,45 @@ require_once 'session.php';
 
         <?PHP 
 
-            if(isset($_POST['submit'])){
-                $serviceId = $POST['service_id'];
-                $email = $POST['email'];
-                $apt_date = $POST['apt_date'];
-                $apt_time = $POST['apt_time'];
-                $dateadd = date("M j, Y", strtotime($POST['apt_status_date']));
-                $dateadd = date("M j, Y", strtotime($POST['apt_date_added']));
-                $full_name = $POST['full_name'];
+            // if(isset($_POST['submit'])){
+            //     $serviceId = $POST['service_id'];
+            //     $email = $POST['email'];
+            //     $apt_date = $POST['apt_date'];
+            //     $apt_time = $POST['apt_time'];
+            //     $dateadd = date("M j, Y", strtotime($POST['apt_status_date']));
+            //     $dateadd = date("M j, Y", strtotime($POST['apt_date_added']));
+            //     $full_name = $POST['full_name'];
 
-                $apt_occasion_type = "debut";
-                $apt_date = "2023-12-04";
-                $apt_time = "02:12:52";
-                $apt_status = "PENDING";
-                $apt_remark = "Please wait for approval.";
-                $apt_status_date = "2023-12-04";
+            //     $apt_occasion_type = "debut";
+            //     $apt_date = "2023-12-04";
+            //     $apt_time = "02:12:52";
+            //     $apt_status = "PENDING";
+            //     $apt_remark = "Please wait for approval.";
+            //     $apt_status_date = "2023-12-04";
 
-                // retrieve user id using email
-                $retrieveUserId = $connection->prepare("SELECT * FROM users WHERE email = ?");
-                $retrieveUserId->bind_param('s',$email);
-                if($retrieveUserId->execute()){
-                    $result = $retrieveUserId->get_result();
-                    if($result->num_rows>0){
-                        $row = $result->fetch_assoc();
-                        $user_id = $row['user_id'];
-                        $firstname = $row['firstname'];
-                        $surname = $row['surname'];
-                        $full_name = $row['firstname'] . " " . $row['surname'];
+            //     // retrieve user id using email
+            //     $retrieveUserId = $connection->prepare("SELECT * FROM users WHERE email = ?");
+            //     $retrieveUserId->bind_param('s',$email);
+            //     if($retrieveUserId->execute()){
+            //         $result = $retrieveUserId->get_result();
+            //         if($result->num_rows>0){
+            //             $row = $result->fetch_assoc();
+            //             $user_id = $row['user_id'];
+            //             $firstname = $row['firstname'];
+            //             $surname = $row['surname'];
+            //             $full_name = $row['firstname'] . " " . $row['surname'];
 
-                        $sql = $connection->prepare("INSERT INTO appointment (user_id, service_id, apt_occassion_type, apt_date, apt_time, apt_status, apt_remark, apt_status_date) VALUES (?,?,?,?,?,?,?,?)");
-                        $sql->bind_param("iissssss",$user_id, $service_id, $apt_occasion_type, $apt_date, $apt_time, $apt_status, $apt_remark, $apt_status_date);
-                        if($sql->execute()){
-                            echo "<script type='text/javascript'> alert('Appointment Set Successfully')</script>";
-                        }
-                        else{
-                            echo "<script type='text/javascript'> alert('Appointment Set Failed')</script>";
-                        }
-                    }
-                }
-            }
+            //             $sql = $connection->prepare("INSERT INTO appointment (user_id, service_id, apt_occassion_type, apt_date, apt_time, apt_status, apt_remark, apt_status_date) VALUES (?,?,?,?,?,?,?,?)");
+            //             $sql->bind_param("iissssss",$user_id, $service_id, $apt_occasion_type, $apt_date, $apt_time, $apt_status, $apt_remark, $apt_status_date);
+            //             if($sql->execute()){
+            //                 echo "<script type='text/javascript'> alert('Appointment Set Successfully')</script>";
+            //             }
+            //             else{
+            //                 echo "<script type='text/javascript'> alert('Appointment Set Failed')</script>";
+            //             }
+            //         }
+            //     }
+            // }
 
                     ?>
 
@@ -172,7 +171,7 @@ require_once 'session.php';
             </div>
 
             <div class="container-form">
-                    <form action="#">
+                    <form action="#" method="post">
                         <h2 class="heading heading-yellow">&nbsp;&nbsp;&nbsp;&nbsp;Book Appointment</h2>
 
                         <div class="form-field">
@@ -192,14 +191,21 @@ require_once 'session.php';
                             <input type="time" name="apt_time">
                         </div>
                         <div class="form-field">
-                            <p>Services:</p>
-                            <select name="service" id="#">
-                                <option value="1">1 person</option>
-                                <option value="2">2 persons</option>
-                                <option value="3">3 persosn</option>
-                                <option value="4">4 persons</option>
-                                <option value="5">5 persons</option>
-                                <option value="5+">5+ persons</option>
+                        <label for="service" class="input-legend text-nowrap">Service:</label>
+                            <select class="form-control" id="service" name="service" required>
+                                <option value="" selected disabled>Select Service</option>
+                                    <?php
+                                    $sql = mysqli_query($connection, "SELECT * FROM services ") or die(mysqli_error($connection));
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                        $sid = $row['service_id'];
+                                        $service_name = $row['service_name'];
+                                    ?>
+                                        <option value="<?php echo $sid; ?>">
+                                            <?php echo $service_name; ?>
+                                        </option>
+                                    <?php
+                                    }
+                                    ?>
                             </select>
                         </div>
                         
@@ -208,7 +214,54 @@ require_once 'session.php';
                     </form>
             </div>
         </div>
-        </div>	
+        </div>
+        <?php
+            if(isset($_POST['submit'])){
+                // Fetching form data
+                $fullname = $_POST['full_name'];
+                $email = $_POST['email'];
+                $apt_status_date = date('Y-m-d', strtotime($_POST['date_add']));
+                // $time = strtotime($_POST['time']);
+                $service = $_POST['service'];
+
+                // Prepare and bind parameters for user selection
+                $getUserId = $connection->prepare("SELECT * FROM users WHERE email = ?");
+                $getUserId->bind_param("s", $email);
+                
+                // Check if prepare and bind_param were successful
+                if($getUserId->execute()){
+                    $result = $getUserId->get_result();
+
+                    if($result->num_rows > 0){
+                        $row = $result->fetch_assoc();
+                        $user_id = $row['user_id'];
+
+                        // Default Values for insertion
+                        $apt_occasion_type = "DEBUT";
+                        $apt_status = "PENDING";
+                        $apt_remark = "Please wait for approval.";
+
+                        // Prepare insertion query
+                        $insertQuery = $connection->prepare("INSERT INTO appointment (user_id, service_id, apt_occasion_type, apt_status_date) VALUES (?, ?, ?, ?)");
+                        
+                        // Bind parameters for insertion
+                        $insertQuery->bind_param("iiss", $user_id, $service, $apt_occasion_type, $apt_status_date);
+                        
+                        // Check if prepare and bind_param for insertion were successful
+                        if($insertQuery->execute()) {
+                            echo "<script type='text/javascript'> alert('Inserted into database')</script>";
+                        } else {
+                            echo "<script type='text/javascript'> alert('Not inserted into database')</script>";
+                        }
+                    } else {
+                        echo "<script type='text/javascript'> alert('Email not found in database')</script>";
+                    }
+                } else {
+                    echo "<script type='text/javascript'> alert('Failed to fetch user ID')</script>";
+                }
+            }
+        ?>
+
 
         
         
