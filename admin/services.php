@@ -83,7 +83,7 @@
                                                 href="#"
                                                 title="Edit"
                                                 class="modal-trigger justify-content-center"
-                                                data-modal-id="add_service" <?php echo 'Services'.$id; ?>>
+                                                data-modal-id="edit_service" <?php echo 'Services'.$id; ?>>
                                                 <button class="p-1 m-0 btn btn-primary">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg" 
