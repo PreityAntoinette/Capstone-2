@@ -196,21 +196,6 @@
                                 <option value="5">5 persons</option>
                                 <option value="5+">5+ persons</option>
                             </select>
-                            <select name="select" >
-                                <option value="" disabled selected>Select Services</option>
-                                <?php
-                                $sql = mysqli_query($connection, "SELECT * FROM services ") or die(mysqli_error($connection));
-                                while ($row = mysqli_fetch_array($sql)) {
-                                    $service_id = $row['service_id'];
-                                    $service_name = $row['service_name'];
-                                ?>
-                                    <option value="<?php echo $id; ?>">
-                                        <?php echo $service_name; ?>
-                                    </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
                         </div>
                         
                         <button type="submit" class="btnb" name="submit">Submit</button>
