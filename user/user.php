@@ -45,11 +45,11 @@
             <div class="header__right">
                 <div class="header__head">
                     <div class="empty header__empty"></div>
-                    <a class="header__tag">#Best Photography</a>
+                    <a class="header__tag">#BestPhotographyStudioInImus</a>
                 </div>
-                <h1>See the beauty through my lense</h1>
+                <h1>Lagring Studio</h1>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus totam atque ad nostrum exercitationem. Totam impedit officia quisquam ut ex voluptatem explicabo nobis, perspiciatis iure obcaecati doloremque eaque et dolores?
+                &nbsp;&nbsp;&nbsp;&nbsp;Lagring Studio now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.
                 </p>
                 <a href="mailto:lagringstudio@gmail.com" class="header__btn-md">Let's Talk</a>
             </div>
@@ -73,12 +73,8 @@
     <section id="services">
     <div class="container services__container">
         <h2 class="services__title">Services</h2>
-        <div class="empty services__empty"></div>
         <div class="services__head">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit rerum dignissimos nisi eius non unde? Ab iste iure exercitationem doloremque tenetur nisi, eius itaque eos, maiores distinctio dolorum eligendi.</p>
-            <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
-                <p>CONTACT - SEND ME AN EMAIL</p>
-            </a>
+            <p>The services we offer:</p>
         </div>
         <div class="services__gallery">
             <article> <img src="../assets/images/services1.jpg"></article>
@@ -94,15 +90,78 @@
     </div>
 </section>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
 <!--=============================END OF SERVICES==========================-->
 
 
 
     <section id="book">
-        <div class="container book__container">
-            <h2 class="book__title">Book<br/>Appointment</h2>
-            
+    
+    <div class="wrapper">
+    <h2 class="services__title">Book Appointment</h2>
+    <br>
+    <br>
+        <div class="containerb">
+        
+            <div class="container-time">
+                    <h2 class="heading">Time Open</h2>
+                    <h3 class="heading-days">Monday to Sunday</h3>
+                    <p>8am to 5pm</p>
+
+                    <hr>
+
+                    <h4 class="heading-phone">Call Us: +63915 229 824 </h4>
+                    <h4 class="heading-phone">Our Email: Lagringstudio@gmail.com</h4>
+            </div>
+
+            <div class="container-form">
+                    <form action="#">
+                        <h2 class="heading heading-yellow">&nbsp;&nbsp;&nbsp;&nbsp;Book Appointment</h2>
+
+                        <div class="form-field">
+                            <p>Full Name</p>
+                            <input type="text" placeholder="Full name">
+                        </div>
+                        <div class="form-field">
+                            <p>Email</p>
+                            <input type="email" placeholder="Email">
+                        </div>
+                        <div class="form-field">
+                            <p>Date</p>
+                            <input type="date">
+                        </div>
+                        <div class="form-field">
+                            <p>Time</p>
+                            <input type="time">
+                        </div>
+                        <div class="form-field">
+                            <p>Services:</p>
+                            <select name="select" id="#">
+                                <option value="1">1 person</option>
+                                <option value="2">2 persons</option>
+                                <option value="3">3 persosn</option>
+                                <option value="4">4 persons</option>
+                                <option value="5">5 persons</option>
+                                <option value="5+">5+ persons</option>
+                            </select>
+                        </div>
+
+                        <button class="btnb">Submit</button>
+                    </form>
+            </div>
         </div>
+        </div>	
+            
+        
     </section>
 
 <!--========================END OF BOOK SECTION====================-->
