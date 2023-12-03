@@ -394,6 +394,7 @@ header {
 
 #services{
     margin-top: 10rem;
+    margin-bottom: 5rem;
 }
 
 .services__container{
@@ -429,7 +430,7 @@ header {
 .services__gallery{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 5rem;
+    margin-top: 1rem;
     gap: 3rem;
 }
 
@@ -445,7 +446,7 @@ header {
 /* =================FOOTER==========================*/
 
 #footer{
-    margin-top: 7rem;
+    margin-top: 5rem;
 }
 
 .footer__container{

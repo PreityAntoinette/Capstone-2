@@ -175,10 +175,15 @@
             </a>
         </div>
         <div class="services__gallery">
-            <article> <img src="assets/images/service1.jpg"></article>
-            <article> <img src="assets/images/service2.jpg"></article>
-            <article> <img src="assets/images/service3.jpg"></article>
-            <article> <img src="assets/images/service4.JPG"></article>
+            <article> <img src="assets/images/2.jpg"></article>
+            <article> <img src="assets/images/3.jpg"></article>
+            <article> <img src="assets/images/4.JPG"></article>
+            <article> <img src="assets/images/5.JPG"></article>
+            <article> <img src="assets/images/6.JPG"></article>
+            <article> <img src="assets/images/7.JPG"></article>
+            <article> <img src="assets/images/8.JPG"></article>
+            <article> <img src="assets/images/9.JPG"></article>
+            <article> <img src="assets/images/10.jpg"></article>
         </div>
     </div>
 </section>

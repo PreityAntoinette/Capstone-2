@@ -55,7 +55,7 @@ var swiper = new Swiper(".mySwiper", {
 
     closeNavBtn.addEventListener('click',closeNav);
 
-    nav.querySelectorAll('li a').forEach(navLink => {
-        navLink.addEventListener('click',closeNav);
-    })
+   // nav.querySelectorAll('li a').forEach(navLink => {
+     //   navLink.addEventListener('click',closeNav);
+    // })
 
