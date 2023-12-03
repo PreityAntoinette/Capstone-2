@@ -39,7 +39,7 @@ var swiper = new Swiper(".mySwiper", {
   const openNavBtn = document.querySelector('#nav__toggle-open');
   const closeNavBtn = document.querySelector('#nav__toggle-close');
 
-  const openNav= () => {
+  const openNav = () => {
     nav.style.display = 'flex';
     openNavBtn.style.display = 'none';
     closeNavBtn.style.display = 'inline-block';
@@ -47,7 +47,7 @@ var swiper = new Swiper(".mySwiper", {
 
   openNavBtn.addEventListener('click',openNav);
 
-  const closeNav= () => {
+  const closeNav = () => {
     nav.style.display = 'none';
     openNavBtn.style.display = 'inline-block';
     closeNavBtn.style.display = 'none';
@@ -55,7 +55,12 @@ var swiper = new Swiper(".mySwiper", {
 
     closeNavBtn.addEventListener('click',closeNav);
 
+<<<<<<< HEAD
    // nav.querySelectorAll('li a').forEach(navLink => {
      //   navLink.addEventListener('click',closeNav);
+=======
+    // nav.querySelectorAll('li a').forEach(navLink => {
+    //     navLink.addEventListener('click',closeNav);
+>>>>>>> c5111545ccb3427d2ccbb3ee8d848d17b83a9fbb
     // })
 
