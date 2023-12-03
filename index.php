@@ -1,3 +1,4 @@
+<DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,9 +49,9 @@
                     <div class="empty header__empty"></div>
                     <a class="header__tag">#Best Photography</a>
                 </div>
-                <h1>See the beauty through my lense</h1>
+                <h1>Capture every moment with us</h1>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus totam atque ad nostrum exercitationem. Totam impedit officia quisquam ut ex voluptatem explicabo nobis, perspiciatis iure obcaecati doloremque eaque et dolores?
+                &nbsp;&nbsp;&nbsp;&nbsp;At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences.  Allow us to join you in your every adventure and milestones in life and together, lets treasure every momment.
                 </p>
                 <a href="mailto:lagringstudio@gmail.com" class="header__btn-md">Let's Talk</a>
             </div>
@@ -66,7 +67,7 @@
     </div>
     <a href="mailto:Lagringstudio@gmail.com" class="contact__btn header__btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg>
-        <p>CONTACT - SEND ME AN EMAIL</p>
+        <p>CONTACT - SEND ME US EMAIL</p>
     </a>
 
     <!--======================END OF HEADER=================-->
@@ -106,7 +107,7 @@
             <h2 class="gallery__title"> My gallery</h2>
             <div class="empty gallery__empty"></div>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit hic veritatis dolorum itaque quae. Alias, quasi enim laudantium ad fugit necessitatibus libero reiciendis recusandae, aspernatur molestias sint. Porro, dignissimos enim.</p>
+        <p> Here are the sample images from our collection. All picture have consent of the model.</p>
 
         <div class="swiper-wrapper">
             <article class="swiper-slide">
@@ -169,9 +170,9 @@
         <h2 class="services__title">Services</h2>
         <div class="empty services__empty"></div>
         <div class="services__head">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit rerum dignissimos nisi eius non unde? Ab iste iure exercitationem doloremque tenetur nisi, eius itaque eos, maiores distinctio dolorum eligendi.</p>
+            <p>The following are our budget friendly but quality services. Contact us for more details. Book now!</p>
             <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
-                <p>CONTACT - SEND ME AN EMAIL</p>
+                <p>CONTACT - SEND US AN EMAIL</p>
             </a>
         </div>
         <div class="services__gallery">

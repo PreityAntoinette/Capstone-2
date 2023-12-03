@@ -3,23 +3,32 @@ require_once 'session.php';
 
 if (isset($_GET['id'])) 
     {
+        
     $apt_id = mysqli_real_escape_string($connection, $_GET['id']);
+
 
     $stmt = $connection->prepare("SELECT * FROM appointment a, services b, users c WHERE a.user_id = c.user_id AND a.apt_id = ?  AND a.service_id = b.service_id;");
     $stmt->bind_param("s", $apt_id);
     $stmt->execute();
     $result = $stmt->get_result();
+
+
     // Check if  exists
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $apt_date =  date("F j, Y -  g:i A", strtotime($row['apt_date']));
         $service_name = ucwords(strtolower($row['service_name']));
-        $full_name = ucwords(strtolower($row['firstname'].' '.$row['surname']));
+        $firstname = $row['firstname'];
+        $surname = $row['surname'];
+        $full_name = $row['firstname'] . " " . $row['surname'];
+
+    
+
+    
     }
 
+}
 
-
-    }
 ?>
 
 
