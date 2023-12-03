@@ -47,14 +47,23 @@ const nav = document.querySelector(".nav__links");
 const openNavBtn = document.querySelector("#nav__toggle-open");
 const closeNavBtn = document.querySelector("#nav__toggle-close");
 
+<<<<<<< HEAD
 const openNav = () => {
     nav.style.display = "flex";
     openNavBtn.style.display = "none";
     closeNavBtn.style.display = "inline-block";
 };
+=======
+  const openNav = () => {
+    nav.style.display = 'flex';
+    openNavBtn.style.display = 'none';
+    closeNavBtn.style.display = 'inline-block';
+  }
+>>>>>>> 80a04c801c8d6d29279981b7c66d8e005675cc08
 
 openNavBtn.addEventListener("click", openNav);
 
+<<<<<<< HEAD
 const closeNav = () => {
     nav.style.display = "none";
     openNavBtn.style.display = "inline-block";
@@ -62,6 +71,21 @@ const closeNav = () => {
 };
 
 closeNavBtn.addEventListener("click", closeNav);
+=======
+  const closeNav = () => {
+    nav.style.display = 'none';
+    openNavBtn.style.display = 'inline-block';
+    closeNavBtn.style.display = 'none';
+  }
+
+    closeNavBtn.addEventListener('click',closeNav);
+
+   // nav.querySelectorAll('li a').forEach(navLink => {
+     //   navLink.addEventListener('click',closeNav);
+    // nav.querySelectorAll('li a').forEach(navLink => {
+    //     navLink.addEventListener('click',closeNav);
+    // })
+>>>>>>> 80a04c801c8d6d29279981b7c66d8e005675cc08
 
 // nav.querySelectorAll("li a").forEach((navLink) => {
 //     navLink.addEventListener("click", closeNav);

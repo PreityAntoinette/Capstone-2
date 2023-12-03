@@ -54,6 +54,7 @@
                         <tr>
                             <th>Task No.</th>
                             <th>Client Name</th>
+                            <th>Service</th>
                             <th>Ocassion Type</th>
                             <th>Date and Time</th>
                             <th>Status</th>
@@ -64,23 +65,27 @@
 
             <?php
                 $i = 1;
-                $sql = mysqli_query($connection, "SELECT * FROM appointment") or die(mysqli_error($connection));
+                $sql = mysqli_query($connection, "SELECT * FROM appointment, services, users WHERE appointment.apt_status != 'ARCHIVED' AND appointment.service_id = services.service_id AND appointment.user_id = users.user_id") or die(mysqli_error($connection));
                     if (mysqli_num_rows($sql) > 0) {
                         while ($row = mysqli_fetch_array($sql)) {
                             $id = $row['apt_id'];
-                            $sercat = $row['service_category'];
+                            $serstat = $row['apt_status'];
+                            $email = $row['email'];
                             $sername = $row['service_name'];
+                            $apt_occ = $row['apt_occasion_type'];
                             $serdesc = $row['service_description'];
                             $serprice = $row['service_price'];
-                            $dateadd = date("M j, Y", strtotime($row['apt_status_added']));
+                            $apt_date = $row['apt_date'];
+                            $dateadd = date("M j, Y", strtotime($row['apt_status_date']));
                             $dateadd = date("M j, Y", strtotime($row['apt_date_added']));
             ?>
                         <tr>
                             <td><?php echo $i++ ?></td>
-                            <td><?php echo strtoupper($sercat);?></td>
+                            <td><?php echo ($email);?></td>
                             <td><?php echo strtoupper($sername);?></td>
-                            <td><?php echo strtoupper($serdesc);?></td>
-                            <td><?php echo $serprice; ?></td>
+                            <td><?php echo strtoupper($apt_occ);?></td>
+                            <td><?php echo strtoupper($apt_date);?></td>
+                            <td><?php echo $serstat; ?></td>
                             <td class="justify-space-evenly">
 
              <!-- view button -->
@@ -88,7 +93,7 @@
                 href="#"
                 title="Edit"
                 class="modal-trigger justify-content-center"
-                data-modal-id="<?php echo 'Services'.$id; ?>">
+                data-modal-id="<?php echo 'edit'.$id; ?>">
                     <button class="p-1 m-0 btn btn-primary">
                         <svg
                             xmlns="http://www.w3.org/2000/svg" 
@@ -111,7 +116,7 @@
                 rel="tooltip"
                 title="archive"
                 class="modal-trigger"
-                data-modal-id="<?php echo 'archive_announcements'; ?>">
+                data-modal-id="<?php echo 'archive'.$id; ?>">
                     <button class="p-1 m-1 btn btn-warning">
                         <svg
                             width="25px"
@@ -141,9 +146,9 @@
                         </tr>
         <?php
 
-            // include('services_modals');
+            include('scheduled_task_modals/edit_schedule.php');
         }}
-            else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+            else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
         ?>
                 </tbody>
                 </table>

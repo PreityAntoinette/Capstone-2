@@ -6,7 +6,7 @@
     <!--Google fonts(montserrat)-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!--Iconscout cdn-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/free-release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!--SWIPERJS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--custom css-->
@@ -22,9 +22,10 @@
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="Login.php">Sign up</a></li>
         </ul>
-        <button class="nav__toggle-btn" id="nav__toggle-open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" id="menu"><path fill="#ffff" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm1 5a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4z"></path></svg></i></button>
-        <button class="nav__toggle-btn" id="nav__toggle-close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" id="close"><path fill="#ffff" d="M10.05 23.95a1 1 0 0 0 1.414 0L17 18.414l5.536 5.536a1 1 0 0 0 1.414-1.414L18.414 17l5.536-5.536a1 1 0 0 0-1.414-1.414L17 15.586l-5.536-5.536a1 1 0 0 0-1.414 1.414L15.586 17l-5.536 5.536a1 1 0 0 0 0 1.414z"></path></svg></i></button>
+        <button class="nav__toggle-btn" id="nav__toggle-open"><i class="uil uil-bars"></i></button>
+        <button class="nav__toggle-btn" id="nav__toggle-close"><i class="uil uil-multiply"></i></button>
     </div>
 
 
@@ -91,8 +92,8 @@
             </div>
             <div class="about__right">
                 <div class="empty about__empty"></div>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;Backround of Lagring Studio Back in 2010, There a woman named Alegria Garcia Established a photo studio in Salitran named it Lagring Studio. Alegria “Lagring” Garcia is  mother to 4 child. The humble start of Lagring shows that persistence is important if you want to be successful.</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;It started with a small studio offering ID pictures, photo and video packages into events. They also sell frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now covers almost 70% of public schools in Imus such as the big school of Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The backround of Lagring Studio way back in 2010, There was a woman named Alegria Garcia who established a photo studio in Salitran and named the studio "Lagring Studio". Alegria “Lagring” Garcia is  a mother of 4 child. The humble start of Lagring Studio shows that persistence is important if you want to be successful.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The business started with a small studio offering ID pictures, photo and video packages to events.The studio also sold frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
             </div>
         </div>
     </section>
@@ -174,10 +175,15 @@
             </a>
         </div>
         <div class="services__gallery">
-            <article> <img src="assets/images/service1.jpg"></article>
-            <article> <img src="assets/images/service2.jpg"></article>
-            <article> <img src="assets/images/service3.jpg"></article>
-            <article> <img src="assets/images/service4.JPG"></article>
+            <article> <img src="assets/images/services1.jpg"></article>
+            <article> <img src="assets/images/services2.jpg"></article>
+            <article> <img src="assets/images/services3.jpg"></article>
+            <article> <img src="assets/images/services4.JPG"></article>
+            <article> <img src="assets/images/services5.JPG"></article>
+            <article> <img src="assets/images/services6.JPG"></article>
+            <article> <img src="assets/images/services7.JPG"></article>
+            <article> <img src="assets/images/services8.JPG"></article>
+            <article> <img src="assets/images/services9.JPG"></article>
         </div>
     </div>
 </section>
@@ -197,6 +203,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="Login.php">Sign up</a></li>
         </ul>
     </div>
 </footer>
