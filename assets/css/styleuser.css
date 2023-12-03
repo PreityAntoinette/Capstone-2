@@ -266,39 +266,39 @@ header {
 }
 
 
-/*============================= ABOUT SECTION ===================================*/
-#about{
+/*=============================BOOK SECTION ===================================*/
+#book{
     margin-top: 18rem;
 }
 
-.about__container{
+.book__container{
     display: grid;
     grid-template-columns: 10rem 26rem auto;
     gap: 3rem;
     position: relative;
 }
 
-.about__title{
+.book__title{
     position: absolute;
     top: -7rem;
     z-index: 1;
 }
 
-.about__btn{
+.book__btn{
     color: var(--color-primary-variant);
     align-items: end;
 }
 
-.about__btn:hover{
+.book__btn:hover{
     transform: translateY(-1rem);
     color: var(--color-primary);
 }
 
-.about__image{
+.book__image{
     position: relative;
 }
 
-.about__image-bg{
+.book__image-bg{
     width: 16rem;
     height: 24rem;
     position: absolute;
@@ -306,7 +306,7 @@ header {
     background: var(--color-bg-4);
 }
 
-.about__image-lg{
+.book__image-lg{
     position: relative;
     left: 1rem;
     bottom: 1rem;
@@ -314,7 +314,7 @@ header {
     transition: 500ms ease;
 }
 
-.about__image-sm{
+.book__image-sm{
     position: absolute;
     top: 3rem;
     left:8rem;
@@ -324,11 +324,11 @@ header {
     box-shadow: 2rem 2rem 2rem rgba(0,0,0,0.2);
     transition: 500ms ease;
 }
-.about__image:hover .about__image-sm{
+.book__image:hover .book__image-sm{
     opacity: 0;
 }
 
-.about__image:hover .about__image-lg{
+.book__image:hover .book__image-lg{
     filter: saturate(1) brightness(1);
     box-shadow: 0 3rem 3rem rgba(0,0,0,0.2);
     border: 1 rem solid var(--color-bg-4);
@@ -336,10 +336,10 @@ header {
     bottom: 0;
 }
 
-.about__right{
+.book__right{
     margin-left: 5rem;
 }
-.about__right p{
+.book__right p{
     margin: 0 4rem 1.5rem 3rem 0;
     text-align: justify;
     line-height: 2;
@@ -428,6 +428,8 @@ header {
 }
 
 .services__gallery{
+    height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     margin-top: 1rem;
@@ -623,27 +625,27 @@ header {
     }
 
 
-    /* ====================== ABOUT ============*/
-    .about__container{
+    /* ====================== book ============*/
+    .book__container{
         grid-template-columns: 40% 54%;
         gap: 6%;
     }
-    .about__image-bg, .about__image-sm{
+    .book__image-bg, .book__image-sm{
         display: none;
     }
-    .about__image-lg{
+    .book__image-lg{
         left: 0;
         top: 0;
         filter: saturate(1) brightness(1);
     }
 
-    .about__image:hover .about__image-lg{
+    .book__image:hover .book__image-lg{
         border: none;
     }
-    .about__right{
+    .book__right{
         margin: 0;
     }
-    .about__right p{
+    .book__right p{
         margin-bottom: 1rem;
         line-height: 1.5;
     }

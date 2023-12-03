@@ -175,15 +175,15 @@
             </a>
         </div>
         <div class="services__gallery">
-            <article> <img src="assets/images/2.jpg"></article>
-            <article> <img src="assets/images/3.jpg"></article>
-            <article> <img src="assets/images/4.JPG"></article>
-            <article> <img src="assets/images/5.JPG"></article>
-            <article> <img src="assets/images/6.JPG"></article>
-            <article> <img src="assets/images/7.JPG"></article>
-            <article> <img src="assets/images/8.JPG"></article>
-            <article> <img src="assets/images/9.JPG"></article>
-            <article> <img src="assets/images/10.jpg"></article>
+            <article> <img src="assets/images/services1.jpg"></article>
+            <article> <img src="assets/images/services2.jpg"></article>
+            <article> <img src="assets/images/services3.jpg"></article>
+            <article> <img src="assets/images/services4.JPG"></article>
+            <article> <img src="assets/images/services5.JPG"></article>
+            <article> <img src="assets/images/services6.JPG"></article>
+            <article> <img src="assets/images/services7.JPG"></article>
+            <article> <img src="assets/images/services8.JPG"></article>
+            <article> <img src="assets/images/services9.JPG"></article>
         </div>
     </div>
 </section>
@@ -203,7 +203,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="login.php">login</a></li>
+            <li><a href="Login.php">Sign up</a></li>
         </ul>
     </div>
 </footer>
