@@ -10,19 +10,19 @@
     <!--SWIPERJS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--custom css-->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <nav>
 
     <div class="container nav__container">
-        <a href="index.html" class="nav__logo"><img src="assets/images/logo.png" alt="Nav Logo"></a>
+        <a href="index.html" class="nav__logo"><img src="../assets/images/logo.png" alt="Nav Logo"></a>
         <ul class="nav__links">
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="Login.php">Sign up</a></li>
+            <li><a href="../logout.php">Log out</a></li>
         </ul>
         <button class="nav__toggle-btn" id="nav__toggle-open"><i class="uil uil-bars"></i></button>
         <button class="nav__toggle-btn" id="nav__toggle-close"><i class="uil uil-multiply"></i></button>
@@ -37,10 +37,10 @@
             <div class="header__left">
                 <div class="header__image-bg"></div>
                 <div class="header__image-lg">
-                    <img src="assets/images/samplepic.JPG" alt="Header Image">
+                    <img src="../assets/images/samplepic.JPG" alt="Header Image">
                 </div>
                 <div class="header__image-sm">
-                    <img src="assets/images/samplepic.JPG" alt="Header Image">
+                    <img src="../assets/images/samplepic.JPG" alt="Header Image">
                 </div>
             </div>
             <div class="header__right">
@@ -58,10 +58,10 @@
     </header>
     <div class="header__frames">
         <div class="header__frame">
-            <img src="assets/images/frame1.jpg" alt="Header Frame One">
+            <img src="../assets/images/frame1.jpg" alt="Header Frame One">
         </div>
         <div class="header__frame">
-            <img src="assets/images/frame2.jpg" alt="Header Frame Two">
+            <img src="../assets/images/frame2.jpg" alt="Header Frame Two">
         </div>
     </div>
     <a href="mailto:Lagringstudio@gmail.com" class="contact__btn header__btn">
@@ -83,10 +83,10 @@
                 <div class="about__image">
                     <div class="about__image-bg"></div>
                     <div class="about__image-lg">
-                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
+                        <img src="../assets/images/aboutus.jpg" alt="About Lagring Studio">
                     </div>
                     <div class="about__image-sm">
-                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
+                        <img src="../assets/images/aboutus.jpg" alt="About Lagring Studio">
                     </div>
                 </div>
             </div>
@@ -110,52 +110,52 @@
 
         <div class="swiper-wrapper">
             <article class="swiper-slide">
-                <img src="assets/images/pic1.jpg">
+                <img src="../assets/images/pic1.jpg">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic2.jpg">
+                <img src="../assets/images/pic2.jpg">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic3.jpg">
+                <img src="../assets/images/pic3.jpg">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic4.JPG">
+                <img src="../assets/images/pic4.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic5.JPG">
+                <img src="../assets/images/pic5.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic16.JPG">
+                <img src="../assets/images/pic16.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic7.JPG">
+                <img src="../assets/images/pic7.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic8.jpg">
+                <img src="../assets/images/pic8.jpg">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic9.jpg">
+                <img src="../assets/images/pic9.jpg">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic10.jpg">
+                <img src="../assets/images/pic10.jpg">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic11.JPG">
+                <img src="../assets/images/pic11.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic12.JPG">
+                <img src="../assets/images/pic12.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic13.JPG">
+                <img src="../assets/images/pic13.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic14.JPG">
+                <img src="../assets/images/pic14.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic15.JPG">
+                <img src="../assets/images/pic15.JPG">
             </article>
             <article class="swiper-slide">
-                <img src="assets/images/pic16.JPG">
+                <img src="../assets/images/pic16.JPG">
             </article>
         </div>
         <div class="swiper-pagination"></div>
@@ -175,10 +175,10 @@
             </a>
         </div>
         <div class="services__gallery">
-            <article> <img src="assets/images/service1.jpg"></article>
-            <article> <img src="assets/images/service2.jpg"></article>
-            <article> <img src="assets/images/service3.jpg"></article>
-            <article> <img src="assets/images/service4.JPG"></article>
+            <article> <img src="../assets/images/service1.jpg"></article>
+            <article> <img src="../assets/images/service2.jpg"></article>
+            <article> <img src="../assets/images/service3.jpg"></article>
+            <article> <img src="../assets/images/service4.JPG"></article>
         </div>
     </div>
 </section>
@@ -198,7 +198,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="login.php">login</a></li>
+            <li><a href="../logout.php">Log out</a></li>
         </ul>
     </div>
 </footer>
@@ -216,6 +216,6 @@
 
     <!--swiper js cnd-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>
