@@ -112,7 +112,7 @@
                 $apt_time = $POST['apt_time'];
                 $dateadd = date("M j, Y", strtotime($POST['apt_status_date']));
                 $dateadd = date("M j, Y", strtotime($POST['apt_date_added']));
-                $fullName = $POST['fullName'];
+                $full_name = $POST['full_name'];
 
                 $apt_occasion_type = "debut";
                 $apt_date = "2023-12-04";
@@ -130,16 +130,16 @@
                         $row = $result->fetch_assoc();
                         $user_id = $row['user_id'];
                         $firstname = $row['firstname'];
-                        $lastname = $row['lastname'];
-                        $fullname = $row['firstname'] . " " . $row['lastname'];
+                        $surname = $row['surname'];
+                        $full_name = $row['firstname'] . " " . $row['surname'];
 
-                        $sql = $connection->prepare("INSERT INTO appointment (user_id, service_id, apt_occassion_type, apt_date, apt_status, apt_remark, apt_status_date) VALUES (?,?,?,?,?,?,?)");
-                        $sql->bind_param("iisssss",$user_id, $service_id, $apt_occasion_type, $apt_date, $apt_status, $apt_remark, $apt_status_date);
+                        $sql = $connection->prepare("INSERT INTO appointment (user_id, service_id, apt_occassion_type, apt_date, apt_time, apt_status, apt_remark, apt_status_date) VALUES (?,?,?,?,?,?,?,?)");
+                        $sql->bind_param("iissssss",$user_id, $service_id, $apt_occasion_type, $apt_date, $apt_time, $apt_status, $apt_remark, $apt_status_date);
                         if($sql->execute()){
-                            echo "<script type='text/javascript'> alert('Appointment successfully')</script>";
+                            echo "<script type='text/javascript'> alert('Appointment Set Successfully')</script>";
                         }
                         else{
-                            echo "<script type='text/javascript'> alert('Appointment Failed')</script>";
+                            echo "<script type='text/javascript'> alert('Appointment Set Failed')</script>";
                         }
                     }
                 }
@@ -172,7 +172,7 @@
 
                         <div class="form-field">
                             <p>Full Name</p>
-                            <input type="text" name="fullname" placeholder="Full name">
+                            <input type="text" name="full_name" placeholder="Full name">
                         </div>
                         <div class="form-field">
                             <p>Email</p>
@@ -184,7 +184,7 @@
                         </div>
                         <div class="form-field">
                             <p>Time</p>
-                            <input type="time" name="time">
+                            <input type="time" name="apt_time">
                         </div>
                         <div class="form-field">
                             <p>Services:</p>
