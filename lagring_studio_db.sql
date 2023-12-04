@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2023 at 08:21 AM
+-- Generation Time: Dec 04, 2023 at 04:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,7 +45,10 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`apt_id`, `user_id`, `service_id`, `apt_occasion_type`, `apt_date`, `apt_time`, `apt_status`, `apt_remark`, `apt_status_date`, `apt_date_added`) VALUES
-(1, 15, 2023001, 'debut', '2023-12-04', '00:00:00', 'PENDING', 'Please wait for approval.', NULL, '2023-12-06 17:12:52');
+(1, 15, 2023001, 'debut', '2023-12-04', '00:00:00', 'PENDING', 'Please wait for approval.', NULL, '2023-12-06 17:12:52'),
+(6, 15, 2023008, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-07 00:00:00', '2023-12-04 03:23:40'),
+(7, 15, 2023008, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-07 00:00:00', '2023-12-04 03:25:14'),
+(8, 15, 2023005, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-08 00:00:00', '2023-12-04 03:36:55');
 
 -- --------------------------------------------------------
 
@@ -135,7 +138,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `apt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `apt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `services`
