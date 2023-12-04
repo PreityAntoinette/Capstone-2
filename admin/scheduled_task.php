@@ -54,6 +54,7 @@
                         <tr>
                             <th>Task No.</th>
                             <th>Client Name</th>
+                            <th>Service</th>
                             <th>Ocassion Type</th>
                             <th>Date and Time</th>
                             <th>Status</th>
@@ -64,12 +65,14 @@
 
             <?php
                 $i = 1;
-                $sql = mysqli_query($connection, "SELECT * FROM appointment, services WHERE appointment.apt_status != 'ARCHIVED'") or die(mysqli_error($connection));
+                $sql = mysqli_query($connection, "SELECT * FROM appointment, services, users WHERE appointment.apt_status != 'ARCHIVED' AND appointment.service_id = services.service_id AND appointment.user_id = users.user_id") or die(mysqli_error($connection));
                     if (mysqli_num_rows($sql) > 0) {
                         while ($row = mysqli_fetch_array($sql)) {
                             $id = $row['apt_id'];
                             $serstat = $row['apt_status'];
+                            $email = $row['email'];
                             $sername = $row['service_name'];
+                            $apt_occ = $row['apt_occasion_type'];
                             $serdesc = $row['service_description'];
                             $serprice = $row['service_price'];
                             $apt_date = $row['apt_date'];
@@ -78,8 +81,9 @@
             ?>
                         <tr>
                             <td><?php echo $i++ ?></td>
-                            <td><?php echo strtoupper($serstat);?></td>
+                            <td><?php echo ($email);?></td>
                             <td><?php echo strtoupper($sername);?></td>
+                            <td><?php echo strtoupper($apt_occ);?></td>
                             <td><?php echo strtoupper($apt_date);?></td>
                             <td><?php echo $serstat; ?></td>
                             <td class="justify-space-evenly">
@@ -144,7 +148,7 @@
 
             include('scheduled_task_modals/edit_schedule.php');
         }}
-            else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+            else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
         ?>
                 </tbody>
                 </table>
