@@ -221,7 +221,7 @@ require_once 'session.php';
                 $fullname = $_POST['full_name'];
                 $email = $_POST['email'];
                 $apt_status_date = date('Y-m-d', strtotime($_POST['date_add']));
-                // $time = strtotime($_POST['time']);
+                //$apt_time = strtotime($_POST['apt_time']);
                 $service = $_POST['service'];
 
                 // Prepare and bind parameters for user selection
@@ -249,9 +249,9 @@ require_once 'session.php';
                         
                         // Check if prepare and bind_param for insertion were successful
                         if($insertQuery->execute()) {
-                            echo "<script type='text/javascript'> alert('Inserted into database')</script>";
+                            echo "<script type='text/javascript'> alert('Appointment set Succesfully!')</script>";
                         } else {
-                            echo "<script type='text/javascript'> alert('Not inserted into database')</script>";
+                            echo "<script type='text/javascript'> alert('Failed, Please try again later.')</script>";
                         }
                     } else {
                         echo "<script type='text/javascript'> alert('Email not found in database')</script>";
