@@ -25,7 +25,7 @@
         <!-- Main -->
         <main class="main-container">
             <div class="main-title">
-                <p class="font-weight-bold">SCHEDULED TASK</p>
+                <p class="font-weight-bold">APPOINTMENTS</p>
             </div>
 
             <!-- options to set the row count -->
