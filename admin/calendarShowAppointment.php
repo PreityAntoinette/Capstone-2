@@ -38,6 +38,8 @@ if (isset($_GET['id']))
         <div class="radio-buttons-container justify-content-center pt-2">
                        
             <!-- Approved Button -->
+            
+            <radiobutton class="declined">Approve</radiobutton>
             <input type="radio"class="radio-input validate-on-submit" value="APPROVED">
         </div>
             

@@ -49,7 +49,7 @@
                 </div>
                 <h1>Lagring Studio</h1>
                 <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;Lagring Studio now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.
+                &nbsp;&nbsp;&nbsp;&nbsp;Lagring Studio now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to gPOST.
                 </p>
                 <a href="mailto:lagringstudio@gmail.com" class="header__btn-md">Let's Talk</a>
             </div>
@@ -64,7 +64,7 @@
         </div>
     </div>
     <a href="mailto:Lagringstudio@gmail.com" class="contact__btn header__btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arPOST"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg>
         <p>CONTACT - SEND ME AN EMAIL</p>
     </a>
 
@@ -103,6 +103,36 @@
 <!--=============================END OF SERVICES==========================-->
 
 
+
+
+<?PHP 
+
+
+            if(isset($_POST['submit'])){
+                $id = $POST['apt_id'];
+                $userId = $POST['user_id'];
+                $serviceId = $POST['service_id'];
+                $email = $POST['email'];
+                $sername = $POST['service_name'];
+                $apt_date = $POST['apt_date'];
+                $dateadd = date("M j, Y", strtotime($POST['apt_status_date']));
+                $dateadd = date("M j, Y", strtotime($POST['apt_date_added']));
+                $firstname = $POST['firstname'];
+                $lastname = $POST['surname'];
+                $full_name = ucwords(strtolower($firstname . ' ' . $lastname));
+
+                $sql = $connection->prepare('INSERT INTO users (full_name, firstname, surname, email, registration_date, service_name) VALUES (?,?,?,?,?,?)');
+                $sql->bind_param('ssssss',$full_name, $firstname, $surname, $email, $apt_date, $sername);
+    
+            if($sql->execute()){
+                echo "<script type='text/javascript'> alert('Appointment successfully')</script>";
+            }
+            else{
+                echo "<script type='text/javascript'> alert('Appointment Failed')</script>";
+                }
+            }
+
+        ?>
 
     <section id="book">
     
@@ -154,13 +184,14 @@
                                 <option value="5+">5+ persons</option>
                             </select>
                         </div>
-
-                        <button class="btnb">Submit</button>
+                        
+                        <button class="btnb" name="submit">Submit</button>
                     </form>
             </div>
         </div>
         </div>	
-            
+
+        
         
     </section>
 
@@ -172,7 +203,7 @@
     <div class="container footer__container">
         <div class="footer__head">
             <h2 class="footer__title">Support Lagringstudio@gmail.com</h2>
-            <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
+            <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arPOST"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
         </div>
         <ul class="footer__links">
             <li><a href="#">Home</a></li><!--Nandito narin ung table ng mga binook na schedule-->
