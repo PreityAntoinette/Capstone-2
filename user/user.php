@@ -1,3 +1,8 @@
+<?php
+require_once 'session.php';
+
+?>
+<DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,9 +52,9 @@
                     <div class="empty header__empty"></div>
                     <a class="header__tag">#BestPhotographyStudioInImus</a>
                 </div>
-                <h1>Lagring Studio</h1>
+                <h1>Capture every moment with us</h1>
                 <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;Lagring Studio now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to gPOST.
+                &nbsp;&nbsp;&nbsp;&nbsp;At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences.  Allow us to join you in your every adventure and milestones in life and together, lets treasure every momment.
                 </p>
                 <a href="mailto:lagringstudio@gmail.com" class="header__btn-md">Let's Talk</a>
             </div>
@@ -65,7 +70,7 @@
     </div>
     <a href="mailto:Lagringstudio@gmail.com" class="contact__btn header__btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arPOST"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg>
-        <p>CONTACT - SEND ME AN EMAIL</p>
+        <p>CONTACT - SEND US AN EMAIL</p>
     </a>
 
     <!--======================END OF HEADER=================-->
@@ -74,7 +79,7 @@
     <div class="container services__container">
         <h2 class="services__title">Services</h2>
         <div class="services__head">
-            <p>The services we offer:</p>
+            <p>The following are our budget friendly but quality services. Contact us for more details. Book now!</p>
         </div>
         <div class="services__gallery">
             <article> <img src="../assets/images/services1.jpg"></article>
@@ -187,19 +192,27 @@
                             <input type="time" name="apt_time">
                         </div>
                         <div class="form-field">
-                            <p>Services:</p>
-                            <select name="service" id="#">
-                                <option value="1">1 person</option>
-                                <option value="2">2 persons</option>
-                                <option value="3">3 persosn</option>
-                                <option value="4">4 persons</option>
-                                <option value="5">5 persons</option>
-                                <option value="5+">5+ persons</option>
+                        <label for="service" class="input-legend text-nowrap">Service:</label>
+                            <select class="form-control" id="service" name="service" required>
+                                <option value="" selected disabled>Select Service</option>
+                                    <?php
+                                    $sql = mysqli_query($connection, "SELECT * FROM services ") or die(mysqli_error($connection));
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                        $sid = $row['service_id'];
+                                        $service_name = $row['service_name'];
+                                        
+                                    ?>
+                                        <option value="<?php echo $sid; ?>">
+                                            <?php echo $service_name; ?>
+                                        </option>   
+                                    <?php
+                                    }
+                                    ?>
                             </select>
-                            
                         </div>
                         
-                        <button type="submit" class="btnb" name="submit">Submit</button>
+                        <button type="submit" name="submit" id="submitting" class="btnb">Submit</button>
+                        <button type="reset" id="clear" class="btnb">Clear</button>
                     </form>
             </div>
         </div>
