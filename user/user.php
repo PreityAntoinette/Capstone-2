@@ -103,21 +103,20 @@
 <!--=============================END OF SERVICES==========================-->
 
 
-
-
-<?PHP 
-
+        <?PHP 
 
             if(isset($_POST['submit'])){
+                $serviceId = $POST['service_id'];
                 $email = $POST['email'];
-                $service = $POST['service'];
                 $apt_date = $POST['apt_date'];
-                $dateadd = date("M j, Y", strtotime($POST['date_add']));
+                $apt_time = $POST['apt_time'];
+                $dateadd = date("M j, Y", strtotime($POST['apt_status_date']));
                 $dateadd = date("M j, Y", strtotime($POST['apt_date_added']));
                 $fullName = $POST['fullName'];
 
                 $apt_occasion_type = "debut";
-                $apt_date = "2023-12-04 02:12:52";
+                $apt_date = "2023-12-04";
+                $apt_time = "02:12:52";
                 $apt_status = "PENDING";
                 $apt_remark = "Please wait for approval.";
                 $apt_status_date = "2023-12-04";
@@ -146,7 +145,7 @@
                 }
             }
 
-        ?>
+                    ?>
 
     <section id="book">
     
@@ -168,11 +167,12 @@
             </div>
 
             <div class="container-form">
-                    <form action="#" method="post">
+                    <form action="#">
                         <h2 class="heading heading-yellow">&nbsp;&nbsp;&nbsp;&nbsp;Book Appointment</h2>
+
                         <div class="form-field">
                             <p>Full Name</p>
-                            <input type="text" name="fullName" placeholder="Full name">
+                            <input type="text" name="fullname" placeholder="Full name">
                         </div>
                         <div class="form-field">
                             <p>Email</p>
@@ -196,28 +196,16 @@
                                 <option value="5">5 persons</option>
                                 <option value="5+">5+ persons</option>
                             </select>
-                            <select name="select" >
-                                <option value="" disabled selected>Select Services</option>
-                                <?php
-                                $sql = mysqli_query($connection, "SELECT * FROM services ") or die(mysqli_error($connection));
-                                while ($row = mysqli_fetch_array($sql)) {
-                                    $service_id = $row['service_id'];
-                                    $service_name = $row['service_name'];
-                                ?>
-                                    <option value="<?php echo $id; ?>">
-                                        <?php echo $service_name; ?>
-                                    </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
+                            
                         </div>
                         
-                        <button type="submit" class="btnb" name="submit">Submit</button>
+                        <button class="btnb" name="submit">Submit</button>
                     </form>
             </div>
         </div>
-        </div>
+        </div>	
+
+        
         
     </section>
 
