@@ -74,7 +74,36 @@
 
 
 
+<<<<<<< HEAD
+    <section id="about">
+        <div class="container about__container">
+            <h2 class="about__title">About <br/> Lagring Studio</h2>
+            <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
+                <p>CONTACT - SEND ME AN EMAIL</p>
+            </a>
+            <div class="about__left">
+                <div class="about__image">
+                    <div class="about__image-bg"></div>
+                    <div class="about__image-lg">
+                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
+                    </div>
+                    <div class="about__image-sm">
+                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
+                    </div>
+                </div>
+            </div>
+            <div class="about__right">
+                <div class="empty about__empty"></div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The backround of Lagring Studio way back in 2010, There was a woman named Alegria Garcia who established a photo studio in Salitran and named the studio "Lagring Studio". Alegria “Lagring” Garcia is  a mother of 4 child. The humble start of Lagring Studio shows that persistence is important if you want to be successful.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The business started with a small studio offering ID pictures, photo and video packages to events.The studio also sold frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
+            </div>
+            <h3>Our Location:</h3>
+            <div class="map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.7303200169486!2d120.92621845472506!3d14.406017358398358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d31beb517457%3A0x3cdd7410c1154b0e!2sLagring%20Photo%20%26%20Video%20Shop!5e0!3m2!1sen!2sph!4v1702211540660!5m2!1sen!2sph" width="1450" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+    </section>
+=======
     
+>>>>>>> 291f24b22f3279316f5cb0337b7505cd1bfcc5b5
 
 <!--========================END OF ABOUT SECTION====================-->
 
