@@ -40,8 +40,6 @@ if (isset($_GET['date']))
             </select>
         </div>
 
-<<<<<<< HEAD
-=======
         <div class="input-container pb-2" id="subOptionsContainer" style="display:none;">
             <label for="subOptions" class="input-legend text-nowrap">Sub-Options:</label>
             <select class="form-control" id="subOptions" name="subOptions">
@@ -80,7 +78,6 @@ if (isset($_GET['date']))
                 <label for="eventTitle" class="input-legend text-nowrap">Event Description</label>
             </div>
            
->>>>>>> 2f1116f673413b3d792d8a647ab44f7a1d45f237
 
         
             <div class="modal-footer">

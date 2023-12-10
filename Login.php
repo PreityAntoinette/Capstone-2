@@ -30,13 +30,14 @@ if(isset($_POST['register'])){
    $firstname = $_POST['firstname'];
    $middlename = $_POST['middlename'];
    $surname = $_POST['surname'];
+   $contact = $_POST['contact'];
    $email = $_POST['email'];
    $password = $_POST['password']; 
    $role = 'USER';
    $hashed_password = password_hash($password,PASSWORD_BCRYPT);
     
-   $sql = $connection->prepare('INSERT INTO users (firstname,middlename,surname,email,password,role) VALUES (?,?,?,?,?,?)');
-   $sql->bind_param('ssssss',$firstname,$middlename,$surname,$email,$hashed_password,$role);
+   $sql = $connection->prepare('INSERT INTO users (firstname,middlename,surname,contact,email,password,role) VALUES (?,?,?,?,?,?,?)');
+   $sql->bind_param('sssisss',$firstname,$middlename,$surname,$contact,$email,$hashed_password,$role);
     
    if($sql->execute()){
     echo "<script type='text/javascript'> alert('Registered successfully')</script>";
@@ -149,6 +150,10 @@ if(isset($_POST['login'])){
                     </div>
                     <div class="input-field">
                         <input type="text" name="surname" placeholder="Enter your surname" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="int" name="contact" placeholder="Enter your Contact Number" required>
                         <i class="uil uil-user"></i>
                     </div>
                     <div class="input-field">
