@@ -549,7 +549,7 @@ header {
     transform: translate(-50%, -50%);
     border: 5px solid #fff;
     border-radius: 5px;
-    width: 400px;
+    width: 500px;
     object-fit: cover;
 }
 
