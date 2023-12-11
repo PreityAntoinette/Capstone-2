@@ -47,6 +47,56 @@ if(isset($_POST['register'])){
 }
 
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstname = $_POST['firstname'];
+    $middlename = $_POST['middlename'];
+    $surname = $_POST['surname'];
+    $email = $_POST['email'];
+    $password = $_POST['password']; 
+    $role = 'USER';
+    $hashed_password = password_hash($password,PASSWORD_BCRYPT);
+    $step = $_POST["step"];
+
+    $sql = $connection->prepare('INSERT INTO users (firstname,middlename,surname,email,password,role) VALUES (?,?,?,?,?,?)');
+   $sql->bind_param('ssssss',$firstname,$middlename,$surname,$email,$hashed_password,$role);
+
+   // Execute the prepared statement
+   $sql->execute();
+
+    // Perform actions based on the current step
+    switch ($step) {
+        case 1:
+            $firstname = $_POST["firstname"];
+            break;
+        case 2:
+            $middlename = $_POST['middlename'];
+            break;
+        case 3:
+            $surname = $_POST['surname'];
+            break;
+        case 4:
+            $email = $_POST['email'];
+            break;
+        case 5:
+            $password = $_POST['password']; 
+            break;
+        case 6:
+            $hashed_password = password_hash($password,PASSWORD_BCRYPT);
+            break;
+    }
+
+    // Move to the next step
+    $nextStep = $step + 1;
+
+    // Use session variable to store the step value
+    $_GET['step'] = $nextStep;
+
+    // Redirect to the same page to avoid header output issues
+    header("Location: Login.php");
+    exit();
+    }
+
+
 if(isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -60,12 +110,12 @@ if(isset($_POST['login'])){
         $row = $result->fetch_object();
         if(password_verify($password, $row->password)){
            if($row->role=='USER'){
-            $_SESSION['user'] = $row;
+            $_GET['user'] = $row;
             header('LOCATION: user/user.php');
             exit();
            } 
            if($row->role=='ADMIN'){
-            $_SESSION['admin'] = $row;
+            $_GET['admin'] = $row;
             header('LOCATION: admin/admindashboard.php');
             exit();
            } 
@@ -79,6 +129,31 @@ if(isset($_POST['login'])){
      }
 }
 ?> 
+
+    <?php
+        if(isset($_POST['submit'])){
+            $email = $_POST['email'];
+            $myPassword = $_POST['password'];
+            $password = md5($myPassword);
+                                      
+            $sql = "SELECT * FROM users WHERE  email = '$email' AND pass = '$password'";
+            $user = $con->query($sql) or die ($con->error);
+            $row = $user->fetch_assoc();
+            $total = $user->num_rows;
+                                      
+        if ($total>0 && !empty($row['regdate'])){
+            session_start();
+            $_GET['UserLogin'] = $row;  
+                echo header ('Location: user/user.php');
+                }
+                else if ($total>0 && empty($row['regdate'])){
+                    echo '<script> alert("Please verify your Email.")'; 
+                    }
+                    else{
+                        echo '<script> alert("Incorrect Email/Password.")';
+                        }
+                    }
+        ?>
 
 <header>
     <input type="checkbox" name="" id="toggler">
@@ -138,27 +213,49 @@ if(isset($_POST['login'])){
             <!-- Registration Form -->
             <div class="form signup">
                 <span class="title">Registration</span>
-                <form method="POST">
+                <form method="POST" action="Login.php">
+                    <!-- Step 1 -->
+                    <div class="step <?php echo ($_GET['step'] == 1) ? 'active' : ''; ?>">
                     <div class="input-field">
                         <input type="text" name="firstname" placeholder="Enter your first name" required>
                         <i class="uil uil-user"></i>
                     </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step <?php echo ($_GET['step'] == 2) ? 'active' : ''; ?>">
                     <div class="input-field">
                         <input type="text" name="middlename" placeholder="Enter your middle name" >
                         <i class="uil uil-user"></i>
                     </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step <?php echo ($_GET['step'] == 3) ? 'active' : ''; ?>">
                     <div class="input-field">
                         <input type="text" name="surname" placeholder="Enter your surname" required>
                         <i class="uil uil-user"></i>
                     </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="step <?php echo ($_GET['step'] == 4) ? 'active' : ''; ?>">
                     <div class="input-field">
                         <input type="text" name="email" placeholder="Enter your email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step <?php echo ($_GET['step'] == 5) ? 'active' : ''; ?>">
                     <div class="input-field">
                         <input type="password" name="password" class="password" placeholder="Create a password" required>
                         <i class="uil uil-lock icon"></i>
                     </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="step <?php echo ($_GET['step'] == 6) ? 'active' : ''; ?>">
                     <div class="input-field">
                         <input type="password" name="repeat_password" class="password" placeholder="Confirm a password" required>
 
@@ -173,6 +270,9 @@ if(isset($_POST['login'])){
                             <label for="termCon" class="text">I accepted all terms and conditions</label>
                         </div>
                     </div>
+                    </div>
+
+                    <input type="hidden" name="step" value="6">
 
                     <div class="input-field button">
                         <input type="submit" value="Signup" name="register">
@@ -187,6 +287,16 @@ if(isset($_POST['login'])){
             </div>
         </div>
     </div>
+
+<script>
+    function nextStep() {
+        var currentStep = document.querySelector('.step.active');
+        var nextStep = currentStep.nextElementSibling;
+
+        currentStep.classList.remove('active');
+        nextStep.classList.add('active');
+    }
+</script>
 
      <script src="assets/js/script.js"></script> 
 </body>
