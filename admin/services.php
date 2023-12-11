@@ -53,6 +53,7 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
+                                        <th>Service ID</th>
                                         <th>Services</th>
                                         <th>Description</th>
                                         <th>Price</th>
@@ -66,6 +67,7 @@
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['service_id'];
+                                        $ID = $row["serviceID"];
                                         $sername = $row['service_name'];
                                         $serdesc = $row['service_description'];
                                         $serprice = $row['service_price'];
@@ -74,8 +76,9 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
+                                        <td><?php echo strtoupper($ID);?></td>
                                         <td><?php echo strtoupper($sername);?></td>
-                                        <td><?php echo strtoupper($serdesc);?></td>
+                                        <td><?php echo ($serdesc);?></td>
                                         <td><?php echo $serprice; ?></td>
                                         <td class="justify-space-evenly">
         <!-- view button -->

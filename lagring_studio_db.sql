@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2023 at 04:30 PM
+-- Generation Time: Dec 11, 2023 at 04:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,6 +58,7 @@ INSERT INTO `appointment` (`apt_id`, `user_id`, `service_id`, `apt_occasion_type
 
 CREATE TABLE `services` (
   `service_id` int(11) NOT NULL,
+  `serviceID` varchar(20) NOT NULL,
   `service_name` varchar(250) NOT NULL,
   `service_description` varchar(500) NOT NULL,
   `service_price` int(11) DEFAULT NULL,
@@ -69,17 +70,17 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`service_id`, `service_name`, `service_description`, `service_price`, `service_date_added`, `archived_flag`) VALUES
-(2023001, 'Portraits\r\n(Whole/Half Body)', '4r(2pcs)', 120, '2023-11-29 18:58:11', 1),
-(2023002, 'Graduation Picture', '8r(1pc) 3r(1pc) 2r(4pcs)', 300, '2023-11-29 19:01:31', 1),
-(2023003, 'Family Package A', '8r(1pc) 3r(1pc) 2r(4pcs)', 300, '2023-11-29 19:04:00', 1),
-(2023004, 'Family Package B', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 350, '2023-11-29 19:05:42', 1),
-(2023005, 'Digital Package', 'Unlimited Shots,\r\n8x12(40pcs) w/ layout & album,\r\nVideo Coverage 2pcs flash-drives,\r\nFree 1pc 16x20 Blow up pic w/ frame plus 1 free signature frame ', NULL, '2023-11-29 19:07:48', 1),
-(2023006, 'Special Package', 'Unlimited Shots,\r\n5r(100pcs) w/ layout & Album,\r\nVideo Coverage 2pcs flash-drives,\r\nFREE 11x14 blow up pic w/ frame and signature frame(1pc)', NULL, '2023-11-29 19:21:10', 1),
-(2023007, 'Regular Package', 'Unlimited Shots,\r\n5r(80pcs) & album,\r\nVideo coverage 1 flash-drive', NULL, '2023-11-29 19:28:11', 1),
-(2023008, 'Budget Package', 'Unlimited Shots,\r\n5r(100pcs)', NULL, '2023-11-29 19:30:35', 1),
-(2023009, 'Hire a Photographer', 'Photo only', NULL, '2023-11-29 19:34:15', 1),
-(2023010, 'Hire a Video Grapher', 'Video Only', NULL, '2023-11-29 19:35:26', 1);
+INSERT INTO `services` (`service_id`, `serviceID`, `service_name`, `service_description`, `service_price`, `service_date_added`, `archived_flag`) VALUES
+(2023001, 'PT', 'Portraits\r\n(Whole/Half Body)', '4r(2pcs)', 120, '2023-11-29 18:58:11', 1),
+(2023002, 'GP', 'Graduation Picture', '8r(1pc) 3r(1pc) 2r(4pcs)', 300, '2023-11-29 19:01:31', 1),
+(2023003, 'FP1', 'Family Package A', '8r(1pc) 3r(1pc) 2r(4pcs)', 300, '2023-11-29 19:04:00', 1),
+(2023004, 'FP2', 'Family Package B', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 350, '2023-11-29 19:05:42', 1),
+(2023005, 'DP', 'Digital Package', 'Unlimited Shots,\r\n8x12(40pcs) w/ layout & album,\r\nVideo Coverage 2pcs flash-drives,\r\nFree 1pc 16x20 Blow up pic w/ frame plus 1 free signature frame ', NULL, '2023-11-29 19:07:48', 1),
+(2023006, 'SP', 'Special Package', 'Unlimited Shots,\r\n5r(100pcs) w/ layout & Album,\r\nVideo Coverage 2pcs flash-drives,\r\nFREE 11x14 blow up pic w/ frame and signature frame(1pc)', NULL, '2023-11-29 19:21:10', 1),
+(2023007, 'RP', 'Regular Package', 'Unlimited Shots,\r\n5r(80pcs) & album,\r\nVideo coverage 1 flash-drive', NULL, '2023-11-29 19:28:11', 1),
+(2023008, 'BP', 'Budget Package', 'Unlimited Shots,\r\n5r(100pcs)', NULL, '2023-11-29 19:30:35', 1),
+(2023009, 'HP', 'Hire a Photographer', 'Photo only', NULL, '2023-11-29 19:34:15', 1),
+(2023010, 'HVG', 'Hire a Video Grapher', 'Video Only', NULL, '2023-11-29 19:35:26', 1);
 
 -- --------------------------------------------------------
 
