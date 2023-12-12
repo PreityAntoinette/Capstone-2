@@ -153,11 +153,11 @@ header {
 }
 .containerb {
     background-color: #fafafa;
-    max-width: 450px;
+    max-width: 600px;
     margin: 0px auto;
     box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);
     display: flex;
-    line-height: 4;
+    line-height: 2;
     
 }
 .book__title{
@@ -167,7 +167,8 @@ header {
 }
 .container-time {
 	background-color: var(--color-bg-5);
-	padding: 67px;
+    width: 100%;
+	padding: 40px 120px;
 	outline: 3px dashed var(--color-primary-variant);
 	outline-offset: -30px;
 	text-align: center;
@@ -310,8 +311,8 @@ header {
 
 .about__container{
     display: grid;
-    grid-template-columns: 10rem 26rem auto;
-    gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     position: relative;
 }
 
