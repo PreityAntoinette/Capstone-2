@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2023 at 04:59 AM
+-- Generation Time: Dec 12, 2023 at 03:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -93,6 +93,7 @@ CREATE TABLE `users` (
   `firstname` varchar(200) NOT NULL,
   `middlename` varchar(200) NOT NULL,
   `surname` varchar(200) NOT NULL,
+  `user_contact` bigint(20) NOT NULL,
   `registration_date` datetime NOT NULL DEFAULT current_timestamp(),
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
@@ -103,9 +104,20 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `firstname`, `middlename`, `surname`, `registration_date`, `email`, `password`, `role`) VALUES
-(2, 'Admin', 'Mname', 'Surname', '2023-10-22 16:45:44', 'admin.admin@cvsu.edu.ph', '$2y$10$OMyazDWKGNERSJW6KIfPIuZG1/ajR/tnen0g5q/zMoOm4cteM4EjK', 'ADMIN'),
-(15, 'fname', 'mname', 'sname', '2023-11-28 23:48:10', 'user.user@cvsu.edu.ph', '$2y$10$AycJciKiIN1xK6pxtFpXpeT8iQAMIysmH6W7MZ1aWWUwEZ0QyZttK', 'USER');
+INSERT INTO `users` (`user_id`, `firstname`, `middlename`, `surname`, `user_contact`, `registration_date`, `email`, `password`, `role`) VALUES
+(2, 'Admin', 'Mname', 'Surname', 0, '2023-10-22 16:45:44', 'admin.admin@cvsu.edu.ph', '$2y$10$OMyazDWKGNERSJW6KIfPIuZG1/ajR/tnen0g5q/zMoOm4cteM4EjK', 'ADMIN'),
+(15, 'fname', 'mname', 'sname', 0, '2023-11-28 23:48:10', 'user.user@cvsu.edu.ph', '$2y$10$AycJciKiIN1xK6pxtFpXpeT8iQAMIysmH6W7MZ1aWWUwEZ0QyZttK', 'USER');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_step`
+--
+
+CREATE TABLE `users_step` (
+  `user_id` int(11) NOT NULL,
+  `step` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -132,6 +144,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `users_step`
+--
+ALTER TABLE `users_step`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -150,21 +168,3 @@ ALTER TABLE `services`
 --
 -- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `appointment`
---
-ALTER TABLE `appointment`
-  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`),
-  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
