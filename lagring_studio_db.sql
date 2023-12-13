@@ -151,6 +151,7 @@ ALTER TABLE `users_step`
 
 --
 -- AUTO_INCREMENT for dumped tables
+
 --
 
 --
