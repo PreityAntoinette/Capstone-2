@@ -1,4 +1,3 @@
-
 <DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,12 @@
     <!--SWIPERJS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--custom css-->
+    
+    <link rel="stylesheet" href="assets/global/css/table.css" />
+    <link rel="stylesheet" href="assets/global/css/global.css" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/login.css" />
+   
 </head>
 <body>
     <nav>
@@ -25,6 +29,10 @@
             <li><a href="#about">About</a></li>
             <!-- <li><a href="#gallery">Gallery</a></li> -->
             <li><a href="#services">Services</a></li>
+
+            <li><a href="login_pop_up.php" class="modal-trigger" data-modal-id="login_pop_up">Log in</a></li>
+             <?php include ('login_pop_up.php');?> 
+                
         </ul>
         <button class="nav__toggle-btn" id="nav__toggle-open"><i class="uil uil-bars"></i></button>
         <button class="nav__toggle-btn" id="nav__toggle-close"><i class="uil uil-multiply"></i></button>
@@ -33,6 +41,59 @@
 
     </nav>
     <!--============================End of nav bar=========================================-->
+
+            <?php
+        $sql = "SELECT heading_title, heading_paragraph, services_paragraph, about_timeopen, about_paragraph, footer FROM website";
+        $result = $connection->query($sql);
+
+        $aboutTimeOpenValues = array();
+
+        if ($result->num_rows > 0) {
+            // Fetch the first row
+            $row = $result->fetch_assoc();
+            $headingTitle = $row['heading_title'];
+            $headingParagraph = $row['heading_paragraph'];
+            $servicesParagraph = $row['services_paragraph'];
+            $aboutParagraph = $row['about_paragraph'];
+            $footer = $row['footer'];
+
+            if (isset($row['about_timeopen']) && is_string($row['about_timeopen'])) {
+                // Split the about_timeopen values by line breaks
+                $timeValues = explode("\n", $row['about_timeopen']);
+
+                // Check if $timeValues is an array
+                if (is_array($timeValues)) {
+                    $aboutTimeOpenValues = $timeValues;
+                }
+            }
+
+            // Fetch the second row
+            $row = $result->fetch_assoc();
+            if (isset($row['about_timeopen']) && is_string($row['about_timeopen'])) {
+                // Split the about_timeopen values by line breaks
+                $timeValues = explode("\n", $row['about_timeopen']);
+
+                // Check if $timeValues is an array
+                if (is_array($timeValues)) {
+                    // Merge the time values into the $aboutTimeOpenValues array
+                    $aboutTimeOpenValues = array_merge($aboutTimeOpenValues, $timeValues);
+                }
+            }
+        } else {
+            $headingTitle = "Default Header Title";
+            $headingParagraph = "Default Header Paragraph";
+            $servicesParagraph = "Default Service Paragraph";
+            $aboutTimeOpenValues = ["Default Time 1", "Default Time 2"];
+            $aboutParagraph = "Default About Paragraph";
+            $footer = "Default Footer";
+        }
+
+        // Close the connection
+        $connection->close();
+        ?>
+
+
+
 
     <header>
         <div class="container header__container">
@@ -50,12 +111,15 @@
                     <div class="empty header__empty"></div>
                     <a class="header__tag">#Best Photography</a>
                 </div>
-                <h1>Capture every moment with us</h1>
+                <h1><?php echo $headingTitle;?></h1>
                 <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences.  Allow us to join you in your every adventure and milestones in life and together, lets treasure every momment.
+                &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $headingParagraph; ?>
                 </p>
-                <a href="Login.php" class="header__btn-md">Schedule now!</a>
-            </div>
+                <!-- <a href="Login.php" class="header__btn-md">Schedule now!</a> -->
+                <div class="add">
+                    <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
+                </div>
+                <?php include ('login_pop_up.php');?>
         </div>
     </header>
     <div class="header__frames">
@@ -172,7 +236,7 @@
         <h2 class="services__title">Services</h2>
         <!-- <div class="empty services__empty"></div> -->
         <div class="services__head">
-            <p>The following are our budget friendly but quality services. Contact us for more details. Book now!</p>
+            <p><?php echo $servicesParagraph; ?></p>
             <!-- <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
                 <p>CONTACT - SEND US AN EMAIL</p>
             </a> -->
@@ -182,122 +246,47 @@
     
 </section>
 
-<div class="card-container">
-            <div class="card">
-                <img src="assets/images/services1.jpg" alt="">
-                <div class="card-content">
-                    <h3>Whole Body and Half Body Potrait</h3>
-                    <p>►Whole Body Shoots</p>
-                    <p>►Half Body Shoots</p>
-                    <p>►2pcs 4r size</p>
-                    <p>Php 120.00</p>
-                    <a href="" class="Btn">Read More</a>
-                </div>
-            </div>
+<?php
+        $column_name = "service_name"; // Replace with the actual column name for service_name
+        $column_description = "service_description"; // Replace with the actual column name for service_description
+        $targetRow = 2023001; // Replace with the ID of the row you want to start retrieving
 
-            <div class="card">
-                <img src="assets/images/services2.jpg" alt="">
-                <div class="card-content">
-                    <h3>Graduation Picture </h3>
-                    <p>►1 pc 8r</p>
-                    <p>►1 pc 3r</p>
-                    <p>►4 pc 2r</p>
-                    <p>Php 300.00</p>
-                    <a href="" class="Btn">Read More</a>
-                </div>
-            </div>
+        $connection = new mysqli("localhost", "root", "", "lagring_studio_db");
 
-            <div class="card">
-                <img src="assets/images/services3.jpg" alt="">
-                <div class="card-content">
-                    <h3>Family Package A</h3>
-                    <p>►1 pc 8r</p>
-                    <p>►1 pc 3r</p>
-                    <p>►4 pcs 2r</p>
-                    <p>Php 300.00</p>
-                    <a href="" class="Btn">Read More</a>
-                </div>
-            </div>
+        if ($connection->connect_error) {
+            die("Connection failed: " . $connection->connect_error);
+        }
 
-            <div class="card">
-                <img src="assets/images/services4.jpg" alt="">
-                <div class="card-content">
-                    <h3>Family Package B</h3>
-                    <p>►2 pcs 8r</p>
-                    <p>►3 pcs 3r</p>
-                    <p>►4 pcs 2r</p>
-                    <p>Php 250.00</p>
-                    <a href="" class="Btn">Read More</a>
-                </div>
-            </div>
+        // Fetch all data at once
+        $sql = "SELECT $column_name, $column_description FROM services WHERE service_id BETWEEN $targetRow AND " . ($targetRow + 9);
+        $result = $connection->query($sql);
 
-            <div class="card">
-                <img src="assets/images/services5.jpg" alt="">
-                <div class="card-content">
-                    <h3>Digital Package</h3>
-                    <p>►Unlimited Shots</p>
-                    <p>►40 pcs copies of 8x12 with Layout & Album</p>
-                    <p>►Video coverage 2pcs flashdrives</p>
-                    <p>►FREE 1pc 16x20 Blow up Picture with frame plus 1 free signature frame</p>
-                    <p>Php 20,000</p>
-                    <a href="" class="Btn">Read More</a>
-                </div>
-            </div>
+        if (!$result) {
+            die("Error in SQL query: " . $connection->error);
+        }
 
-            <div class="card">
-                <img src="assets/images/services6.jpg" alt="">
-                <div class="card-content">
-                    <h3>Special Package</h3>
-                    <p>►Unlimited Shots</p>
-                    <p>►100pcs copies of 5r size picture with lay0out & album</p>
-                    <p>►Video Coverage 2pcs flash-drives</p>
-                    <p>►FREE 11x14 Blow up picture with frame and 1pc signature frame</p>
-                    <p>Php 13,000</p>
-                    <a href="" class="Btn">Read More</a>
-                </div>
-            </div>
+        $dataArray = [];
 
-            <div class="card">
-                <img src="assets/images/services7.jpg" alt="">
-                <div class="card-content">
-                    <h3>Regular Package</h3>
-                    <p>►Unlimited Shots</p>
-                    <p>►80 copies of 5r pictures & album</p>
-                    <p>►Video Coverage 1pc Flash-drive</p>
-                    <p>Php 10,000</p>
-                    <a href="" class="Btn">Read More</a>
-                </div>
-            </div>
+        while ($row = $result->fetch_assoc()) {
+            $dataArray[] = $row;
+        }
 
-            <div class="card">
-                <img src="assets/images/services8.jpg" alt="">
-                <div class="card-content">
-                    <h3>Budget Package</h3>
-                    <p>►Unlimited Shots</p>
-                    <p>►100pcs copies of 5r size</p>
-                    <p>Php 6,000</p>
-                    <a href="" class="Btn">Read More</a>
-                </div>
-            </div>
+        $connection->close();
+        ?>
 
-            <div class="card">
-                <img src="assets/images/services9.jpg" alt="">
-                <div class="card-content">
-                    <h3>Hire a Photographer(Photo Only) / Video-grapher(Video Only)</h3>
-                    <p>►Per event</p>
-                    <p>►Per day</p>
-                    <p>►with soft copy raw pictures or videos</p>
-                    <p>Php 3,500</p>
-                    <a href="" class="Btn">Read More</a>
+        <div class="card__container">
+            <?php for ($i = 0; $i < count($dataArray); $i++) : ?>
+                <div class="card__index">
+                    <img src="assets/images/services<?php echo $i + 1; ?>.jpg" alt="">
+                    <div class="card__content">
+                        <h3><?php echo $dataArray[$i][$column_name]; ?></h3>
+                        <p><?php echo $dataArray[$i][$column_description]; ?></p>
+                        <!-- Add your other content here -->
+                        <a href="" class="Btn">Read More</a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="popup-image">
-                <span>&times;</span>
-                <img src="assets/images/services1.jpg" alt="">
-            </div>
+            <?php endfor; ?>
         </div>
-
 <!--=============================END OF EXHIBITION==========================-->
 
 <section id="about">
@@ -316,27 +305,28 @@
                         <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
                     </div> -->
                 
-
                     <div class="containerb">
-        
                         <div class="container-time">
-                                <h2 class="heading">Time Open</h2>
-                                <h3 class="heading-days">Monday to Sunday</h3>
-                                <p>8am to 5pm</p>
-            
-                                <hr>
-            
-                                <h4 class="heading-phone">Call Us: +63915 229 824 </h4>
-                                <h4 class="heading-phone">Our Email: Lagringstudio@gmail.com</h4>
+                            <!-- <h2 class="heading">Time Open</h2>
+                            <h3 class="heading-days">Monday to Sunday</h3> -->
+                            <h1 class="heading-days">Time Open</h1>
+                            <ul>
+                                <?php
+                                // Loop through each time value
+                                foreach ($aboutTimeOpenValues as $time) {
+                                    echo "<li>$time</li>";
+                                }
+                                ?>
+                            </ul>
                         </div>
                     </div>
+
             <div class="map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.7303200169486!2d120.92621845472506!3d14.406017358398358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d31beb517457%3A0x3cdd7410c1154b0e!2sLagring%20Photo%20%26%20Video%20Shop!5e0!3m2!1sen!2sph!4v1702211540660!5m2!1sen!2sph" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
             <div class="about__right">
                 <!-- <div class="empty about__empty"></div> -->
                 <h2 class="about__title">About <br/> Lagring Studio</h2>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;The backround of Lagring Studio way back in 2010, There was a woman named Alegria Garcia who established a photo studio in Salitran and named the studio "Lagring Studio". Alegria “Lagring” Garcia is  a mother of 4 child. The humble start of Lagring Studio shows that persistence is important if you want to be successful.</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;The business started with a small studio offering ID pictures, photo and video packages to events.The studio also sold frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $aboutParagraph; ?></p>
             </div>
         </div>
     </section>
@@ -346,7 +336,7 @@
 <footer>
     <div class="container footer__container">
         <div class="footer__head">
-            <h2 class="footer__title">Support Lagringstudio@gmail.com</h2>
+            <h2 class="footer__title"><?php echo $footer; ?></h2>
             <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
         </div>
         <ul class="footer__links">
@@ -358,10 +348,23 @@
         </ul>
     </div>
 </footer>
-    <!--swiper js cnd-->
+<script>
+    function nextStep() {
+        var currentStep = document.querySelector('.step.active');
+        var nextStep = currentStep.nextElementSibling;
+
+        currentStep.classList.remove('active');
+        nextStep.classList.add('active');
+    }
+</script>
+
     
+    <!--swiper js cnd-->
+    <script src="assets/global/js/table.js"></script>
+    <script src="assets/global/js/modal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/global/js/services.js"></script>
+     <script src="assets/js/script.js"></script>
 </body>
 </html>

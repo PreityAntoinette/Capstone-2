@@ -671,6 +671,13 @@
     border-bottom: 1px solid #bdbdbd;
     background-color: hsl(0, 0%, 26%);
 }
+
+.modal-header-login {
+    padding: 15px;
+    border-bottom: 1px solid #bdbdbd;
+    background-color: hsl(0, 0%, 26%);
+    display:none;
+}
 @media (max-width: 600px) {
     .modal-header .modal-h4-header {
         font-size: 14px !important;
@@ -709,6 +716,7 @@
 /* Style for the exit button */
 .modal-exit {
     position: absolute;
+    padding: 20px;
     top: 2px;
     right: 10px;
     cursor: pointer;
@@ -724,6 +732,17 @@
 /* Show the modal when it's active */
 .modal-overlay.active {
     display: flex;
+}
+.modal-trigger{
+    background: linear-gradient(135deg, var(--color-primary-variant), var(--color-primary));
+    font-size: 15px;
+    color: var(--color-bg-1);
+    margin-top: 2rem;
+    display: inline-block;
+    padding: 0.6rem 1.6rem;
+    font-weight: 600;
+    border-radius: 0.3rem;
+    cursor: pointer;
 }
 
 /* Responsive adjustments */
