@@ -1,6 +1,80 @@
-<?php require_once 'database.php'; 
+<?php
+require_once 'database.php';
 session_start();
+
+if (isset($_POST['register'])) {
+    // Registration code with prepared statement and password_hash
+    $firstname = $_POST['firstname'];
+    $middlename = $_POST['middlename'];
+    $surname = $_POST['surname'];
+    $user_contact = $_POST['user_contact'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = 'USER';
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, user_contact, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    $sql->bind_param('sssisss', $firstname, $middlename, $surname, $user_contact, $email, $hashed_password, $role);
+
+    if ($sql->execute()) {
+        echo "<script type='text/javascript'> alert('Registered successfully'); </script>";
+    } else {
+        echo "<script type='text/javascript'> alert('Registration Failed'); </script>";
+    }
+}
+
+if (isset($_POST['login'])) {
+    // Login code with prepared statement and password_verify
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $selectQuery = $connection->prepare('SELECT * FROM users WHERE email = ?');
+    $selectQuery->bind_param('s', $email);
+    $selectQuery->execute();
+    $result = $selectQuery->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_object();
+        if (password_verify($password, $row->password)) {
+            if ($row->role == 'USER') {
+                $_SESSION['user'] = $row;
+                header('Location: user/user.php');
+                exit();
+            } elseif ($row->role == 'ADMIN') {
+                $_SESSION['admin'] = $row;
+                header('Location: admin/admindashboard.php');
+                exit();
+            }
+        } else {
+            echo '<script> alert("Wrong password."); </script>';
+        }
+    } else {
+        echo '<script> alert("Email does not exist."); </script>';
+    }
+}
+
+if (isset($_POST['submit'])) {
+    // The third section using md5 for password hashing, consider updating it to use password_hash
+    $email = $_POST['email'];
+    $myPassword = $_POST['password'];
+    $hashedPassword = password_hash($myPassword, PASSWORD_BCRYPT);
+
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$hashedPassword'";
+    $user = $con->query($sql) or die($con->error);
+    $row = $user->fetch_assoc();
+    $total = $user->num_rows;
+
+    if ($total > 0 && !empty($row['regdate'])) {
+        $_SESSION['UserLogin'] = $row;
+        header('Location: user/user.php');
+    } elseif ($total > 0 && empty($row['regdate'])) {
+        echo '<script> alert("Please verify your Email."); </script>';
+    } else {
+        echo '<script> alert("Incorrect Email/Password."); </script>';
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
@@ -25,86 +99,7 @@ session_start();
 </head>
 <body>
 
-<?PHP 
-if(isset($_POST['register'])){
-   $firstname = $_POST['firstname'];
-   $middlename = $_POST['middlename'];
-   $surname = $_POST['surname'];
-   $contact = $_POST['contact'];
-   $email = $_POST['email'];
-   $password = $_POST['password']; 
-   $role = 'USER';
-   $hashed_password = password_hash($password,PASSWORD_BCRYPT);
-    
-   $sql = $connection->prepare('INSERT INTO users (firstname,middlename,surname,contact,email,password,role) VALUES (?,?,?,?,?,?,?)');
-   $sql->bind_param('sssisss',$firstname,$middlename,$surname,$contact,$email,$hashed_password,$role);
-    
-   if($sql->execute()){
-    echo "<script type='text/javascript'> alert('Registered successfully')</script>";
-   }
-   else{
-    echo "<script type='text/javascript'> alert('Registeration Failed')</script>";
-   }
-}
 
-
-if(isset($_POST['login'])){
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $selectQuery = $connection -> prepare('SELECT * FROM users WHERE email = ?');
-    $selectQuery -> bind_param('s', $email);
-    $selectQuery -> execute();
-    $result  = $selectQuery->get_result();
-
-     if($result->num_rows>0){
-        $row = $result->fetch_object();
-        if(password_verify($password, $row->password)){
-           if($row->role=='USER'){
-            $_GET['user'] = $row;
-            header('LOCATION: user/user.php');
-            exit();
-           } 
-           if($row->role=='ADMIN'){
-            $_GET['admin'] = $row;
-            header('LOCATION: admin/admindashboard.php');
-            exit();
-           } 
-        }
-        else{
-            echo '<script> alert("Wrong password."); </script>';  
-        }
-     }   
-     else{
-        echo '<script> alert("Email does not exist."); </script>'; 
-     }
-}
-?> 
-
-    <?php
-        if(isset($_POST['submit'])){
-            $email = $_POST['email'];
-            $myPassword = $_POST['password'];
-            $password = md5($myPassword);
-                                      
-            $sql = "SELECT * FROM users WHERE  email = '$email' AND pass = '$password'";
-            $user = $con->query($sql) or die ($con->error);
-            $row = $user->fetch_assoc();
-            $total = $user->num_rows;
-                                      
-        if ($total>0 && !empty($row['regdate'])){
-            session_start();
-            $_GET['UserLogin'] = $row;  
-                echo header ('Location: user/user.php');
-                }
-                else if ($total>0 && empty($row['regdate'])){
-                    echo '<script> alert("Please verify your Email.")'; 
-                    }
-                    else{
-                        echo '<script> alert("Incorrect Email/Password.")';
-                        }
-                    }
-        ?>
 
 <header>
     <input type="checkbox" name="" id="toggler">
@@ -182,7 +177,7 @@ if(isset($_POST['login'])){
                     </div>
                     
                     <div class="input-field">
-                        <input type="int" name="contact" placeholder="Enter your Contact Number" required>
+                        <input type="int" name="user_contact" placeholder="Enter your Contact Number" required>
                         <i class="uil uil-user"></i>
                     </div>
 
@@ -226,16 +221,8 @@ if(isset($_POST['login'])){
         </div>
     </div>
 
-<script>
-    function nextStep() {
-        var currentStep = document.querySelector('.step.active');
-        var nextStep = currentStep.nextElementSibling;
-
-        currentStep.classList.remove('active');
-        nextStep.classList.add('active');
-    }
-</script>
-
      <script src="assets/js/script.js"></script> 
+     <script src="assets/js/interaction.js"></script> 
+
 </body>
 </html>
