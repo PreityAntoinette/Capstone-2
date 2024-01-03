@@ -34,22 +34,23 @@ if (isset($_GET['id']))
 
     <form action="">
         <label for="date">Date:</label>
-        <input type="text" id="date" value="<?php echo $apt_date ?>" readonly><br>
+        <input type="text" id="date" value="<?php echo $apt_date ?>" disabled><br>
         <label for="date2">Service Name:</label>
-        <input type="text" id="date2" value="<?php echo $service_name ?>" readonly><br>
+        <input type="text" id="date2" value="<?php echo $service_name ?>" disabled><br>
         <label for="date3">Set by:</label>
-        <input type="text" id="date3" value="<?php echo $full_name ?>" readonly><br>
+        <input type="text" id="date3" value="<?php echo $full_name ?>" disabled><br>
 
-        <input type="radiobutton" class="approved">
-        <radiobutton class="declined">Decline</radiobutton>
-        <input type="radio"class="radio-input validate-on-submit" value="APPROVED">
+        <label for="declined">
+            <input type="radio" id="declined" name="approval" value="DECLINED">
+            Decline
+        </label>
+        <br>
+        <label for="approved"> 
+            <input type="radio"  id="approved" name="approval" value="APPROVED">
+            Approve
+        </label>
+       
 
-        <div class="radio-buttons-container justify-content-center pt-2">
-                       
-            <!-- Approved Button -->
-            
-            <radiobutton class="declined">Approve</radiobutton>
-            <input type="radio"class="radio-input validate-on-submit" value="APPROVED">
         </div>
             
 

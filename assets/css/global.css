@@ -917,6 +917,7 @@
 }
 .form-control1:disabled {
     background-color: #f0f0f0ba;
+    border: 1px solid #8b949c00;
 }
 .form-control3 {
     width: 100%;
@@ -958,6 +959,7 @@
     background-color: #f1f1f1a4;
     border: none;
 }
+
 
 .form-control:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add a subtle box shadow */

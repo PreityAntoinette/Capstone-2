@@ -1,3 +1,5 @@
+<?php require_once('session.php');
+ include 'calendarSubmit.php'; ?>
 <DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
     <!--SWIPERJS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--custom css-->
-    
+    <link rel="stylesheet" href="assets/js/calendar.global.min.js" />
     <link rel="stylesheet" href="assets/css/personalinfo.css">
     <link rel="stylesheet" href="assets/global/css/table.css">
     <link rel="stylesheet" href="assets/global/css/global.css">
@@ -24,7 +26,7 @@
 
     <div class="container nav__container">
         <a href="index.html" class="nav__logo"><img src="assets/images/logo.png" alt="Nav Logo"></a>
-        <span class="nav__title">Lagring Studio</span>
+        <span class="nav__title">Lagring Studio <?php echo $fullname ?></span>
         <ul class="nav__links">
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -99,12 +101,29 @@
                 <div class="add">
                     <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
                 </div>
-                <?php include ('login_pop_up.php');?>
+                
         </div>
     </header>
-    
 
-<section id="services">
+    <div class="calendarContainer m-4 p-4 shadow">
+      <div id="calendar"></div>
+      
+    </div>
+     <!-- reservation modal form -->
+                <div class="modal-overlay" id="myModal">
+                        <div class="modal-container">
+                            <div class="modal-header text-light">
+                            <h4 class="modal-h4-header"></h4>
+                                <span class="modal-exit close">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modalContent"></div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+<section id="services"> 
     <div class="container services__container">
         <h2 class="services__title">Services</h2>
         <!-- <div class="empty services__empty"></div> -->
@@ -163,132 +182,7 @@
         </div>
 
 
-<!-- 
-                <div class="card__index">
-                    <img src="assets/images/services2.jpg" alt="">
-                    <div class="card__content">
-                        <h3><?php echo $data; ?></h3>
-                        <p>►1 pc 8r</p>
-                        <p>►1 pc 3r</p>
-                        <p>►4 pc 2r</p>
-                        <p>Php 300.00</p>
-                        <a href="" class="Btn">Read More</a>
-                    </div>
-                </div>
 
-                <div class="card__index">
-                        <img src="assets/images/services3.jpg" alt="">
-                        <div class="card__content">
-                            <h3><?php echo $data; ?></h3>
-                            <p>►1 pc 8r</p>
-                            <p>►1 pc 3r</p>
-                            <p>►4 pcs 2r</p>
-                            <p>Php 300.00</p>
-                            <a href="" class="Btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="card__index">
-                        <img src="assets/images/services4.jpg" alt="">
-                        <div class="card__content">
-                            <h3><?php echo $data; ?></h3>
-                            <p>►2 pcs 8r</p>
-                            <p>►3 pcs 3r</p>
-                            <p>►4 pcs 2r</p>
-                            <p>Php 250.00</p>
-                            <a href="" class="Btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="card__index">
-                        <img src="assets/images/services5.jpg" alt="">
-                        <div class="card__content">
-                            <h3><?php echo $data; ?></h3>
-                            <p>►Unlimited Shots</p>
-                            <p>►40 pcs copies of 8x12 with Layout & Album</p>
-                            <p>►Video coverage 2pcs flashdrives</p>
-                            <p>►FREE 1pc 16x20 Blow up Picture with frame plus 1 free signature frame</p>
-                            <p>Php 20,000</p>
-                            <a href="" class="Btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="card__index">
-                        <img src="assets/images/services6.jpg" alt="">
-                        <div class="card__content">
-                            <h3><?php echo $data; ?></h3>
-                            <p>►Unlimited Shots</p>
-                            <p>►100pcs copies of 5r size picture with lay0out & album</p>
-                            <p>►Video Coverage 2pcs flash-drives</p>
-                            <p>►FREE 11x14 Blow up picture with frame and 1pc signature frame</p>
-                            <p>Php 13,000</p>
-                            <a href="" class="Btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="card__index">
-                        <img src="assets/images/services7.jpg" alt="">
-                        <div class="card__content">
-                            <h3><?php echo $data; ?></h3>
-                            <p>►Unlimited Shots</p>
-                            <p>►80 copies of 5r pictures & album</p>
-                            <p>►Video Coverage 1pc Flash-drive</p>
-                            <p>Php 10,000</p>
-                            <a href="" class="Btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="card__index">
-                        <img src="assets/images/services8.jpg" alt="">
-                        <div class="card__content">
-                            <h3><?php echo $data; ?></h3>
-                            <p>►Unlimited Shots</p>
-                            <p>►100pcs copies of 5r size</p>
-                            <p>Php 6,000</p>
-                            <a href="" class="Btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="card__index">
-                        <img src="assets/images/services9.jpg" alt="">
-                        <div class="card__content">
-                            <h3>Hire a Photographer(Photo Only) / Video-grapher(Video Only)</h3>
-                            <p>►Per event</p>
-                            <p>►Per day</p>
-                            <p>►with soft copy raw pictures or videos</p>
-                            <p>Php 3,500</p>
-                            <a href="" class="Btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="popup-image">
-                        <span>&times;</span>
-                        <img src="assets/images/services1.jpg" alt="">
-                    </div>
-                </div>
-
-
-
-
-            </div> -->
-
-
-
-<section id="about">
-        <div class="container about__container">
-             <!-- <h2 class="about__title">About <br/> Lagring Studio</h2> -->
-             <!-- <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
-                <p>CONTACT - SEND ME AN EMAIL</p>
-            </a>  -->
-            <div class="about__left">
-                <!-- <div class="about__image">
-                    <div class="about__image-bg"></div>
-                    <div class="about__image-lg">
-                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
-                    </div>
-                    <div class="about__image-sm">
-                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
-                    </div> -->
                 
 
                     <div class="containerb">
@@ -345,10 +239,170 @@
 
     <script src="assets/global/js/table.js"></script>
     <script src="assets/global/js/modal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.min.js "></script>
     <!--swiper js cnd-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/global/js/services.js"></script>
      <script src="assets/js/script.js"></script>
 </body>
+<script>
+   
+            document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth', // Default view
+            events:function (fetchInfo, successCallback, failureCallback) {
+                //Function for displaying events in calendar
+                fetch('calendarFetch.php', {
+                    method: 'GET',
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok.');
+                        }
+                        return response.json(); 
+                    })
+                    .then(data => {
+                        successCallback(data); 
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                        failureCallback(error); 
+                    });
+                },
+            eventDisplay: 'block',
+            displayEventTime: false,
+            headerToolbar: {
+            left: 'title',
+            center: '',
+            right: 'today prev,next'
+            },
+            buttonText: {
+            today: 'Today',  
+            },
+            contentHeight: "auto",
+            fixedWeekCount: false,
+
+            // Function for showing set appointment form modal
+            dateClick: function(info) {
+            var selectedDate = new Date(info.dateStr);
+            var today = new Date();
+            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (3 - today.getDay()));
+
+                if (selectedDate < lastDay) {
+                // Show a message in the modal for current week dates if the selected dates are later than 1 more current week
+                document.querySelector(".modal-h4-header").innerHTML = "Notice";
+                document.querySelector(".modalContent").innerHTML = "<p class='alert alert-danger'>Please choose a date one day before the reservation.</p>";
+                document.getElementById("myModal").style.display = "flex";
+                document.body.style.overflow = "hidden";
+                } else {
+                    document.querySelector(".modal-h4-header").innerHTML = "Set an Appointment";
+                    // Display the modal body for event form with fetch
+                    fetch("calendarSetAppointment.php?date=" + info.dateStr)
+                        .then(function(response) {
+                        return response.text();
+                    })
+                    .then(function(data) {
+                        document.querySelector(".modalContent").innerHTML = data;
+                        document.getElementById("myModal").style.display = "flex";
+                        document.body.style.overflow = "hidden";
+                        
+                    });
+                   
+                }
+                
+            }
+        });
+
+        // When clicking events, show the modal
+        calendar.on('eventClick', function(info) {
+            document.querySelector(".modal-h4-header").innerHTML = "View Appointment";
+            // Pass the selected event's id to the modal through fetch
+            fetch("calendarShowAppointment.php?id=" + info.event.id)
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(data) {
+                document.querySelector(".modalContent").innerHTML = data;
+                document.getElementById("myModal").style.display = "flex";
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+            calendar.render();
+
+
+            // Handle click on close button to hide the modal
+            var closeButton = document.querySelector(".close");
+            closeButton.addEventListener("click", function() {
+            document.getElementById("myModal").style.display = "none"; // Hide the modal when close button is clicked
+            document.body.style.overflow = "auto";
+            document.querySelector(".modalContent").innerHTML = "";
+        });
+        
+
+     
+});      
+function toggleDateTimeInput() {
+        var serviceSelect = document.getElementById('service');
+        var selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+        var serviceType = selectedOption.getAttribute('data-service-type');
+
+        var bigServiceContainer = document.getElementById('bigService');
+        var smallServiceContainer = document.getElementById('smallService');
+        var isBigServiceInput = document.getElementById('isBigService');
+
+        if (serviceType === 'BIG') {
+            bigServiceContainer.style.display = 'block';
+            smallServiceContainer.style.display = 'none';
+            isBigServiceInput.value = 'true'; 
+            setValidation('bigService');
+            resetValidation('smallService');
+        } else if (serviceType === 'SMALL') {
+            bigServiceContainer.style.display = 'none';
+            smallServiceContainer.style.display = 'block';
+            isBigServiceInput.value = 'false';
+            setValidation('smallService');
+            resetValidation('bigService');
+        } else {
+            bigServiceContainer.style.display = 'none';
+            smallServiceContainer.style.display = 'none';
+            document.getElementById('date').setAttribute('disabled', 'disabled');
+            document.getElementById('shootLocation').setAttribute('disabled', 'disabled');
+            document.getElementById('occasionType').setAttribute('disabled', 'disabled');
+            resetValidation('bigService');
+            resetValidation('smallService');
+        }
+    }
+
+    function setValidation(containerId) {
+        var container = document.getElementById(containerId);
+        var dateInput = container.querySelector('[name="date"]');
+        var shootLocationInput = container.querySelector('[name="shootLocation"]');
+        var occasionTypeInput = container.querySelector('[name="occasionType"]');
+        
+        dateInput.setAttribute('required', 'required');
+        shootLocationInput.setAttribute('required', 'required');
+        occasionTypeInput.setAttribute('required', 'required');
+    }
+
+    function resetValidation(containerId) {
+        var container = document.getElementById(containerId);
+        var dateInput = container.querySelector('[name="date"]');
+        var shootLocationInput = container.querySelector('[name="shootLocation"]');
+        var occasionTypeInput = container.querySelector('[name="occasionType"]');
+        
+        dateInput.removeAttribute('required');
+        shootLocationInput.removeAttribute('required');
+        occasionTypeInput.removeAttribute('required');
+        
+    }
+
+    // Initial call to set up the initial state
+    toggleDateTimeInput();
+
+        </script>
 </html>

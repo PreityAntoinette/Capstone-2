@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 02, 2024 at 10:36 AM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Generation Time: Jan 03, 2024 at 05:27 PM
+-- Server version: 8.1.0
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   `user_id` int NOT NULL,
   `service_id` int NOT NULL,
   `apt_occasion_type` varchar(200) NOT NULL,
-  `apt_date` date NOT NULL,
-  `apt_time` time NOT NULL,
+  `apt_datetime` datetime NOT NULL,
+  `apt_location` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `apt_status` varchar(200) NOT NULL DEFAULT 'PENDING',
   `apt_remark` varchar(500) NOT NULL DEFAULT 'Please wait for approval.',
   `apt_status_date` datetime DEFAULT NULL,
@@ -42,21 +42,14 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   PRIMARY KEY (`apt_id`),
   KEY `service_id` (`service_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`apt_id`, `user_id`, `service_id`, `apt_occasion_type`, `apt_date`, `apt_time`, `apt_status`, `apt_remark`, `apt_status_date`, `apt_date_added`) VALUES
-(1, 15, 2023001, 'debut', '2023-12-04', '00:00:00', 'PENDING', 'Please wait for approval.', NULL, '2023-12-06 17:12:52'),
-(6, 15, 2023008, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-07 00:00:00', '2023-12-04 03:23:40'),
-(7, 15, 2023008, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-07 00:00:00', '2023-12-04 03:25:14'),
-(8, 15, 2023005, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-08 00:00:00', '2023-12-04 03:36:55'),
-(9, 15, 2023003, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-05 00:00:00', '2023-12-04 11:57:34'),
-(10, 15, 2023003, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-05 00:00:00', '2023-12-04 11:58:46'),
-(11, 15, 2023003, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-05 00:00:00', '2023-12-04 12:00:00'),
-(12, 15, 2023003, 'DEBUT', '0000-00-00', '00:00:00', 'PENDING', 'Please wait for approval.', '2023-12-05 00:00:00', '2023-12-04 12:00:38');
+INSERT INTO `appointment` (`apt_id`, `user_id`, `service_id`, `apt_occasion_type`, `apt_datetime`, `apt_location`, `apt_status`, `apt_remark`, `apt_status_date`, `apt_date_added`) VALUES
+(13, 15, 2023001, '', '1970-01-01 00:00:00', '', 'PENDING', 'Please wait for approval.', NULL, '2024-01-04 01:26:31');
 
 -- --------------------------------------------------------
 
@@ -69,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `services` (
   `service_id` int NOT NULL AUTO_INCREMENT,
   `service_name` varchar(250) NOT NULL,
   `service_description` varchar(500) NOT NULL,
+  `service_type` varchar(200) NOT NULL,
   `service_price` int DEFAULT NULL,
   `service_date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `archived_flag` int NOT NULL,
@@ -79,17 +73,17 @@ CREATE TABLE IF NOT EXISTS `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`service_id`, `service_name`, `service_description`, `service_price`, `service_date_added`, `archived_flag`) VALUES
-(2023001, 'Portraits\r\n(Whole/Half Body)', '4r(2pcs)', 120, '2023-11-29 18:58:11', 1),
-(2023002, 'Graduation Picture', '8r(1pc) 3r(1pc) 2r(4pcs)', 300, '2023-11-29 19:01:31', 1),
-(2023003, 'Family Package A', '8r(1pc) 3r(1pc) 2r(4pcs)', 300, '2023-11-29 19:04:00', 1),
-(2023004, 'Family Package B', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 350, '2023-11-29 19:05:42', 1),
-(2023005, 'Digital Package', 'Unlimited Shots,\r\n8x12(40pcs) w/ layout & album,\r\nVideo Coverage 2pcs flash-drives,\r\nFree 1pc 16x20 Blow up pic w/ frame plus 1 free signature frame ', NULL, '2023-11-29 19:07:48', 1),
-(2023006, 'Special Package', 'Unlimited Shots,\r\n5r(100pcs) w/ layout & Album,\r\nVideo Coverage 2pcs flash-drives,\r\nFREE 11x14 blow up pic w/ frame and signature frame(1pc)', NULL, '2023-11-29 19:21:10', 1),
-(2023007, 'Regular Package', 'Unlimited Shots,\r\n5r(80pcs) & album,\r\nVideo coverage 1 flash-drive', NULL, '2023-11-29 19:28:11', 1),
-(2023008, 'Budget Package', 'Unlimited Shots,\r\n5r(100pcs)', NULL, '2023-11-29 19:30:35', 1),
-(2023009, 'Hire a Photographer', 'Photo only', NULL, '2023-11-29 19:34:15', 1),
-(2023010, 'Hire a Video Grapher', 'Video Only', NULL, '2023-11-29 19:35:26', 1);
+INSERT INTO `services` (`service_id`, `service_name`, `service_description`, `service_type`, `service_price`, `service_date_added`, `archived_flag`) VALUES
+(2023001, 'Portraits\r\n(Whole/Half Body)', '4r(2pcs)', 'SMALL', 120, '2023-11-29 18:58:11', 1),
+(2023002, 'Graduation Picture', '8r(1pc) 3r(1pc) 2r(4pcs)', 'BIG', 300, '2023-11-29 19:01:31', 1),
+(2023003, 'Family Package A', '8r(1pc) 3r(1pc) 2r(4pcs)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
+(2023004, 'Family Package B', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 'SMALL', 350, '2023-11-29 19:05:42', 1),
+(2023005, 'Digital Package', 'Unlimited Shots,\r\n8x12(40pcs) w/ layout & album,\r\nVideo Coverage 2pcs flash-drives,\r\nFree 1pc 16x20 Blow up pic w/ frame plus 1 free signature frame ', 'SMALL', NULL, '2023-11-29 19:07:48', 1),
+(2023006, 'Special Package', 'Unlimited Shots,\r\n5r(100pcs) w/ layout & Album,\r\nVideo Coverage 2pcs flash-drives,\r\nFREE 11x14 blow up pic w/ frame and signature frame(1pc)', 'SMALL', NULL, '2023-11-29 19:21:10', 1),
+(2023007, 'Regular Package', 'Unlimited Shots,\r\n5r(80pcs) & album,\r\nVideo coverage 1 flash-drive', 'SMALL', NULL, '2023-11-29 19:28:11', 1),
+(2023008, 'Budget Package', 'Unlimited Shots,\r\n5r(100pcs)', 'SMALL', NULL, '2023-11-29 19:30:35', 1),
+(2023009, 'Hire a Photographer', 'Photo only', 'BIG', NULL, '2023-11-29 19:34:15', 1),
+(2023010, 'Hire a Video Grapher', 'Video Only', 'BIG', NULL, '2023-11-29 19:35:26', 1);
 
 -- --------------------------------------------------------
 
