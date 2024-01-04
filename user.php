@@ -48,13 +48,13 @@
                     <ul>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
-                            <p>Home</p>
+                            <p>Dashboard</p>
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">
                                 
                             </span>
-                            <p>My History</p>
+                            <p>My Orders</p>
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
@@ -62,7 +62,7 @@
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
-                            <p><a href ="logoutmodule/logout.php">Logout</a></p>
+                            <a href="logoutmodule/logout.php">Logout</a>
                         </li>
                     </ul>
                     </li>
@@ -97,6 +97,7 @@
                 <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences.  Allow us to join you in your every adventure and milestones in life and together, lets treasure every momment.
                 </p>
+                <!-- <a href="Login.php" class="header__btn-md">Schedule now!</a> -->
                 <div class="add">
                     <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
                 </div>
@@ -229,7 +230,7 @@
             <li><a href="#about">About Us</a></li>
             <!-- <li><a href="#gallery">Gallery</a></li> -->
             <li><a href="#services">Services</a></li>
-            <li><a href="#">Sign up</a></li>
+            <li><a href="Login.php">Sign up</a></li>
         </ul>
     </div>
 </footer>
@@ -304,7 +305,8 @@
                 document.querySelector(".modalContent").innerHTML = "<p class='alert alert-danger'>Please choose a date one day before the reservation.</p>";
                 document.getElementById("myModal").style.display = "flex";
                 document.body.style.overflow = "hidden";
-                } else {
+                } 
+                else {
                     document.querySelector(".modal-h4-header").innerHTML = "Set a schedule";
                     // Display the modal body for event form with fetch
                     fetch("calendarSetAppointment.php?date=" + info.dateStr)
