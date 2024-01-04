@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--custom css-->
     <link rel="stylesheet" href="../assets/css/personalinfo.css"/>
-    <link rel="stylesheet" href="../assets/js/calendar.global.min.js" />
+    <link rel="stylesheet" href="../assets/js/calendar.global.min.js" /> 
     <link rel="stylesheet" href="../assets/global/css/table.css">
     <link rel="stylesheet" href="../assets/global/css/global.css">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -24,7 +24,7 @@
 <body>
     <nav>
     <div class="container nav__container">
-        <a href="index.html" class="nav__logo"><img src="assets/images/logo.png" alt="Nav Logo"></a>
+        <a href="index.html" class="nav__logo"><img src="../assets/images/logo.png" alt="Nav Logo"></a>
         <span class="nav__title">Lagring Studio <?php echo $fullname ?></span>
         <ul class="nav__links">
             <li><a href="#">Home</a></li>
@@ -43,7 +43,7 @@
                 <!-- </div> -->
 
                 <li class = "personal-info">
-                    <img src="assets/images/samplepicprofile.avif" class="profile" />
+                    <img src="../assets/images/samplepicprofile.avif" class="profile" />
                     <ul>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
@@ -131,7 +131,7 @@
             <div class="header__left">
                 <div class="header__image-bg"></div>
                 <div class="header__image-lg">
-                    <img src="assets/images/samplepic.JPG" alt="Header Image">
+                    <img src="../assets/images/samplepic.JPG" alt="Header Image">
                 </div>
                 <div class="header__image-sm">
                     <img src="../assets/images/samplepic.JPG" alt="Header Image">
@@ -311,7 +311,7 @@
             initialView: 'dayGridMonth', // Default view
             events:function (fetchInfo, successCallback, failureCallback) {
                 //Function for displaying events in calendar
-                fetch('calendarFetch.php', {
+                fetch('../calendarFetch.php', {
                     method: 'GET',
                 })
                     .then(response => {
