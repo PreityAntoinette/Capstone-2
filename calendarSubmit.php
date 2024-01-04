@@ -12,7 +12,7 @@ if (isset($_POST['submitt'])) {
         // For big service, use date and set time to 24 hours
         $date = mysqli_real_escape_string($connection, date('Y-m-d H:i:s', strtotime($_POST['date'] . ' 23:59:59')));
     } else {
-        $date = mysqli_real_escape_string($connection, date('Y-m-d H:i:s', strtotime($_POST['date'] . ' ' . $_POST['dateTime'] . ':00')));
+        $date = mysqli_real_escape_string($connection, date('Y-m-d H:i:s', strtotime($_POST['date'] . ' ' . $_POST['dateTime'])));
         $shootLocation ="";
         $occasionType ="";
     }

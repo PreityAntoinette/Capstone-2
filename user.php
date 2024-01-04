@@ -104,11 +104,18 @@
                 
         </div>
     </header>
-
-    <div class="calendarContainer m-4 p-4 shadow">
+    <div class="row m-4 p-4">
+        <div class="col-sm-6 justify-content-center align-items-center">
+        <h1>Schedule now!!</h1>
+        </div>
+        <div class="col-sm-6  p-3 shadow">
+        <div class="calendarContainer ">
       <div id="calendar"></div>
       
     </div>
+        </div>
+    </div>
+    
      <!-- reservation modal form -->
                 <div class="modal-overlay" id="myModal">
                         <div class="modal-container">
@@ -144,7 +151,7 @@
         $column_description = "service_description"; // Replace with the actual column name for service_description
         $targetRow = 2023001; // Replace with the ID of the row you want to start retrieving
 
-        $connection = new mysqli("localhost", "root", "", "lagring_studio_db");
+       include 'database.php';
 
         if ($connection->connect_error) {
             die("Connection failed: " . $connection->connect_error);
@@ -290,7 +297,7 @@
             dateClick: function(info) {
             var selectedDate = new Date(info.dateStr);
             var today = new Date();
-            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (3 - today.getDay()));
+            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (1 - today.getDay()));
 
                 if (selectedDate < lastDay) {
                 // Show a message in the modal for current week dates if the selected dates are later than 1 more current week
@@ -299,7 +306,7 @@
                 document.getElementById("myModal").style.display = "flex";
                 document.body.style.overflow = "hidden";
                 } else {
-                    document.querySelector(".modal-h4-header").innerHTML = "Set an Appointment";
+                    document.querySelector(".modal-h4-header").innerHTML = "Set a schedule";
                     // Display the modal body for event form with fetch
                     fetch("calendarSetAppointment.php?date=" + info.dateStr)
                         .then(function(response) {
@@ -317,20 +324,20 @@
             }
         });
 
-        // When clicking events, show the modal
-        calendar.on('eventClick', function(info) {
-            document.querySelector(".modal-h4-header").innerHTML = "View Appointment";
-            // Pass the selected event's id to the modal through fetch
-            fetch("calendarShowAppointment.php?id=" + info.event.id)
-            .then(function(response) {
-                return response.text();
-            })
-            .then(function(data) {
-                document.querySelector(".modalContent").innerHTML = data;
-                document.getElementById("myModal").style.display = "flex";
-                document.body.style.overflow = "hidden";
-            });
-        });
+        // // When clicking events, show the modal
+        // calendar.on('eventClick', function(info) {
+        //     document.querySelector(".modal-h4-header").innerHTML = "View Appointment";
+        //     // Pass the selected event's id to the modal through fetch
+        //     fetch("calendarShowAppointment.php?id=" + info.event.id)
+        //     .then(function(response) {
+        //         return response.text();
+        //     })
+        //     .then(function(data) {
+        //         document.querySelector(".modalContent").innerHTML = data;
+        //         document.getElementById("myModal").style.display = "flex";
+        //         document.body.style.overflow = "hidden";
+        //     });
+        // });
 
             calendar.render();
 
@@ -359,46 +366,47 @@ function toggleDateTimeInput() {
             bigServiceContainer.style.display = 'block';
             smallServiceContainer.style.display = 'none';
             isBigServiceInput.value = 'true'; 
-            setValidation('bigService');
-            resetValidation('smallService');
+            var container = document.getElementById('bigService');
+            var dateInput = container.querySelector('[name="date"]');
+            var shootLocationInput = container.querySelector('[name="shootLocation"]');
+            var occasionTypeInput = container.querySelector('[name="occasionType"]');
+            dateInput.setAttribute('required', 'required');
+            shootLocationInput.setAttribute('required', 'required');
+            occasionTypeInput.setAttribute('required', 'required');
+
+            var container2 = document.getElementById('smallService');
+            var dateInput2 = container2.querySelector('[name="date"]');
+            var timeInput = container2.querySelector('[name="dateTime"]');
+            dateInput2.removeAttribute('required');
+            timeInput.removeAttribute('required');
         } else if (serviceType === 'SMALL') {
             bigServiceContainer.style.display = 'none';
             smallServiceContainer.style.display = 'block';
             isBigServiceInput.value = 'false';
-            setValidation('smallService');
-            resetValidation('bigService');
+
+            var container2 = document.getElementById('smallService');
+            var dateInput2 = container2.querySelector('[name="date"]');
+            dateInput2.setAttribute('required', 'required');
+            var timeInput =  container2.querySelector('[name="dateTime"]');
+            timeInput.setAttribute('required', 'required');
+            
+            var container = document.getElementById('bigService');
+            var dateInput = container.querySelector('[name="date"]');
+            var shootLocationInput = container.querySelector('[name="shootLocation"]');
+            var occasionTypeInput = container.querySelector('[name="occasionType"]');
+            
+            dateInput.removeAttribute('required');
+            shootLocationInput.removeAttribute('required');
+            occasionTypeInput.removeAttribute('required');
+        
         } else {
             bigServiceContainer.style.display = 'none';
             smallServiceContainer.style.display = 'none';
             document.getElementById('date').setAttribute('disabled', 'disabled');
+            document.getElementById('dateTime').setAttribute('disabled', 'disabled');
             document.getElementById('shootLocation').setAttribute('disabled', 'disabled');
             document.getElementById('occasionType').setAttribute('disabled', 'disabled');
-            resetValidation('bigService');
-            resetValidation('smallService');
         }
-    }
-
-    function setValidation(containerId) {
-        var container = document.getElementById(containerId);
-        var dateInput = container.querySelector('[name="date"]');
-        var shootLocationInput = container.querySelector('[name="shootLocation"]');
-        var occasionTypeInput = container.querySelector('[name="occasionType"]');
-        
-        dateInput.setAttribute('required', 'required');
-        shootLocationInput.setAttribute('required', 'required');
-        occasionTypeInput.setAttribute('required', 'required');
-    }
-
-    function resetValidation(containerId) {
-        var container = document.getElementById(containerId);
-        var dateInput = container.querySelector('[name="date"]');
-        var shootLocationInput = container.querySelector('[name="shootLocation"]');
-        var occasionTypeInput = container.querySelector('[name="occasionType"]');
-        
-        dateInput.removeAttribute('required');
-        shootLocationInput.removeAttribute('required');
-        occasionTypeInput.removeAttribute('required');
-        
     }
 
     // Initial call to set up the initial state

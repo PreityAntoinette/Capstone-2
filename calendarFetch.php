@@ -8,7 +8,7 @@ $result = mysqli_query($connection, $sqlAppointment) or die("database error: " .
 $Appointment = array();
 
 while ($rows = mysqli_fetch_assoc($result)) {
-  $apt_date = date("Y-m-d", strtotime($rows["apt_date"]));
+  $apt_date = date("Y-m-d", strtotime($rows["apt_datetime"]));
   $apt_id = $rows["apt_id"];
   $service_name =  $rows["service_name"];
  
