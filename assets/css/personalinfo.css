@@ -1,4 +1,4 @@
-ul {
+.personal-info ul {
   margin: 0;
   padding: 0;
   display: flex;
@@ -6,12 +6,12 @@ ul {
   gap: 3rem;
 }
 
-li {
+.personal-info {
   list-style-type: none;
   position: relative;
   padding: 0.625rem 0 0.5rem;
 }
-li ul {
+.personal-info ul {
   flex-direction: column;
   position: absolute;
   background-color: white;

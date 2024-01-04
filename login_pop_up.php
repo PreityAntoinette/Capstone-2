@@ -38,7 +38,7 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $row->password)) {
             if ($row->role == 'USER') {
                 $_SESSION['user'] = $row;
-                header('Location: user.php');
+                header('Location: user/user.php');
                 exit();
             } elseif ($row->role == 'ADMIN') {
                 $_SESSION['admin'] = $row;

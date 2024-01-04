@@ -20,7 +20,6 @@
 </head>
 <body>
     <nav>
-
     <div class="container nav__container">
         <a href="index.html" class="nav__logo"><img src="assets/images/logo.png" alt="Nav Logo"></a>
         <span class="nav__title">Lagring Studio</span>
@@ -29,18 +28,15 @@
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="login_pop_up.php" class="modal-trigger" data-modal-id="login_pop_up">Log in</a></li>
-             <?php include ('login_pop_up.php');?>
-                
+            <?php include ('login_pop_up.php');?>      
         </ul>
         <button class="nav__toggle-btn" id="nav__toggle-open"><i class="uil uil-bars"></i></button>
         <button class="nav__toggle-btn" id="nav__toggle-close"><i class="uil uil-multiply"></i></button>
     </div>
-
-
     </nav>
     <!--============================End of nav bar=========================================-->
 
-            <?php
+        <?php
         $sql = "SELECT heading_title, heading_paragraph, services_paragraph, about_timeopen, about_paragraph, footer FROM website";
         $result = $connection->query($sql);
 
@@ -90,9 +86,6 @@
         $connection->close();
         ?>
 
-
-
-
     <header>
         <div class="container header__container">
             <div class="header__left">
@@ -119,50 +112,7 @@
                 <?php include ('login_pop_up.php');?>
         </div>
     </header>
-    <div class="header__frames">
-        <!-- <div class="header__frame">
-            <img src="assets/images/frame1.jpg" alt="Header Frame One">
-        </div>
-        <div class="header__frame">
-            <img src="assets/images/frame2.jpg" alt="Header Frame Two">
-        </div> -->
-    </div>
-    <!-- <a href="mailto:Lagringstudio@gmail.com" class="contact__btn header__btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg>
-        <p>CONTACT - SEND ME US EMAIL</p>
-    </a> -->
-
     <!--======================END OF HEADER=================-->
-
-
-
-    <!-- <section id="about">
-        <div class="container about__container">
-            <h2 class="about__title">About <br/> Lagring Studio</h2>
-            <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
-                <p>CONTACT - SEND ME AN EMAIL</p>
-            </a>
-            <div class="about__left">
-                <div class="about__image">
-                    <div class="about__image-bg"></div>
-                    <div class="about__image-lg">
-                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
-                    </div>
-                    <div class="about__image-sm">
-                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
-                    </div>
-                </div>
-            </div>
-            <div class="about__right">
-                <div class="empty about__empty"></div>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;The backround of Lagring Studio way back in 2010, There was a woman named Alegria Garcia who established a photo studio in Salitran and named the studio "Lagring Studio". Alegria “Lagring” Garcia is  a mother of 4 child. The humble start of Lagring Studio shows that persistence is important if you want to be successful.</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;The business started with a small studio offering ID pictures, photo and video packages to events.The studio also sold frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.</p>
-            </div>
-            <h3>Our Location:</h3>
-            <div class="map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.7303200169486!2d120.92621845472506!3d14.406017358398358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d31beb517457%3A0x3cdd7410c1154b0e!2sLagring%20Photo%20%26%20Video%20Shop!5e0!3m2!1sen!2sph!4v1702211540660!5m2!1sen!2sph" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div> -->
-        <!-- </div>
-    </section>  -->
-<!--========================END OF ABOUT SECTION====================-->
 
 <!-- <section id="gallery">
     <div class="container gallery__container swiper mySwiper">
@@ -238,9 +188,7 @@
                 <p>CONTACT - SEND US AN EMAIL</p>
             </a> -->
         </div>
-        
     </div>
-    
 </section>
 
 <?php
@@ -284,51 +232,50 @@
                 </div>
             <?php endfor; ?>
         </div>
-<!--=============================END OF EXHIBITION==========================-->
+<!--=============================END OF SERVICES==========================-->
 
 <section id="about">
-        <div class="container about__container">
-             <!-- <h2 class="about__title">About <br/> Lagring Studio</h2> -->
-             <!-- <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
-                <p>CONTACT - SEND ME AN EMAIL</p>
-            </a>  -->
-            <div class="about__left">
-                <!-- <div class="about__image">
-                    <div class="about__image-bg"></div>
-                    <div class="about__image-lg">
-                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
-                    </div>
-                    <div class="about__image-sm">
-                        <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
-                    </div> -->
-                
-                    <div class="containerb">
-                        <div class="container-time">
-                            <!-- <h2 class="heading">Time Open</h2>
-                            <h3 class="heading-days">Monday to Sunday</h3> -->
-                            <h1 class="heading-days">Time Open</h1>
-                            <ul>
-                                <?php
-                                // Loop through each time value
-                                foreach ($aboutTimeOpenValues as $time) {
-                                    echo "<li>$time</li>";
-                                }
-                                ?>
-                            </ul>
-                        </div>
-                    </div>
-
-            <div class="map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.7303200169486!2d120.92621845472506!3d14.406017358398358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d31beb517457%3A0x3cdd7410c1154b0e!2sLagring%20Photo%20%26%20Video%20Shop!5e0!3m2!1sen!2sph!4v1702211540660!5m2!1sen!2sph" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="container about__container">
+            <!-- <h2 class="about__title">About <br/> Lagring Studio</h2> -->
+            <!-- <a href="mailto:Lagringstudio@gmail.com" class="contact__btn about__btn">
+            <p>CONTACT - SEND ME AN EMAIL</p>
+        </a>  -->
+        <div class="about__left">
+            <!-- <div class="about__image">
+                <div class="about__image-bg"></div>
+                <div class="about__image-lg">
+                    <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
                 </div>
-            <div class="about__right">
-                <!-- <div class="empty about__empty"></div> -->
-                <h2 class="about__title">About <br/> Lagring Studio</h2>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $aboutParagraph; ?></p>
+                <div class="about__image-sm">
+                    <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
+                </div> -->
+            <div class="containerb">
+                <div class="container-time">
+                    <!-- <h2 class="heading">Time Open</h2>
+                    <h3 class="heading-days">Monday to Sunday</h3> -->
+                    <h1 class="heading-days">Time Open</h1>
+                    <ul>
+                        <?php
+                        // Loop through each time value
+                        foreach ($aboutTimeOpenValues as $time) {
+                            echo "<li>$time</li>";
+                        }
+                        ?>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
 
-
+    <div class="containerb">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.7303200169486!2d120.92621845472506!3d14.406017358398358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d31beb517457%3A0x3cdd7410c1154b0e!2sLagring%20Photo%20%26%20Video%20Shop!5e0!3m2!1sen!2sph!4v1702211540660!5m2!1sen!2sph" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="map"></div>
+    </div>
+    <div class="about__right">
+        <h2 class="about__title">About <br/> Lagring Studio</h2>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $aboutParagraph; ?></p>
+    </div>
+    </div>
+</section>
 
 <footer>
     <div class="container footer__container">
@@ -336,20 +283,9 @@
             <h2 class="footer__title"><?php echo $footer; ?></h2>
             <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
         </div>
-        <ul class="footer__links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <!-- <li><a href="#gallery">Gallery</a></li> -->
-            <li><a href="#services">Services</a></li>
-            <li><div class="add">
-                    <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
-                </div>
-                <?php include ('login_pop_up.php');?></li>
-            
-
-        </ul>
     </div>
 </footer>
+
 <script>
     function nextStep() {
         var currentStep = document.querySelector('.step.active');
@@ -359,11 +295,10 @@
         nextStep.classList.add('active');
     }
 </script>
-
     
-    <!--swiper js cnd-->
     <script src="assets/global/js/table.js"></script>
     <script src="assets/global/js/modal.js"></script>
+    <!--swiper js cnd-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/global/js/services.js"></script>
