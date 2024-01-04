@@ -1,6 +1,5 @@
 <?php
 require_once 'database.php';
-session_start();
 
 if (isset($_POST['register'])) {
     // Registration code with prepared statement and password_hash
