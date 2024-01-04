@@ -17,7 +17,7 @@
                 }
     } else {
         // User is not logged in, redirect to login page
-        header('Location: ../logout.php');
+        header('Location: ../logoutmodule/logout.php');
     }
     
 

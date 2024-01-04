@@ -28,7 +28,11 @@
             <div class="main-title">
                 <p class="font-weight-bold">SERVICES</p>
             </div>
-
+            <div class="add">
+                    <button class="modal-trigger" data-modal-id="add_service">Add service</button>
+                </div>
+                <?php include ('add_service.php');?>
+                <br>
         <!-- options to set the row count -->
         <div class= "showAndSearch  text-secondary align-items-center mb-1">
                         <div class= "align-items-center">
@@ -66,8 +70,7 @@
                                     $sql = mysqli_query($connection, "SELECT * FROM services") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
-                                        $id = $row['service_id'];
-                                        $ID = $row["serviceID"];
+                                        $service_id = $row['service_id'];
                                         $sername = $row['service_name'];
                                         $serdesc = $row['service_description'];
                                         $serprice = $row['service_price'];
@@ -76,7 +79,7 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
-                                        <td><?php echo strtoupper($ID);?></td>
+                                        <td><?php echo strtoupper($service_id);?></td>
                                         <td><?php echo strtoupper($sername);?></td>
                                         <td><?php echo ($serdesc);?></td>
                                         <td><?php echo $serprice; ?></td>
@@ -155,10 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="add">
-                    <button class="modal-trigger" data-modal-id="add_service">add service</button>
-                </div>
-                <?php include ('add_service.php');?>
+                
 
             </main>
             <!-- End Main -->
