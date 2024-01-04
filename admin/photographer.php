@@ -21,7 +21,7 @@
             <!-- Main -->
             <main class="main-container">
                 <div class="main-title">
-                    <p class="font-weight-bold">PHOTOGRAPHER</p>
+                    <p class="font-weight-bold">PHOTOGRAPHER  </p>
                 </div>
             </main>
             <!-- End Main -->
