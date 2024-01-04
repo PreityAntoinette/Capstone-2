@@ -18,7 +18,7 @@
         <div class="modal-body">
             <div class="modalContent">
 
-            <form method="POST" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <form method="POST" enctype="multipart/form-data" >
                     <div class="form-group">
                         <label for="serviceName">Service Name:</label>
                         <input class="" type="text" name="service_name" required />
@@ -28,38 +28,41 @@
                         <label for="serviceDescription">Description:</label>
                         <input class="" type="text" name="service_description" required />
                     </div>
+                    <div class="form-group">
+                        <label for="serviceDescription">Service Type:</label>
+                        <select  name="service_type" required >
+                            <option value="" disabled selected>Select..</option>
+                            <option value="BIG">Big (Whole day service)</option>
+                            <option value="SMALL">Small (30 minute service)</option>
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <label for="servicePrice">Price:</label>
-                        <input class="" type="text" name="service_price" />
+                        <input class="" type="number" pattern="" name="service_price" />
                     </div>
 
+                    <div class="form-group">
+                        <label>Image <i>(5mb max. size)</i></label>
+                        <input
+                            value=""
+                            onchange="validate(this)"
+                            type="file"
+                            name="image"
+                            id="file"
+                            class="file-input"
+                            accept="image/*"
+                            required
+                        />
+                        <p class="output"></p>
+                    </div>
                 
-
-                <script>
-                    const resourceTypeSelect = document.getElementById('resourceType');
-                    const equipmentQuantityDiv = document.getElementById('equipmentQuantity');
-                    const quantityInput = document.getElementById('quantityInput');
-
-                        quantityInput.addEventListener('input', function () {
-                            quantityInput.value = quantityInput.value.replace(/\D/g, '');
-                        });
-                    resourceTypeSelect.addEventListener('change', function () {
-                        const selectedValue = resourceTypeSelect.value;
-                        if (selectedValue === 'EQUIPMENT') {
-                            equipmentQuantityDiv.style.display = 'block';
-                        } else {
-                            equipmentQuantityDiv.style.display = 'none';
-                        }
-                    });
-                </script>
-
 
                     <br />
                     <div class="modal-footer">
                         <button
                             type="submit"
-                            name="submit_add_resource"
+                            name="add_service"
                             class="btn btn-warning text-dark"
                             onsubmit="return validate()">
                             Update
@@ -77,14 +80,38 @@
             $service_name = mysqli_real_escape_string($connection, $_POST['service_name']);
             $service_description = mysqli_real_escape_string($connection, $_POST['service_description']);
             $service_price = mysqli_real_escape_string($connection, $_POST['service_price']);
+            $service_type = $_POST['service_type'];
+            $checkQuery = "SELECT COUNT(*) FROM services WHERE service_name = ?";
+            $checkStmt = mysqli_prepare($connection, $checkQuery);
+            mysqli_stmt_bind_param($checkStmt, "s", $service_name);
+            mysqli_stmt_execute($checkStmt);
+            mysqli_stmt_bind_result($checkStmt, $count);
+            mysqli_stmt_fetch($checkStmt);
+            mysqli_stmt_close($checkStmt);
+            if ($count > 0) {
+                // Resource name already exists, handle it accordingly (e.g., display an error message)
+                $jsCode = '
+                <script>
+                alert( "Service with the same name already exists!");
+                </script>';
+                echo $jsCode;
+            } else {
+                $image = $_FILES['image']['name'];
+              
+            
+                // Image file directory
+                $target = "../assets/global/services_img/" . $image;
+            
+                // Move uploaded image to the target directory
+                move_uploaded_file($_FILES['image']['tmp_name'], $target);
 
-        
-            $insertQuery = "INSERT into services (serviceName, serviceDescription, servicePrice, service_date_added) VALUES (?, ?, ?, ?)";
+            $insertQuery = "INSERT into services (service_name, service_image, service_type, service_description, service_price) VALUES (?, ?, ?, ?, ?)";
             $stmt1 = mysqli_prepare($connection, $insertQuery);
-            mysqli_stmt_bind_param($stmt1, "ssis", $service_name, $service_description, $service_price, $service_date_added);
+            mysqli_stmt_bind_param($stmt1, "ssssi", $service_name, $image, $service_type, $service_description, $service_price);
             mysqli_stmt_execute($stmt1);
             mysqli_stmt_close($stmt1);
         
-        echo '<script>alert("Submitted")</script>';
+        echo '<script>alert("Service added successfully.")</script>';
+            }
         }
     ?>

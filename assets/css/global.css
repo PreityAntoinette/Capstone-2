@@ -717,7 +717,7 @@
     color: hsl(0, 0%, 86%);
 }
 .modal-exit:hover {
-    color: hsl(0, 100%, 62%);
+    color: hsl(253, 100%, 62%);
     font-weight: bold;
 }
 

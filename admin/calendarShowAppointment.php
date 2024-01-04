@@ -12,24 +12,45 @@ if (isset($_GET['id'])) {
     // Check if record exists
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $apt_date = date("F j, Y - g:i A", strtotime($row['apt_datetime']));
+        $apt_datetime = $row['apt_datetime'];
+        $apt_date = formatAppointmentDate($apt_datetime, $row['service_type']);
         $service_name = ucwords(strtolower($row['service_name']));
         $full_name = ucwords(strtolower($row['firstname'] . " " . $row['surname']));
         $service_type = $row['service_type']; // Assuming you have a service_type column in your services table
         $shoot_location = $row['apt_location']; // Assuming you have a shoot_location column in your appointment table
         $occasion_type = $row['apt_occasion_type']; // Assuming you have an occasion_type column in your appointment table
         $status = $row['apt_status'];
+        $apt_submit_type = $row['apt_submit_type'];
+        $walkin_fullname = $row['walkin_fullname'];
+        $walkin_contact = $row['walkin_contact'];
+    }
+}
+
+function formatAppointmentDate($apt_datetime, $service_type) {
+    if ($service_type === 'BIG') {
+        return date("M j, Y", strtotime($apt_datetime));
+    } else {
+        return date("M j, Y - g:i A", strtotime($apt_datetime));
     }
 }
 ?>
-
 <form action="">
     <!-- Who -->
     <div class="mb-2">
         <label for="date3">Set by:</label>
         <input type="text" id="date3" class="form-control" value="<?php echo $full_name ?>" disabled><br>
     </div>
-
+   <!-- Additional fields for walk-in -->
+   <?php if ($apt_submit_type === 'WALK-IN'): ?>
+        <div class="mb-2">
+            <label for="walkin_fullname">Customer Full Name:</label>
+            <input type="text" id="walkin_fullname" class="form-control" disabled name="walkin_fullname" value="<?php echo $walkin_fullname; ?>" required><br>
+        </div>
+        <div class="mb-2">
+            <label for="walkin_contact">Customer Contact:</label>
+            <input type="text" id="walkin_contact" class="form-control" disabled name="walkin_contact" value="<?php echo $walkin_contact; ?>" required><br>
+        </div>
+    <?php endif; ?>
     <!-- What -->
     <div class="mb-2">
         <label for="">Service Name:</label>

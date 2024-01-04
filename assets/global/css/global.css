@@ -721,13 +721,12 @@
 /* Style for the exit button */
 .modal-exit {
     position: absolute;
-    padding: 20px;
     top: 2px;
     right: 10px;
     cursor: pointer;
     font-size: 35px;
     font-weight: bolder;
-    color: hsl(0, 0%, 86%);
+    color: hsl(0, 0%, 88%);
 }
 .modal-exit:hover {
     color: hsl(0, 100%, 62%);

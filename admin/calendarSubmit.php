@@ -1,9 +1,9 @@
 <?php
  require_once 'session.php';
 
- require_once __DIR__ . '/assets/global/vendor/phpmailer/src/Exception.php';
- require_once __DIR__ . '/assets/global/vendor/phpmailer/src/PHPMailer.php';
- require_once __DIR__ . '/assets/global/vendor/phpmailer/src/SMTP.php';
+ require_once __DIR__ . '/../assets/global/vendor/phpmailer/src/Exception.php';
+ require_once __DIR__ . '/../assets/global/vendor/phpmailer/src/PHPMailer.php';
+ require_once __DIR__ . '/../assets/global/vendor/phpmailer/src/SMTP.php';
  use PHPMailer\PHPMailer\PHPMailer;
  use PHPMailer\PHPMailer\SMTP;
  use PHPMailer\PHPMailer\Exception;
@@ -16,7 +16,10 @@
 if (isset($_POST['submitt'])) {
     $id = $_POST['user_id'];
     $service_id = $_POST['service'];
-    $apt_submit_type = 'ONLINE';
+    $apt_submit_type = 'WALK-IN';
+    $walkin_fullname = $_POST['walkin_fullname'];
+    $walkin_contact = $_POST['walkin_contact'];
+    $apt_status = 'APPROVED';
     if ($_POST['isBigService'] == 'true') {
         // For small service, use user inputs
         $shootLocation = mysqli_real_escape_string($connection, $_POST['shootLocation']);
@@ -50,9 +53,9 @@ if (isset($_POST['submitt'])) {
     $schedule_id = 'LS'.generateschedule_id();
  
     
-    $insertQuery = "INSERT into appointment (schedule_id, user_id, service_id, apt_datetime, apt_location, apt_occasion_type, apt_submit_type) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $insertQuery = "INSERT into appointment (schedule_id, user_id, service_id, apt_datetime, apt_location, apt_occasion_type, apt_submit_type, walkin_fullname, walkin_contact, apt_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt1 = mysqli_prepare($connection, $insertQuery);
-    mysqli_stmt_bind_param($stmt1, "siissss", $schedule_id, $id, $service_id, $date, $shootLocation, $occasionType, $apt_submit_type);
+    mysqli_stmt_bind_param($stmt1, "siisssssss", $schedule_id, $id, $service_id, $date, $shootLocation, $occasionType, $apt_submit_type, $walkin_fullname, $walkin_contact, $apt_status);
 
    
 
@@ -88,18 +91,20 @@ if (isset($_POST['submitt'])) {
         // Set the email content
         $mail->setFrom('clydesolas01@gmail.com', 'Lagring-Studio');
      $mail->addAddress($adminEmail, 'Recipient Name');
-     $mail->Subject = 'Schedule request';
+     $mail->Subject = 'Walkin Schedule';
      $mail->isHTML(true);
      $mail->Body = '<html>
      <body style="font-family: Arial, sans-serif;">
  
-     <h2 style="color: #126b23;">Schedule Request</h2>
+     <h2 style="color: #126b23;">Walkin Schedule</h2>
      <p>Good day '.$adminFullname.',</p>
-     <p> A customer has requested a schedule. Here are the details of the request:</p>
+     <p> You set a walkin schedule. Here are the details of the schedule:</p>
      
      <h3>Schedule Information:</h3>
      <ul>
          <li><strong>Schedule ID:</strong> '.$schedule_id.'</li>
+         <li><strong>Customer Fullname:</strong> '.$walkin_fullname.'</li>
+         <li><strong>Customer Contact Number:</strong> '.$walkin_contact.'</li>
          <li><strong>Service Name:</strong> '.$service_name.'</li>
          <li><strong>Occation Type:</strong> '.$occasionType.'</li>
          <li><strong>Location:</strong> '.$shootLocation.'</li>
@@ -118,26 +123,26 @@ if (isset($_POST['submitt'])) {
         mysqli_stmt_close($stmt1);
         // Commit the transaction if the email was sent successfully
         mysqli_commit($connection);
-        $ch = curl_init();
-        $message = "Hello ". $adminFullname .", a customer set a schedule. Schedule ID: ".$schedule_id."";
+        // $ch = curl_init();
+        // $message = "Hello ". $adminFullname .", a customer set a schedule. Schedule ID: ".$schedule_id."";
         
 
-        $parameters = array(
-            'apikey' => '0f80734c31373eaa1497d1028b5dd6f1', //Your API KEY
-            'number' => $adminContact,
-            'message' => $message,
-        );
-        curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
-        curl_setopt( $ch, CURLOPT_POST, 1 );
+        // $parameters = array(
+        //     'apikey' => '0f80734c31373eaa1497d1028b5dd6f1', //Your API KEY
+        //     'number' => $adminContact,
+        //     'message' => $message,
+        // );
+        // curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+        // curl_setopt( $ch, CURLOPT_POST, 1 );
 
-        //Send the parameters set above with the request
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
-        // Set cURL options for SSL verification (adjust as needed)
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        // Receive response from server
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-        curl_exec( $ch );
+        // //Send the parameters set above with the request
+        // curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+        // // Set cURL options for SSL verification (adjust as needed)
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        // // Receive response from server
+        // curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        // curl_exec( $ch );
 
         echo '<script>alert("Submitted successfully!");</script>';
     } else {

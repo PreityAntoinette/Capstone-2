@@ -56,36 +56,65 @@
                             <th>Client Name</th>
                             <th>Service</th>
                             <th>Ocassion Type</th>
+                            <th>Shoot Location</th>
+                            <th>Submitted from</th>
                             <th>Date and Time</th>
                             <th>Status</th>
+                            <th>Email</th>
+                            <th>Contact Number</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                 <tbody>
 
-            <?php
+                <?php
                 $i = 1;
                 $sql = mysqli_query($connection, "SELECT * FROM appointment, services, users WHERE appointment.apt_status != 'ARCHIVED' AND appointment.service_id = services.service_id AND appointment.user_id = users.user_id") or die(mysqli_error($connection));
-                    if (mysqli_num_rows($sql) > 0) {
-                        while ($row = mysqli_fetch_array($sql)) {
-                            $id = $row['apt_id'];
-                            $serstat = $row['apt_status'];
-                            $email = $row['email'];
-                            $sername = $row['service_name'];
-                            $apt_occ = $row['apt_occasion_type'];
-                            $serdesc = $row['service_description'];
-                            $serprice = $row['service_price'];
-                            $apt_date = $row['apt_date'];
-                            $dateadd = date("M j, Y", strtotime($row['apt_status_date']));
-                            $dateadd = date("M j, Y", strtotime($row['apt_date_added']));
-            ?>
+
+                if (mysqli_num_rows($sql) > 0) {
+                    while ($row = mysqli_fetch_array($sql)) {
+                        $id = $row['apt_id'];
+                        $serstat = $row['apt_status'];
+                        $email = $row['email'];
+                        $apt_submit_type = $row ['apt_submit_type'];
+                        if($apt_submit_type == 'WALK-IN'){
+                            $clientFullname =  ucwords(strtolower($row['walkin_fullname']));
+                            $clientContact = $row ['walkin_contact'];
+                        }
+                        else{
+                            $clientFullname =  ucwords(strtolower($row['firstname'].' '. $row['surname']));
+                            $clientContact = $row ['contact'];
+                        }
+                        
+                        $sername = $row['service_name'];
+                        $apt_occ = $row['apt_occasion_type'];
+                        $apt_loc = $row['apt_location'];
+                        $serdesc = $row['service_description'];
+                        $apt_submit_type = $row['apt_submit_type'];
+                        $serprice = $row['service_price'];
+                        $apt_date = $row['apt_datetime'];
+                        $dateadd = date("M j, Y ", strtotime($row['apt_status_date']));
+                        $dateadd = date("M j, Y", strtotime($row['apt_date_added']));
+                        
+                        // Check service type and format date accordingly
+                        if ($row['service_type'] === 'BIG') {
+                            $formatted_date = date("M j, Y", strtotime($apt_date));
+                        } else {
+                            $formatted_date = date("M j, Y - g:i A", strtotime($apt_date));
+                        }
+                ?>
                         <tr>
                             <td><?php echo $i++ ?></td>
-                            <td><?php echo ($email);?></td>
-                            <td><?php echo strtoupper($sername);?></td>
-                            <td><?php echo strtoupper($apt_occ);?></td>
-                            <td><?php echo strtoupper($apt_date);?></td>
+                            <td><?php echo ($clientFullname); ?></td>
+                            <td><?php echo strtoupper($sername); ?></td>
+                            <td><?php echo strtoupper($apt_occ); ?></td>
+                            <td><?php echo strtoupper($apt_loc); ?></td>
+                            <td><?php echo strtoupper($apt_submit_type); ?></td>
+                            <td><?php echo $formatted_date; ?></td>
                             <td><?php echo $serstat; ?></td>
+                            <td><?php echo $email; ?></td>
+                            <td><?php echo $clientContact; ?></td>
+
                             <td class="justify-space-evenly">
 
              <!-- view button -->
