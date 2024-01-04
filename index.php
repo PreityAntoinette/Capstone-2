@@ -115,7 +115,6 @@
                 <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $headingParagraph; ?>
                 </p>
-                <!-- <a href="Login.php" class="header__btn-md">Schedule now!</a> -->
                 <div class="add">
                     <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
                 </div>
@@ -344,7 +343,12 @@
             <li><a href="#about">About Us</a></li>
             <!-- <li><a href="#gallery">Gallery</a></li> -->
             <li><a href="#services">Services</a></li>
-            <li><a href="Login.php">Sign up</a></li>
+            <li><div class="add">
+                    <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
+                </div>
+                <?php include ('login_pop_up.php');?></li>
+            
+
         </ul>
     </div>
 </footer>
