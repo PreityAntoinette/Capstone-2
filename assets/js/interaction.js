@@ -1,142 +1,83 @@
-// UI INTERACTION BELOW THIS LINE
-// getting the every user input field
-const userField = document.getElementById("user");
-const id_numField = document.getElementById("id_num");
-const fNameField = document.getElementById("fName");
-const mNameField = document.getElementById("mName");
-const lNameField = document.getElementById("lName");
-const cNumField = document.getElementById("cNum");
-const emailField = document.getElementById("email");
-const passField = document.getElementById("pass");
-const conPassField = document.getElementById("conPass");
-const regisBtn = document.getElementById("register");
+const formFields = {
+    firstname: document.getElementById("firstname"),
+    middlename: document.getElementById("middlename"),
+    surname: document.getElementById("surname"),
+    contact: document.getElementById("contact"),
+    email: document.getElementById("email"),
+    password: document.getElementById("password"),
+    repeat_password: document.getElementById("repeat_password"),
+    termCon: document.getElementById("termCon"),
+    register: document.getElementById("register"),
+};
 
-// Disable input initially
-userField.disabled = false;
-id_numField.disabled = true;
-fNameField.disabled = true;
-mNameField.disabled = true;
-lNameField.disabled = true;
-cNumField.disabled = true;
-emailField.disabled = true;
-passField.disabled = true;
-conPassField.disabled = true;
-regisBtn.disabled = true;
+/// Disable input initially
+Object.values(formFields).forEach((field) => {
+    field.disabled = true;
+});
 
-fNameField.addEventListener("input", function () {
-    if (fNameField.value.trim() === "") {
-        // If ID Number is empty, disable all other fields
-        mNameField.disabled = true;
-        lNameField.disabled = true;
-        cNumField.disabled = true;
-        emailField.disabled = true;
-        passField.disabled = true;
-        conPassField.disabled = true;
+// Enable/disable fields based on input
+function toggleFieldStatus(field, condition) {
+    const fieldsToToggle = {
+        firstname: ["middlename"],
+        middlename: ["surname"],
+        surname: ["contact"],
+        contact: ["email"],
+        email: ["password"],
+        password: ["repeat_password"],
+        repeat_password: ["termCon"],
+        termCon: ["register"],
+    };
 
-        // resetting the value if the user removed the ID number
-        mNameField.value = "";
-        lNameField.value = "";
-        cNumField.value = "";
-        emailField.value = "";
-        passField.value = "";
-        conPassField.value = "";
+    fieldsToToggle[field].forEach((targetField) => {
+        formFields[targetField].disabled = !condition;
+    });
+}
+
+// Add event listeners to each input field
+Object.keys(formFields).forEach((fieldName) => {
+    formFields[fieldName].addEventListener("input", function () {
+        if (this.value.trim() === "") {
+            toggleFieldStatus(fieldName, false);
+        } else {
+            toggleFieldStatus(fieldName, true);
+        }
+    });
+});
+
+// Enable first name field initially
+formFields.firstname.disabled = false;
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@gmail\.com$/i;
+    return emailRegex.test(email);
+}
+
+formFields.email.addEventListener("input", function () {
+    const emailValue = this.value.trim();
+    const isEmailNotEmpty = emailValue !== "";
+    const isEmailValid = isValidEmail(emailValue);
+
+    if (isEmailNotEmpty && isEmailValid) {
+        formFields.password.disabled = false;
+        toggleFieldStatus("email", true);
     } else {
-        // If ID Number is not empty, enable all other fields
-        mNameField.disabled = false;
+        formFields.password.disabled = true;
+        toggleFieldStatus("email", false);
     }
 });
 
-mNameField.addEventListener("input", function () {
-    if (mNameField.value.trim() === "") {
-        // If ID Number is empty, disable all other fields
-        lNameField.disabled = true;
-        cNumField.disabled = true;
-        emailField.disabled = true;
-        passField.disabled = true;
-        conPassField.disabled = true;
+// Validate email format upon form submission
+formFields.register.addEventListener("click", function (event) {
+    const emailValue = formFields.email.value.trim();
+    const isEmailValid = isValidEmail(emailValue);
 
-        // resetting the value if the user removed the ID number
-        lNameField.value = "";
-        cNumField.value = "";
-        emailField.value = "";
-        passField.value = "";
-        conPassField.value = "";
-    } else {
-        // If ID Number is not empty, enable all other fields
-        lNameField.disabled = false;
+    if (!isEmailValid) {
+        event.preventDefault(); // Prevent form submission
+        alert("Please enter a valid Gmail email address.");
     }
 });
 
-lNameField.addEventListener("input", function () {
-    if (lNameField.value.trim() === "") {
-        // If ID Number is empty, disable all other fields
-        cNumField.disabled = true;
-        emailField.disabled = true;
-        passField.disabled = true;
-        conPassField.disabled = true;
-
-        // resetting the value if the user removed the ID number
-        cNumField.value = "";
-        emailField.value = "";
-        passField.value = "";
-        conPassField.value = "";
-    } else {
-        // If ID Number is not empty, enable all other fields
-        cNumField.disabled = false;
-    }
-});
-
-cNumField.addEventListener("input", function () {
-    if (cNumField.value.trim() === "") {
-        // If ID Number is empty, disable all other fields
-        emailField.disabled = true;
-        passField.disabled = true;
-        conPassField.disabled = true;
-
-        // resetting the value if the user removed the ID number
-        emailField.value = "";
-        passField.value = "";
-        conPassField.value = "";
-    } else {
-        // If ID Number is not empty, enable all other fields
-        emailField.disabled = false;
-        passField.disabled = false;
-    }
-});
-
-emailField.addEventListener("input", function () {
-    if (emailField.value.trim() === "") {
-        // If ID Number is empty, disable all other fields
-        passField.disabled = true;
-        conPassField.disabled = true;
-
-        // resetting the value if the user removed the ID number
-        passField.value = "";
-        conPassField.value = "";
-    } else {
-        // If ID Number is not empty, enable all other fields
-        passField.disabled = false;
-    }
-});
-
-passField.addEventListener("input", function () {
-    if (passField.value.trim() === "") {
-        // If ID Number is empty, disable all other fields
-        conPassField.disabled = true;
-
-        // resetting the value if the user removed the ID number
-        conPassField.value = "";
-    } else {
-        // If ID Number is not empty, enable all other fields
-        conPassField.disabled = false;
-    }
-});
-
-conPassField.addEventListener("input", function () {
-    if (conPassField.value.trim() === "") {
-        regisBtn.disabled = true;
-    } else {
-        // If ID Number is not empty, enable all other fields
-        regisBtn.disabled = false;
-    }
+// Special case for termCon checkbox
+formFields.termCon.addEventListener("change", function () {
+    formFields.register.disabled = !this.checked;
 });
