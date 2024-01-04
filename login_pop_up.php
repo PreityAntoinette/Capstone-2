@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
 <div class="modal-overlay" id="login_pop_up">
      <div class="modal-container modal-form-size modal-sm">
         <div class="modal-header text-light">
-            <h4 class="modal-h4-header">Add Services</h4>
+            <h4 class="modal-h4-header" style="visibility: hidden;">Add Services</h4>
             <span class="modal-exit" data-modal-id="login_pop_up">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -95,128 +95,102 @@ if (isset($_POST['submit'])) {
                 </svg>
             </span>
         </div>
-        <div class="modal-body">
-            <div class="modalContent">
-                        <div class="container__login">
-                            <div class="forms">
-                                <div class="form login">
-                                    <span class="title">Login</span>
-
-                                    <form method="POST">
-                                        <div class="input-field">
-                                            <input type="text" name="email" placeholder="Enter your email" required>
-                                            <i class="uil uil-envelope icon"></i>
-                                        </div>
-                                        <div class="input-field">
-                                            <input type="password" name="password" class="password" placeholder="Enter your password" required>
-                                            <i class="uil uil-lock icon"></i>
-                                            <i class="uil uil-eye-slash showHidePw"></i>
-                                        </div>
-
-                                        <div class="checkbox-text">
-                                            <div class="checkbox-content">
-                                                <input type="checkbox" id="logCheck">
-                                                <label for="logCheck" class="text">Remember me</label>
-                                            </div>
-                                            
-                                            <a href="#" class="text">Forgot password?</a>
-                                        </div>
-
-                                        <div class="input-field button">
-                                            <input type="submit" value="Login" name="login">
-                                        </div>
-                                        
-                                    </form>
-
-                                    <div class="login-signup">
-                                        <span class="text">Not a member?
-                                            <a href="#" class="text signup-link">Signup Now</a>
-                                        </span>
-                                    </div>
+        <div class="modal-body-login">
+            <div class="modalContent" >
+                <div class="container__login">
+                    <div class="forms">
+                        <div class="form login">
+                            <span class="title">Login</span>
+                            <form method="POST">
+                                <div class="input-field">
+                                    <input type="text" name="email" placeholder="Enter your email" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" name="password" class="password" placeholder="Enter your password" required>
+                                    <i class="uil uil-lock icon"></i>
+                                    <i class="uil uil-eye-slash showHidePw"></i>
                                 </div>
 
-                                <!-- Registration Form -->
-                                <div class="form signup">
-                                    <span class="title">Registration</span>
-                                    <form method="POST" action="login_pop_up.php">
-
-                                    <div class="input-field">
-                                            <input type="text" name="firstname" placeholder="Enter your first name" required>
-                                            <i class="uil uil-user"></i>
-                                        </div>
-
-                                        <div class="input-field">
-                                            <input type="text" name="middlename" placeholder="Enter your middle name" >
-                                            <i class="uil uil-user"></i>
-                                        </div>
-
-                                        <div class="input-field">
-                                            <input type="text" name="surname" placeholder="Enter your surname" required>
-                                            <i class="uil uil-user"></i>
-                                        </div>
-                                        
-                                        <div class="input-field">
-                                            <input type="int" name="contact" placeholder="Enter your Contact Number" required>
-                                            <i class="uil uil-user"></i>
-                                        </div>
-
-                                        <div class="input-field">
-                                            <input type="text" name="email" placeholder="Enter your email" required>
-                                            <i class="uil uil-envelope icon"></i>
-                                        </div>
-
-                                        <div class="input-field">
-                                            <input type="password" name="password" class="password" placeholder="Create a password" required>
-                                            <i class="uil uil-lock icon"></i>
-                                        </div>
-
-                                        <div class="input-field">
-                                            <input type="password" name="repeat_password" class="password" placeholder="Confirm a password" required>
-
-                                            <i class="uil uil-lock icon"></i>
-                                            <i class="uil uil-eye-slash showHidePw"></i>
-                                        </div>
-                                        
-
-                                        <div class="checkbox-text">
-                                            <div class="checkbox-content">
-                                                <input type="checkbox" id="termCon">
-                                                <label for="termCon" class="text">I accepted all terms and conditions</label>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="input-field button">
-                                            <input type="submit" value="Signup" name="register">
-                                        </div>
-                                    </form>
-
-                                    <div class="login-signup">
-                                        <span class="text">Already a member?
-                                            <a href="#" class="text login-link">Login Now</a>
-                                        </span>
+                                <div class="checkbox-text">
+                                    <div class="checkbox-content">
+                                        <input type="checkbox" id="logCheck">
+                                        <label for="logCheck" class="text">Remember me</label>
                                     </div>
+                                    
+                                    <a href="#" class="text">Forgot password?</a>
                                 </div>
+
+                                <div class="input-field button">
+                                    <input type="submit" value="Login" name="login">
+                                </div>
+                                
+                            </form>
+                            <div class="login-signup">
+                                <span class="text">Not a member?
+                                    <a href="#" class="text signup-link">Signup Now</a>
+                                </span>
                             </div>
                         </div>
+                        <!-- Registration Form -->
+                        <div class="form signup">
+                            <span class="title">Registration</span>
+                            <form method="POST" action="login_pop_up.php">
+                                <div class="input-field">
+                                    <input type="text" name="firstname" id="firstname" placeholder="Enter your first name">
+                                    <i class="uil uil-user"></i>
+                                </div>
 
-                   
+                                <div class="input-field">
+                                    <input type="text" name="middlename" id="middlename" placeholder="Enter your middle name">
+                                    <i class="uil uil-user"></i>
+                                </div>
 
-                    <br />
-                    <!-- <div class="modal-footer">
-                        <button
-                            type="submit"
-                            name="submit_add_resource"
-                            class="btn btn-warning text-dark"
-                            onsubmit="return validate()">
-                            Update
-                        </button>
-                        <button type="reset" class="btn btn-secondary close">Clear</button>
-                    </div> -->
-                    <script src="assets/js/script.js"></script>
-                    <script src="assets/js/interaction.js"></script> 
+                                <div class="input-field">
+                                    <input type="text" name="surname" id="surname" placeholder="Enter your surname">
+                                    <i class="uil uil-user"></i>
+                                </div>
+                                
+                                <div class="input-field">
+                                    <input type="int" name="contact" id="contact" onkeypress="return /[0-9]/i.test(event.key)" maxlength="11" placeholder="Enter your Contact Number">
+                                    <i class="uil uil-user"></i>
+                                </div>
 
-                </form>
+                                <div class="input-field">
+                                    <input type="text" name="email" id="email" placeholder="Enter your email">
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" name="password" id="password" class="password" placeholder="Create a password">
+                                    <i class="uil uil-lock icon"></i>
+                                </div>
+
+                                <div class="input-field">
+                                    <input type="password" name="repeat_password" id="repeat_password" class="password" placeholder="Confirm a password">
+
+                                    <i class="uil uil-lock icon"></i>
+                                    <i class="uil uil-eye-slash showHidePw"></i>
+                                </div>
+                                <div class="checkbox-text">
+                                    <div class="checkbox-content">
+                                        <input type="checkbox" id="termCon">
+                                        <label for="termCon" class="text">I accepted all terms and conditions</label>
+                                    </div>
+                                </div>
+                                <div class="input-field button">
+                                    <input type="submit" value="Signup" name="register" id="register">
+                                </div>
+                                <div class="login-signup">
+                                    <span class="text">Already a member?
+                                        <a href="#" class="text login-link">Login Now</a>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script src="assets/js/script.js"></script>
+                <script src="assets/js/interaction.js"></script>
             </div>
         </div>
     </div>

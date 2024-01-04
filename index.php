@@ -27,11 +27,9 @@
         <ul class="nav__links">
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <!-- <li><a href="#gallery">Gallery</a></li> -->
             <li><a href="#services">Services</a></li>
-
             <li><a href="login_pop_up.php" class="modal-trigger" data-modal-id="login_pop_up">Log in</a></li>
-             <?php include ('login_pop_up.php');?> 
+             <?php include ('login_pop_up.php');?>
                 
         </ul>
         <button class="nav__toggle-btn" id="nav__toggle-open"><i class="uil uil-bars"></i></button>
