@@ -115,7 +115,6 @@
                 <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $headingParagraph; ?>
                 </p>
-                <!-- <a href="Login.php" class="header__btn-md">Schedule now!</a> -->
                 <div class="add">
                     <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
                 </div>

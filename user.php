@@ -48,13 +48,13 @@
                     <ul>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
-                            <p>Dashboard</p>
+                            <p>Home</p>
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">
                                 
                             </span>
-                            <p>My Orders</p>
+                            <p>My History</p>
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
@@ -62,7 +62,7 @@
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
-                            <p>Logout</p>
+                            <p><a href ="logoutmodule/logout.php">Logout</a></p>
                         </li>
                     </ul>
                     </li>
@@ -97,7 +97,6 @@
                 <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences.  Allow us to join you in your every adventure and milestones in life and together, lets treasure every momment.
                 </p>
-                <!-- <a href="Login.php" class="header__btn-md">Schedule now!</a> -->
                 <div class="add">
                     <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
                 </div>
@@ -223,7 +222,7 @@
             <li><a href="#about">About Us</a></li>
             <!-- <li><a href="#gallery">Gallery</a></li> -->
             <li><a href="#services">Services</a></li>
-            <li><a href="Login.php">Sign up</a></li>
+            <li><a href="#">Sign up</a></li>
         </ul>
     </div>
 </footer>
