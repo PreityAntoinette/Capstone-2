@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'database.php';
 
 if (isset($_POST['register'])) {
@@ -51,28 +52,9 @@ if (isset($_POST['login'])) {
         echo '<script> alert("Email does not exist."); </script>';
     }
 }
-
-if (isset($_POST['submit'])) {
-    // The third section using md5 for password hashing, consider updating it to use password_hash
-    $email = $_POST['email'];
-    $myPassword = $_POST['password'];
-    $hashedPassword = password_hash($myPassword, PASSWORD_BCRYPT);
-
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$hashedPassword'";
-    $user = $con->query($sql) or die($con->error);
-    $row = $user->fetch_assoc();
-    $total = $user->num_rows;
-
-    if ($total > 0 && !empty($row['regdate'])) {
-        $_SESSION['UserLogin'] = $row;
-        header('Location: user/user.php');
-    } elseif ($total > 0 && empty($row['regdate'])) {
-        echo '<script> alert("Please verify your Email."); </script>';
-    } else {
-        echo '<script> alert("Incorrect Email/Password."); </script>';
-    }
-}
 ?>
+<!-- Your HTML registration form goes here -->
+
 
 
 <!-- Your HTML modal code goes here -->
