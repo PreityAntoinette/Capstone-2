@@ -1,7 +1,7 @@
 <?php
 require_once 'session.php';
 
-$sqlAppointment = "SELECT * FROM appointment a, services b WHERE a.service_id = b.service_id";
+$sqlAppointment = "SELECT * FROM appointment a, services b WHERE a.service_id = b.service_id AND a.apt_status = 'APPROVED'";
 
 $result = mysqli_query($connection, $sqlAppointment) or die("database error: " . mysqli_error($connection));
 

@@ -1,26 +1,34 @@
 <?php
 require_once 'session.php';
 
-$sqlAppointment = "SELECT * FROM appointment a, services b WHERE a.service_id = b.service_id";
+$sqlAppointment = "SELECT * FROM appointment a
+JOIN services b ON a.service_id = b.service_id
+WHERE a.apt_status IN ('PENDING', 'APPROVED', 'DONE');
+";
 
 $result = mysqli_query($connection, $sqlAppointment) or die("database error: " . mysqli_error($connection));
 
-$Appointment = array();
+$Appointments = array();
 
 while ($rows = mysqli_fetch_assoc($result)) {
-  $apt_date = date("Y-m-d", strtotime($rows["apt_date"]));
-  $apt_id = $rows["apt_id"];
-  $service_name =  $rows["service_name"];
- 
+    $apt_date = date("Y-m-d", strtotime($rows["apt_datetime"]));
+    $apt_id = $rows["apt_id"];
+    $service_name =  $rows["service_name"];
+    $apt_status = $rows["apt_status"];
 
-    $Appointment[] = array(
+    // Determine color based on apt_status
+    $color = ($apt_status === 'PENDING') ? '#ff6363' : (($apt_status === 'APPROVED') ? '#4dc44d' : '');
+
+    $Appointments[] = array(
         "id" => $apt_id,
         "title" => $service_name,
         "start" => $apt_date,
-        "end" => $apt_date
+        "end" => $apt_date,
+        "color" => $color
     );
 }
-    // Return the counts as JSON response
-    header('Content-Type: application/json');
-    echo json_encode($Appointment);
+
+// Return the appointments as JSON response
+header('Content-Type: application/json');
+echo json_encode($Appointments);
 ?>

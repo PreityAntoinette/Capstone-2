@@ -1,4 +1,5 @@
-<?php require_once('session.php');?>
+<?php require_once('session.php');
+include 'calendar_approval.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@
             <!-- Main -->
             <main class="main-container">
                 <div class="main-title">
-                    <p class="font-weight-bold">CALENDAR BOOK HERE</p>
+                    <p class="font-weight-bold">Approve schedule request</p>
                 </div>
                 <!-- CURRENT TIME -->
                 <!-- <div class="d-flex justify-content-start text-nowrap"style="color:gray">
@@ -101,6 +102,11 @@
             },
             contentHeight: "auto",
             fixedWeekCount: false,
+            eventDidMount: function (info) {
+                if (info.event.extendedProps.status === 'PENDING') {
+
+                }
+            }
         });
 
         // When clicking events, show the modal
@@ -128,8 +134,36 @@
             document.body.style.overflow = "auto";
             document.querySelector(".modalContent").innerHTML = "";
         });
+        
             
 });      
+
+            function approve() {
+            var remarkTextarea = document.getElementById('remark');
+            remarkTextarea.removeAttribute('required');
+            var remarkTextarea1 = document.getElementById('remarkContainer');
+            remarkTextarea1.style.display = 'none';
+            console.log('APPROVED radio button selected');
+            
+            var photographer = document.getElementById('photographer');
+            var photographerContainer = document.getElementById('photographerContainer');
+            photographer.setAttribute('required', 'required');
+            photographerContainer.style.display = 'block';     
+
+            }
+            function decline(){
+            var remarkTextarea = document.getElementById('remark');
+            var remarkTextarea1 = document.getElementById('remarkContainer');
+            remarkTextarea.setAttribute('required', 'required');
+            remarkTextarea1.style.display = 'block';
+
+            var photographer = document.getElementById('photographer');
+            var photographerContainer = document.getElementById('photographerContainer');
+            photographer.removeAttribute('required');
+            photographerContainer.style.display = 'none';   
+            }
+
+
         </script>
     </body>
 </html>
