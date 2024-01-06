@@ -14,8 +14,8 @@
     
     <link rel="stylesheet" href="assets/global/css/table.css" />
     <link rel="stylesheet" href="assets/global/css/global.css" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/css/style.css">  <!--Main css of both index and user-->
+    <link rel="stylesheet" href="assets/css/login.css" /> <!--Log in css-->
    
 </head>
 <body>

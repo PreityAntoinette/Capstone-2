@@ -13,12 +13,12 @@
     <!--SWIPERJS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--custom css-->
-    <link rel="stylesheet" href="../assets/css/personalinfo.css"/>
+    <link rel="stylesheet" href="../assets/css/personalinfo.css"/>  <!--css of the pop up profile-->
     <link rel="stylesheet" href="../assets/js/calendar.global.min.js" /> 
     <link rel="stylesheet" href="../assets/global/css/table.css">
     <link rel="stylesheet" href="../assets/global/css/global.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/style.css"> <!--Main css of both index and user-->
+    <link rel="stylesheet" href="../assets/css/login.css"> <!--Log in css-->
    
 </head>
 <body>
