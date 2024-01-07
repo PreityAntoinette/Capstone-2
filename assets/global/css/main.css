@@ -1,0 +1,73 @@
+/*
+    -global css
+    -everything here is globally acceessible 
+    -default css styles 
+*/
+/* default global fonts */
+/* poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap");
+/* samsung font  */
+@font-face {
+    font-family: "samsung"; /* You can choose any name you like */
+    src: url("../SamsungSans-Regular.ttf") format("truetype");
+}
+/* globally accessible colors */
+:root {
+    --darkgreen: hsl(120, 98%, 25%);
+    --darkgreen1: hsl(100, 98%, 27%);
+    --lightgreen: hsl(120, 97%, 30%);
+    --gold: hsl(45, 99%, 46%);
+    --lightgold: hsl(45, 99%, 53%);
+    --whitesmoke: hsl(0, 0%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 25%);
+    --green: hsl(134, 62%, 31%); /*header and nav links hover color*/
+    --green1: hsl(134, 62%, 35%); /* navlink active color */
+    --sidebaractive: hsl(0, 0%, 90%);
+    --sidebarhover: hsl(0, 0%, 88%);
+    --sidebartexthover: hsl(0, 0%, 0%);
+}
+/* reset all html elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: "samsung", poppins, serif, monospace, sans-serif;
+}
+/* default style for the body content */
+body {
+    line-height: 1.5; /* for readability */
+    letter-spacing: 0.0625 rem; /* for readability */
+    background-color: hsl(0, 0%, 96%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+/* sets the color of all radio button into green */
+input[type="checkbox"] {
+    accent-color: var(--green);
+}
+/* 
+insert notes below this code
+
+    Notes @media 
+    36 em -> mobile 
+    48 em -> tablet
+    62 em -> table (lg), desktop (sm)
+    75em  -> desktop
+    87.5em -> larger screen
+
+    Notes: rem to px conversion
+    0.0625 rem = 1px
+    0.125 rem = 2px
+    0.25 rem = 4px
+    0.375 rem = 6px
+    0.5 rem = 8 px
+    0.625 rem = 10px
+    0.75 rem = 12px
+    0.875 rem = 14px
+    1 rem = 16px
+    2 rem = 32 px
+*/

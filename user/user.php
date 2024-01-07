@@ -77,54 +77,31 @@
     <!--============================End of nav bar=========================================-->
 
     <?php
-        $sql = "SELECT heading_title, heading_paragraph, services_paragraph, about_timeopen, about_paragraph, footer FROM website";
-        $result = $connection->query($sql);
+            $sql = "SELECT heading_title, heading_paragraph, services_paragraph, contact, email, about_paragraph FROM website";
+            $result = $connection->query($sql);
 
-        $aboutTimeOpenValues = array();
-
-        if ($result->num_rows > 0) {
-            // Fetch the first row
-            $row = $result->fetch_assoc();
-            $headingTitle = $row['heading_title'];
-            $headingParagraph = $row['heading_paragraph'];
-            $servicesParagraph = $row['services_paragraph'];
-            $aboutParagraph = $row['about_paragraph'];
-            $footer = $row['footer'];
-
-            if (isset($row['about_timeopen']) && is_string($row['about_timeopen'])) {
-                // Split the about_timeopen values by line breaks
-                $timeValues = explode("\n", $row['about_timeopen']);
-
-                // Check if $timeValues is an array
-                if (is_array($timeValues)) {
-                    $aboutTimeOpenValues = $timeValues;
-                }
+            if ($result->num_rows > 0) {
+                // Fetch the first row
+                $row = $result->fetch_assoc();
+                $headingTitle = $row['heading_title'];
+                $headingParagraph = $row['heading_paragraph'];
+                $servicesParagraph = $row['services_paragraph'];
+                $contact=$row['contact'];
+                $email=$row['email'];
+                $aboutParagraph = $row['about_paragraph'];
+            } else {
+                // Default values if no rows are found
+                $headingTitle = "Default Header Title";
+                $headingParagraph = "Default Header Paragraph";
+                $servicesParagraph = "Default Service Paragraph";
+                $contact = "Default Contact";
+                $email = "Default Email";
+                $aboutParagraph = "Default About Paragraph";
             }
 
-            // Fetch the second row
-            $row = $result->fetch_assoc();
-            if (isset($row['about_timeopen']) && is_string($row['about_timeopen'])) {
-                // Split the about_timeopen values by line breaks
-                $timeValues = explode("\n", $row['about_timeopen']);
-
-                // Check if $timeValues is an array
-                if (is_array($timeValues)) {
-                    // Merge the time values into the $aboutTimeOpenValues array
-                    $aboutTimeOpenValues = array_merge($aboutTimeOpenValues, $timeValues);
-                }
-            }
-        } else {
-            $headingTitle = "Default Header Title";
-            $headingParagraph = "Default Header Paragraph";
-            $servicesParagraph = "Default Service Paragraph";
-            $aboutTimeOpenValues = ["Default Time 1", "Default Time 2"];
-            $aboutParagraph = "Default About Paragraph";
-            $footer = "Default Footer";
-        }
-
-        // Close the connection
-        $connection->close();
-        ?>
+            // Close the connection
+            $connection->close();
+            ?>
 
     <header>
         <div class="container header__container">
@@ -245,18 +222,16 @@
                 <div class="about__image-sm">
                     <img src="assets/images/aboutus.jpg" alt="About Lagring Studio">
                 </div> -->
-            <div class="containerb">
+                <div class="containerb">
                 <div class="container-time">
                     <!-- <h2 class="heading">Time Open</h2>
                     <h3 class="heading-days">Monday to Sunday</h3> -->
                     <h1 class="heading-days">Time Open</h1>
                     <ul>
-                        <?php
-                        // Loop through each time value
-                        foreach ($aboutTimeOpenValues as $time) {
-                            echo "<li>$time</li>";
-                        }
-                        ?>
+                       <p>Monday to Sunday</p>
+                       <p>8 am to 5pm</p>
+                       <p>Call us: +63 <?php echo $contact;?></p>
+                       <p>Our email: <?php echo $email;?></p>
                     </ul>
                 </div>
             </div>

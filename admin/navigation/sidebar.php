@@ -194,15 +194,46 @@
             </a>
         </li>
 
-        <li <?php if ($current_page === 'filemanagement.php') echo 'class="navLinkActive"';?>>
-            <a href="filemanagement.php">
-            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 20">
+        <li <?php if (
+                    $current_page === 'service.php' ||
+                    $current_page === 'website.php')
+                    echo 'class="navLinkActive"';?>>
+        <a href="#" id="managementLink">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 20">
                 <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
                 <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Z"/>
             </svg>
             File Management
-            </a>
-        </li>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-caret-right-fill"
+                viewBox="0 0 16 16">
+                <path
+                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+            </svg>
+        </a>
+        
+        <ul class="sub-menu" style="list-style-type: '>';">
+            <hr>
+            <li <?php if ($current_page === 'service.php') echo 'class="navLinkActive"';?>>
+                <a href="service.php" id="equipmentLink">
+                    &#8226;
+                    Service
+                </a>
+            </li>
+            <li <?php if ($current_page === 'website.php') echo 'class="navLinkActive"';?>>
+                <a href="website.php" id="facilityLink">
+                    &#8226;
+                    Website
+                </a>
+            </li>
+        
+            <hr>
+        </ul>
+    </li>
 
         
         <li class="sidebar-list-item">
@@ -233,3 +264,168 @@
 
 </aside>
 <!-- End Sidebar -->
+
+<script>
+    // MANAGEMENT LINK SUB MENU FUNCTION
+    // Get the file management link, sub-menu elements, and the icon element
+    const managementLink = document.getElementById('managementLink');
+    const managementSubMenu = managementLink.nextElementSibling;
+    const managementIcon = managementLink.querySelector('.bi-caret-right-fill');
+
+    // Hide the management sub-menu initially
+    managementSubMenu.style.display = 'none';
+
+    let managementSubmenuVisible = false; // Variable to track management submenu visibility
+
+    // Function to toggle the management submenu and change the icon
+    function toggleManagementSubMenu() {
+        managementSubmenuVisible = !managementSubmenuVisible; // Toggle management submenu visibility
+
+        // Toggle the 'active' class on the parent element to show/hide the management sub-menu
+        managementLink.parentNode.classList.toggle('active');
+
+        // Toggle the display of the management sub-menu
+        managementSubMenu.style.display = managementSubmenuVisible ? 'block' : 'none';
+
+        // Change the icon based on management submenu visibility
+        if (managementIcon) {
+            managementIcon.style.transform = managementSubmenuVisible ? 'rotate(90deg)' : 'rotate(0deg)';
+        }
+    }
+
+    // Add click event listener to the management link
+    managementLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+
+        toggleManagementSubMenu();
+    });
+
+    // Add click event listener to the document body to close management submenu when clicking outside
+    document.body.addEventListener('click', function(event) {
+        const isClickInsideManagementSubMenu = managementSubMenu.contains(event.target);
+        const isClickOnManagementLink = managementLink.contains(event.target);
+
+        if (!isClickInsideManagementSubMenu && !isClickOnManagementLink && managementSubmenuVisible) {
+            toggleManagementSubMenu();
+        }
+    });
+
+    // REPORT LINK SUB MENU FUNCTION
+    // Get the settings link, sub-menu elements, and the icon element
+    document.addEventListener('DOMContentLoaded', function() {
+    const reportLink = document.getElementById('reportLink');
+    const reportMenu = reportLink.nextElementSibling;
+    const reportIcon = reportLink.querySelector('.bi-caret-right-fill');
+
+    reportMenu.style.display = 'none';
+
+    let reportMenuVisible = false;
+
+    function toggleSubMenu() {
+        reportMenuVisible = !reportMenuVisible;
+
+        reportLink.parentNode.classList.toggle('active');
+        reportMenu.style.display = reportMenuVisible ? 'block' : 'none';
+
+        if (reportIcon) {
+            reportIcon.style.transform = reportMenuVisible ? 'rotate(90deg)' : 'rotate(0deg)';
+        }
+    }
+
+    reportLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleSubMenu();
+    });
+
+    document.body.addEventListener('click', function(event) {
+        const isClickInsideReportMenu = reportMenu.contains(event.target);
+        const isClickOnReportLink = reportLink.contains(event.target);
+
+        if (!isClickInsideReportMenu && !isClickOnReportLink && reportMenuVisible) {
+            toggleSubMenu();
+        }
+    });
+});
+
+
+    // SETTINGS LINK SUB MENU FUNCTION
+    // Get the settings link, sub-menu elements, and the icon element
+    const settingsLink = document.getElementById('settingsLink');
+    const subMenu = settingsLink.nextElementSibling;
+    const icon = settingsLink.querySelector('.bi-caret-right-fill');
+
+    // Hide the sub-menu initially
+    subMenu.style.display = 'none';
+
+    let submenuVisible = false; // Variable to track submenu visibility
+
+    // Function to toggle the submenu and change the icon
+    function toggleSubMenu() {
+        submenuVisible = !submenuVisible; // Toggle submenu visibility
+
+        // Toggle the 'active' class on the parent element to show/hide the sub-menu
+        settingsLink.parentNode.classList.toggle('active');
+
+        // Toggle the display of the sub-menu
+        subMenu.style.display = submenuVisible ? 'block' : 'none';
+
+        // Change the icon based on submenu visibility
+        if (icon) {
+            icon.style.transform = submenuVisible ? 'rotate(90deg)' : 'rotate(0deg)';
+        }
+    }
+
+    // Add click event listener to the settings link
+    settingsLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+
+        toggleSubMenu();
+    });
+
+    // Add click event listener to the document body to close submenu when clicking outside
+    document.body.addEventListener('click', function(event) {
+        const isClickInsideSubMenu = subMenu.contains(event.target);
+        const isClickOnSettingsLink = settingsLink.contains(event.target);
+
+        if (!isClickInsideSubMenu && !isClickOnSettingsLink && submenuVisible) {
+            toggleSubMenu();
+        }
+    });
+
+    // ARCHIVED LINK SUB MENU FUNCTION
+    document.addEventListener('DOMContentLoaded', function() {
+        const archivedLink = document.getElementById('archivedLink');
+        const archivedMenu = archivedLink.nextElementSibling;
+        const archivedIcon = archivedLink.querySelector('.bi-caret-right-fill');
+
+        archivedMenu.style.display = 'none';
+
+        let archivedMenuVisible = false;
+
+        function toggleArchivedSubMenu() {
+            archivedMenuVisible = !archivedMenuVisible;
+
+            archivedLink.parentNode.classList.toggle('active');
+            archivedMenu.style.display = archivedMenuVisible ? 'block' : 'none';
+
+            if (archivedIcon) {
+                archivedIcon.style.transform = archivedMenuVisible ? 'rotate(90deg)' : 'rotate(0deg)';
+            }
+        }
+
+        archivedLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleArchivedSubMenu();
+        });
+
+        document.body.addEventListener('click', function(event) {
+            const isClickInsideArchivedMenu = archivedMenu.contains(event.target);
+            const isClickOnArchivedLink = archivedLink.contains(event.target);
+
+            if (!isClickInsideArchivedMenu && !isClickOnArchivedLink && archivedMenuVisible) {
+                toggleArchivedSubMenu();
+            }
+        });
+    });
+
+</script>
