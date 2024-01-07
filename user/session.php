@@ -1,5 +1,5 @@
 <?php
-    require_once('database.php');
+    require_once('../database.php');
     session_start();
     if (isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
@@ -17,7 +17,7 @@
                 }
     } else {
         // User is not logged in, redirect to login page
-        header('Location: logoutmodule/logout.php');
+        header('Location: ../logoutmodule/logout.php');
     }
     
 ?>

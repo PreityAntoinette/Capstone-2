@@ -1,5 +1,5 @@
-<?php require_once('../session.php');
- include '../calendarSubmit.php'; ?>
+<?php require_once('session.php');
+ include 'calendarSubmit.php'; ?>
 <DOCTYPE html>
 <html lang="en">
 <head>
@@ -311,7 +311,7 @@
             initialView: 'dayGridMonth', // Default view
             events:function (fetchInfo, successCallback, failureCallback) {
                 //Function for displaying events in calendar
-                fetch('../calendarFetch.php', {
+                fetch('calendarFetch.php', {
                     method: 'GET',
                 })
                     .then(response => {
