@@ -105,6 +105,7 @@ nav{
     font-size: 2rem;
 }
 .nav__links{
+    margin-top: 3rem;
     display: inline-flex;
     gap: 5rem;
 }
@@ -180,6 +181,7 @@ header {
 	outline: 3px dashed var(--color-primary-variant);
 	outline-offset: -30px;
 	text-align: center;
+    margin-top: -100px;
 }
 .header__left:hover .header__image-sm{
     opacity: 0;
@@ -570,7 +572,8 @@ header {
 
 .footer__container{
     border-top: 0.5rem solid var(--color-bg-4);
-    padding-top: 5rem;
+    padding-top: 2rem;
+    margin-top: 30px;
 }
 
 .footer__head{
@@ -603,6 +606,17 @@ header {
     align-items: center;
     gap: 5rem;
 }
+
+.footerBottom{
+    background-color: #000;
+    margin-top: 2rem;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: white;
+}
+
 
 
 

@@ -8,14 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!--Iconscout cdn-->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--SWIPERJS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--custom css-->
     
     <link rel="stylesheet" href="assets/global/css/table.css" />
     <link rel="stylesheet" href="assets/global/css/global.css" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/css/style.css">  <!--Main css of both index and user-->
+    <link rel="stylesheet" href="assets/css/login.css" /> <!--Log in css-->
    
 </head>
 <body>
@@ -282,8 +283,11 @@
         <div class="footer__head">
             <h2 class="footer__title"><?php echo $footer; ?></h2>
             <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
-        </div>
+        </div>       
     </div>
+    <div class="footerBottom">
+            <p>&copy;2024 Lagring Studio, All Rights Reserved.</p>
+        </div>
 </footer>
 
 <script>
