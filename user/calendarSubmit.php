@@ -1,9 +1,9 @@
 <?php
  require_once 'session.php';
 
- require_once __DIR__ . '/assets/global/vendor/phpmailer/src/Exception.php';
- require_once __DIR__ . '/assets/global/vendor/phpmailer/src/PHPMailer.php';
- require_once __DIR__ . '/assets/global/vendor/phpmailer/src/SMTP.php';
+ require_once  '../assets/global/vendor/phpmailer/src/Exception.php';
+ require_once  '../assets/global/vendor/phpmailer/src/PHPMailer.php';
+ require_once  '../assets/global/vendor/phpmailer/src/SMTP.php';
  use PHPMailer\PHPMailer\PHPMailer;
  use PHPMailer\PHPMailer\SMTP;
  use PHPMailer\PHPMailer\Exception;

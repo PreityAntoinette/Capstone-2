@@ -269,9 +269,9 @@
 
     <script src="../assets/global/js/table.js"></script>
     <script src="../assets/global/js/modal.js"></script>
-    <script src="../https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.min.js "></script>
     <!--swiper js cnd-->
-    <script src="../https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/global/js/services.js"></script>
      <script src="../assets/js/script.js"></script>
@@ -320,7 +320,7 @@
             dateClick: function(info) {
             var selectedDate = new Date(info.dateStr);
             var today = new Date();
-            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (1 - today.getDay()));
+            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (2 - today.getDay()));
 
                 if (selectedDate < lastDay) {
                 // Show a message in the modal for current week dates if the selected dates are later than 1 more current week

@@ -112,7 +112,7 @@ include 'calendarSubmit.php';?>
              dateClick: function(info) {
             var selectedDate = new Date(info.dateStr);
             var today = new Date();
-            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (1 - today.getDay()));
+            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (today.getDay()));
 
                 if (selectedDate < lastDay) {
                 // Show a message in the modal for current week dates if the selected dates are later than 1 more current week
