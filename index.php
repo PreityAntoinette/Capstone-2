@@ -16,11 +16,11 @@ require_once 'database.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lagring Studio</title>
+    <link href="./assets/images/logo.png" rel="icon">
     <!--Google fonts(montserrat)-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!--Iconscout cdn-->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--SWIPERJS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--custom css-->
@@ -50,55 +50,33 @@ require_once 'database.php';
     </nav>
     <!--============================End of nav bar=========================================-->
 
-        <?php
-        $sql = "SELECT heading_title, heading_paragraph, services_paragraph, about_timeopen, about_paragraph, footer FROM website";
-        $result = $connection->query($sql);
+            <?php
+            $sql = "SELECT heading_title, heading_paragraph, services_paragraph, contact, email, about_paragraph FROM website";
+            $result = $connection->query($sql);
 
-        $aboutTimeOpenValues = array();
-
-        if ($result->num_rows > 0) {
-            // Fetch the first row
-            $row = $result->fetch_assoc();
-            $headingTitle = $row['heading_title'];
-            $headingParagraph = $row['heading_paragraph'];
-            $servicesParagraph = $row['services_paragraph'];
-            $aboutParagraph = $row['about_paragraph'];
-            $footer = $row['footer'];
-
-            if (isset($row['about_timeopen']) && is_string($row['about_timeopen'])) {
-                // Split the about_timeopen values by line breaks
-                $timeValues = explode("\n", $row['about_timeopen']);
-
-                // Check if $timeValues is an array
-                if (is_array($timeValues)) {
-                    $aboutTimeOpenValues = $timeValues;
-                }
+            if ($result->num_rows > 0) {
+                // Fetch the first row
+                $row = $result->fetch_assoc();
+                $headingTitle = $row['heading_title'];
+                $headingParagraph = $row['heading_paragraph'];
+                $servicesParagraph = $row['services_paragraph'];
+                $contact=$row['contact'];
+                $email=$row['email'];
+                $aboutParagraph = $row['about_paragraph'];
+            } else {
+                // Default values if no rows are found
+                $headingTitle = "Default Header Title";
+                $headingParagraph = "Default Header Paragraph";
+                $servicesParagraph = "Default Service Paragraph";
+                $contact = "Default Contact";
+                $email = "Default Email";
+                $aboutParagraph = "Default About Paragraph";
             }
 
-            // Fetch the second row
-            $row = $result->fetch_assoc();
-            if (isset($row['about_timeopen']) && is_string($row['about_timeopen'])) {
-                // Split the about_timeopen values by line breaks
-                $timeValues = explode("\n", $row['about_timeopen']);
+            // Close the connection
+            $connection->close();
+            ?>
 
-                // Check if $timeValues is an array
-                if (is_array($timeValues)) {
-                    // Merge the time values into the $aboutTimeOpenValues array
-                    $aboutTimeOpenValues = array_merge($aboutTimeOpenValues, $timeValues);
-                }
-            }
-        } else {
-            $headingTitle = "Default Header Title";
-            $headingParagraph = "Default Header Paragraph";
-            $servicesParagraph = "Default Service Paragraph";
-            $aboutTimeOpenValues = ["Default Time 1", "Default Time 2"];
-            $aboutParagraph = "Default About Paragraph";
-            $footer = "Default Footer";
-        }
-
-        // Close the connection
-        $connection->close();
-        ?>
 
     <header>
         <div class="container header__container">
@@ -269,12 +247,10 @@ require_once 'database.php';
                     <h3 class="heading-days">Monday to Sunday</h3> -->
                     <h1 class="heading-days">Time Open</h1>
                     <ul>
-                        <?php
-                        // Loop through each time value
-                        foreach ($aboutTimeOpenValues as $time) {
-                            echo "<li>$time</li>";
-                        }
-                        ?>
+                       <p>Monday to Sunday</p>
+                       <p>8 am to 5pm</p>
+                       <p>Call us: +63 <?php echo $contact;?></p>
+                       <p>Our email: <?php echo $email;?></p>
                     </ul>
                 </div>
             </div>
@@ -294,7 +270,7 @@ require_once 'database.php';
 <footer>
     <div class="container footer__container">
         <div class="footer__head">
-            <h2 class="footer__title"><?php echo $footer; ?></h2>
+            <h2 class="footer__title">Support <?php echo $email; ?></h2>
             <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
         </div>       
     </div>

@@ -1,0 +1,127 @@
+/* Your custom styles here */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.card-header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 10px;
+    column-count: 2;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.card-body .container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.btn-close {
+    color: #155724;
+}
+
+.btn{
+    align-items: center;
+    appearance: button;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: "RM Neue",sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 10px 21px;
+    margin-top: 10px;
+    margin-left: 390px;
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn:active {
+background-color: #006AE8;
+}
+
+.btn:hover {
+background-color: #1C84FF;
+}
+
+/* Add your custom styles here */
+
+.custom-input-group {
+    display: flex;
+    align-items: center;
+    height: 12rem;
+    width: 30rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.custom-input-group textarea {
+    flex: 1;
+    margin-left: 5px;
+    border: none;
+    resize: none;
+    width: 10rem;
+    height: 10rem;
+}
+
+/* Add any additional styling as needed */
+
+
+/* Add your additional styles here */
+
+/* Add your custom styles here */
+
+.custom-contactus {
+    /* Add any custom styling for the contactus section */
+}
+
+.custom-input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.custom-input-group input {
+    flex: 1;
+    margin-left: 5px;
+    border: none;
+}
+
+/* Add any additional styling as needed */
