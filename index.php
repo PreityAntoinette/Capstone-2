@@ -1,3 +1,15 @@
+<?php  
+session_start();
+    if (isset($_SESSION['user'])) {
+        header ('location: user/user.php');
+    }
+    if (isset($_SESSION['admin'])) {
+        header ('location: admin/admindashboard.php');
+    }
+require_once 'database.php';
+
+
+?>
 <DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +40,9 @@
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="login_pop_up.php" class="modal-trigger" data-modal-id="login_pop_up">Log in</a></li>
-            <?php include ('login_pop_up.php');?>      
+            <li><a href="#" class="modal-trigger" data-modal-id="login_pop_up">Log in</a>
+            <?php include 'login_pop_up.php';?>  </li>
+                
         </ul>
         <button class="nav__toggle-btn" id="nav__toggle-open"><i class="uil uil-bars"></i></button>
         <button class="nav__toggle-btn" id="nav__toggle-close"><i class="uil uil-multiply"></i></button>
@@ -108,7 +121,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $headingParagraph; ?>
                 </p>
                 <div class="add">
-                    <button class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
+                    <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
                 </div>
                 <?php include ('login_pop_up.php');?>
         </div>

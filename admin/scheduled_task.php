@@ -121,7 +121,7 @@
              <a
                 href="#"
                 title="Edit"
-                class="modal-trigger justify-content-center"
+                class="modal-trigger  p-0 m-0 justify-content-center"
                 data-modal-id="<?php echo 'edit'.$id; ?>">
                     <button class="p-1 m-0 btn btn-primary">
                         <svg
@@ -144,7 +144,7 @@
                 href="#"
                 rel="tooltip"
                 title="archive"
-                class="modal-trigger"
+                class="modal-trigger p-0 m-0"
                 data-modal-id="<?php echo 'archive'.$id; ?>">
                     <button class="p-1 m-1 btn btn-warning">
                         <svg

@@ -79,23 +79,25 @@
                     <input type="hidden"   name="apt_id" value="<?php echo $id; ?>" required>
  
                     <div class="modal-footer">
-                        <button type="submit" name="archive_fac" class="btn btn-warning text-dark" >Confirm</button>
+                        <button type="submit" name="<?php echo 'archive_fac'.$id; ?>" class="btn btn-warning text-dark" >Confirm</button>
                         <button class="btn btn-secondary close" data-modal-id="<?php echo 'archive_fac'.$id; ?>">Cancel</button>
                     </div>
                     </form>
             </div>
         </div>
     </div>
-</div>
-   
-
-<?php
-	if (isset($_POST['archive_fac'])) {
+    <?php
+	if (isset($_POST['archive_fac'.$id])) {
         $id = $_POST['apt_id'];
         // Sanitize input
         $id = mysqli_real_escape_string($connection, $id);
         // Insert the resource to the archive and delete it from the current table
         mysqli_query($connection, "UPDATE appointment set apt_status = 'ARCHIVED' WHERE apt_id = '$id'")or die(mysqli_error($connection));
-        echo'<script>alert ("Archived success");</script>';
+        echo'<script>alert ("Archived success");
+        window.location.href = "scheduled_task.php";</script>';
     }
 ?>
+</div>
+   
+
+

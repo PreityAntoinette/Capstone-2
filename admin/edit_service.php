@@ -1,8 +1,8 @@
-<div class="modal-overlay" id="edit_service">
+<div class="modal-overlay" id="<?php echo 'edit_service'.$service_id; ?>">
      <div class="modal-container modal-form-size modal-sm">
         <div class="modal-header text-light">
             <h4 class="modal-h4-header">Edit Services</h4>
-            <span class="modal-exit" data-modal-id="edit_service">
+            <span class="modal-exit" data-modal-id="<?php echo 'edit_service'.$service_id; ?>">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -19,20 +19,47 @@
             <div class="modalContent">
                 <form method="POST" enctype="multipart/form-data">
                     <div class="form-group">
+                    <div class="justify-content-center">
+                    <img src="<?php echo "../assets/global/services_img/" . $image; ?>" width='100 ' height='100'alt="">
 
-                    <input type="hidden" name="serviceId" value="<?php echo $service_id; ?>">
+                    </div>
+                    <input type="hidden" name="service_id" value="<?php echo $service_id; ?>" required>
                         <label for="serviceName">Service Name:</label>
-                        <input type="text" name="service_name" placeholder="<?php echo strtoupper($service_name)?>"/>
+                        <input type="text" name="service_name" required value="<?php echo strtoupper($service_name)?>"/>
                     </div>
                     <div class="form-group">
                         <label for="serviceDescription">Description:</label>
-                        <input class="" type="text" name="service_description" placeholder="<?php echo strtoupper($service_description)?>"/>
+                        <input class="" type="text" name="service_description" required value="<?php echo strtoupper($service_description)?>"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="service_type">Type:</label>
+                        <select name="service_type" id="service_type" required>
+                        <option
+                                value="BIG" <?php echo ($service_type=="BIG")? 'selected':'';?> >
+                                Big (Whole day service)
+                            </option>
+                            <option
+                                value="SMALL" <?php echo ($service_type=="SMALL")? 'selected':'';?> >
+                               Small (30 mins. service)
+                            </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="servicePrice">Price:</label>
-                        <input class="" type="text" name="service_price" placeholder="<?php echo strtoupper($service_price)?>"/>
+                        <input class="" type="text" name="service_price" value="<?php echo strtoupper($service_price)?>"/>
                     </div>
-
+                    <input type="hidden"  name="service_img" value="<?php echo $image; ?>" required>
+                    <div class="form-group">
+                        <label for="service_imgs"> Change Image <i>(5mb max. size)</i></label>
+                        <input
+                        onchange='validate(this)'
+                        type="file"
+                        name="image"
+                        id="file"
+                        class="file-input"
+                        accept="image/*">
+                        <p class="output"></p>
+                    </div>
                 <script>
                     const resourceTypeSelect = document.getElementById('resourceType');
                     const equipmentQuantityDiv = document.getElementById('equipmentQuantity');
@@ -57,7 +84,7 @@
                         <button
                             type="submit"
                             name="edit_service"
-                            class="btn btn-warning text-dark"
+                            class="btn btn-primary "
                             onsubmit="return validate()">
                             Update
                         </button>
@@ -79,15 +106,50 @@
        // $designation = mysqli_real_escape_string($connection, $_POST['designation']);
     
         // Add the resource using prepared statement
-        $insertQuery = $connection->prepare ("UPDATE services SET serviceId = ?, serviceName = ?, serviceDescription = ?, servicePrice = ? WHERE service_id = ?"); 
-        $insertQuery -> bind_param("ssii", $service_name, $service_description, $service_price, $service_id);
-        $insertQuery->execute();
-        if ($insertQuery->execute()){
-            echo '<script>alert("Services updated successfully!");
-            window.location.href = "edit_service.php";
-            </script>';
-        } else {
-            echo '<script>alert("Unexpected Error Encountered! Please try again later!");</script>';
+        if (!empty($_FILES['image']['name'])) {
+            //get the current  image to replace and delete it
+            if (!empty($_POST['service_img'])) {
+               $currentImage = "../assets/global/services_img/" . $_POST['service_img'];
+               if (file_exists($currentImage)) {
+                   unlink($currentImage);
+               }}
+           
+           // Get original image name
+           $image = $_FILES['image']['name'];
+   
+           // Generate a new image name with resources_id
+           $renameImg = $service_id . '_' . $image;
+   
+           // Image file directory
+           $target = "../assets/global/services_img/" . $renameImg;
+   
+           // Move uploaded image to the target directory
+           move_uploaded_file($_FILES['image']['tmp_name'], $target);
+            $insertQuery = $connection->prepare ("UPDATE services SET  service_image = ?, service_name = ?, service_description = ?, service_price = ? WHERE service_id = ?"); 
+            $insertQuery -> bind_param("sssii", $renameImg, $service_name, $service_description, $service_price, $service_id);
+            $insertQuery->execute();
+            if ($insertQuery->execute()){
+                echo '<script>alert("Services updated successfully!");
+                window.location.href = "services.php";
+                </script>';
+            }
+            else {
+                echo '<script>alert("Unexpected Error Encountered! Please try again later!");</script>';
+            }
+            }
+            
+         else {
+            $insertQuery = $connection->prepare ("UPDATE services SET   service_name = ?, service_description = ?, service_price = ? WHERE service_id = ?"); 
+            $insertQuery -> bind_param("ssii", $service_name, $service_description, $service_price, $service_id);
+            $insertQuery->execute();
+            if ($insertQuery->execute()){
+                echo '<script>alert("Services updated successfully!");
+                window.location.href = "services.php";
+                </script>';
+            }
+            else {
+                echo '<script>alert("Unexpected Error Encountered! Please try again later!");</script>';
+            }
         }
     }
 ?>

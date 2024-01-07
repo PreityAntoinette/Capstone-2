@@ -1,63 +1,3 @@
-<?php
-session_start();
-require_once 'database.php';
-
-if (isset($_POST['register'])) {
-    // Registration code with prepared statement and password_hash
-    $firstname = $_POST['firstname'];
-    $middlename = $_POST['middlename'];
-    $surname = $_POST['surname'];
-    $user_contact = $_POST['user_contact'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $role = 'USER';
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
-    $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, user_contact, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)');
-    $sql->bind_param('sssisss', $firstname, $middlename, $surname, $user_contact, $email, $hashed_password, $role);
-
-    if ($sql->execute()) {
-        echo "<script type='text/javascript'> alert('Registered successfully'); </script>";
-    } else {
-        echo "<script type='text/javascript'> alert('Registration Failed'); </script>";
-    }
-}
-
-if (isset($_POST['login'])) {
-    // Login code with prepared statement and password_verify
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $selectQuery = $connection->prepare('SELECT * FROM users WHERE email = ?');
-    $selectQuery->bind_param('s', $email);
-    $selectQuery->execute();
-    $result = $selectQuery->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_object();
-        if (password_verify($password, $row->password)) {
-            if ($row->role == 'USER') {
-                $_SESSION['user'] = $row;
-                header('Location: user/user.php');
-                exit();
-            } elseif ($row->role == 'ADMIN') {
-                $_SESSION['admin'] = $row;
-                header('Location: admin/admindashboard.php');
-                exit();
-            }
-        } else {
-            echo '<script> alert("Wrong password."); </script>';
-        }
-    } else {
-        echo '<script> alert("Email does not exist."); </script>';
-    }
-}
-?>
-<!-- Your HTML registration form goes here -->
-
-
-
-<!-- Your HTML modal code goes here -->
 
 <div class="modal-overlay" id="login_pop_up">
      <div class="modal-container modal-form-size modal-sm">
@@ -116,7 +56,7 @@ if (isset($_POST['login'])) {
                         <!-- Registration Form -->
                         <div class="form signup">
                             <span class="title">Registration</span>
-                            <form method="POST" action="login_pop_up.php">
+                            <form method="POST">
                                 <div class="input-field">
                                     <input type="text" name="firstname" id="firstname" placeholder="Enter your first name">
                                     <i class="uil uil-user"></i>
@@ -172,12 +112,7 @@ if (isset($_POST['login'])) {
                 </div>
                 <script src="assets/js/script.js"></script>
                 <script src="assets/js/interaction.js"></script>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
+                <script>
     function nextStep() {
         var currentStep = document.querySelector('.step.active');
         var nextStep = currentStep.nextElementSibling;
@@ -185,6 +120,87 @@ if (isset($_POST['login'])) {
         currentStep.classList.remove('active');
         nextStep.classList.add('active');
     }
+ if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
 </script>
+            </div>
+        </div>
+    </div>
+    <?php
+
+if (isset($_POST['register'])) {
+    // Registration code with prepared statement and password_hash
+    $firstname = $_POST['firstname'];
+    $middlename = $_POST['middlename'];
+    $surname = $_POST['surname'];
+    $user_contact = $_POST['user_contact'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = 'USER';
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, user_contact, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    $sql->bind_param('sssisss', $firstname, $middlename, $surname, $user_contact, $email, $hashed_password, $role);
+
+    if ($sql->execute()) {
+        echo "<script type='text/javascript'> alert('Registered successfully'); </script>";
+    } else {
+        echo "<script type='text/javascript'> alert('Registration Failed'); </script>";
+    }
+}
+
+if (isset($_POST['login'])) {
+    
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $selectQuery = $connection->prepare('SELECT * FROM users WHERE email = ?');
+    $selectQuery->bind_param('s', $email);
+    $selectQuery->execute();
+    $result = $selectQuery->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_object();
+        if (password_verify($password, $row->password)) {
+            if ($row->role == 'USER') {
+               
+                $_SESSION['user'] = $row;
+                header('Location: user/user.php');
+                echo '<script>
+                window.location.href = "index.php";
+               </script>';
+                exit();
+            } elseif ($row->role == 'ADMIN') {
+               
+                $_SESSION['admin'] = $row;
+                echo '<script>
+                window.location.href = "index.php";
+               </script>';
+                header('Location: admin/admindashboard.php');
+                exit();
+            }
+        } else {
+            echo '<script>
+             alert("Wrong password."); 
+             window.location.href = "index.php";
+            </script>';
+           
+            
+        }
+    } else {
+
+        echo '<script> alert("Email does not exist."); 
+        window.location.href = "index.php";
+        
+        </script>';
+        
+
+    }
+}
+?>
+</div>
+
+
 
 

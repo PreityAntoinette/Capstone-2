@@ -59,7 +59,7 @@
                                         <th>No.</th>
                                         <th>Service ID</th>
                                         <th>Services</th>
-                                        <th>Description</th>
+                                        <!-- <th>Type</th> -->
                                         <th>Price</th>
                                         <th>Actions</th>
                                     </tr>
@@ -71,25 +71,26 @@
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $service_id = $row['service_id'];
-                                        $sername = $row['service_name'];
-                                        $serdesc = $row['service_description'];
-                                        $serprice = $row['service_price'];
+                                        $service_name = $row['service_name'];
+                                        $service_type = $row['service_type'];
+                                        $service_description = $row['service_description'];
+                                        $image = $row ['service_image'];
+                                        $service_price = $row['service_price'];
                                         $dateadd = date("M j, Y", strtotime($row['service_date_added']));
                                         
                                     ?>
                                     <tr>
-                                        <td><?php echo $i++ ?></td>
-                                        <td><?php echo strtoupper($service_id);?></td>
-                                        <td><?php echo strtoupper($sername);?></td>
-                                        <td><?php echo ($serdesc);?></td>
-                                        <td><?php echo $serprice; ?></td>
+                                        <td><p><?php echo $i++ ?></p></td>
+                                        <td><p><?php echo strtoupper($service_id);?></p></td>
+                                        <td><p><?php echo strtoupper($service_name);?></p></td>
+                                        <!-- <td><p><?php echo ($service_type);?></p></td> -->
+                                        <td><p><?php echo $service_price; ?></p></td>
                                         <td class="justify-space-evenly">
-        <!-- view button -->
                                             <a
                                                 href="#"
                                                 title="Edit"
-                                                class="modal-trigger justify-content-center"
-                                                data-modal-id="edit_service" <?php echo 'Services'.$id; ?>>
+                                                class="modal-trigger justify-content-center p-0 m-0"
+                                                data-modal-id="<?php echo 'edit_service'.$service_id; ?>">
                                                 <button class="p-1 m-0 btn btn-primary">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg" 
@@ -112,9 +113,9 @@
                                                 href="#"
                                                 rel="tooltip"
                                                 title="archive"
-                                                class="modal-trigger"
+                                                class="modal-trigger p-0 m-0"
                                                 data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-warning">
+                                                    <button class="p-1 m-1 btn btn-dark">
                                                         <svg
                                                             width="25px"
                                                             height="25px"
@@ -142,14 +143,14 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        // include('services_modals');
+                               include ('edit_service.php');
                                     }}
                                     else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
                         </div>
-                        <?php include ('edit_service.php');?>
+                        
 
                         <!-- table pagination -->
                         <div class="pagination-container">
