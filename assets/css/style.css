@@ -607,6 +607,17 @@ header {
     gap: 5rem;
 }
 
+.footerBottom{
+    background-color: #000;
+    margin-top: 2rem;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: white;
+}
+
+
 
 
 
