@@ -17,11 +17,10 @@
         </div>
         <div class="modal-body">
             <div class="modalContent">
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data"  onsubmit="return validateForm()">
                     <div class="form-group">
                     <div class="justify-content-center">
-                    <img src="<?php echo "../assets/global/services_img/" . $image; ?>" width='100 ' height='100'alt="">
-
+                        <img src="<?php echo "../assets/global/services_img/" . htmlspecialchars($image); ?>" width='100' height='100' alt="">
                     </div>
                     <input type="hidden" name="service_id" value="<?php echo $service_id; ?>" required>
                         <label for="serviceName">Service Name:</label>
@@ -97,59 +96,63 @@
 </div>
 
 <?php
-	if (isset($_POST['edit_service'])) {
-        $service_id = mysqli_real_escape_string($connection, $_POST['service_id']);
-        $service_name = mysqli_real_escape_string($connection, $_POST['service_name']);
-        $service_description = mysqli_real_escape_string($connection, $_POST['service_description']);
-        $service_price = mysqli_real_escape_string($connection, $_POST['service_price']);
-       // $sex = mysqli_real_escape_string($connection, $_POST['sex']);
-       // $designation = mysqli_real_escape_string($connection, $_POST['designation']);
-    
-        // Add the resource using prepared statement
-        if (!empty($_FILES['image']['name'])) {
-            //get the current  image to replace and delete it
-            if (!empty($_POST['service_img'])) {
-               $currentImage = "../assets/global/services_img/" . $_POST['service_img'];
-               if (file_exists($currentImage)) {
-                   unlink($currentImage);
-               }}
-           
-           // Get original image name
-           $image = $_FILES['image']['name'];
-   
-           // Generate a new image name with resources_id
-           $renameImg = $service_id . '_' . $image;
-   
-           // Image file directory
-           $target = "../assets/global/services_img/" . $renameImg;
-   
-           // Move uploaded image to the target directory
-           move_uploaded_file($_FILES['image']['tmp_name'], $target);
-            $insertQuery = $connection->prepare ("UPDATE services SET  service_image = ?, service_name = ?, service_description = ?, service_price = ? WHERE service_id = ?"); 
-            $insertQuery -> bind_param("sssii", $renameImg, $service_name, $service_description, $service_price, $service_id);
-            $insertQuery->execute();
-            if ($insertQuery->execute()){
-                echo '<script>alert("Services updated successfully!");
-                window.location.href = "services.php";
-                </script>';
-            }
-            else {
-                echo '<script>alert("Unexpected Error Encountered! Please try again later!");</script>';
-            }
-            }
-            
-         else {
-            $insertQuery = $connection->prepare ("UPDATE services SET   service_name = ?, service_description = ?, service_price = ? WHERE service_id = ?"); 
-            $insertQuery -> bind_param("ssii", $service_name, $service_description, $service_price, $service_id);
-            $insertQuery->execute();
-            if ($insertQuery->execute()){
-                echo '<script>alert("Services updated successfully!");
-                window.location.href = "services.php";
-                </script>';
-            }
-            else {
-                echo '<script>alert("Unexpected Error Encountered! Please try again later!");</script>';
+if (isset($_POST['edit_service'])) {
+    $service_id = mysqli_real_escape_string($connection, $_POST['service_id']);
+    $service_name = mysqli_real_escape_string($connection, $_POST['service_name']);
+    $service_description = mysqli_real_escape_string($connection, $_POST['service_description']);
+    $service_price = mysqli_real_escape_string($connection, $_POST['service_price']);
+
+    // Check if a new image is uploaded
+    if (!empty($_FILES['image']['name'])) {
+        // Get the current image to replace and delete it
+        if (!empty($_POST['service_img'])) {
+            $currentImage = "../assets/global/services_img/" . $_POST['service_img'];
+            if (file_exists($currentImage)) {
+                unlink($currentImage);
             }
         }
+
+        // Get original image name
+        $image = $_FILES['image']['name'];
+
+        // Image file directory
+        $target = "../assets/global/services_img/" . $image;
+
+        // Move uploaded image to the target directory
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+            // Copy the image to the 'services_images' folder
+            $destinationFolder = "../assets/global/services_images/" . $image;
+            copy($target, $destinationFolder);
+
+            // Image successfully copied
+            // Update the database using prepared statement
+            $insertQuery = $connection->prepare("UPDATE services SET service_image = ?, service_name = ?, service_description = ?, service_price = ? WHERE service_id = ?");
+            $insertQuery->bind_param("sssii", $image, $service_name, $service_description, $service_price, $service_id);
+
+            if ($insertQuery->execute()) {
+                echo '<script>alert("Services updated successfully!"); window.location.href = "services.php";</script>';
+            } else {
+                echo '<script>alert("Unexpected Error Encountered! Please try again later!");</script>';
+            }
+        } else {
+            // Image failed to move
+            echo '<script>alert("Failed to move the uploaded image!");</script>';
+        }
+    } else {
+        // If no new image is uploaded, use the existing image name
+        $image = $_POST['service_img'];
+
+        // Update the database using prepared statement
+        $insertQuery = $connection->prepare("UPDATE services SET service_image = ?, service_name = ?, service_description = ?, service_price = ? WHERE service_id = ?");
+        $insertQuery->bind_param("sssii", $image, $service_name, $service_description, $service_price, $service_id);
+
+        if ($insertQuery->execute()) {
+            echo '<script>alert("Services updated successfully!"); window.location.href = "services.php";</script>';
+        } else {
+            echo '<script>alert("Unexpected Error Encountered! Please try again later!");</script>';
+        }
     }
+}
 ?>
+
+

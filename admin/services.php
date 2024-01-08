@@ -59,8 +59,10 @@
                                         <th>No.</th>
                                         <th>Service ID</th>
                                         <th>Services</th>
+                                        <th>Service Description</th>
                                         <!-- <th>Type</th> -->
                                         <th>Price</th>
+                                        <th>Images</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -83,9 +85,11 @@
                                         <td><p><?php echo $i++ ?></p></td>
                                         <td><p><?php echo strtoupper($service_id);?></p></td>
                                         <td><p><?php echo strtoupper($service_name);?></p></td>
+                                        <td class= "service_description_td"><p><?php echo strtoupper($service_description);?></p></td>
                                         <!-- <td><p><?php echo ($service_type);?></p></td> -->
                                         <td><p><?php echo $service_price; ?></p></td>
-                                        <td class="justify-space-evenly">
+                                        <td><p><?php echo "<img class='img-fluid' src='/Lagring-Studio-Scheduling-System/assets/global/services_images/" . $image . "'style='width:40px; height:80px'' alt='Service Image'>";?></p></td>
+                                        <td class="justify-space-evenly" style=" text-align: center; margin-top: 10px; border: none;">
                                             <a
                                                 href="#"
                                                 title="Edit"

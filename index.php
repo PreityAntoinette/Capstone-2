@@ -183,47 +183,50 @@ require_once 'database.php';
     </div>
 </section>
 
-<?php
-        $column_name = "service_name"; // Replace with the actual column name for service_name
-        $column_description = "service_description"; // Replace with the actual column name for service_description
-        $targetRow = 2023001; // Replace with the ID of the row you want to start retrieving
 
-        $connection = new mysqli("localhost", "root", "", "lagring_studio_db");
+                <?php
+                $column_name = "service_name"; // Replace with the actual column name for service_name
+                $column_description = "service_description"; // Replace with the actual column name for service_description
+                $column_images = "service_image"; // Replace with the actual column name for images
+                $targetRow = 2023001; // Replace with the ID of the row you want to start retrieving
 
-        if ($connection->connect_error) {
-            die("Connection failed: " . $connection->connect_error);
-        }
+                $connection = new mysqli("localhost", "root", "", "lagring_studio_db");
 
-        // Fetch all data at once
-        $sql = "SELECT $column_name, $column_description FROM services WHERE service_id BETWEEN $targetRow AND " . ($targetRow + 9);
-        $result = $connection->query($sql);
+                if ($connection->connect_error) {
+                    die("Connection failed: " . $connection->connect_error);
+                }
 
-        if (!$result) {
-            die("Error in SQL query: " . $connection->error);
-        }
+                // Fetch all data at once
+                $sql = "SELECT $column_name, $column_description, $column_images FROM services WHERE service_id BETWEEN $targetRow AND " . ($targetRow + 9);
+                $result = $connection->query($sql);
 
-        $dataArray = [];
+                if (!$result) {
+                    die("Error in SQL query: " . $connection->error);
+                }
 
-        while ($row = $result->fetch_assoc()) {
-            $dataArray[] = $row;
-        }
+                $dataArray = [];
 
-        $connection->close();
-        ?>
+                while ($row = $result->fetch_assoc()) {
+                    $dataArray[] = $row;
+                }
 
-        <div class="card__container">
-            <?php for ($i = 0; $i < count($dataArray); $i++) : ?>
-                <div class="card__index">
-                    <img src="assets/images/services<?php echo $i + 1; ?>.jpg" alt="">
-                    <div class="card__content">
-                        <h3><?php echo $dataArray[$i][$column_name]; ?></h3>
-                        <p><?php echo $dataArray[$i][$column_description]; ?></p>
-                        <!-- Add your other content here -->
-                        <a href="" class="Btn">Read More</a>
-                    </div>
+                $connection->close();
+                ?>
+
+                <div class="card__container">
+                    <?php for ($i = 0; $i < count($dataArray); $i++) : ?>
+                        <div class="card__index">
+                            <img src="assets/global/services_images/<?php echo $dataArray[$i][$column_images]; ?>" alt="">
+                            <div class="card__content">
+                                <h3><?php echo $dataArray[$i][$column_name]; ?></h3>
+                                <p><?php echo $dataArray[$i][$column_description]; ?></p>
+                                <!-- Add your other content here -->
+                                <a href="" class="Btn">Read More</a>
+                            </div>
+                        </div>
+                    <?php endfor; ?>
                 </div>
-            <?php endfor; ?>
-        </div>
+
 <!--=============================END OF SERVICES==========================-->
 
 <section id="about">

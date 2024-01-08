@@ -13,7 +13,13 @@
     align-items: center;
     border-top: 1px solid #cafaca77;
 }
-
+.service_description_td{
+    width: 100%;
+    margin-bottom: 2px;
+    color: #212529;
+    border-collapse: collapse;
+    white-space: normal;
+}
 .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #cafaca77;
@@ -26,6 +32,16 @@
 .table tbody + tbody {
     border-top: 2px solid #cafaca77;
 }
+
+/* Add this style to your existing CSS */
+#table1 tbody tr:nth-child(odd) {
+    background-color: #73847377; /* Grey color for odd rows */
+}
+
+#table1 tbody tr:nth-child(even) {
+    background-color: #ffffff; /* White color for even rows */
+}
+
 
 .table-sm th,
 .table-sm td {
