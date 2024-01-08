@@ -18,39 +18,39 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lagring_studio_db`
+-- Database: lagring_studio_db
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointment`
+-- Table structure for table appointment
 --
 
-DROP TABLE IF EXISTS `appointment`;
-CREATE TABLE IF NOT EXISTS `appointment` (
-  `apt_id` int NOT NULL AUTO_INCREMENT,
-  `schedule_id` varchar(255) DEFAULT NULL,
-  `user_id` int NOT NULL,
-  `service_id` int NOT NULL,
-  `apt_occasion_type` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `apt_datetime` datetime NOT NULL,
-  `apt_location` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `apt_status` varchar(200) NOT NULL DEFAULT 'PENDING',
-  `apt_remark` varchar(500) NOT NULL DEFAULT 'Please wait for approval.',
-  `apt_status_date` datetime DEFAULT NULL,
-  `apt_date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `apt_photographer` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`apt_id`),
-  KEY `service_id` (`service_id`),
-  KEY `user_id` (`user_id`)
+DROP TABLE IF EXISTS appointment;
+CREATE TABLE IF NOT EXISTS appointment (
+  apt_id int NOT NULL AUTO_INCREMENT,
+  schedule_id varchar(255) DEFAULT NULL,
+  user_id int NOT NULL,
+  service_id int NOT NULL,
+  apt_occasion_type varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  apt_datetime datetime NOT NULL,
+  apt_location varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  apt_status varchar(200) NOT NULL DEFAULT 'PENDING',
+  apt_remark varchar(500) NOT NULL DEFAULT 'Please wait for approval.',
+  apt_status_date datetime DEFAULT NULL,
+  apt_date_added datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  apt_photographer varchar(255) DEFAULT NULL,
+  PRIMARY KEY (apt_id),
+  KEY service_id (service_id),
+  KEY user_id (user_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `appointment`
+-- Dumping data for table appointment
 --
 
-INSERT INTO `appointment` (`apt_id`, `schedule_id`, `user_id`, `service_id`, `apt_occasion_type`, `apt_datetime`, `apt_location`, `apt_status`, `apt_remark`, `apt_status_date`, `apt_date_added`, `apt_photographer`) VALUES
+INSERT INTO appointment (apt_id, schedule_id, user_id, service_id, apt_occasion_type, apt_datetime, apt_location, apt_status, apt_remark, apt_status_date, apt_date_added, apt_photographer) VALUES
 (14, NULL, 15, 2023006, '', '1970-01-01 00:00:00', '', 'PENDING', 'Please wait for approval.', NULL, '2024-01-04 12:44:02', NULL),
 (22, NULL, 15, 2023002, '', '2024-01-18 23:59:59', '', 'DECLINED', 'ok', '2024-01-04 16:01:55', '2024-01-04 13:29:06', ''),
 (23, NULL, 15, 2023003, '', '2024-01-18 00:00:00', '', 'APPROVED', '', '2024-01-04 15:59:43', '2024-01-04 13:29:19', 'CLYDE'),
@@ -65,23 +65,23 @@ INSERT INTO `appointment` (`apt_id`, `schedule_id`, `user_id`, `service_id`, `ap
 -- --------------------------------------------------------
 
 --
--- Table structure for table `photographer`
+-- Table structure for table photographer
 --
 
-DROP TABLE IF EXISTS `photographer`;
-CREATE TABLE IF NOT EXISTS `photographer` (
-  `photographer_id` int NOT NULL AUTO_INCREMENT,
-  `photographer_fullname` varchar(255) NOT NULL,
-  `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `photographer_status` varchar(255) NOT NULL DEFAULT 'ACTIVE',
-  PRIMARY KEY (`photographer_id`)
+DROP TABLE IF EXISTS photographer;
+CREATE TABLE IF NOT EXISTS photographer (
+  photographer_id int NOT NULL AUTO_INCREMENT,
+  photographer_fullname varchar(255) NOT NULL,
+  date_added datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  photographer_status varchar(255) NOT NULL DEFAULT 'ACTIVE',
+  PRIMARY KEY (photographer_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `photographer`
+-- Dumping data for table photographer
 --
 
-INSERT INTO `photographer` (`photographer_id`, `photographer_fullname`, `date_added`, `photographer_status`) VALUES
+INSERT INTO photographer (photographer_id, photographer_fullname, date_added, photographer_status) VALUES
 (1, 'JAYSON', '2024-01-04 14:44:06', 'ACTIVE'),
 (2, 'FAITH', '2024-01-04 14:44:06', 'ACTIVE'),
 (3, 'CLYDE', '2024-01-04 14:44:06', 'ACTIVE'),
@@ -90,26 +90,26 @@ INSERT INTO `photographer` (`photographer_id`, `photographer_fullname`, `date_ad
 -- --------------------------------------------------------
 
 --
--- Table structure for table `services`
+-- Table structure for table services
 --
 
-DROP TABLE IF EXISTS `services`;
-CREATE TABLE IF NOT EXISTS `services` (
-  `service_id` int NOT NULL AUTO_INCREMENT,
-  `service_name` varchar(250) NOT NULL,
-  `service_description` varchar(500) NOT NULL,
-  `service_type` varchar(200) NOT NULL,
-  `service_price` int DEFAULT NULL,
-  `service_date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `archived_flag` int NOT NULL,
-  PRIMARY KEY (`service_id`)
+DROP TABLE IF EXISTS services;
+CREATE TABLE IF NOT EXISTS services (
+  service_id int NOT NULL AUTO_INCREMENT,
+  service_name varchar(250) NOT NULL,
+  service_description varchar(500) NOT NULL,
+  service_type varchar(200) NOT NULL,
+  service_price int DEFAULT NULL,
+  service_date_added datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  archived_flag int NOT NULL,
+  PRIMARY KEY (service_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=2023012 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `services`
+-- Dumping data for table services
 --
 
-INSERT INTO `services` (`service_id`, `service_name`, `service_description`, `service_type`, `service_price`, `service_date_added`, `archived_flag`) VALUES
+INSERT INTO services (service_id, service_name, service_description, service_type, service_price, service_date_added, archived_flag) VALUES
 (2023001, 'Portraits\r\n(Whole/Half Body)', '4r(2pcs)', 'SMALL', 120, '2023-11-29 18:58:11', 1),
 (2023002, 'Graduation Picture', '8r(1pc) 3r(1pc) 2r(4pcs)', 'BIG', 300, '2023-11-29 19:01:31', 1),
 (2023003, 'Family Package A', '8r(1pc) 3r(1pc) 2r(4pcs)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
@@ -124,52 +124,52 @@ INSERT INTO `services` (`service_id`, `service_name`, `service_description`, `se
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table users
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(200) NOT NULL,
-  `middlename` varchar(200) NOT NULL,
-  `surname` varchar(200) NOT NULL,
-  `registration_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `contact` bigint NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `role` varchar(200) NOT NULL,
-  PRIMARY KEY (`user_id`)
+DROP TABLE IF EXISTS users;
+CREATE TABLE IF NOT EXISTS users (
+  user_id int NOT NULL AUTO_INCREMENT,
+  firstname varchar(200) NOT NULL,
+  middlename varchar(200) NOT NULL,
+  surname varchar(200) NOT NULL,
+  registration_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  contact bigint NOT NULL,
+  email varchar(200) NOT NULL,
+  password varchar(200) NOT NULL,
+  role varchar(200) NOT NULL,
+  PRIMARY KEY (user_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table users
 --
 
-INSERT INTO `users` (`user_id`, `firstname`, `middlename`, `surname`, `registration_date`, `contact`, `email`, `password`, `role`) VALUES
+INSERT INTO users (user_id, firstname, middlename, surname, registration_date, contact, email, password, role) VALUES
 (2, 'Admin', 'Mname', 'Surname', '2023-10-22 16:45:44', 9271234570, 'Lagringstudio1@gmail.com', '$2y$10$OMyazDWKGNERSJW6KIfPIuZG1/ajR/tnen0g5q/zMoOm4cteM4EjK', 'ADMIN'),
 (15, 'fname', 'mname', 'sname', '2023-11-28 23:48:10', 9271234570, 'clyde.solas@cvsu.edu.ph', '$2y$10$AycJciKiIN1xK6pxtFpXpeT8iQAMIysmH6W7MZ1aWWUwEZ0QyZttK', 'USER');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `website`
+-- Table structure for table website
 --
 
-DROP TABLE IF EXISTS `website`;
-CREATE TABLE IF NOT EXISTS `website` (
-  `heading_title` varchar(200) NOT NULL,
-  `heading_paragraph` varchar(500) NOT NULL,
-  `services_paragraph` varchar(200) NOT NULL,
-  `about_timeopen` varchar(500) NOT NULL,
-  `about_paragraph` varchar(1000) NOT NULL,
-  `footer` varchar(200) NOT NULL
+DROP TABLE IF EXISTS website;
+CREATE TABLE IF NOT EXISTS website (
+  heading_title varchar(200) NOT NULL,
+  heading_paragraph varchar(500) NOT NULL,
+  services_paragraph varchar(200) NOT NULL,
+  about_timeopen varchar(500) NOT NULL,
+  about_paragraph varchar(1000) NOT NULL,
+  footer varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `website`
+-- Dumping data for table website
 --
 
-INSERT INTO `website` (`heading_title`, `heading_paragraph`, `services_paragraph`, `about_timeopen`, `about_paragraph`, `footer`) VALUES
+INSERT INTO website (heading_title, heading_paragraph, services_paragraph, about_timeopen, about_paragraph, footer) VALUES
 ('Capture every moment with us', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 'The following are our budget friendly but quality services. Contact us for more details. Book now!', 'Monday to Sunday\r\n8am to 5pm', ' The backround of Lagring Studio way back in 2010, There was a woman named Alegria Garcia who established a photo studio in Salitran and named the studio \"Lagring Studio\". Alegria “Lagring” Garcia is a mother of 4 child. The humble start of Lagring Studio shows that persistence is important if you want to be successful.\r\n\r\n    The business started with a small studio offering ID pictures, photo and video packages to events.The studio also sold frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.', 'Support Lagringstudio@gmail.com'),
 ('', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', '', 'Call Us: +63915 229 824\r\nOur Email: Lagringstudio@gmail.com', '', '');
 
@@ -178,11 +178,11 @@ INSERT INTO `website` (`heading_title`, `heading_paragraph`, `services_paragraph
 --
 
 --
--- Constraints for table `appointment`
+-- Constraints for table appointment
 --
-ALTER TABLE `appointment`
-  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`),
-  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+ALTER TABLE appointment
+  ADD CONSTRAINT appointment_ibfk_1 FOREIGN KEY (service_id) REFERENCES services (service_id),
+  ADD CONSTRAINT appointment_ibfk_2 FOREIGN KEY (user_id) REFERENCES users (user_id);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
