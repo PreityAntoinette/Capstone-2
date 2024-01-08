@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 08, 2024 at 04:45 AM
+-- Generation Time: Jan 08, 2024 at 11:41 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -115,16 +115,16 @@ CREATE TABLE IF NOT EXISTS `services` (
 --
 
 INSERT INTO `services` (`service_id`, `service_name`, `service_image`, `service_description`, `service_type`, `service_price`, `service_date_added`, `archived_flag`) VALUES
-(2023001, 'Portraits\r\n(Whole/Half Body)', '', '4r(2pcs)', 'SMALL', 120, '2023-11-29 18:58:11', 1),
-(2023002, 'Graduation Picture', '', '8r(1pc) 3r(1pc) 2r(4pcs)', 'BIG', 300, '2023-11-29 19:01:31', 1),
-(2023003, 'Family Package A', '', '8r(1pc) 3r(1pc) 2r(4pcs)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
-(2023004, 'Family Package B', '', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 'SMALL', 350, '2023-11-29 19:05:42', 1),
-(2023005, 'Digital Package', '', 'Unlimited Shots,\r\n8x12(40pcs) w/ layout & album,\r\nVideo Coverage 2pcs flash-drives,\r\nFree 1pc 16x20 Blow up pic w/ frame plus 1 free signature frame ', 'SMALL', NULL, '2023-11-29 19:07:48', 1),
-(2023006, 'Special Package', '', 'Unlimited Shots,\r\n5r(100pcs) w/ layout & Album,\r\nVideo Coverage 2pcs flash-drives,\r\nFREE 11x14 blow up pic w/ frame and signature frame(1pc)', 'SMALL', NULL, '2023-11-29 19:21:10', 1),
-(2023007, 'Regular Package', '', 'Unlimited Shots,\r\n5r(80pcs) & album,\r\nVideo coverage 1 flash-drive', 'SMALL', NULL, '2023-11-29 19:28:11', 1),
-(2023008, 'Budget Package', '', 'Unlimited Shots,\r\n5r(100pcs)', 'SMALL', NULL, '2023-11-29 19:30:35', 1),
-(2023009, 'Hire a Photographer', '', 'Photo only', 'BIG', NULL, '2023-11-29 19:34:15', 1),
-(2023010, 'Hire a Video Grapher', '', 'Video Only', 'BIG', NULL, '2023-11-29 19:35:26', 1),
+(2023001, 'PORTRAITS(WHOLE/HALF BODY)', '8818865565693399cb471c4eefc1dfe3.jpg', '4R(2PCS)', 'SMALL', 120, '2023-11-29 18:58:11', 1),
+(2023002, 'GRADUATION PICTURE', '8818865565693399cb471c4eefc1dfe3.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'BIG', 300, '2023-11-29 19:01:31', 1),
+(2023003, 'FAMILY PACKAGE A', '8818865565693399cb471c4eefc1dfe3.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
+(2023004, 'Family Package B', '2023004_familypackageb.jpg', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 'SMALL', 350, '2023-11-29 19:05:42', 1),
+(2023005, 'Digital Package', '2023005_digitalpackage.jpg', 'Unlimited Shots,\r\n8x12(40pcs) w/ layout & album,\r\nVideo Coverage 2pcs flash-drives,\r\nFree 1pc 16x20 Blow up pic w/ frame plus 1 free signature frame ', 'SMALL', NULL, '2023-11-29 19:07:48', 1),
+(2023006, 'Special Package', '2023006_specialpackage.jpg', 'Unlimited Shots,\r\n5r(100pcs) w/ layout & Album,\r\nVideo Coverage 2pcs flash-drives,\r\nFREE 11x14 blow up pic w/ frame and signature frame(1pc)', 'SMALL', NULL, '2023-11-29 19:21:10', 1),
+(2023007, 'Regular Package', '2023007_regularpackage.jpg', 'Unlimited Shots,\r\n5r(80pcs) & album,\r\nVideo coverage 1 flash-drive', 'SMALL', NULL, '2023-11-29 19:28:11', 1),
+(2023008, 'Budget Package', '2023008_budgetpackage.jpg', 'Unlimited Shots,\r\n5r(100pcs)', 'SMALL', NULL, '2023-11-29 19:30:35', 1),
+(2023009, 'Hire a Photographer', '2023009_photo_videopackage.jpg', 'Photo only', 'BIG', NULL, '2023-11-29 19:34:15', 1),
+(2023010, 'Hire a Video Grapher', '2023009_photo_videopackage.jpg', 'Video Only', 'BIG', NULL, '2023-11-29 19:35:26', 1),
 (2023012, '23423', 'soundsystem.jpg', '324234', 'BIG', 3, '2024-01-04 20:18:37', 1);
 
 -- --------------------------------------------------------
@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `website` (
 --
 
 INSERT INTO `website` (`website_content_id`, `heading_title`, `heading_paragraph`, `contact`, `email`, `services_paragraph`, `about_paragraph`, `heading_image`) VALUES
-(1, 'Capture every moment with us', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 961399203, 'lagringstudio@gmail.com', 'The following are our budget friendly but quality services. Contact us for more details. Book now!', ' The backround of Lagring Studio way back in 2010, There was a woman named Alegria Garcia who established a photo studio in Salitran and named the studio \"Lagring Studio\". Alegria “Lagring” Garcia is a mother of 4 child. The humble start of Lagring Studio shows that persistence is important if you want to be successful.\r\n\r\n    The business started with a small studio offering ID pictures, photo and video packages to events.The studio also sold frames in different size and photo enlargement. Through years of business, they establish their name in picture industry specially in Imus. They now cover almost 70% of public schools in Imus such as the big school in Imus National High School (INHS), Gen. Emilio Aguinald National High School (GEANHS), Malagasang 1,2,3 Elementary School, etc.. Until now, the business continues to grow.', ''),
+(1, 'Capture every moment with us', '', 961399203, 'lagringstudio@gmail.com', 'The following are our budget friendly but quality services. Contact us for more details. Book now!', 'ewwrwew', ''),
 (2, '', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 0, '', '', '', '');
 
 --
