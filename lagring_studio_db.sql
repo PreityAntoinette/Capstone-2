@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   PRIMARY KEY (`apt_id`),
   KEY `service_id` (`service_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `appointment`
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `photographer` (
   `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `photographer_status` varchar(255) NOT NULL DEFAULT 'ACTIVE',
   PRIMARY KEY (`photographer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `photographer`
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `services` (
   `service_date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `archived_flag` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`service_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2023013 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `services`
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(200) NOT NULL,
   `role` varchar(200) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `website` (
   `about_paragraph` varchar(1000) NOT NULL,
   `heading_image` varchar(100) NOT NULL,
   PRIMARY KEY (`website_content_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `website`
