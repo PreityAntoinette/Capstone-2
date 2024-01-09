@@ -95,9 +95,9 @@ require_once './database.php';
                 <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $headingParagraph; ?>
                 </p>
-                <div class="add">
-                    <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
-                </div>
+                <!-- <div class="add"> -->
+                <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
+                <!-- </div> -->
                 <?php include ('login_pop_up.php');?>
         </div>
     </header>
@@ -193,7 +193,7 @@ require_once './database.php';
                     <?php   
                    while ($row = mysqli_fetch_array($sql)) {
                     ?>
-                        <div class="card__index">
+                        <div class="card__index justify-content-right">
                             <img src="assets/global/services_images/<?php echo $row['service_image']; ?>" alt="">
                             <div class="card__content p-3">
                                 <h3><?php echo $row['service_name']; ?></h3>
