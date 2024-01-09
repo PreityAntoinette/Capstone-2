@@ -145,76 +145,71 @@ function formatAppointmentDate($apt_datetime, $service_type) {
             </div>
             
             <div class="input-container pb-2" id="photographerContainer" style="display: none;">
-                <label for="photographer" class="text-nowrap">Photographer:</label>
-                <select class="form-control1" id="photographer" name="photographer">
-            <?php if ($service_type === 'BIG'){?>
-            
-                            <option value="" selected disabled>Select a photographer..</option>
-                            <?php
-                            function isPhotographerAvailable($connection, $dateformat, $photographer_fullname) {
-                                $availabilityQuery = mysqli_query($connection, "SELECT * FROM appointment WHERE DATE(apt_datetime) = '$dateformat'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
-                                return mysqli_num_rows($availabilityQuery) == 0;
-                            }
+    <label for="photographer" class="text-nowrap">Photographer:</label>
+    <select class="form-control1" id="photographer" name="photographer">
+        <?php if ($service_type === 'BIG') : ?>
+            <option value="" selected disabled>Select a photographer..</option>
+            <?php
+            function isPhotographerAvailable($connection, $dateformat, $photographer_fullname)
+            {
+                $availabilityQuery = mysqli_query($connection, "SELECT * FROM appointment WHERE DATE(apt_datetime) = '$dateformat'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
+                return mysqli_num_rows($availabilityQuery) == 0;
+            }
 
-                            $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
+            $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
 
-                            while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
-                                $photographer_fullname = $photographerRow['photographer_fullname'];
-                                $isAvailable = isPhotographerAvailable($connection, $dateformat, $photographer_fullname);
-                                $marked = $isAvailable ? '' : 'disabled';
-                                $labeled = $isAvailable ? '' : ' (Not available)';
-                            ?>
-                                <option value="<?php echo $photographer_fullname; ?>" <?php echo $marked?>>
-                                    <?php echo $photographer_fullname . $labeled?>
-                                </option>
-                            <?php
-                            }
-                            ?>
-            <?php }
-            else { ?>
-                        <option value="" selected disabled>Select a photographer..</option>
-                        <?php
-                        function isPhotographerAvailable2($connection, $dateformat, $photographer_fullname) {
-                            $availabilityQuery = mysqli_query($connection, "SELECT * FROM appointment WHERE DATE(apt_datetime) = '$dateformat' AND apt_occasion_type != 'N/A'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
-                            return mysqli_num_rows($availabilityQuery) == 0;
-                        }
+            while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
+                $photographer_fullname = $photographerRow['photographer_fullname'];
+                $isAvailable = isPhotographerAvailable($connection, $dateformat, $photographer_fullname);
+                $marked = $isAvailable ? '' : 'disabled';
+                $labeled = $isAvailable ? '' : ' (Not available)';
+            ?>
+                <option value="<?php echo $photographer_fullname; ?>" <?php echo $marked ?>>
+                    <?php echo $photographer_fullname . $labeled ?>
+                </option>
+            <?php
+            }
+            ?>
+        <?php endif; ?>
+        <?php if ($service_type === 'SMALL') : ?>
+            <option value="" selected disabled>Select a photographer..</option>
+            <?php
+            function isPhotographerAvailable2($connection, $dateformat, $photographer_fullname)
+            {
+                $availabilityQuery = mysqli_query($connection, "SELECT * FROM appointment WHERE DATE(apt_datetime) = '$dateformat' AND apt_occasion_type != 'N/A'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
+                return mysqli_num_rows($availabilityQuery) == 0;
+            }
 
-                        $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
+            $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
 
-                        while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
-                            $photographer_fullname = $photographerRow['photographer_fullname'];
-                            $isAvailable = isPhotographerAvailable2($connection, $dateformat, $photographer_fullname);
-                            $marked = $isAvailable ? '' : 'disabled';
-                            $labeled = $isAvailable ? '' : ' (Not available)';
-                        ?>
-                            <option value="<?php echo $photographer_fullname; ?>" <?php echo $marked?>>
-                                <?php echo $photographer_fullname . $labeled?>
-                            </option>
-                        <?php
-                        }
-                        ?>
-                  y
-               
-            <?php }?>
-            </div>
+            while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
+                $photographer_fullname = $photographerRow['photographer_fullname'];
+                $isAvailable = isPhotographerAvailable2($connection, $dateformat, $photographer_fullname);
+                $marked = $isAvailable ? '' : 'disabled';
+                $labeled = $isAvailable ? '' : ' (Not available)';
+            ?>
+                <option value="<?php echo $photographer_fullname; ?>" <?php echo $marked ?>>
+                    <?php echo $photographer_fullname . $labeled ?>
+                </option>
+            <?php
+            }
+            ?>
+        <?php endif; ?>
+    </select>
+</div>
 
             <div class="modal-footer">
                 <button type="reset" id="clear" class="btn btn-secondary">Clear</button>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </div>
+       
         </form>
+       
     </div>
    
-
-
   
 <?php } ?>
 
 
 
 
-<!-- Other HTML code above... -->
-
-
-
-<!-- Other HTML code below... -->
