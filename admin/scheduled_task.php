@@ -52,7 +52,8 @@
                 <table id="table1" class="table table-striped table-bordered w-100">
                     <thead>
                         <tr>
-                            <th>Task No.</th>
+                        <th>No.</th>
+                            <th>Schedule ID</th>
                             <th>Client Name</th>
                             <th>Service</th>
                             <th>Ocassion Type</th>
@@ -75,6 +76,7 @@
                     while ($row = mysqli_fetch_array($sql)) {
                         $id = $row['apt_id'];
                         $serstat = $row['apt_status'];
+                        $schedule_id = $row['schedule_id'];
                         $email = $row['email'];
                         $apt_submit_type = $row ['apt_submit_type'];
                         if($apt_submit_type == 'WALK-IN'){
@@ -105,6 +107,7 @@
                 ?>
                         <tr>
                             <td><?php echo $i++ ?></td>
+                            <td><?php echo $schedule_id ?></td>
                             <td><?php echo ($clientFullname); ?></td>
                             <td><?php echo strtoupper($sername); ?></td>
                             <td><?php echo strtoupper($apt_occ); ?></td>

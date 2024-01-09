@@ -24,10 +24,16 @@ mysqli_stmt_bind_result($stmt, $numAppointments);
 mysqli_stmt_fetch($stmt);
 mysqli_stmt_close($stmt);
 
+$query = "SELECT COUNT(*) AS numPhotographer FROM photographer WHERE photographer_status = 'ACTIVE'";
+$stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_bind_result($stmt, $numPhotographer);
+mysqli_stmt_fetch($stmt);
+mysqli_stmt_close($stmt);
 ?>
 
 
-<?php if ($numAppointments >= 1){ ?>
+<?php if ($numAppointments >= $numPhotographer){ ?>
     <p class="alert alert-warning">Note: Photographers on this date are occupied.</p>
 <?php }
  else{ ?>
