@@ -1071,6 +1071,10 @@
     display: flex;
     justify-content: center !important;
 }
+.justify-content-end {
+    display: flex;
+    justify-content:end !important;
+}
 .justify-space-between {
     display: flex;
     justify-content: space-between !important;

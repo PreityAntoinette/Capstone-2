@@ -129,14 +129,16 @@ include 'calendarSubmit.php';?>
                         return response.text();
                     })
                     .then(function(data) {
-                        document.querySelector(".modalContent").innerHTML = data;
-                        document.getElementById("myModal").style.display = "flex";
-                        document.body.style.overflow = "hidden";
-                        
-                    });
+                    document.querySelector(".modalContent").innerHTML = data;
+                    document.getElementById("myModal").style.display = "flex";
+                    document.body.style.overflow = "hidden";
+
+                });
+
                    
                 }
-                
+
+            
             }
       
         });
@@ -252,8 +254,9 @@ include 'calendarSubmit.php';?>
 
     // Initial call to set up the initial state
     toggleDateTimeInput();
-
-
+   
+    
+    
         </script>
     </body>
 </html>

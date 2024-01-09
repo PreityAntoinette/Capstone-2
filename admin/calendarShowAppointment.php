@@ -13,6 +13,7 @@ if (isset($_GET['id'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $apt_datetime = $row['apt_datetime'];
+        $dateformat = date('Y-m-d', strtotime($apt_datetime));
         $apt_date = formatAppointmentDate($apt_datetime, $row['service_type']);
         $service_name = ucwords(strtolower($row['service_name']));
         $full_name = ucwords(strtolower($row['firstname'] . " " . $row['surname']));
@@ -23,6 +24,7 @@ if (isset($_GET['id'])) {
         $apt_submit_type = $row['apt_submit_type'];
         $walkin_fullname = $row['walkin_fullname'];
         $walkin_contact = $row['walkin_contact'];
+        $apt_photographer = $row['apt_photographer'];
     }
 }
 
@@ -34,6 +36,35 @@ function formatAppointmentDate($apt_datetime, $service_type) {
     }
 }
 ?>
+  <style>
+        .radio-btn {
+            display: none;
+        }
+
+        .radio-svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 4px;
+            fill: #c0cacc;
+        }
+
+        .radio-btn-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .radio-btn:checked + .radio-svg {
+            fill: #3299a8;
+        }
+
+        .radio-btn:checked + .radio-svg + .radio-label {
+            color: #3299a8;
+            font-weight: bold;
+        }
+    </style>
 <form action="">
     <!-- Who -->
     <div class="mb-2">
@@ -49,6 +80,10 @@ function formatAppointmentDate($apt_datetime, $service_type) {
         <div class="mb-2">
             <label for="walkin_contact">Customer Contact:</label>
             <input type="text" id="walkin_contact" class="form-control" disabled name="walkin_contact" value="<?php echo $walkin_contact; ?>" required><br>
+        </div>
+        <div class="mb-2">
+            <label for="walkin_contact">Photographer:</label>
+            <input type="text" class="form-control" disabled  value="<?php echo $apt_photographer; ?>" required><br>
         </div>
     <?php endif; ?>
     <!-- What -->
@@ -112,19 +147,55 @@ function formatAppointmentDate($apt_datetime, $service_type) {
             <div class="input-container pb-2" id="photographerContainer" style="display: none;">
                 <label for="photographer" class="text-nowrap">Photographer:</label>
                 <select class="form-control1" id="photographer" name="photographer">
-                    <option value="" selected disabled>Select a photographer..</option>
-                    <?php
-                    $sql = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
-                    while ($row = mysqli_fetch_array($sql)) {
-                        $photographer_fullname = $row['photographer_fullname'];
-                    ?>
-                        <option value="<?php echo $photographer_fullname; ?>">
-                            <?php echo $photographer_fullname; ?>
-                        </option>
-                    <?php
-                    }
-                    ?>
-                </select>
+            <?php if ($service_type === 'BIG'){?>
+            
+                            <option value="" selected disabled>Select a photographer..</option>
+                            <?php
+                            function isPhotographerAvailable($connection, $dateformat, $photographer_fullname) {
+                                $availabilityQuery = mysqli_query($connection, "SELECT * FROM appointment WHERE DATE(apt_datetime) = '$dateformat'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
+                                return mysqli_num_rows($availabilityQuery) == 0;
+                            }
+
+                            $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
+
+                            while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
+                                $photographer_fullname = $photographerRow['photographer_fullname'];
+                                $isAvailable = isPhotographerAvailable($connection, $dateformat, $photographer_fullname);
+                                $marked = $isAvailable ? '' : 'disabled';
+                                $labeled = $isAvailable ? '' : ' (Not available)';
+                            ?>
+                                <option value="<?php echo $photographer_fullname; ?>" <?php echo $marked?>>
+                                    <?php echo $photographer_fullname . $labeled?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+            <?php }
+            else { ?>
+                        <option value="" selected disabled>Select a photographer..</option>
+                        <?php
+                        function isPhotographerAvailable2($connection, $dateformat, $photographer_fullname) {
+                            $availabilityQuery = mysqli_query($connection, "SELECT * FROM appointment WHERE DATE(apt_datetime) = '$dateformat' AND apt_occasion_type != 'N/A'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
+                            return mysqli_num_rows($availabilityQuery) == 0;
+                        }
+
+                        $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
+
+                        while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
+                            $photographer_fullname = $photographerRow['photographer_fullname'];
+                            $isAvailable = isPhotographerAvailable2($connection, $dateformat, $photographer_fullname);
+                            $marked = $isAvailable ? '' : 'disabled';
+                            $labeled = $isAvailable ? '' : ' (Not available)';
+                        ?>
+                            <option value="<?php echo $photographer_fullname; ?>" <?php echo $marked?>>
+                                <?php echo $photographer_fullname . $labeled?>
+                            </option>
+                        <?php
+                        }
+                        ?>
+                  y
+               
+            <?php }?>
             </div>
 
             <div class="modal-footer">
@@ -136,35 +207,7 @@ function formatAppointmentDate($apt_datetime, $service_type) {
    
 
 
-    <style>
-        .radio-btn {
-            display: none;
-        }
-
-        .radio-svg {
-            width: 24px;
-            height: 24px;
-            margin-right: 4px;
-            fill: #c0cacc;
-        }
-
-        .radio-btn-label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            padding: 8px;
-            transition: background-color 0.3s;
-        }
-
-        .radio-btn:checked + .radio-svg {
-            fill: #3299a8;
-        }
-
-        .radio-btn:checked + .radio-svg + .radio-label {
-            color: #3299a8;
-            font-weight: bold;
-        }
-    </style>
+  
 <?php } ?>
 
 

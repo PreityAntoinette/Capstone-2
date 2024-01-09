@@ -6,7 +6,7 @@ session_start();
     if (isset($_SESSION['admin'])) {
         header ('location: admin/admindashboard.php');
     }
-require_once 'database.php';
+require_once './database.php';
 
 
 ?>
@@ -72,9 +72,6 @@ require_once 'database.php';
                 $email = "Default Email";
                 $aboutParagraph = "Default About Paragraph";
             }
-
-            // Close the connection
-            $connection->close();
             ?>
 
 
@@ -185,46 +182,27 @@ require_once 'database.php';
 
 
                 <?php
-                $column_name = "service_name"; // Replace with the actual column name for service_name
-                $column_description = "service_description"; // Replace with the actual column name for service_description
-                $column_images = "service_image"; // Replace with the actual column name for images
-                $targetRow = 2023001; // Replace with the ID of the row you want to start retrieving
-
-                $connection = new mysqli("localhost", "root", "", "lagring_studio_db");
-
-                if ($connection->connect_error) {
-                    die("Connection failed: " . $connection->connect_error);
-                }
-
+               
+                
                 // Fetch all data at once
-                $sql = "SELECT $column_name, $column_description, $column_images FROM services WHERE service_id BETWEEN $targetRow AND " . ($targetRow + 9);
-                $result = $connection->query($sql);
-
-                if (!$result) {
-                    die("Error in SQL query: " . $connection->error);
-                }
-
-                $dataArray = [];
-
-                while ($row = $result->fetch_assoc()) {
-                    $dataArray[] = $row;
-                }
-
-                $connection->close();
+                $sql = mysqli_query($connection, "SELECT * FROM services WHERE archived_flag = 1") or die(mysqli_error($connection));
+             
                 ?>
 
-                <div class="card__container">
-                    <?php for ($i = 0; $i < count($dataArray); $i++) : ?>
+                <div class="card__container justify-content-left">
+                    <?php   
+                   while ($row = mysqli_fetch_array($sql)) {
+                    ?>
                         <div class="card__index">
-                            <img src="assets/global/services_images/<?php echo $dataArray[$i][$column_images]; ?>" alt="">
-                            <div class="card__content">
-                                <h3><?php echo $dataArray[$i][$column_name]; ?></h3>
-                                <p><?php echo $dataArray[$i][$column_description]; ?></p>
+                            <img src="assets/global/services_images/<?php echo $row['service_image']; ?>" alt="">
+                            <div class="card__content p-3">
+                                <h3><?php echo $row['service_name']; ?></h3>
+                                <p><?php echo $row['service_description']; ?></p>
                                 <!-- Add your other content here -->
                                 <a href="" class="Btn">Read More</a>
                             </div>
                         </div>
-                    <?php endfor; ?>
+                    <?php } ?>
                 </div>
 
 <!--=============================END OF SERVICES==========================-->

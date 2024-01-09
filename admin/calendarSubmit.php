@@ -19,6 +19,7 @@ if (isset($_POST['submitt'])) {
     $apt_submit_type = 'WALK-IN';
     $walkin_fullname = $_POST['walkin_fullname'];
     $walkin_contact = $_POST['walkin_contact'];
+    $photographer = $_POST['photographer'];
     $apt_status = 'APPROVED';
     if ($_POST['isBigService'] == 'true') {
         // For small service, use user inputs
@@ -53,9 +54,9 @@ if (isset($_POST['submitt'])) {
     $schedule_id = 'LS'.generateschedule_id();
  
     
-    $insertQuery = "INSERT into appointment (schedule_id, user_id, service_id, apt_datetime, apt_location, apt_occasion_type, apt_submit_type, walkin_fullname, walkin_contact, apt_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $insertQuery = "INSERT into appointment (apt_photographer, schedule_id, user_id, service_id, apt_datetime, apt_location, apt_occasion_type, apt_submit_type, walkin_fullname, walkin_contact, apt_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt1 = mysqli_prepare($connection, $insertQuery);
-    mysqli_stmt_bind_param($stmt1, "siisssssss", $schedule_id, $id, $service_id, $date, $shootLocation, $occasionType, $apt_submit_type, $walkin_fullname, $walkin_contact, $apt_status);
+    mysqli_stmt_bind_param($stmt1, "ssiisssssss", $photographer, $schedule_id, $id, $service_id, $date, $shootLocation, $occasionType, $apt_submit_type, $walkin_fullname, $walkin_contact, $apt_status);
 
    
 
