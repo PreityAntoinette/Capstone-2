@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 08, 2024 at 11:41 AM
+-- Generation Time: Jan 09, 2024 at 04:53 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lagring_studio_db`
+-- Database: `u578342230_lagring_studio`
 --
 
 -- --------------------------------------------------------
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   PRIMARY KEY (`apt_id`),
   KEY `service_id` (`service_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `appointment`
@@ -64,7 +64,9 @@ INSERT INTO `appointment` (`apt_id`, `schedule_id`, `user_id`, `service_id`, `ap
 (28, 'LS2024Y7D5F', 15, 2023004, 'N/A', '2024-01-20 11:00:00', 'N/A', 'PENDING', 'Please wait for approval.', NULL, '2024-01-04 16:52:29', NULL, '', '0', NULL),
 (29, 'LS2024O9Y7X', 15, 2023008, 'N/A', '2024-01-20 13:00:00', 'N/A', 'PENDING', 'Please wait for approval.', NULL, '2024-01-04 16:54:19', NULL, '', '0', NULL),
 (30, 'LS2024A7R1K', 15, 2023006, 'N/A', '2024-01-20 11:30:00', 'N/A', 'PENDING', 'Please wait for approval.', NULL, '2024-01-04 16:57:48', NULL, '', '0', NULL),
-(31, 'LS2024W9N0W', 2, 2023007, 'N/A', '2024-01-17 12:30:00', 'N/A', 'APPROVED', 'Please wait for approval.', NULL, '2024-01-04 19:43:10', NULL, 'WALK-IN', 'Clyde Solas', '09271234570');
+(31, 'LS2024W9N0W', 2, 2023007, 'N/A', '2024-01-17 12:30:00', 'N/A', 'APPROVED', 'Please wait for approval.', NULL, '2024-01-04 19:43:10', NULL, 'WALK-IN', 'Clyde Solas', '09271234570'),
+(32, 'LS2024C7U1Z', 15, 2023002, 'N/A', '2024-01-25 15:30:00', 'N/A', 'APPROVED', 'N/A', '2024-01-09 21:03:10', '2024-01-09 20:13:28', 'CLYDE', 'ONLINE', NULL, NULL),
+(33, 'LS2024W6X5T', 15, 2023002, 'N/A', '2024-01-25 15:30:00', 'N/A', 'PENDING', 'Please wait for approval.', NULL, '2024-01-09 20:13:32', NULL, 'ONLINE', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -115,17 +117,16 @@ CREATE TABLE IF NOT EXISTS `services` (
 --
 
 INSERT INTO `services` (`service_id`, `service_name`, `service_image`, `service_description`, `service_type`, `service_price`, `service_date_added`, `archived_flag`) VALUES
-(2023001, 'PORTRAITS(WHOLE/HALF BODY)', '8818865565693399cb471c4eefc1dfe3.jpg', '4R(2PCS)', 'SMALL', 120, '2023-11-29 18:58:11', 1),
-(2023002, 'GRADUATION PICTURE', '8818865565693399cb471c4eefc1dfe3.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'BIG', 300, '2023-11-29 19:01:31', 1),
-(2023003, 'FAMILY PACKAGE A', '8818865565693399cb471c4eefc1dfe3.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
+(2023001, 'PORTRAITS(WHOLE/HALF BODY)', '2023001_wholebody.jpg', '4R(2PCS)', 'SMALL', 120, '2023-11-29 18:58:11', 1),
+(2023002, 'GRADUATION PICTURE', '2023002_graduation.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:01:31', 1),
+(2023003, 'FAMILY PACKAGE A', '2023003_familypackagea.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
 (2023004, 'Family Package B', '2023004_familypackageb.jpg', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 'SMALL', 350, '2023-11-29 19:05:42', 1),
-(2023005, 'Digital Package', '2023005_digitalpackage.jpg', 'Unlimited Shots,\r\n8x12(40pcs) w/ layout & album,\r\nVideo Coverage 2pcs flash-drives,\r\nFree 1pc 16x20 Blow up pic w/ frame plus 1 free signature frame ', 'SMALL', NULL, '2023-11-29 19:07:48', 1),
-(2023006, 'Special Package', '2023006_specialpackage.jpg', 'Unlimited Shots,\r\n5r(100pcs) w/ layout & Album,\r\nVideo Coverage 2pcs flash-drives,\r\nFREE 11x14 blow up pic w/ frame and signature frame(1pc)', 'SMALL', NULL, '2023-11-29 19:21:10', 1),
-(2023007, 'Regular Package', '2023007_regularpackage.jpg', 'Unlimited Shots,\r\n5r(80pcs) & album,\r\nVideo coverage 1 flash-drive', 'SMALL', NULL, '2023-11-29 19:28:11', 1),
-(2023008, 'Budget Package', '2023008_budgetpackage.jpg', 'Unlimited Shots,\r\n5r(100pcs)', 'SMALL', NULL, '2023-11-29 19:30:35', 1),
+(2023005, 'Digital Package', '2023005_digitalpackage.jpg', 'Unlimited Shotspcs) with 8x12 (40pcs) with layout & album, Video Coverage with 2 flash-drives, Free 1pc 16x20 Blow up pic with frame, Free 1 signature frame', 'SMALL', NULL, '2023-11-29 19:07:48', 1),
+(2023006, 'Special Package', '2023006_specialpackage.jpg', 'Unlimited Shots 5r(100pcs) with layout and Album Video Coverage 2pcs flashdrives FREE 11x14 blow up pic with frame and signature frame(1pc)', 'SMALL', NULL, '2023-11-29 19:21:10', 1),
+(2023007, 'Regular Package', '2023007_regularpackage.jpg', 'Unlimited Shots, 5r(80pcs) pictures & album video Coverage 1pc flash-drive', 'SMALL', NULL, '2023-11-29 19:28:11', 1),
+(2023008, 'Budget Package', '2023008_budgetpackage.jpg', 'Unlimited Shots,5r(100pcs)', 'SMALL', NULL, '2023-11-29 19:30:35', 1),
 (2023009, 'Hire a Photographer', '2023009_photo_videopackage.jpg', 'Photo only', 'BIG', NULL, '2023-11-29 19:34:15', 1),
-(2023010, 'Hire a Video Grapher', '2023009_photo_videopackage.jpg', 'Video Only', 'BIG', NULL, '2023-11-29 19:35:26', 1),
-(2023012, '23423', 'soundsystem.jpg', '324234', 'BIG', 3, '2024-01-04 20:18:37', 1);
+(2023010, 'Hire a Video Grapher', '2023009_photo_videopackage.jpg', 'Video Only', 'BIG', NULL, '2023-11-29 19:35:26', 1);
 
 -- --------------------------------------------------------
 
@@ -152,8 +153,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `middlename`, `surname`, `registration_date`, `contact`, `email`, `password`, `role`) VALUES
-(2, 'Admin', 'Mname', 'Surname', '2023-10-22 16:45:44', 9271234570, 'Lagringstudio1@gmail.com', '$2y$10$OMyazDWKGNERSJW6KIfPIuZG1/ajR/tnen0g5q/zMoOm4cteM4EjK', 'ADMIN'),
-(15, 'fname', 'mname', 'sname', '2023-11-28 23:48:10', 9271234570, 'clyde.solas@cvsu.edu.ph', '$2y$10$AycJciKiIN1xK6pxtFpXpeT8iQAMIysmH6W7MZ1aWWUwEZ0QyZttK', 'USER');
+(2, 'SSOb preity', 'Faith', 'Maquerme', '2023-10-22 16:45:44', 9271234570, 'Lagringstudio1@gmail.com', '$2y$10$OMyazDWKGNERSJW6KIfPIuZG1/ajR/tnen0g5q/zMoOm4cteM4EjK', 'ADMIN'),
+(15, 'fname', 'Preity', 'Escorial', '2023-11-28 23:48:10', 9271234570, 'preityantoinette.escorial@cvsu.edu.ph', '$2y$10$AycJciKiIN1xK6pxtFpXpeT8iQAMIysmH6W7MZ1aWWUwEZ0QyZttK', 'USER');
 
 -- --------------------------------------------------------
 
@@ -179,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `website` (
 --
 
 INSERT INTO `website` (`website_content_id`, `heading_title`, `heading_paragraph`, `contact`, `email`, `services_paragraph`, `about_paragraph`, `heading_image`) VALUES
-(1, 'Capture every moment with us', '', 961399203, 'lagringstudio@gmail.com', 'The following are our budget friendly but quality services. Contact us for more details. Book now!', 'ewwrwew', ''),
+(1, 'Capture every moment with us', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 961399203, 'lagringstudio@gmail.com', 'The following are our budget friendly but quality services. Contact us for more details. Book now!', 'A woman by the name of Alegria Garcia opened Lagring Studio, a photography studio in Salitran, back in 2010. Alegria \"Lagring\" Garcia has four children. Lagring\'s modest beginnings demonstrate the value of perseverance in achieving success.A tiny studio offering ID photos, photo packages, and video services for occasions was where it all began. They also offer frames in various sizes as well as photo enlargements. They make a name for themselves in the film industry, particularly in Imus, over years of operation. Currently, they serve over 70% of Imus\'s public schools, including Malagasang 1, 2, and 3 Elementary School, Gen. Emilio Aguinald National High School, and the large Imus National High School (INHS). The company has been expanding up to this point.', ''),
 (2, '', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 0, '', '', '', '');
 
 --
