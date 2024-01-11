@@ -103,7 +103,7 @@
             </a>
         </li>
 
-        <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
+        <!-- <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
             <a href="services.php">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@
                 </svg>
                 Services
             </a>
-        </li>
+        </li> -->
 
         <li <?php if ($current_page === 'photographer.php') echo 'class="navLinkActive"';?>>
             <a href="photographer.php">
@@ -214,6 +214,13 @@
         
         <ul class="sub-menu" style="list-style-type: '>';">
             <hr>
+            <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
+                <a href="services.php" id="facilityLink">
+                    &#8226;
+                    Services
+                </a>
+            </li>
+
             <li <?php if ($current_page === 'website.php') echo 'class="navLinkActive"';?>>
                 <a href="website.php" id="facilityLink">
                     &#8226;

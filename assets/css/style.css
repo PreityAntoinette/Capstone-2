@@ -175,7 +175,7 @@ header {
     z-index: 1;
 }
 .container-time {
-	background-color: var(--color-bg-5);
+	background-color: var(--color-bg-4);
     width: 100%;
 	padding: 40px 120px;
 	outline: 3px dashed var(--color-primary-variant);
