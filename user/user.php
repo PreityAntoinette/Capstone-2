@@ -22,7 +22,7 @@
    
 </head>
 <body>
-    <nav>
+    <nav style = "z-index: 5 !important">
     <div class="container nav__container">
         <a href="index.html" class="nav__logo"><img src="../assets/images/logo.png" alt="Nav Logo"></a>
         <span class="nav__title">Lagring Studio</span>
