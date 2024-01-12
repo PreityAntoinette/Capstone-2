@@ -6,13 +6,16 @@ $sqlAppointment = "SELECT * FROM appointment a, services b WHERE a.service_id = 
 $result = mysqli_query($connection, $sqlAppointment) or die("database error: " . mysqli_error($connection));
 
 $Appointment = array();
-$color = ($apt_status === 'PENDING') ? '#ff6363' : (($apt_status === 'APPROVED') ? '#4dc44d' : '');
 
 while ($rows = mysqli_fetch_assoc($result)) {
   $apt_date = date("Y-m-d", strtotime($rows["apt_datetime"]));
   $apt_id = $rows["apt_id"];
   $service_name =  $rows["service_name"];
- 
+  $apt_status = $rows["apt_status"];
+
+    // Determine color based on apt_status
+    $color = ($apt_status === 'PENDING') ? '#ff6363' : (($apt_status === 'APPROVED') ? '#4dc44d' : '');
+
 
     $Appointment[] = array(
         "id" => $apt_id,
