@@ -200,7 +200,7 @@ require_once './database.php';
                             <div class="__content p-3">
                                 <h3><?php echo $row['service_name']; ?></h3>
                                 <!-- <p><?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?></p> -->
-                                <a href="#" class="Btn read-more-link" onclick="return openModal('<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>')">Read More</a>
+                                <a href="#" class="Btn read-more-link" onclick="return openDescriptionModal('<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>', 'assets/global/services_images/<?php echo $row['service_image']; ?>')">Read More</a>
                             </div>
                         </div>
                     <?php } ?>
@@ -210,11 +210,13 @@ require_once './database.php';
 
 
 
-                <!-- Modal container -->
+                <!-- Read more Modal container -->
                 <div class="readmore-modal-container" id="readmore-myModal">
                     <div class="readmore-modal-content">
                         <span class="close" onclick="closeModal()">&times;</span>
-                        <p id="readmore-modal-description"></p>
+                        <img class="image_readmore" id="readmore-service-image" src="" alt="Service Image">
+                        <p id="readmore-service-description"></p>
+                        <p id="readmore-service-name"></p>
                     </div>
                 </div>
 

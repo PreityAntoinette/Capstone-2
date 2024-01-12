@@ -678,6 +678,11 @@
     background-color: hsl(0, 0%, 26%);
     display: none;
 }
+
+.login-page #login_pop_up .modal-header {
+    display: none;
+  }
+  
 @media (max-width: 600px) {
     .modal-header .modal-h4-header {
         font-size: 14px !important;
@@ -695,7 +700,8 @@
     padding: 15px;
 }
 .modal-body-login {
-    max-height: 70vh;
+    margin-top: 10px;
+    max-height: 90vh;
     padding: 15px;
     overflow: hidden;
 }

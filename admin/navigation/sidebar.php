@@ -52,13 +52,6 @@
             </a>
         </li>
 
-        <li <?php if ($current_page === 'profile.php') echo 'class="navLinkActive"';?>>
-            <a href="profile.php">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"fill ="#ffffff" viewBox="0 0 64 64"><title>2</title><g id="Layer_26" data-name="Layer 26"><path d="M40,26.3A13.49,13.49,0,1,0,24,26.3a25.38,25.38,0,0,0-17.3,24c0,2.72,1.49,6.51,8.6,9.13A50.29,50.29,0,0,0,32,62c12.62,0,25.34-3.61,25.34-11.67A25.38,25.38,0,0,0,40,26.3ZM22.51,15.49A9.49,9.49,0,1,1,32,25,9.5,9.5,0,0,1,22.51,15.49ZM32,58c-12,0-21.34-3.37-21.34-7.67a21.34,21.34,0,1,1,42.69,0C53.34,54.63,44,58,32,58Z"></path></g></svg>
-                Profile
-            </a>
-        </li>
-
         <li <?php if ($current_page === 'calendar.php') echo 'class="navLinkActive"';?>>
             <a href="calendar.php">
                 <svg
@@ -78,11 +71,11 @@
                         stroke-width="3"
                     />
                 </svg>
-                Calendar
+                Scheduling
             </a>
         </li>
 
-        <li <?php if ($current_page === 'scheduled_task.php') echo 'class="navLinkActive"';?>>
+        <!-- <li <?php if ($current_page === 'scheduled_task.php') echo 'class="navLinkActive"';?>>
             <a href="scheduled_task.php">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -99,9 +92,9 @@
                         d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"
                     />
                 </svg>
-                Scheduling
+                Report 2
             </a>
-        </li>
+        </li> -->
 
         <!-- <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
             <a href="services.php">
@@ -124,7 +117,7 @@
             </a>
         </li> -->
 
-        <li <?php if ($current_page === 'photographer.php') echo 'class="navLinkActive"';?>>
+        <!-- <li <?php if ($current_page === 'photographer.php') echo 'class="navLinkActive"';?>>
             <a href="photographer.php">
             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 20 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -132,7 +125,7 @@
             </svg>
             Photographer
             </a>
-        </li>
+        </li> -->
 
         <li <?php if ($current_page === 'user_list.php') echo 'class="navLinkActive"';?>>
             <a href="user_list.php">
@@ -192,7 +185,8 @@
         </li>
 
         <li <?php if (
-                    $current_page === 'website.php')
+                    $current_page === 'website.php' ||
+                     $current_page === 'website.php')
                     echo 'class="navLinkActive"';?>>
         <a href="#" id="managementLink">
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 20">
@@ -244,23 +238,50 @@
             </a>
         </li>
 
-        <li <?php if ($current_page === 'backup.php') echo 'class="navLinkActive"';?>>
-            <a href="backup.php">
-                <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
-                <style type="text/css">
-                    .st0{fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                    .st1{fill:none;stroke:#ffffff;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
-                </style>
-                <path class="st0" d="M25,6.7c-3.4,0-6.6-1.4-9-3.7c-2.4,2.3-5.6,3.7-9,3.7C5.6,6.7,4.3,6.4,3,6c0,14,5.5,19.6,13,23
-                    c7.5-3.4,13-9,13-23C27.7,6.4,26.4,6.7,25,6.7z"></path>
-                <polyline class="st0" points="12,16 15,19 21,13 "></polyline>
+
+
+
+        <li <?php if (
+                    $current_page === 'profile.php' ||
+                     $current_page === 'backup.php')
+                    echo 'class="navLinkActive"';?>>
+        <a href="#" id="settingsLink">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 20">
+                <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Z"/>
             </svg>
-
-            Back up and Restore
-            </a>
-        </li>
-
+            Settings
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-caret-right-fill"
+                viewBox="0 0 16 16">
+                <path
+                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+            </svg>
+        </a>
         
+        <ul class="sub-menu" style="list-style-type: '>';">
+            <hr>
+            <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
+                <a href="profile.php" id="facilityLink">
+                    &#8226;
+                    Profile
+                </a>
+            </li>
+
+            <li <?php if ($current_page === 'website.php') echo 'class="navLinkActive"';?>>
+                <a href="backup.php" id="facilityLink">
+                    &#8226;
+                    Backup
+                </a>
+            </li>
+        
+            <hr>
+        </ul>
+    </li>
 
         
         <li class="sidebar-list-item">
