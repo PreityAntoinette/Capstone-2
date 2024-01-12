@@ -124,26 +124,25 @@ if (isset($_POST['submitt'])) {
         mysqli_stmt_close($stmt1);
         // Commit the transaction if the email was sent successfully
         mysqli_commit($connection);
-        // $ch = curl_init();
-        // $message = "Hello ". $adminFullname .", a customer set a schedule. Schedule ID: ".$schedule_id."";
+        $ch = curl_init();
+        $message = "Hello ". $adminFullname .", a customer set a schedule. Schedule ID: ".$schedule_id."";
         
 
-        // $parameters = array(
-        //     'apikey' => '0f80734c31373eaa1497d1028b5dd6f1', //Your API KEY
-        //     'number' => $adminContact,
-        //     'message' => $message,
-        // );
-        // curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
-        // curl_setopt( $ch, CURLOPT_POST, 1 );
+        $parameters = array(
+            'apikey' => '83786e0699022b9f6163e96e81c154ca', //Your API KEY
+            'number' => $adminContact,
+            'message' => $message,
+        );
+        curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+        curl_setopt( $ch, CURLOPT_POST, 1 );
 
-        // //Send the parameters set above with the request
-        // curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
-        // // Set cURL options for SSL verification (adjust as needed)
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        // // Receive response from server
-        // curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-        // curl_exec( $ch );
+        curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+        // Set cURL options for SSL verification, disable this if using localhost, if hosting then enable
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        curl_exec( $ch );
 
         echo '<script>alert("Submitted successfully!");</script>';
     } else {
