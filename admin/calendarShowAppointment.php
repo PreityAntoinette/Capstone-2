@@ -110,10 +110,12 @@ function formatAppointmentDate($apt_datetime, $service_type) {
             <label for="STAT">Status:</label>
             <input type="text" id="stat" class="form-control" value="<?php echo $status ?>" disabled><br>
         </div>
+        <?php if ($status == 'APPROVED') { ?>
         <div class="mb-2">
             <label for="walkin_contact">Photographer:</label>
             <input type="text" class="form-control" disabled  value="<?php echo $apt_photographer; ?>" required><br>
         </div>
+        <?php } ?>
     <!-- Why (Approval) -->
     <br>
     </form>

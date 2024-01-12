@@ -25,7 +25,7 @@
     <nav>
     <div class="container nav__container">
         <a href="index.html" class="nav__logo"><img src="../assets/images/logo.png" alt="Nav Logo"></a>
-        <span class="nav__title">Lagring Studio <?php echo $fullname ?></span>
+        <span class="nav__title">Lagring Studio</span>
         <ul class="nav__links">
             <li><a href="#">Home</a></li>
             <li><a href="#schedule">Schedule</a></li>
@@ -337,20 +337,20 @@
             }
         });
 
-        // // When clicking events, show the modal
-        // calendar.on('eventClick', function(info) {
-        //     document.querySelector(".modal-h4-header").innerHTML = "View Appointment";
-        //     // Pass the selected event's id to the modal through fetch
-        //     fetch("calendarShowAppointment.php?id=" + info.event.id)
-        //     .then(function(response) {
-        //         return response.text();
-        //     })
-        //     .then(function(data) {
-        //         document.querySelector(".modalContent").innerHTML = data;
-        //         document.getElementById("myModal").style.display = "flex";
-        //         document.body.style.overflow = "hidden";
-        //     });
-        // });
+        // When clicking events, show the modal
+        calendar.on('eventClick', function(info) {
+            document.querySelector(".modal-h4-header").innerHTML = "View Appointment";
+            // Pass the selected event's id to the modal through fetch
+            fetch("calendarShowAppointment.php?id=" + info.event.id)
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(data) {
+                document.querySelector(".modalContent").innerHTML = data;
+                document.getElementById("myModal").style.display = "flex";
+                document.body.style.overflow = "hidden";
+            });
+        });
 
             calendar.render();
 
