@@ -95,9 +95,9 @@ require_once './database.php';
                 <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $headingParagraph; ?>
                 </p>
-                <div class="add">
-                    <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
-                </div>
+                <!-- <div class="add"> -->
+                <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
+                <!-- </div> -->
                 <?php include ('login_pop_up.php');?>
         </div>
     </header>
@@ -191,19 +191,35 @@ require_once './database.php';
 
                 <div class="card__container justify-content-left">
                     <?php   
-                   while ($row = mysqli_fetch_array($sql)) {
+                    while ($row = mysqli_fetch_array($sql)) {
+                        $serviceId = $row['service_id']; // Assuming you have a unique identifier for each service
+                        $serviceDescription = htmlspecialchars($row['service_description']);
                     ?>
-                        <div class="card__index">
+                        <div class="card__index justify-content-right">
                             <img src="assets/global/services_images/<?php echo $row['service_image']; ?>" alt="">
-                            <div class="card__content p-3">
+                            <div class="__content p-3">
                                 <h3><?php echo $row['service_name']; ?></h3>
-                                <p><?php echo $row['service_description']; ?></p>
-                                <!-- Add your other content here -->
-                                <a href="" class="Btn">Read More</a>
+                                <!-- <p><?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?></p> -->
+                                <a href="#" class="Btn read-more-link" onclick="return openDescriptionModal('<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>', 'assets/global/services_images/<?php echo $row['service_image']; ?>')">Read More</a>
                             </div>
                         </div>
                     <?php } ?>
                 </div>
+
+      
+
+
+
+                <!-- Read more Modal container -->
+                <div class="readmore-modal-container" id="readmore-myModal">
+                    <div class="readmore-modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <img class="image_readmore" id="readmore-service-image" src="" alt="Service Image">
+                        <p id="readmore-service-description"></p>
+                        <p id="readmore-service-name"></p>
+                    </div>
+                </div>
+
 
 <!--=============================END OF SERVICES==========================-->
 
@@ -271,11 +287,14 @@ require_once './database.php';
 </script>
     
     <script src="assets/global/js/table.js"></script>
-    <script src="assets/global/js/modal.js"></script>
+    <script src="assets/js/read_more_modal.js"></script>
+   
     <!--swiper js cnd-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/global/js/services.js"></script>
-     <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/read_more_modal.js"></script>
+    <script src="assets/global/js/modal.js"></script>
 </body>
 </html>

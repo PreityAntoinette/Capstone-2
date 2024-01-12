@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$dbname = 'lagring_studio_db';
-$username = 'root';
-$password = '';
+$dbname = 'u578342230_lagring_studio';
+$username = 'u578342230_preityfaith';
+$password = 'cvsuImus1';
 
 // Establishing a database connection
 $connection = new mysqli($host, $username, $password, $dbname);

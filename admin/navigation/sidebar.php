@@ -71,11 +71,11 @@
                         stroke-width="3"
                     />
                 </svg>
-                Calendar
+                Scheduling
             </a>
         </li>
 
-        <li <?php if ($current_page === 'scheduled_task.php') echo 'class="navLinkActive"';?>>
+        <!-- <li <?php if ($current_page === 'scheduled_task.php') echo 'class="navLinkActive"';?>>
             <a href="scheduled_task.php">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -92,11 +92,11 @@
                         d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"
                     />
                 </svg>
-                Scheduling
+                Report 2
             </a>
-        </li>
+        </li> -->
 
-        <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
+        <!-- <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
             <a href="services.php">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,17 @@
                 </svg>
                 Services
             </a>
-        </li>
+        </li> -->
+
+        <!-- <li <?php if ($current_page === 'photographer.php') echo 'class="navLinkActive"';?>>
+            <a href="photographer.php">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 20 18">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 3h-2l-.447-.894A2 2 0 0 0 12.764 1H7.236a2 2 0 0 0-1.789 1.106L5 3H3a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V5a2 2 0 0 0-2-2Z"/>
+            </svg>
+            Photographer
+            </a>
+        </li> -->
 
         <li <?php if ($current_page === 'user_list.php') echo 'class="navLinkActive"';?>>
             <a href="user_list.php">
@@ -174,29 +184,9 @@
             </a> -->
         </li>
 
-
-        <li <?php if ($current_page === 'photographer.php') echo 'class="navLinkActive"';?>>
-            <a href="photographer.php">
-            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 20 18">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 3h-2l-.447-.894A2 2 0 0 0 12.764 1H7.236a2 2 0 0 0-1.789 1.106L5 3H3a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V5a2 2 0 0 0-2-2Z"/>
-            </svg>
-            Photographer
-            </a>
-        </li>
-
-        <li <?php if ($current_page === 'report.php') echo 'class="navLinkActive"';?>>
-            <a href="report.php">
-            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 18 20">
-                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 2h4a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4m6 0v3H6V2m6 0a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1M5 5h8m-5 5h5m-8 0h.01M5 14h.01M8 14h5"/>
-            </svg>  
-            Report
-            </a>
-        </li>
-
         <li <?php if (
-                    $current_page === 'service.php' ||
-                    $current_page === 'website.php')
+                    $current_page === 'website.php' ||
+                     $current_page === 'website.php')
                     echo 'class="navLinkActive"';?>>
         <a href="#" id="managementLink">
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 20">
@@ -218,16 +208,74 @@
         
         <ul class="sub-menu" style="list-style-type: '>';">
             <hr>
-            <li <?php if ($current_page === 'service.php') echo 'class="navLinkActive"';?>>
-                <a href="service.php" id="equipmentLink">
+            <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
+                <a href="services.php" id="facilityLink">
                     &#8226;
-                    Service
+                    Services
                 </a>
             </li>
+
             <li <?php if ($current_page === 'website.php') echo 'class="navLinkActive"';?>>
                 <a href="website.php" id="facilityLink">
                     &#8226;
                     Website
+                </a>
+            </li>
+        
+            <hr>
+        </ul>
+    </li>
+
+
+        
+
+        <li <?php if ($current_page === 'report.php') echo 'class="navLinkActive"';?>>
+            <a href="report.php">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 2h4a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4m6 0v3H6V2m6 0a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1M5 5h8m-5 5h5m-8 0h.01M5 14h.01M8 14h5"/>
+            </svg>  
+            Report
+            </a>
+        </li>
+
+
+
+
+        <li <?php if (
+                    $current_page === 'profile.php' ||
+                     $current_page === 'backup.php')
+                    echo 'class="navLinkActive"';?>>
+        <a href="#" id="settingsLink">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 20">
+                <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Z"/>
+            </svg>
+            Settings
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-caret-right-fill"
+                viewBox="0 0 16 16">
+                <path
+                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+            </svg>
+        </a>
+        
+        <ul class="sub-menu" style="list-style-type: '>';">
+            <hr>
+            <li <?php if ($current_page === 'services.php') echo 'class="navLinkActive"';?>>
+                <a href="profile.php" id="facilityLink">
+                    &#8226;
+                    Profile
+                </a>
+            </li>
+
+            <li <?php if ($current_page === 'website.php') echo 'class="navLinkActive"';?>>
+                <a href="backup.php" id="facilityLink">
+                    &#8226;
+                    Backup
                 </a>
             </li>
         

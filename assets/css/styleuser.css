@@ -465,7 +465,7 @@ header {
 }
 
 .container-time {
-	background-color: var(--color-bg-1);
+	background-color: var(--color-bg-3);
 	padding: 50px;
 	outline: 3px dashed var(--color-primary-variant);
 	outline-offset: -30px;
