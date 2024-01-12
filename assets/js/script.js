@@ -2,6 +2,7 @@ const container = document.querySelector(".container__login"),
       pwShowHide = document.querySelectorAll(".showHidePw"),
       pwFields = document.querySelectorAll(".password"),
       signUp = document.querySelector(".signup-link"),
+      terms = document.querySelector(".terms-link"),
       login = document.querySelector(".login-link");
 
     //   js code to show/hide password and change icon
@@ -27,6 +28,9 @@ const container = document.querySelector(".container__login"),
 
     // js code to appear signup and login form
     signUp.addEventListener("click", ( )=>{
+        container.classList.add("active");
+    });
+    terms.addEventListener("click", ( )=>{
         container.classList.add("active");
     });
     login.addEventListener("click", ( )=>{
