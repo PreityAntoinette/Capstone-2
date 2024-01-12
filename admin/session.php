@@ -3,8 +3,8 @@
     session_start();
     if (isset($_SESSION['admin'])) {
             $user = $_SESSION['admin'];
-            $id = $user->user_id;
-            $query = $connection->prepare("SELECT * FROM users WHERE user_id = ?");
+            $id = $user->admin_id;
+            $query = $connection->prepare("SELECT * FROM admindb WHERE admin_id = ?");
             $query->bind_param("i", $id);
             $query->execute();
             $queryResult = $query->get_result();
@@ -13,7 +13,7 @@
             transfered to another variable for general usage*/
                 if($row)
                 {
-                    $fullname =  strtoupper($row['firstname'].' '.$row['surname']);
+                    $fullname =  strtoupper($row['firstname'].' '.$row['lastname']);
                 }
     } else {
         // User is not logged in, redirect to login page
