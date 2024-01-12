@@ -22,7 +22,8 @@ if (isset($_POST['excel'])) {
             WHERE appointment.apt_status != 'ARCHIVED' 
             AND appointment.service_id = services.service_id 
             AND appointment.user_id = users.user_id
-            AND appointment.apt_date_added >= '$start_date' AND appointment.apt_date_added <= '$end_date'") or die(mysqli_error($connection));
+            AND appointment.apt_datetime >= '$start_date'
+            AND appointment.apt_datetime <= '$end_date'") or die(mysqli_error($connection));
 
     // Create a new PHPExcel object
     $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
