@@ -59,6 +59,7 @@
                                         <th>No.</th>
                                         <th>First Name</th>
                                         <th>Surname</th>
+                                        <th>Contact No.</th>
                                         <th>CvSU Email</th>
                                         <th>Actions</th>
                                     </tr>
@@ -73,6 +74,7 @@
                                         $fname = $row['firstname'];
                                         $mname = $row['middlename'];
                                         $lname = $row['surname'];
+                                        $contact = $row['contact'];
                                         $email = $row['email'];
                                         $registeredDate = date("M j, Y", strtotime($row['registration_date']));
                                     ?>
@@ -80,10 +82,11 @@
                                         <td><?php echo $i++ ?></td>
                                         <td><?php echo strtoupper($fname);?></td>
                                         <td><?php echo strtoupper($lname);?></td>
+                                        <td><?php echo $contact; ?></td>
                                         <td><?php echo $email; ?></td>
                                         <td class="justify-space-evenly">
                                             <!-- view button -->
-                                            <a
+                                            <!-- <a
                                                 href="#"
                                                 title="View"
                                                 class="modal-trigger justify-content-center"
@@ -101,7 +104,7 @@
                                                             d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                                     </svg>
                                                 </button>
-                                            </a>
+                                            </a> -->
                                             
                                             <a
                                                 href="#"
@@ -139,7 +142,7 @@
                                     <?php
                                         // include('user_account_modals/user_account_view_user.php');
                                     }}
-                                    else {echo '<tr><td colspan="5" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
@@ -152,6 +155,7 @@
                                         <th>No.</th>
                                         <th>First Name</th>
                                         <th>Surname</th>
+                                        <th>Contact No.</th>
                                         <th>CvSU Email</th>
                                         <th>Actions</th>
                                     </tr>
@@ -166,6 +170,7 @@
                                         $fname = $row['firstname'];
                                         $mname = $row['middlename'];
                                         $lname = $row['surname'];
+                                        $contact = $row['contact'];
                                         $email = $row['email'];
                                         $registeredDate = date("M j, Y", strtotime($row['registration_date']));
                                     ?>
@@ -173,10 +178,11 @@
                                         <td><?php echo $i++ ?></td>
                                         <td><?php echo strtoupper($fname);?></td>
                                         <td><?php echo strtoupper($lname);?></td>
+                                        <td><?php echo $contact; ?></td>
                                         <td><?php echo $email; ?></td>
                                         <td class="justify-space-evenly">
                                             <!-- view button -->
-                                            <a
+                                            <!-- <a
                                                 href="#"
                                                 title="View"
                                                 class="modal-trigger justify-content-center"
@@ -194,7 +200,7 @@
                                                             d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                                     </svg>
                                                 </button>
-                                            </a>
+                                            </a> -->
                                             
                                             <a
                                                 href="#"
@@ -232,7 +238,7 @@
                                     <?php
                                         // include('user_account_modals/user_account_view_user.php');
                                     }}
-                                    else {echo '<tr><td colspan="5" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
