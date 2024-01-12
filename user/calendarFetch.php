@@ -6,6 +6,7 @@ $sqlAppointment = "SELECT * FROM appointment a, services b WHERE a.service_id = 
 $result = mysqli_query($connection, $sqlAppointment) or die("database error: " . mysqli_error($connection));
 
 $Appointment = array();
+$color = ($apt_status === 'PENDING') ? '#ff6363' : (($apt_status === 'APPROVED') ? '#4dc44d' : '');
 
 while ($rows = mysqli_fetch_assoc($result)) {
   $apt_date = date("Y-m-d", strtotime($rows["apt_datetime"]));
@@ -17,7 +18,8 @@ while ($rows = mysqli_fetch_assoc($result)) {
         "id" => $apt_id,
         "title" => $service_name,
         "start" => $apt_date,
-        "end" => $apt_date
+        "end" => $apt_date,
+        "color" => $color
     );
 }
     // Return the counts as JSON response
