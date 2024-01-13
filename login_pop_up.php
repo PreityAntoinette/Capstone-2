@@ -113,7 +113,7 @@
                             <div class="form terms">
                                 <div class="terms-text">
                                     <h2>Scheduling System Terms and Conditions</h2>
-                                    <h4>1. Acceptance of Terms</h4>
+                                    <h4>1. Acceptance of Terms </h4>
                                         <p>By accessing or using the scheduling system provided by Lagring Studio, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not use our scheduling services.</p>
 
                                     <h4>2. User Accounts</h4>
