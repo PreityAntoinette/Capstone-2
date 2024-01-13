@@ -55,6 +55,7 @@ $doneCount = 0;
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboard.css" />
         <link rel="stylesheet" href="../assets/global/css/design.css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <div class="grid-container">
