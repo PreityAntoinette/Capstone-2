@@ -4,7 +4,7 @@
     if (isset($_SESSION['admin'])) {
             $user = $_SESSION['admin'];
             $id = $user->user_id;
-            $query = $connection->prepare("SELECT * FROM admindb WHERE user_id = ?");
+            $query = $connection->prepare("SELECT * FROM users WHERE user_id = ?");
             $query->bind_param("i", $id);
             $query->execute();
             $queryResult = $query->get_result();
