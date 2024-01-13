@@ -149,7 +149,7 @@ $doneCount = 0;
                 <div class="main-cards">
                     <div class="card" style="border: none;" >
                         <div class="card-inner" style="display: block !important; text-decoration:none" >
-                        <a href="scheduled_task.php" class="link-label" style="text-decoration:none; text-align:center">
+                        <a href="report.php" class="link-label" style="text-decoration:none; text-align:center">
                                 <h3>Schedule Log</h3>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ $doneCount = 0;
                     </div>
                     <div class="card" style="border: none;">
                         <div class="card-inner"  style="display: block !important; text-decoration:none" >
-                        <a href="userAccounts.php" class="link-label"style="text-decoration:none; text-align:center">
+                        <a href="profile.php" class="link-label"style="text-decoration:none; text-align:center">
                                 <h3>Borrowers</h3>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +214,7 @@ $doneCount = 0;
                         </div>
                         <div class="card" style="border: none;" >
                         <div class="card-inner" style="display: block !important; text-decoration:none" >
-                        <a href="scheduled_task.php" class="link-label" style="text-decoration:none; text-align:center">
+                        <a href="report.php" class="link-label" style="text-decoration:none; text-align:center">
                                 <h3>Done Services</h3>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
