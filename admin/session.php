@@ -3,8 +3,8 @@
     session_start();
     if (isset($_SESSION['admin'])) {
             $user = $_SESSION['admin'];
-            $id = $user->user_id;
-            $query = $connection->prepare("SELECT * FROM users WHERE user_id = ?");
+            $id = $user->admin_id;
+            $query = $connection->prepare("SELECT * FROM users WHERE admin_id = ?");
             $query->bind_param("i", $id);
             $query->execute();
             $queryResult = $query->get_result();

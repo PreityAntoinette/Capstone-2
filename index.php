@@ -217,7 +217,7 @@ require_once './database.php';
                     <div class="modal-content-wrapper">
                         <img class="image_readmore" id="readmore-service-image" src="" alt="Service Image">
                     <div class="text-container">
-                        <p id="readmore-service_name"></p>
+                        <p id="readmore-service-name"></p>
                         <p id="readmore-service-description"></p>
 
                         <!-- <div class="add"> -->
