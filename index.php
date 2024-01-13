@@ -7,7 +7,7 @@ session_start();
         header ('location: admin/admindashboard.php');
     }
 require_once './database.php';
-
+include 'submitreg.php';
 
 ?>
 <DOCTYPE html>
