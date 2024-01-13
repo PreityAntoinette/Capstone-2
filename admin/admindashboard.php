@@ -236,7 +236,6 @@ $doneCount = 0;
                     </div>
                         </div>
                     </div>
-
             </main>
             <!-- End Main -->
         </div>
