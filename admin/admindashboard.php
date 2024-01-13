@@ -55,7 +55,8 @@ $doneCount = 0;
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboard.css" />
         <link rel="stylesheet" href="../assets/global/css/design.css" />
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js">
+
     </head>
     <body>
         <div class="grid-container">
@@ -214,6 +215,8 @@ $doneCount = 0;
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- Custom JS -->
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     </body>
 </html>
 <script>
