@@ -213,10 +213,19 @@ require_once './database.php';
                 <!-- Read more Modal container -->
                 <div class="readmore-modal-container" id="readmore-myModal">
                     <div class="readmore-modal-content">
-                        <span class="close" onclick="closeModal()">&times;</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-content-wrapper">
                         <img class="image_readmore" id="readmore-service-image" src="" alt="Service Image">
+                    <div class="text-container">
+                        <p id="readmore-service_name"></p>
                         <p id="readmore-service-description"></p>
-                        <p id="readmore-service-name"></p>
+
+                        <!-- <div class="add"> -->
+                <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
+                <!-- </div> -->
+                <?php include ('login_pop_up.php');?>
+                    </div>
+                    </div>
                     </div>
                 </div>
 
