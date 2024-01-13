@@ -65,7 +65,6 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Username</th>
                                         <th>First Name</th>
                                         <th>Surname</th>
                                         <th>Contact No.</th>
@@ -76,21 +75,19 @@
                                 <tbody>
                                 <?php
                                     $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM admindb WHERE role = 'ADMIN' ORDER BY firstname ASC") or die(mysqli_error($connection));
+                                    $sql = mysqli_query($connection, "SELECT * FROM users WHERE role = 'ADMIN' ORDER BY firstname ASC") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
-                                        $id = $row['admin_id'];
-                                        $username=$row['username'];
+                                        $id = $row['user_id'];
                                         $fname = $row['firstname'];
                                         $mname = $row['middlename'];
-                                        $lname = $row['lastname'];
+                                        $lname = $row['surname'];
                                         $contact = $row['contact'];
                                         $email = $row['email'];
                                         $registeredDate = date("M j, Y", strtotime($row['registration_date']));
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
-                                        <td><?php echo strtoupper($username);?></td>
                                         <td><?php echo strtoupper($fname);?></td>
                                         <td><?php echo strtoupper($lname);?></td>
                                         <td><?php echo $contact; ?></td>

@@ -590,9 +590,18 @@ header {
     border-radius: 5px;
 }
 
-.image_readmore{
+.modal-content-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.image_readmore {
     width: 300px;
     height: 450px;
+}
+
+.text-container {
+    margin-left: 50px; /* Adjust the margin as needed */
 }
 
 .close {

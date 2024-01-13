@@ -30,13 +30,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="lastname">Last Name:</label>
-                        <input class="" type="text" name="lastname" required />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input class="" type="text" name="username" required />
+                        <label for="surname">Last Name:</label>
+                        <input class="" type="text" name="surname" required />
                     </div>
 
                     <div class="form-group">
@@ -79,16 +74,15 @@
         // Registration code with prepared statement and password_hash
         $firstname = $_POST['firstname'];
         $middlename = $_POST['middlename'];
-        $lastname = $_POST['lastname'];
+        $surname = $_POST['surname'];
         $contact = $_POST['contact'];
-        $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $role = 'ADMIN';
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
     
-        $sql = $connection->prepare('INSERT INTO admindb (firstname, middlename, lastname, contact, username, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?,?)');
-        $sql->bind_param('sssissss', $firstname, $middlename, $lastname, $contact, $username, $email, $hashed_password, $role);
+        $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, contact, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        $sql->bind_param('sssisss', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $role);
     
         if ($sql->execute()) {
             echo "<script type='text/javascript'> alert('Admin added successfully'); </script>";

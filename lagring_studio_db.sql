@@ -159,9 +159,9 @@ CREATE TABLE IF NOT EXISTS `services` (
 --
 
 INSERT INTO `services` (`service_id`, `service_name`, `service_image`, `service_description`, `service_type`, `service_price`, `service_date_added`, `archived_flag`) VALUES
-(2023001, 'PORTRAITS', '2023001_wholebody.jpg', '4R(2PCS)', 'SMALL', 120, '2023-11-29 18:58:11', 1),
-(2023002, 'GRADUATION PICTURE', '2023002_graduation.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:01:31', 1),
-(2023003, 'FAMILY PACKAGE A', '2023003_familypackagea.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
+(2023001, 'Portraits(Whhole/Half Body)', '2023001_wholebody.jpg', '4R(2PCS)', 'SMALL', 120, '2023-11-29 18:58:11', 1),
+(2023002, 'Graduation Picture', '2023002_graduation.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:01:31', 1),
+(2023003, 'Family Package A', '2023003_familypackagea.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
 (2023004, 'Family Package B', '2023004_familypackageb.jpg', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 'SMALL', 350, '2023-11-29 19:05:42', 1),
 (2023005, 'Digital Package', '2023005_digitalpackage.jpg', 'Unlimited Shotspcs) with 8x12 (40pcs) with layout & album, Video Coverage with 2 flash-drives, Free 1pc 16x20 Blow up pic with frame, Free 1 signature frame', 'SMALL', NULL, '2023-11-29 19:07:48', 1),
 (2023006, 'Special Package', '2023006_specialpackage.jpg', 'Unlimited Shots 5r(100pcs) with layout and Album Video Coverage 2pcs flashdrives FREE 11x14 blow up pic with frame and signature frame(1pc)', 'SMALL', NULL, '2023-11-29 19:21:10', 1),
