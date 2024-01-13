@@ -44,20 +44,19 @@
 
                                 <div class="input-field button">
                                     <input type="submit" value="Login" name="login">
-                                </div>
-                                
+                                </div>  
                             </form>
                             <div class="login-signup">
                                 <span class="text">Not a member?
                                     <a href="#" class="text signup-link">Signup Now</a>
                                 </span>
                                 <span class="modal-exit" data-modal-id="login_pop_up">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-                    </svg>
-                </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                        class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <!-- Registration Form -->
@@ -108,65 +107,6 @@
                                         </span>
                                     </div>
                                 </div>
-
-                                <!-- Terms and Conditions -->
-                            <div class="form terms">
-                                <div class="terms-text">
-                                    <h2>Scheduling System Terms and Conditions</h2>
-                                    <h4>1. Acceptance of Terms</h4>
-                                        <p>By accessing or using the scheduling system provided by Lagring Studio, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not use our scheduling services.</p>
-
-                                    <h4>2. User Accounts</h4>
-                                        <p>2.1. To use certain features of the scheduling system, you may be required to create an account. You are responsible for maintaining the confidentiality of your account information, including your username and password.</p>
-
-                                        <p>2.2. You agree to provide accurate and up-to-date information when creating your account and using the scheduling system.</p>
-
-                                    <h4>3. Scheduling Services</h4>
-                                        <p>3.1. Lagring Studio provides a scheduling platform for users to book appointments.</p>
-
-                                        <p>3.2. Users are solely responsible for the accuracy of the information provided during scheduling, including date, time, and any other relevant details.</p>
-
-                                    <h4>4. Cancellations and Modifications</h4>
-                                        <p>4.1. Users may be allowed to cancel or modify scheduled appointments, subject to the rules and limitations specified in the scheduling system.</p>
-
-                                        <p>4.2. Lagring Studio reserves the right to modify or cancel appointments in exceptional circumstances and will make reasonable efforts to notify affected users.</p>
-
-                                    <h4>5. User Conduct</h4>
-                                        <p>5.1. Users agree to use the scheduling system in compliance with applicable laws and regulations.</p>
-
-                                        <p>5.2. Users may not engage in any activity that disrupts or interferes with the proper functioning of the scheduling system.</p>
-
-                                    <h4>6. Privacy and Data Security</h4>
-                                        <p>6.1. Lagring Studio takes user privacy seriously. Please refer to our Privacy Policy for details on how we collect, use, and protect your personal information.</p>
-
-                                    <h4>7. Limitation of Liability</h4>
-                                        <p>7.1. Lagring Studio shall not be liable for any direct, indirect, incidental, special, or consequential damages arising out of the use or inability to use the scheduling system.</p>
-
-                                    <h4>8. Termination</h4>
-                                        <p>8.1. Lagring Studio reserves the right to terminate or suspend access to the scheduling system at any time for violations of these Terms and Conditions.</p>
-
-                                    <h4>9. Changes to Terms</h4>
-                                        <p>9.1. Lagring Studio reserves the right to modify these Terms and Conditions at any time. Users will be notified of significant changes, and continued use of the scheduling system constitutes acceptance of the modified terms.</p>
-
-                                    <h4>10. Governing Law</h4>
-                                        <p>10.1. These Terms and Conditions are governed by and construed in accordance with the laws of [Your Jurisdiction].</p>
-
-                                    <p>By using our scheduling system, you agree to abide by these terms and conditions. If you have any questions or concerns, please contact Lagring Studio at [Contact Information].</p>
-
-                                    <p>Lagring Studio</p>
-
-                                    <p>January 12,2024</p>
-
-                                </div>
-                                <h4>I agree to the <span>Terms and Conditions</span>and I read the Privacy Notice.</h4>
-                                <div class="buttons">
-                                    <input type="submit" value="Accept" name="accept" id="accept">
-                                    <input type="submit" value="Decline" name="decline" id="decline">
-
-                                </div>
-                            </div>
-                                <!-- end of terms and conditions -->
-
                                 <div class="input-field button">
                                     <input type="submit" value="Signup" name="register" id="register">
                                 </div>
@@ -177,9 +117,62 @@
                                 </div>
                             </form>
                         </div>
+                        <!-- Terms and Conditions -->
+                        <div class="form terms">
+                            <div class="terms-text">
+                                <h2>Terms and Conditions</h2>
+                                <h4>1. Acceptance of Terms</h4>
+                                    <p>By accessing or using the scheduling system provided by Lagring Studio, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not use our scheduling services.</p>
 
-                        
+                                <h4>2. User Accounts</h4>
+                                    <p>2.1. To use certain features of the scheduling system, you may be required to create an account. You are responsible for maintaining the confidentiality of your account information, including your username and password.</p>
 
+                                    <p>2.2. You agree to provide accurate and up-to-date information when creating your account and using the scheduling system.</p>
+
+                                <h4>3. Scheduling Services</h4>
+                                    <p>3.1. Lagring Studio provides a scheduling platform for users to book appointments.</p>
+
+                                    <p>3.2. Users are solely responsible for the accuracy of the information provided during scheduling, including date, time, and any other relevant details.</p>
+
+                                <h4>4. Cancellations and Modifications</h4>
+                                    <p>4.1. Users may be allowed to cancel or modify scheduled appointments, subject to the rules and limitations specified in the scheduling system.</p>
+
+                                    <p>4.2. Lagring Studio reserves the right to modify or cancel appointments in exceptional circumstances and will make reasonable efforts to notify affected users.</p>
+
+                                <h4>5. User Conduct</h4>
+                                    <p>5.1. Users agree to use the scheduling system in compliance with applicable laws and regulations.</p>
+
+                                    <p>5.2. Users may not engage in any activity that disrupts or interferes with the proper functioning of the scheduling system.</p>
+
+                                <h4>6. Privacy and Data Security</h4>
+                                    <p>6.1. Lagring Studio takes user privacy seriously. Please refer to our Privacy Policy for details on how we collect, use, and protect your personal information.</p>
+
+                                <h4>7. Limitation of Liability</h4>
+                                    <p>7.1. Lagring Studio shall not be liable for any direct, indirect, incidental, special, or consequential damages arising out of the use or inability to use the scheduling system.</p>
+
+                                <h4>8. Termination</h4>
+                                    <p>8.1. Lagring Studio reserves the right to terminate or suspend access to the scheduling system at any time for violations of these Terms and Conditions.</p>
+
+                                <h4>9. Changes to Terms</h4>
+                                    <p>9.1. Lagring Studio reserves the right to modify these Terms and Conditions at any time. Users will be notified of significant changes, and continued use of the scheduling system constitutes acceptance of the modified terms.</p>
+
+                                <h4>10. Governing Law</h4>
+                                    <p>10.1. These Terms and Conditions are governed by and construed in accordance with the laws of [Your Jurisdiction].</p>
+
+                                <p>By using our scheduling system, you agree to abide by these terms and conditions. If you have any questions or concerns, please contact Lagring Studio at [Contact Information].</p>
+
+                                <p>Lagring Studio</p>
+
+                                <p>January 12,2024</p>
+
+                            </div>
+                            <h4>I agree to the <span>Terms and Conditions</span>and I read the Privacy Notice.</h4>
+                            <div class="buttons">
+                                <input type="submit" value="Accept" name="accept" id="accept">
+                                <input type="submit" value="Decline" name="decline" id="decline">
+                            </div>
+                        </div>
+                         <!-- end of terms and conditions -->
                     </div>
                 </div>
                 <script src="assets/js/script.js"></script>
