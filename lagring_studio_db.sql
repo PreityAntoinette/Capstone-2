@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 13, 2024 at 05:18 AM
+-- Generation Time: Jan 13, 2024 at 10:43 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -20,35 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `u578342230_lagring_studio`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admindb`
---
-
-DROP TABLE IF EXISTS `admindb`;
-CREATE TABLE IF NOT EXISTS `admindb` (
-  `admin_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `firstname` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `middlename` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `lastname` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `registration_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `email` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `contact` bigint NOT NULL,
-  `role` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`admin_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `admindb`
---
-
-INSERT INTO `admindb` (`admin_id`, `username`, `password`, `firstname`, `middlename`, `lastname`, `registration_date`, `email`, `contact`, `role`) VALUES
-(1, 'lagring ', '$2y$10$OMyazDWKGNERSJW6KIfPIuZG1/ajR/tnen0g5q/zMoOm4cteM4EjK', 'preity', 'magtalas', 'escorial', '2024-01-13 11:53:25', 'lagringstudio@gmail.com', 9335171120, 'ADMIN'),
-(2, 'tae', '$2y$10$H6kzOViBzsMdZDl49HoFwOla3BKO7M.tgVkQHJb4/lB7Ed6fMA5EW', 'prity', 'ganda', 'esocrial', '2024-01-13 13:14:44', 'preity@gmail.com', 9335071120, 'ADMIN');
 
 -- --------------------------------------------------------
 
@@ -189,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(200) NOT NULL,
   `role` varchar(250) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -201,7 +172,8 @@ INSERT INTO `users` (`user_id`, `firstname`, `middlename`, `surname`, `registrat
 (16, 'brian', 'marie', 'ajero', '2024-01-12 14:06:27', 9335171120, 'brianmarie@gmail.com', '$2y$10$OkyZEw.k6ByzVSp3V2JfW.cb/ZEyQGGvBr/KJUbzwqXS77vT7ME/6', 'USER'),
 (17, 'brian', 'marie', 'ajero', '2024-01-12 14:06:27', 9335171120, 'brianmarie@gmail.com', '$2y$10$1xnyou/K0EwV7YNhETz1m.0KByE6VpUtKCQIASY0jy5bNXHb3Yn7C', 'USER'),
 (18, 'aytr', 'tara', 'tarba', '2024-01-12 15:14:59', 9335171120, 'tarba@gmail.com', '$2y$10$w8D1/KRKBwn3zM06EfVmYuUNdtVzplKLTWZk0Pd/RB7SzgL6GK1Yi', 'USER'),
-(19, 'aytr', 'tara', 'tarba', '2024-01-12 15:14:59', 9335171120, 'tarba@gmail.com', '$2y$10$bxTaIz7nLrWmfTD89nD3fOuKE6kI3QYV9rGAWiUcdsx5GZCwDQ/fm', 'USER');
+(19, 'aytr', 'tara', 'tarba', '2024-01-12 15:14:59', 9335171120, 'tarba@gmail.com', '$2y$10$bxTaIz7nLrWmfTD89nD3fOuKE6kI3QYV9rGAWiUcdsx5GZCwDQ/fm', 'USER'),
+(20, 'faith', 'm', 'maquerme', '2024-01-13 18:41:22', 9335171120, 'faith@gmail.com', '$2y$10$niOIdt9HA3axw6Gio222Guvm8n9qSPuo5wQyNLqHWMfjx2e.fiPRe', 'ADMIN');
 
 -- --------------------------------------------------------
 

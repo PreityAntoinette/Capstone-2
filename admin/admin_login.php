@@ -4,11 +4,11 @@ session_start();
 require_once '../database.php';
 
 if (isset($_POST['admin_login'])) {
-  $username = $_POST['username'];
+  $email = $_POST['email'];
   $password = $_POST['password'];
 
-  $selectQuery = $connection->prepare('SELECT * FROM admindb WHERE username = ?');
-  $selectQuery->bind_param('s', $username);
+  $selectQuery = $connection->prepare('SELECT * FROM users WHERE email = ?');
+  $selectQuery->bind_param('s', $email);
   $selectQuery->execute();
   $result = $selectQuery->get_result();
 
@@ -19,12 +19,12 @@ if (isset($_POST['admin_login'])) {
           header('Location: ../admin/admindashboard.php');
           exit();
       } else {
-          $_SESSION['error'] = 'Invalid username or password.';
+          $_SESSION['error'] = 'Invalid email or password.';
           header('Location: admin_login.php');
           exit();
       }
   } else {
-      $_SESSION['error'] = 'Username does not exist.';
+      $_SESSION['error'] = 'email does not exist.';
       header('Location: admin_login.php');
       exit();
   }
@@ -45,9 +45,9 @@ if (isset($_POST['admin_login'])) {
       <h1>Lagring Studio</h1>
       <form method="post" action="admin_login.php">
         <div class="txt_field">
-          <input type="text" id = "username" name="username" required>
+          <input type="text" id = "email" name="email" required>
           <span></span>
-          <label>Username</label>
+          <label>email</label>
         </div>
         <div class="txt_field">
           <input type="password" id = "password"name="password" required>
