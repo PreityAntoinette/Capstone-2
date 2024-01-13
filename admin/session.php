@@ -13,7 +13,7 @@
             transfered to another variable for general usage*/
                 if($row)
                 {
-                    $fullname =  strtoupper($row['firstname'].' '.$row['lastname']);
+                    $fullname =  strtoupper($row['firstname'].' '.$row['surname']);
                 }
     } else {
         // User is not logged in, redirect to login page
