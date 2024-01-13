@@ -57,33 +57,40 @@
                         </div>
                         <!-- Table for Users Account -->
                         <div id="table1" class="table-group-container active">
+                        <div class="add">
+                            <button class="modal-trigger" data-modal-id="modal_add-admin">Add Admin</button>
+                        </div>
+                        <?php include ('modal_add-admin.php');?>
                             <table id="table1" class="table table-striped table-bordered w-100">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
+                                        <th>Username</th>
                                         <th>First Name</th>
                                         <th>Surname</th>
                                         <th>Contact No.</th>
-                                        <th>CvSU Email</th>
+                                        <th>Email</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                     $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM users WHERE role = 'ADMIN' ORDER BY firstname ASC") or die(mysqli_error($connection));
+                                    $sql = mysqli_query($connection, "SELECT * FROM admindb WHERE role = 'ADMIN' ORDER BY firstname ASC") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
-                                        $id = $row['user_id'];
+                                        $id = $row['admin_id'];
+                                        $username=$row['username'];
                                         $fname = $row['firstname'];
                                         $mname = $row['middlename'];
-                                        $lname = $row['surname'];
+                                        $lname = $row['lastname'];
                                         $contact = $row['contact'];
                                         $email = $row['email'];
                                         $registeredDate = date("M j, Y", strtotime($row['registration_date']));
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
+                                        <td><?php echo strtoupper($username);?></td>
                                         <td><?php echo strtoupper($fname);?></td>
                                         <td><?php echo strtoupper($lname);?></td>
                                         <td><?php echo $contact; ?></td>
@@ -141,7 +148,7 @@
                                         <th>First Name</th>
                                         <th>Surname</th>
                                         <th>Contact No.</th>
-                                        <th>CvSU Email</th>
+                                        <th>Email</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>

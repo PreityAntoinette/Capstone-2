@@ -209,7 +209,7 @@ if (isset($_POST['register'])) {
     $sql->bind_param('sssisss', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $role);
 
     if ($sql->execute()) {
-        echo "<script type='text/javascript'> alert('Registered successfully'); </script>";
+        // echo "<script type='text/javascript'> alert('Registered successfully'); </script>";
     } else {
         echo "<script type='text/javascript'> alert('Registration Failed'); </script>";
     }

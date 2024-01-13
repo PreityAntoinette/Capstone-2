@@ -61,12 +61,12 @@
                 // Set the email content
                 $mail->setFrom('clydesolas01@gmail.com', 'Lagring-Studio');
              $mail->addAddress($email, 'Recipient Name');
-             $mail->Subject = 'Schedule request';
+             $mail->Subject = 'Schedule Approval';
              $mail->isHTML(true);
              $mail->Body = '<html>
              <body style="font-family: Arial, sans-serif;">
          
-             <h2 style="color: #126b23;">Schedule Request</h2>
+             <h2 style="color: #126b23;">Schedule Approval</h2>
              <p>Good day,</p>
              <p>Your schedule request have been '.strtolower($status).'. Here are the details of the request:</p>
              
@@ -94,7 +94,7 @@
                 
 
                 $parameters = array(
-                    'apikey' => '0f80734c31373eaa1497d1028b5dd6f1', //Your API KEY
+                    'apikey' => '83786e0699022b9f6163e96e81c154ca', //Your API KEY
                     'number' => $contact,
                     'message' => $message,
                 );
