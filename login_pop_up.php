@@ -214,7 +214,7 @@
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $otp = random_int(100000, 999999);// for otp generation
         date_default_timezone_set('Asia/Manila');// setting the default timezone to manila
-        $expire_time = date('Y-m-d H:i:s', strtotime('+30 seconds'));// adding 5 minutes to the current timezone for email validation
+        $expire_time = date('Y-m-d H:i:s', strtotime('+5 minutes'));// adding 5 minutes to the current timezone for email validation
 
         $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, contact, email, password, role, otp, expire_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
         $sql->bind_param('sssisssis', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $role, $otp, $expire_time);
