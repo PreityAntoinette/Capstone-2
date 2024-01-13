@@ -44,6 +44,23 @@
                                 </div>
                             </div>
                         </a>
+                        <a
+                            href="#"
+                            onclick="sub()"
+                            title="Back up now"
+                            class=" btn btn-secondary  text-info btn-lg align-items-center">
+                            <div style="justify-content: center !important; align-items: center !important; align-content: center !important">
+                            <div  style="display: block;align-items: center !important; ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                    </svg>
+                                </div>
+                                <div  style="display: block;align-items: center !important; ">
+                                    <p>Back up now</p>
+                                </div>
+                            </div>
+                        </a>
                        
                     </div>
                    
@@ -84,7 +101,7 @@
                                 <tbody>
                                     <?php
                                     $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM backup_recovery_log  ORDER BY date_added ASC") or die(mysqli_error($connection));
+                                    $sql = mysqli_query($connection, "SELECT * FROM backup_recovery_log  ORDER BY date_added DESC") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $name = $row['br_name'];
@@ -128,19 +145,23 @@
          .then(data => {
              // Check the condition and perform further actions if needed
              if (data.conditionMet) {
+                document.getElementById("loadingContainer").style.display = "none";
+               
                  var description = "Back up data successfully!";
-                alert('Back up data successfully');
+                alert(description);
+                window.location.href = 'backup_download.php?br_name=' + encodeURIComponent(data.br_name);
              }
+             
              else{
-                alert('Back up failed');
+                document.getElementById("loadingContainer").style.display = "none";
+                alert('Failed to back up');
  
              }
              document.getElementById("loadingContainer").style.display = "none";
          })
          .catch(error => {
              console.error('Error:', error);
-             alert('Back up failed');
-
+             alert('Failed to back up');
              document.getElementById("loadingContainer").style.display = "none";
          });
  }
