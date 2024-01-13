@@ -146,9 +146,10 @@ $doneCount = 0;
                         <span class="text-primary font-weight-bold"><?php echo $declinedCount ?></span>
                     </div>
                 </div>
-                <div class="third-section column-3">
-                        <div class="column-1">
-                        <a href="scheduled_task.php" class="link-label">
+                <div class="main-cards">
+                    <div class="card" style="border: none;" >
+                        <div class="card-inner" style="display: block !important; text-decoration:none" >
+                        <a href="report.php" class="link-label" style="text-decoration:none; text-align:center">
                                 <h3>Schedule Log</h3>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -160,15 +161,17 @@ $doneCount = 0;
                                     <path
                                         d="M3.4 81.7c-7.9 15.8-1.5 35 14.3 42.9L280.5 256 17.7 387.4C1.9 395.3-4.5 414.5 3.4 430.3s27.1 22.2 42.9 14.3l320-160c10.8-5.4 17.7-16.5 17.7-28.6s-6.8-23.2-17.7-28.6l-320-160c-15.8-7.9-35-1.5-42.9 14.3z"/>
                                 </svg>
-                            </a>
+                            </a><br>
                             <div class="">
                                 <div class="link-label-data">
                                     <canvas id="event-log-chart"><p>Error Loading Chart</p></canvas>
                                 </div>
                             </div>
                         </div>
-                        <div class="column-1 col-span-2">
-                        <a href="userAccounts.php" class="link-label">
+                    </div>
+                    <div class="card" style="border: none;">
+                        <div class="card-inner"  style="display: block !important; text-decoration:none" >
+                        <a href="profile.php" class="link-label"style="text-decoration:none; text-align:center">
                                 <h3>Borrowers</h3>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +184,7 @@ $doneCount = 0;
                                         d="M3.4 81.7c-7.9 15.8-1.5 35 14.3 42.9L280.5 256 17.7 387.4C1.9 395.3-4.5 414.5 3.4 430.3s27.1 22.2 42.9 14.3l320-160c10.8-5.4 17.7-16.5 17.7-28.6s-6.8-23.2-17.7-28.6l-320-160c-15.8-7.9-35-1.5-42.9 14.3z"/>
                                 </svg>
                             </a>
-                            <div class="column-2">
+                            <div class="column-2" style="display: flex; justify-content:center; text-align:center;">
                                 <div class="link-label-data borrowers-counter">
                                     <div class="">
                                     <?php 
@@ -196,17 +199,43 @@ $doneCount = 0;
                                             
                                         }
                                         ?>
-                                        <h2><?php echo $trowCount ?></h2>
+                                        <p style="font-size: 48px !important;"><?php echo $trowCount ?></p>
                                         <h4>TOTAL REGISTERED <br>USERS</h4>
                                     </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="third-section column-3">
+                        
                                 <div class="link-label-data">
                                     <canvas id="borrower-chart"><p>Error Loading Chart</p></canvas>
                                 </div>
                             </div>
                         </div>
+                        <div class="card" style="border: none;" >
+                        <div class="card-inner" style="display: block !important; text-decoration:none" >
+                        <a href="report.php" class="link-label" style="text-decoration:none; text-align:center">
+                                <h3>Done Services</h3>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    height="12"
+                                    width="25"
+                                    fill="#fff"
+                                    class="right-arrow"
+                                    viewBox="0 0 384 512">
+                                    <path
+                                        d="M3.4 81.7c-7.9 15.8-1.5 35 14.3 42.9L280.5 256 17.7 387.4C1.9 395.3-4.5 414.5 3.4 430.3s27.1 22.2 42.9 14.3l320-160c10.8-5.4 17.7-16.5 17.7-28.6s-6.8-23.2-17.7-28.6l-320-160c-15.8-7.9-35-1.5-42.9 14.3z"/>
+                                </svg>
+                            </a><br>
+                            <div class="">
+                                <div class="link-label-data">
+                                    <canvas id="event-log-chart1"><p>Error Loading Chart</p></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                        </div>
+                    </div>
             </main>
             <!-- End Main -->
         </div>
@@ -238,7 +267,7 @@ $doneCount = 0;
         const event_log_chart = document.getElementById('event-log-chart');
 
         new Chart(event_log_chart, {
-            type: 'bar',
+            type: 'pie',
             data: {
                 labels: labels,
                 datasets: [{
@@ -263,5 +292,37 @@ $doneCount = 0;
         console.error('Fetch Error:', error);
     });
 
+   // Fetch data from PHP
+   fetch('fetch_chart_done_services.php')
+            .then(response => response.json())
+            .then(data => {
+                // Prepare data for Chart.js
+                const labels = data.map(item => item.service_name);
+                const counts = data.map(item => item.count);
+
+                // Create Bar Chart
+                var ctx = document.getElementById('event-log-chart1').getContext('2d');
+                var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Appointment Counts',
+                            data: counts,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
 
 </script>
