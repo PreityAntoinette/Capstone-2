@@ -228,7 +228,7 @@ $doneCount = 0;
             data = [{ event_name: 'No Data', event_status: 'No Data' }];
         }
 
-        const labels = ['Pending', 'Approved', 'Done', 'Declined', 'Cancelled'];
+        const labels = ['Pending', 'Approved', 'Done', 'Declined'];
         const statuses = data.map(entry => entry.event_status.toUpperCase()); // Capitalize the event status values
 
         const pendingData = statuses.filter(event_status => event_status === 'PENDING').length;
