@@ -1,4 +1,7 @@
 <?php
+date_default_timezone_set('Asia/Manila');
+
+
 $host = 'localhost';
 $dbname = 'u578342230_lagring_studio';
 $username = 'u578342230_preityfaith';
