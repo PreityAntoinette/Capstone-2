@@ -14,9 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        
         $conditionMet=true;
         $problem=' ';
-        if ($connection->connect_error) {
-            die("Connection failed: " . $connection->connect_error);
-        }
+
         set_time_limit(500);
         // Configuration
         $backupFolder = '../assets/backup_restore/backup/';
