@@ -257,13 +257,13 @@
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['photographer_id'];
                                         $fullname = $row['photographer_fullname'];
-                                        $status = $row['photographer_status'];
+                                        $photographer_status = $row['photographer_status'];
                                         $dateAdded = date("M j, Y", strtotime($row['date_added']));
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
                                         <td><?php echo strtoupper($fullname);?></td>
-                                        <td><?php echo strtoupper($status);?></td>
+                                        <td><?php echo strtoupper($photographer_status);?></td>
                                         <td class="justify-space-evenly">
                                             <!-- view button -->
                                             <!-- <a
