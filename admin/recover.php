@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 file_put_contents($exportFile, $zip->getFromName('database_backup.sql'));
 
                 // Restore database
-                $command = "$mysql -h$host -u$username -p$password $dbname < $exportFile";
+                $command = "mysql -h$host -u$username -p$password $dbname < $exportFile";
                 system($command,$return);
                 
                 if ($return===0) {
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $activity = 'Recovered';
                     $insertQuery2 = "INSERT into backup_recovery_log (br_name, activity) VALUES (?, ?)";
                     $stmt2 = mysqli_prepare($connection, $insertQuery2);
-                    mysqli_stmt_bind_param($stmt2, "ss", $uploadedFile, $activity);
+                    mysqli_stmt_bind_param($stmt2, "ss", $uploadedFile2, $activity);
                     mysqli_stmt_execute($stmt2);
                     mysqli_stmt_close($stmt2);
                 $conditionMet=true;
