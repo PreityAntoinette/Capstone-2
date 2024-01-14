@@ -182,7 +182,7 @@
                    while ($row = mysqli_fetch_array($sql)) {
                     ?>
                         <div class="card__index">
-                            <img src="../assets/global/services_images/<?php echo $row['service_image']; ?>" alt="">
+                            <img src="../assets/global/services_img/<?php echo $row['service_image']; ?>" alt="">
                             <div class="card__content p-3">
                                 <h3><?php echo $row['service_name']; ?></h3>
                                 <p><?php echo $row['service_description']; ?></p>

@@ -26,12 +26,12 @@
         <!-- Main -->
         <main class="main-container">
             <div class="main-title">
-                <p class="font-weight-bold">SERVICES</p>
+                <p class="font-weight-bold">WEBSITE</p>
             </div>
             <div class="add">
-                    <button class="modal-trigger" data-modal-id="add_service">Add service</button>
+                    <button class="modal-trigger" data-modal-id="add_website_content">Add Website Content</button>
                 </div>
-                <?php include ('add_service.php');?>
+                <?php include ('add_website_content.php');?>
                 <br>
         <!-- options to set the row count -->
         <div class= "showAndSearch  text-secondary align-items-center mb-1">
@@ -56,45 +56,56 @@
                             <table id="table1" class="table table-striped table-bordered w-100">
                                 <thead>
                                     <tr>
-                                        <th>No.</th>
-                                        <th>Service ID</th>
-                                        <th>Services</th>
-                                        <th>Service Description</th>
-                                        <!-- <th>Type</th> -->
-                                        <th>Price</th>
-                                        <th>Images</th>
-                                        <th>Actions</th>
+                                        
+                                       
+                                        <th>Website content id</th>
+                                        <th>Heading Title</th>
+                                        <th>Heading Paragraph</th>
+                                        <th>Contact</th>
+                                        <th>Email</th>
+                                        <th>Service Paragraph</th>
+                                        <th>About Paragraph</th>
+                                        <th>Heading Image</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                         <?php
-                                    $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM services WHERE archived_flag = 1") or die(mysqli_error($connection));
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+                                   
+                                    $sql = mysqli_query($connection, "SELECT * FROM website WHERE archived_flag = 0 ORDER BY website_content_id DESC") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
-                                        $service_id = $row['service_id'];
-                                        $service_name = $row['service_name'];
-                                        $service_type = $row['service_type'];
-                                        $service_description = $row['service_description'];
-                                        $image = $row ['service_image'];
-                                        $service_price = $row['service_price'];
-                                        $dateadd = date("M j, Y", strtotime($row['service_date_added']));
+                                        $website_content_id = $row['website_content_id'];
+                                        $heading_title = $row['heading_title'];
+                                        $heading_paragraph = $row['heading_paragraph'];
+                                        $contact = $row['contact'];
+                                        $email = $row ['email'];
+                                        $services_paragraph = $row['services_paragraph'];
+                                        $about_paragraph = $row['about_paragraph'];
+                                        $heading_image = $row['heading_image'];
+                                        $dateadd = date("M j, Y", strtotime($row['website_content_date_added']));
                                         
                                     ?>
                                     <tr>
-                                        <td><p><?php echo $i++ ?></p></td>
-                                        <td><p><?php echo strtoupper($service_id);?></p></td>
-                                        <td><p><?php echo strtoupper($service_name);?></p></td>
-                                        <td class= "service_description_td"><p><?php echo strtoupper($service_description);?></p></td>
-                                        <!-- <td><p><?php echo ($service_type);?></p></td> -->
-                                        <td><p><?php echo $service_price; ?></p></td>
-                                        <td><p><?php echo "<img class='img-fluid' src='/Lagring-Studio-Scheduling-System/assets/global/services_img/" . $image . "'style='width:40px; height:80px'' alt='Service Image'>";?></p></td>
+                                        
+                                        <td><p><?php echo strtoupper($website_content_id);?></p></td>
+                                        <td><p><?php echo strtoupper($heading_title);?></p></td>
+                                        <td><p><?php echo strtoupper($heading_paragraph);?></p></td>
+                                        <td><p><?php echo strtoupper($contact);?></p></td>
+                                        <td><p><?php echo strtoupper($email);?></p></td>
+                                        <td><p><?php echo strtoupper($services_paragraph);?></p></td>
+                                        <td><p><?php echo strtoupper($about_paragraph);?></p></td>
+                                        
+                                        <td><p><?php echo "<img class='img-fluid' src='/Lagring-Studio-Scheduling-System/assets/images/" . $heading_image . "'style='width:40px; height:80px'' alt='Heading Image'>";?></p></td>
                                         <td class="justify-space-evenly" style=" text-align: center; margin-top: 10px; border: none;">
-                                            <a
+                                            <!-- <a
                                                 href="#"
                                                 title="Edit"
                                                 class="modal-trigger justify-content-center p-0 m-0"
-                                                data-modal-id="<?php echo 'edit_service'.$service_id; ?>">
+                                                data-modal-id="<?php echo 'edit_service'.$website_content_id; ?>">
                                                 <button class="p-1 m-0 btn btn-primary">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg" 
@@ -111,7 +122,7 @@
                                                     </svg>
                                                 </button>
                                                 
-                                            </a>
+                                            </a> -->
                 
                                             <a
                                                 href="#"
@@ -147,7 +158,7 @@
                                         </td>
                                     </tr>
                                     <?php
-                               include ('edit_service.php');
+                            //    include ('edit_service.php');
                                     }}
                                     else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
                                 ?>

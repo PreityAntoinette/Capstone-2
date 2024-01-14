@@ -120,8 +120,8 @@ if (isset($_POST['edit_service'])) {
 
         // Move uploaded image to the target directory
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-            // Copy the image to the 'services_images' folder
-            $destinationFolder = "../assets/global/services_images/" . $image;
+            // Copy the image to the 'services_img' folder
+            $destinationFolder = "../assets/global/services_img/" . $image;
             copy($target, $destinationFolder);
 
             // Image successfully copied

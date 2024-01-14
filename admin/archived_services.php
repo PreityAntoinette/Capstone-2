@@ -1,33 +1,34 @@
-<?php
-   include('session.php');
-?>
+<?php include('session.php');?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <title>Admin | Services</title>
+        <title>Admin | Settings</title>
         <link href="../assets/images/logo.png" rel="icon" />
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../assets/global/css/design.css" />
+        <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
+        <link rel="stylesheet" href="../assets/global/css/design.css" />
         <link rel="stylesheet" href="../assets/global/css/table.css" />
         <link rel="stylesheet" href="../assets/global/css/global.css" />
         <link rel="stylesheet" href="../assets/admin/css/dashboardcontainer.css" />
         <link rel="stylesheet" href="../assets/admin/css/services.css" />
-
     </head>
     <body>
-        <!-- Header -->
-        <?php require "header/header.php"?>
-        <!-- End Header -->
-        <?php require "navigation/sidebar.php"?>
-        <!-- Main -->
-        <main class="main-container">
-            <div class="main-title">
-                <p class="font-weight-bold">SERVICES</p>
-            </div>
+        <div class="grid-container">
+            <!-- Header -->
+            <?php require "header/header.php"?>
+            <!-- End Header -->
+            <?php require "navigation/sidebar.php"?>
+            <!-- Main -->
+            <main class="main-container">
+                <div class="main-title">
+                    <p class="font-weight-bold">SERVICES ARCHIVE</p>
+                </div>
+                
             <div class="add">
                     <button class="modal-trigger" data-modal-id="add_service">Add service</button>
                 </div>
@@ -69,7 +70,7 @@
                                 <tbody>
                         <?php
                                     $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM services WHERE archived_flag = 1") or die(mysqli_error($connection));
+                                    $sql = mysqli_query($connection, "SELECT * FROM services WHERE archived_flag = 0") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $service_id = $row['service_id'];
@@ -88,7 +89,7 @@
                                         <td class= "service_description_td"><p><?php echo strtoupper($service_description);?></p></td>
                                         <!-- <td><p><?php echo ($service_type);?></p></td> -->
                                         <td><p><?php echo $service_price; ?></p></td>
-                                        <td><p><?php echo "<img class='img-fluid' src='/Lagring-Studio-Scheduling-System/assets/global/services_img/" . $image . "'style='width:40px; height:80px'' alt='Service Image'>";?></p></td>
+                                        <td><p><?php echo "<img class='img-fluid' src='../assets/global/services_img/" . $image . "'style='width:40px; height:80px'' alt='Service Image'>";?></p></td>
                                         <td class="justify-space-evenly" style=" text-align: center; margin-top: 10px; border: none;">
                                             <a
                                                 href="#"
@@ -167,11 +168,11 @@
 
             </main>
             <!-- End Main -->
-
+        </div>
         <!-- Custom JS -->
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
         <script src="../assets/global/js/table.js"></script>
         <script src="../assets/global/js/modal.js"></script>
-
+        <script src="../assets/admin/js/sidebar_toggle.js"></script>
     </body>
 </html>

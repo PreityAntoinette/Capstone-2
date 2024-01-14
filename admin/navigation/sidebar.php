@@ -261,16 +261,23 @@
         
         <ul class="sub-menu">
         <hr>
-            <li <?php if ($current_page === 'archived_equipment.php') echo 'class="navLinkActive"';?>>
+            <li <?php if ($current_page === 'archived_user_list.php') echo 'class="navLinkActive"';?>>
                 <a href="archived_user_list.php" id="profileLink">
                     &#8226;
                     User Lists Archive
                 </a>
             </li>
-            <li <?php if ($current_page === 'archived_facility.php') echo 'class="navLinkActive"';?>>
-                <a href="archived_file_management.php" id="profileLink">
+            <li <?php if ($current_page === 'archived_services.php') echo 'class="navLinkActive"';?>>
+                <a href="archived_services.php" id="profileLink">
                     &#8226;
-                    File Management Archived
+                    Service Archived
+                </a>
+            </li>
+
+            <li <?php if ($current_page === 'archived_website.php') echo 'class="navLinkActive"';?>>
+                <a href="archived_website.php" id="profileLink">
+                    &#8226;
+                    Website Archived
                 </a>
             </li>
             <hr>
