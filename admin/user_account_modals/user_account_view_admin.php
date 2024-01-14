@@ -63,7 +63,7 @@
         $status = 0;
         $admin_id = mysqli_real_escape_string($connection, $_POST['user_id']);
         $fname = mysqli_real_escape_string($connection, $_POST['firstname']);
-        $lname = mysqli_real_escape_string($connection, $_POST['lastname']);
+        $lname = mysqli_real_escape_string($connection, $_POST['surname']);
         $updateStatus = $connection->prepare("UPDATE users SET archived_flag = ? WHERE user_id = ?");
         $updateStatus->bind_param("ii" , $status, $admin_id);
         if ($updateStatus->execute()) {

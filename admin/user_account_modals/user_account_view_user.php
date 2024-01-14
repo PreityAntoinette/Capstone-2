@@ -46,7 +46,7 @@
                 <p class="justify-content-center">Move &nbsp;<span class="text-danger"><?php echo " " . ucfirst($fname). " " . ucfirst($lname);?> 's</span> &nbsp; account to archive?</p>
                     <input type="hidden" name="user_id" value="<?php echo $id; ?>" required>
                     <input type="hidden" name="firstname" value="<?php echo $fname?>" required>
-                    <input type="hidden" name="lastname" value="<?php echo $lname?>" required>
+                    <input type="hidden" name="surname" value="<?php echo $lname?>" required>
                     <div class="modal-footer">
                         <button type="submit" name="archived_user" class="btn btn-warning text-dark"  onsubmit='return validate()'>Confirm</button>
                         <button class="btn close" data-modal-id="<?php echo 'archive_user' . $id;?>">Cancel</button>
