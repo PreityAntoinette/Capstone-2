@@ -193,15 +193,15 @@
                  var description = "Back up data successfully!";
                 alert(description);
                 window.location.href = 'backup_download.php?br_name=' + encodeURIComponent(data.br_name);
-                window.location.reload();
+               
             }
              
              else{
                 document.getElementById("loadingContainer").style.display = "none";
                 alert('Failed to back up');
             
- 
              }
+            
              document.getElementById("loadingContainer").style.display = "none";
          })
          .catch(error => {
