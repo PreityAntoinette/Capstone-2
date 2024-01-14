@@ -100,11 +100,11 @@
                                                 rel="tooltip"
                                                 title="archive"
                                                 class="modal-trigger"
-                                                data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-warning">
+                                                data-modal-id="<?php echo 'unarchive_admin' . $id;?>">
+                                                    <button class="m-0 btn btn-secondary" style="padding:1px;">
                                                         <svg
-                                                            width="25px"
-                                                            height="25px"
+                                                            width="30"
+                                                            height="30"
                                                             viewBox="0 0 24 24"
                                                             fill="none" >
                                                             <path
@@ -129,9 +129,9 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        // include('user_account_modals/user_account_view_user.php');
+                                        include('user_account_modals/unarchived_admin.php');
                                     }}
-                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
@@ -196,11 +196,11 @@
                                                 rel="tooltip"
                                                 title="archive"
                                                 class="modal-trigger"
-                                                data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-warning">
+                                                data-modal-id="<?php echo 'unarchive_user' . $id;?>">
+                                                    <button class="m-0 btn btn-secondary" style="padding:1px;">
                                                         <svg
-                                                            width="25px"
-                                                            height="25px"
+                                                            width="30"
+                                                            height="30"
                                                             viewBox="0 0 24 24"
                                                             fill="none" >
                                                             <path
@@ -221,13 +221,13 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                </a>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php
-                                        // include('user_account_modals/user_account_view_user.php');
+                                        include('user_account_modals/unarchived_user.php');
                                     }}
-                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
@@ -291,11 +291,11 @@
                                                 rel="tooltip"
                                                 title="archive"
                                                 class="modal-trigger"
-                                                data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-warning">
+                                                data-modal-id="<?php echo 'unarchive_photographer' . $id;?>">
+                                                    <button class="m-0 btn btn-secondary" style="padding:1px;">
                                                         <svg
-                                                            width="25px"
-                                                            height="25px"
+                                                            width="30"
+                                                            height="30"
                                                             viewBox="0 0 24 24"
                                                             fill="none" >
                                                             <path
@@ -316,13 +316,13 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                </a>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php
-                                        // include('user_account_modals/user_account_view_user.php');
+                                        include('user_account_modals/unarchived_photographer.php');
                                     }}
-                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
@@ -341,5 +341,7 @@
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
         <script src="../assets/global/js/table.js"></script>
         <script src="../assets/global/js/modal.js"></script>
+        <script src="../assets/global/js/functions.js"></script>
+
     </body>
 </html>
