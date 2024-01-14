@@ -100,11 +100,11 @@
                                                 rel="tooltip"
                                                 title="archive"
                                                 class="modal-trigger"
-                                                data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-warning">
+                                                data-modal-id="<?php echo 'archive_admin' . $id;?>">
+                                                    <button class="m-0 btn btn-secondary" style="padding:1px;">
                                                         <svg
-                                                            width="25px"
-                                                            height="25px"
+                                                            width="30"
+                                                            height="30"
                                                             viewBox="0 0 24 24"
                                                             fill="none" >
                                                             <path
@@ -129,9 +129,9 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        // include('user_account_modals/user_account_view_user.php');
+                                        include('user_account_modals/user_account_view_admin.php');
                                     }}
-                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
@@ -191,16 +191,16 @@
                                                 </button>
                                             </a> -->
                                             
-                                            <a
+                                                <a
                                                 href="#"
                                                 rel="tooltip"
                                                 title="archive"
                                                 class="modal-trigger"
-                                                data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-warning">
+                                                data-modal-id="<?php echo 'archive_user' . $id;?>">
+                                                    <button class="m-0 btn btn-secondary" style="padding:1px;">
                                                         <svg
-                                                            width="25px"
-                                                            height="25px"
+                                                            width="30"
+                                                            height="30"
                                                             viewBox="0 0 24 24"
                                                             fill="none" >
                                                             <path
@@ -221,13 +221,13 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                </a>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php
-                                        // include('user_account_modals/user_account_view_user.php');
+                                        include('user_account_modals/user_account_view_user.php');
                                     }}
-                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>
@@ -291,7 +291,7 @@
                                                 rel="tooltip"
                                                 title="archive"
                                                 class="modal-trigger"
-                                                data-modal-id="<?php echo 'archive_announcements'; ?>">
+                                                data-modal-id="<?php echo 'archive_photographer'; ?>">
                                                     <button class="p-1 m-1 btn btn-warning">
                                                         <svg
                                                             width="25px"
@@ -320,7 +320,7 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        // include('user_account_modals/user_account_view_user.php');
+                                        //include('user_account_modals/user_account_view_user.php');
                                     }}
                                     else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
@@ -341,5 +341,7 @@
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
         <script src="../assets/global/js/table.js"></script>
         <script src="../assets/global/js/modal.js"></script>
+        <script src="../assets/global/js/functions.js"></script>
+
     </body>
 </html>
