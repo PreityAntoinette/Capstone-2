@@ -118,12 +118,12 @@
                                                 href="#"
                                                 rel="tooltip"
                                                 title="archive"
-                                                class="modal-trigger p-0 m-0"
-                                                data-modal-id="<?php echo 'archive_announcements'; ?>">
-                                                    <button class="p-1 m-1 btn btn-dark">
+                                                class="modal-trigger"
+                                                data-modal-id="<?php echo 'unarchive_service' . $service_id;?>">
+                                                    <button class="m-0 btn btn-secondary" style="padding:1px;">
                                                         <svg
-                                                            width="25px"
-                                                            height="25px"
+                                                            width="30"
+                                                            height="30"
                                                             viewBox="0 0 24 24"
                                                             fill="none" >
                                                             <path
@@ -149,6 +149,8 @@
                                     </tr>
                                     <?php
                                include ('edit_service.php');
+                               include('user_account_modals/unarchived_services_modal.php');
+
                                     }}
                                     else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
@@ -174,5 +176,6 @@
         <script src="../assets/global/js/table.js"></script>
         <script src="../assets/global/js/modal.js"></script>
         <script src="../assets/admin/js/sidebar_toggle.js"></script>
+        <script src="../assets/global/js/functions.js"></script>
     </body>
 </html>
