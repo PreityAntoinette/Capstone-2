@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                
                 // Extract database
-                $exportFile = $exportFolder . 'database_restore.sql';
+                $exportFile = $exportFolder . 'databascome_restore.sql';
                 file_put_contents($exportFile, $zip->getFromName('database_backup.sql'));
 
                 // Restore database
@@ -65,13 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($return===0) {
                 $zip->close();
                 unlink($exportFile);
-               
-                } else {
-                
-                $conditionMet=false;
-                $problem='mysqlcommand';
-
-                }
                 $activity = 'Recovered';
                     $insertQuery2 = "INSERT into backup_recovery_log (br_name, activity) VALUES (?, ?)";
                     $stmt2 = mysqli_prepare($connection, $insertQuery2);
@@ -80,6 +73,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     mysqli_stmt_close($stmt2);
                 $conditionMet=true;
                 $problem=' ';
+                } else {
+                
+                $conditionMet=false;
+                $problem='mysqlcommand';
+
+                }
+               
                
         }
 
