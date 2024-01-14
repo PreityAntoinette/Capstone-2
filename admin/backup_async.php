@@ -41,7 +41,7 @@ if (!file_exists($backupFolder)) {
 
 // Export MySQL database
 $exportFile = $exportFolder . 'database_backup.sql';
-$command = "$mysqldump -u$username -p$password $dbname --ignore-table=$dbname.backup_recovery_log > $exportFile";
+$command = "mysqldump -u$username -p$password $dbname --ignore-table=$dbname.backup_recovery_log > $exportFile";
 system($command, $return);
 
 if ($return === 0) {
