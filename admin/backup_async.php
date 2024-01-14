@@ -30,9 +30,7 @@ set_time_limit(500);
 // Configuration
 $backupFolder = '../assets/backup_restore/backup/';
 $exportFolder = '../assets/backup_restore/';
-$additionalFolders = ['../assets/global/services_img/',
-                    '../assets/global/services_images/',
-                    '../assets/images/'];
+$additionalFolders = ['../assets/global/services_img/'];
 $mysqldump ="C:\wamp64\bin\mysql\mysql5.7.36\bin\mysqldump.exe";
 $zipPassword = 'sdg;tr45r43gverg54w6356.j.kjk/ikg34cwr23@@css32@r'; 
 
