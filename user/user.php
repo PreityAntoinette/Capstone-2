@@ -61,7 +61,7 @@
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
-                            <p>Update Profile</p>
+                            <a href="profileUpdate.php">Update Profile</a>
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>

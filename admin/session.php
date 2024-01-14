@@ -2,6 +2,8 @@
     require_once('../database.php');
     session_start();
     if (isset($_SESSION['admin'])) {
+            $query1 = "SET time_zone = '+08:00'";
+            $connection->query($query1);
             $user = $_SESSION['admin'];
             $id = $user->user_id;
             $query = $connection->prepare("SELECT * FROM users WHERE user_id = ?");
