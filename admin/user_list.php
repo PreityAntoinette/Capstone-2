@@ -257,13 +257,13 @@
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['photographer_id'];
                                         $fullname = $row['photographer_fullname'];
-                                        $status = $row['photographer_status'];
+                                        $photographer_status = $row['photographer_status'];
                                         $dateAdded = date("M j, Y", strtotime($row['date_added']));
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
                                         <td><?php echo strtoupper($fullname);?></td>
-                                        <td><?php echo strtoupper($status);?></td>
+                                        <td><?php echo strtoupper($photographer_status);?></td>
                                         <td class="justify-space-evenly">
                                             <!-- view button -->
                                             <!-- <a
@@ -291,11 +291,11 @@
                                                 rel="tooltip"
                                                 title="archive"
                                                 class="modal-trigger"
-                                                data-modal-id="<?php echo 'archive_photographer'; ?>">
-                                                    <button class="p-1 m-1 btn btn-warning">
+                                                data-modal-id="<?php echo 'archive_photographer' . $id;?>">
+                                                    <button class="m-0 btn btn-secondary" style="padding:1px;">
                                                         <svg
-                                                            width="25px"
-                                                            height="25px"
+                                                            width="30"
+                                                            height="30"
                                                             viewBox="0 0 24 24"
                                                             fill="none" >
                                                             <path
@@ -316,13 +316,13 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                </a>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php
-                                        //include('user_account_modals/user_account_view_user.php');
+                                        include('user_account_modals/user_account_view_photographer.php');
                                     }}
-                                    else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
+                                    else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
                                 </tbody>
                             </table>

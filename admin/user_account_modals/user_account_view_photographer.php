@@ -1,5 +1,5 @@
 <!-- for user archiving -->
-<div class="modal-overlay"  id="<?php echo 'archive_photographer' . $id; ?>">
+<div class="modal-overlay"  id="<?php echo 'archive_photographer' . $id;?>">
     <div class="modal-container modal-form-size modal-sm">
         <div class="modal-header text-light">
             <h4 class="modal-h4-header align-items-center">
@@ -27,7 +27,7 @@
                 </svg>
                 &nbsp;Archive
             </h4>
-            <span class="modal-exit" data-modal-id="<?php echo 'archive_photographer' . $id; ?>">
+            <span class="modal-exit" data-modal-id="<?php echo 'archive_photographer' . $id;?>">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -42,43 +42,45 @@
         </div>
         <div class="modal-body">
             <div class="modalContent">
-                <form method="POST" action="user_list.php?activeTable=table3" enctype="multipart/form-data">
-                    <p class="justify-content-center">Move &nbsp;<span class="text-danger"><?php echo " " . ucfirst($fullname). " " . ucfirst($lname);?> 's</span> &nbsp; account to archive?</p>
+            <form method="POST" action="user_list.php?activeTable=table2" enctype="multipart/form-data">
+                <p class="justify-content-center">Move &nbsp;<span class="text-danger"><?php echo " " . ucfirst($fullname). " " . ucfirst($photographer_status);?> 's</span> &nbsp; account to archive?</p>
                     <input type="hidden" name="photographer_id" value="<?php echo $id; ?>" required>
-                    <input type="hidden" name="fullname" value="<?php echo $fullname?>" required>
+                    <input type="hidden" name="photographer_fullname" value="<?php echo $fullname?>" required>
+                    <input type="hidden" name="photographer_status" value="<?php echo $photographer_status?>" required>
                     <div class="modal-footer">
                         <button type="submit" name="archived_photographer" class="btn btn-warning text-dark"  onsubmit='return validate()'>Confirm</button>
-                        <button class="btn close" data-modal-id="<?php echo 'archive_photographer' . $id; ?>">Cancel</button>
+                        <button class="btn close" data-modal-id="<?php echo 'archive_photographer' . $id;?>">Cancel</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <?php
+    
     if (isset($_POST['archived_photographer'])) {
         $status = 0;
         $photographer_id = mysqli_real_escape_string($connection, $_POST['photographer_id']);
-        $fullname = mysqli_real_escape_string($connection, $_POST['fullname']);
+        $fullname = mysqli_real_escape_string($connection, $_POST['photographer_fullname']);
+        $photographer_status = mysqli_real_escape_string($connection, $_POST['photographer_status']);
         $updateStatus = $connection->prepare("UPDATE photographer SET archived_flag = ? WHERE photographer_id = ?");
         $updateStatus->bind_param("ii" , $status, $photographer_id);
         if ($updateStatus->execute()) {
             $jsCode = '
-                <script>
-                    var description = "Archived administrator successfully! <br> </br> Name: '. ucfirst($fullname) . " ". ucfirst($lname). '";
-                    document.addEventListener("DOMContentLoaded", function() {
-                        customAlert(\'Archived\', \'<svg xmlns="http://www.w3.org/2000/svg"width="50"height="50" fill="grey" class="bi bi-archive-fill" viewBox="0 0 16 16"><path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/></svg>\', description);
-                    });
-                </script>';
+            <script>
+                var description = "Archived Photographer successfully! <br> </br> Name: '. ucfirst($fullname) . " ". ucfirst($photographer_status). '";
+                document.addEventListener("DOMContentLoaded", function() {
+                    customAlert(\'Archived\', \'<svg xmlns="http://www.w3.org/2000/svg"width="50"height="50" fill="grey" class="bi bi-archive-fill" viewBox="0 0 16 16"><path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/></svg>\', description);
+                });
+            </script>';
             echo $jsCode;
-
         } else {
             $jsCode = '
             <script>
                 var description = "Unexpected Error Occurred, Please try again later!";
-                    document.addEventListener("DOMContentLoaded", function() {
-                        customAlert(\'Error\', \'<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1 0-.708z"/>
+                document.addEventListener("DOMContentLoaded", function() {
+                    customAlert(\'Error\', \'<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                     </svg>\', description);
                 });
             </script>';
