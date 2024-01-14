@@ -22,19 +22,19 @@
                     <div class="form-group">
                         <input type="hidden" name="user_id" value="<?php echo $id; ?>">
                         <label for="firstname">First Name:</label>
-                        <input type="text" name="fname" placeholder="<?php echo strtoupper($fname)?>" required/>
+                        <input type="text" name="fname" placeholder="<?php echo strtoupper($fname)?>" value="<?php echo strtoupper($fname)?>" required/>
                     </div>
                     <div class="form-group">
                         <label for="middle name">Middle Name:</label>
-                        <input class="" type="text" name="mname" placeholder="<?php echo strtoupper($mname)?>"/>
+                        <input class="" type="text" name="mname" placeholder="<?php echo strtoupper($mname)?>"  value="<?php echo strtoupper($mname)?>"/>
                     </div>
                     <div class="form-group">
                         <label for="surname">Last Name:</label>
-                        <input class="" type="text" name="lname" placeholder="<?php echo strtoupper($lname)?>" required/>
+                        <input class="" type="text" name="lname" placeholder="<?php echo strtoupper($lname)?>" value="<?php echo strtoupper($lname)?>" required/>
                     </div>
                     <div class="form-group">
                         <label for="contact">Contact no.:</label>
-                        <input class="" type="text" name="contact" placeholder="<?php echo strtoupper($contact)?>" required/>
+                        <input class="" type="text" name="contact" placeholder="<?php echo strtoupper($contact)?>" value="<?php echo strtoupper($contact)?>" required/>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
