@@ -69,7 +69,7 @@
                                 <tbody>
                         <?php
                                     $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM services") or die(mysqli_error($connection));
+                                    $sql = mysqli_query($connection, "SELECT * FROM services WHERE archived_flag = 1") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $service_id = $row['service_id'];

@@ -75,7 +75,7 @@
                                 <tbody>
                                 <?php
                                     $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM users WHERE role = 'ADMIN' AND archived_flag = 1 ORDER BY firstname ASC") or die(mysqli_error($connection));
+                                    $sql = mysqli_query($connection, "SELECT * FROM users WHERE role = 'ADMIN' AND archived_flag = 0 ORDER BY firstname ASC") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['user_id'];
@@ -152,7 +152,7 @@
                                 <tbody>
                                 <?php
                                     $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM users WHERE role = 'USER' AND archived_flag = 1 ORDER BY firstname ASC") or die(mysqli_error($connection));
+                                    $sql = mysqli_query($connection, "SELECT * FROM users WHERE role = 'USER' AND archived_flag = 0 ORDER BY firstname ASC") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['user_id'];
@@ -252,7 +252,7 @@
                                 <tbody>
                                 <?php
                                     $i = 1;
-                                    $sql = mysqli_query($connection, "SELECT * FROM photographer WHERE archived_flag = 1") or die(mysqli_error($connection));
+                                    $sql = mysqli_query($connection, "SELECT * FROM photographer WHERE archived_flag = 0") or die(mysqli_error($connection));
                                     if (mysqli_num_rows($sql) > 0) {
                                     while ($row = mysqli_fetch_array($sql)) {
                                         $id = $row['photographer_id'];

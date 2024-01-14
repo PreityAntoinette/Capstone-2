@@ -51,7 +51,7 @@ include 'submitreg.php';
     <!--============================End of nav bar=========================================-->
 
             <?php
-            $sql = "SELECT heading_title, heading_paragraph, services_paragraph, contact, email, about_paragraph FROM website";
+            $sql = "SELECT heading_title, heading_paragraph, services_paragraph, contact, email, about_paragraph, heading_image FROM website  ORDER BY website_content_id DESC LIMIT 1";
             $result = $connection->query($sql);
 
             if ($result->num_rows > 0) {
@@ -63,6 +63,8 @@ include 'submitreg.php';
                 $contact=$row['contact'];
                 $email=$row['email'];
                 $aboutParagraph = $row['about_paragraph'];
+                $headingImage = $row ['heading_image'];
+
             } else {
                 // Default values if no rows are found
                 $headingTitle = "Default Header Title";
@@ -71,6 +73,8 @@ include 'submitreg.php';
                 $contact = "Default Contact";
                 $email = "Default Email";
                 $aboutParagraph = "Default About Paragraph";
+                $headingImage = "Default Image";
+
             }
             ?>
 
@@ -80,10 +84,10 @@ include 'submitreg.php';
             <div class="header__left">
                 <div class="header__image-bg"></div>
                 <div class="header__image-lg">
-                    <img src="assets/images/samplepic.JPG" alt="Header Image">
+                <p><?php echo "<img class='img-fluid' src='/Lagring-Studio-Scheduling-System/assets/images/" . $headingImage . "' alt='Service Image'>";?></p>
                 </div>
                 <div class="header__image-sm">
-                    <img src="assets/images/samplepic.JPG" alt="Header Image">
+                <p><?php echo "<img class='img-fluid' src='/Lagring-Studio-Scheduling-System/assets/images/" . $headingImage . "' alt='Service Image'>";?></p>
                 </div>
             </div>
             <div class="header__right">
