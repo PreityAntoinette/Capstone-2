@@ -51,17 +51,11 @@
                     <ul>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
-                            <p>Dashboard</p>
-                        </li>
-                        <li class="sub-item">
-                            <span class="material-icons-outlined">
-                                
-                            </span>
-                            <p>My Orders</p>
+                            <a href="profileUpdate.php">Profile</a>
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
-                            <a href="profileUpdate.php">Update Profile</a>
+                            <a href="user_schedule.php">My schedule</a>
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
