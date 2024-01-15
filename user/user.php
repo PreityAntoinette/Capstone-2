@@ -179,26 +179,25 @@
             
                ?>
 
-               <div class="card__container justify-content-left">
-                   <?php   
-                   while ($row = mysqli_fetch_array($sql)) {
-                       $serviceId = $row['service_id']; // Assuming you have a unique identifier for each service
-                       $serviceDescription = htmlspecialchars($row['service_description']);
-                       $serviceName = htmlspecialchars($row['service_name']);
-
-                   ?>
-                       <div class="card__index justify-content-right">
-                        <img src="../assets/global/services_img/<?php echo $row['service_image']; ?>" alt="">
-                        <div class="__content p-3">
-                            <h3><?php echo $row['service_name']; ?></h3>
-                            <!-- <p><?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?></p> -->
-                            <a href="#" class="Btn read-more-link" onclick="return openDescriptionModal('<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>', '<?php echo $row['service_image']; ?>')">Read More</a>
+                <div class="card__container justify-content-left">
+                    <?php   
+                    while ($row = mysqli_fetch_array($sql)) {
+                        $serviceId = $row['service_id']; // Assuming you have a unique identifier for each service
+                        $serviceDescription = htmlspecialchars($row['service_description']);
+                        $serviceName = htmlspecialchars($row['service_name']);
+                        $serviceImage =$row['service_image'];
+                    ?>
+                        <div class="card__index justify-content-right">
+                            <img src="../assets/global/services_img/<?php echo $row['service_image']; ?>" alt="">
+                            <div class="__content p-3">
+                                <h3><?php echo $row['service_name']; ?></h3>
+                                <!-- <p><?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?></p> -->
+                                <a href="#" class="Btn read-more-link" onclick="return openDescriptionModal('<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>', '<?php echo $row['service_image']; ?>')">Read More</a>
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
+                </div>
 
-                       </div>
-                   <?php } ?>
-               </div>
 
                <!-- Read more Modal container -->
                <div class="readmore-modal-container" id="readmore-myModal">
