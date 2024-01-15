@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="../assets/loginandregis/css/main.css" />
         <link rel="stylesheet" href="../assets/loginandregis/css/index.css" />
         <link rel="stylesheet" href="../assets/loginandregis/css/verifyEmail.css" />
+        <link rel="stylesheet" href="otp_verification.css" />
+
         <!-- favicon -->
         <link rel="shortcut icon" href="../assets/global/img/cvsulogo.ico" type="image/x-icon" />
         <!-- title -->
@@ -27,7 +29,7 @@
     </head>
     <body>
         <main>
-            <div class="card">
+            <div class="otp-card">
                 <?php
 
                     // getting the email from registration or login page and transfered it to a variable
