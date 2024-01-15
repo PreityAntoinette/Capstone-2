@@ -198,6 +198,8 @@ include 'submitreg.php';
                     while ($row = mysqli_fetch_array($sql)) {
                         $serviceId = $row['service_id']; // Assuming you have a unique identifier for each service
                         $serviceDescription = htmlspecialchars($row['service_description']);
+                        $serviceName = htmlspecialchars($row['service_name']);
+
                     ?>
                         <div class="card__index justify-content-right">
                             <img src="assets/global/services_img/<?php echo $row['service_image']; ?>" alt="">
@@ -221,7 +223,7 @@ include 'submitreg.php';
                     <div class="modal-content-wrapper">
                         <img class="image_readmore" id="readmore-service-image" src="" alt="Service Image">
                     <div class="text-container">
-                        <p id="readmore-service_name"></p>
+                        <p id="readmore-service-name"></p>
                         <p id="readmore-service-description"></p>
 
                         <!-- <div class="add"> -->
@@ -298,6 +300,7 @@ include 'submitreg.php';
         nextStep.classList.add('active');
     }
 </script>
+
     
     <script src="assets/global/js/table.js"></script>
     <script src="assets/js/read_more_modal.js"></script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 14, 2024 at 11:24 AM
+-- Generation Time: Jan 15, 2024 at 02:41 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -101,10 +101,10 @@ CREATE TABLE IF NOT EXISTS `photographer` (
 
 INSERT INTO `photographer` (`photographer_id`, `photographer_fullname`, `date_added`, `photographer_status`, `archived_flag`) VALUES
 (1, 'JAYSON', '2024-01-04 14:44:06', 'ACTIVE', 0),
-(2, 'FAITH', '2024-01-04 14:44:06', 'ACTIVE', 1),
-(3, 'CLYDE', '2024-01-04 14:44:06', 'ACTIVE', 1),
-(4, 'RIAN', '2024-01-04 14:44:07', 'ACTIVE', 1),
-(5, 'tae', '2024-01-12 18:01:44', 'ACTIVE', 1),
+(2, 'FAITH', '2024-01-04 14:44:06', 'ACTIVE', 0),
+(3, 'CLYDE', '2024-01-04 14:44:06', 'ACTIVE', 0),
+(4, 'RIAN', '2024-01-04 14:44:07', 'ACTIVE', 0),
+(5, 'tae', '2024-01-12 18:01:44', 'ACTIVE', 0),
 (6, 'preity', '2024-01-12 18:31:01', 'ACTIVE', 0);
 
 -- --------------------------------------------------------
@@ -132,8 +132,8 @@ CREATE TABLE IF NOT EXISTS `services` (
 
 INSERT INTO `services` (`service_id`, `service_name`, `service_image`, `service_description`, `service_type`, `service_price`, `service_date_added`, `archived_flag`) VALUES
 (2023001, 'Portraits(Whhole/Half Body)', '2023001_wholebody.jpg', '4R(2PCS)', 'SMALL', 120, '2023-11-29 18:58:11', 0),
-(2023002, 'Graduation Picture', '2023002_graduation.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:01:31', 1),
-(2023003, 'Family Package A', '2023003_familypackagea.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:04:00', 1),
+(2023002, 'Graduation Picture', '2023002_graduation.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:01:31', 0),
+(2023003, 'Family Package A', '2023003_familypackagea.jpg', '8R(1PC) 3R(1PC) 2R(4PCS)', 'SMALL', 300, '2023-11-29 19:04:00', 0),
 (2023004, 'Family Package B', '2023004_familypackageb.jpg', '8r(2pcs) 3r(3pcs) 2r(4pcs)', 'SMALL', 350, '2023-11-29 19:05:42', 1),
 (2023005, 'Digital Package', '2023005_digitalpackage.jpg', 'Unlimited Shotspcs) with 8x12 (40pcs) with layout & album, Video Coverage with 2 flash-drives, Free 1pc 16x20 Blow up pic with frame, Free 1 signature frame', 'SMALL', NULL, '2023-11-29 19:07:48', 1),
 (2023006, 'Special Package', '2023006_specialpackage.jpg', 'Unlimited Shots 5r(100pcs) with layout and Album Video Coverage 2pcs flashdrives FREE 11x14 blow up pic with frame and signature frame(1pc)', 'SMALL', NULL, '2023-11-29 19:21:10', 1),
@@ -175,7 +175,7 @@ INSERT INTO `users` (`user_id`, `firstname`, `middlename`, `surname`, `registrat
 (17, 'brian', 'marie', 'ajero', '2024-01-12 14:06:27', 9335171120, 'brianmarie@gmail.com', '$2y$10$1xnyou/K0EwV7YNhETz1m.0KByE6VpUtKCQIASY0jy5bNXHb3Yn7C', 'USER', 0),
 (18, 'aytr', 'tara', 'tarba', '2024-01-12 15:14:59', 9335171120, 'tarba@gmail.com', '$2y$10$w8D1/KRKBwn3zM06EfVmYuUNdtVzplKLTWZk0Pd/RB7SzgL6GK1Yi', 'USER', 0),
 (19, 'aytr', 'tara', 'tarba', '2024-01-12 15:14:59', 9335171120, 'tarba@gmail.com', '$2y$10$bxTaIz7nLrWmfTD89nD3fOuKE6kI3QYV9rGAWiUcdsx5GZCwDQ/fm', 'USER', 0),
-(20, 'faith', 'm', 'maquerme', '2024-01-13 18:41:22', 9335171120, 'faith@gmail.com', '$2y$10$niOIdt9HA3axw6Gio222Guvm8n9qSPuo5wQyNLqHWMfjx2e.fiPRe', 'ADMIN', 0),
+(20, 'faith', 'm', 'maquerme', '2024-01-13 18:41:22', 9335171120, 'faith@gmail.com', '$2y$10$niOIdt9HA3axw6Gio222Guvm8n9qSPuo5wQyNLqHWMfjx2e.fiPRe', 'ADMIN', 1),
 (21, 'preity', 'm', 'escorial', '2024-01-13 19:52:33', 9609215872, 'Preityantoinette0521@gmail.com', '$2y$10$k9RxVyCl5hSHvF/XPrZ2seLrXJOQmykc4xWBmfBzr/4hEMQYMvkdC', 'USER', 0),
 (22, 'preity', 'm', 'escorial', '2024-01-13 19:52:33', 9609215872, 'Preityantoinette0521@gmail.com', '$2y$10$Bn3YrLpCRqvQ2nevdDk24OYYWwWftJevasUmC6lf/sbYuAXf77HIa', 'USER', 0),
 (23, 'preity', 'm', 'escorial', '2024-01-13 19:52:33', 9609215872, 'Preityantoinette0521@gmail.com', '$2y$10$5OeSAwbshJMsK0ZKuNFruOGhZKru/VABG/cFldmy8Lm8RqbqQnZUS', 'USER', 0);
@@ -206,8 +206,8 @@ CREATE TABLE IF NOT EXISTS `website` (
 --
 
 INSERT INTO `website` (`website_content_id`, `heading_title`, `heading_paragraph`, `contact`, `email`, `services_paragraph`, `about_paragraph`, `heading_image`, `website_content_date_added`, `archived_flag`) VALUES
-(1, 'Capture every moment with us', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 961399203, 'lagringstudio@gmail.com', 'The following are our budget friendly but quality services. Contact us for more details. Book now!', 'A woman by the name of Alegria Garcia opened Lagring Studio, a photography studio in Salitran, back in 2010. Alegria \"Lagring\" Garcia has four children. Lagring\'s modest beginnings demonstrate the value of perseverance in achieving success.A tiny studio offering ID photos, photo packages, and video services for occasions was where it all began. They also offer frames in various sizes as well as photo enlargements. They make a name for themselves in the film industry, particularly in Imus, over years of operation. Currently, they serve over 70% of Imus\'s public schools, including Malagasang 1, 2, and 3 Elementary School, Gen. Emilio Aguinald National High School, and the large Imus National High School (INHS). The company has been expanding up to this point.', '', '2024-01-13 21:32:45', 1),
-(2, '', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 0, '', '', '', '', '2024-01-13 21:32:45', 1),
+(1, 'Capture every moment with us', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 961399203, 'lagringstudio@gmail.com', 'The following are our budget friendly but quality services. Contact us for more details. Book now!', 'A woman by the name of Alegria Garcia opened Lagring Studio, a photography studio in Salitran, back in 2010. Alegria \"Lagring\" Garcia has four children. Lagring\'s modest beginnings demonstrate the value of perseverance in achieving success.A tiny studio offering ID photos, photo packages, and video services for occasions was where it all began. They also offer frames in various sizes as well as photo enlargements. They make a name for themselves in the film industry, particularly in Imus, over years of operation. Currently, they serve over 70% of Imus\'s public schools, including Malagasang 1, 2, and 3 Elementary School, Gen. Emilio Aguinald National High School, and the large Imus National High School (INHS). The company has been expanding up to this point.', '', '2024-01-13 21:32:45', 0),
+(2, '', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 0, '', '', '', '', '2024-01-13 21:32:45', 0),
 (3, 'z', 'as', 9335171120, 'as', 'as', 'as', '354475359_1455190078588653_4685493678536474527_n.jpg', '2024-01-13 22:46:55', 0),
 (4, 'x', 'xx', 9335171120, 'x', 'x', 'x', '354475359_1455190078588653_4685493678536474527_n.jpg', '2024-01-13 22:50:35', 0),
 (5, 'preity', 's', 0, 's', 's', 's', 'pngwing.com (3).png', '2024-01-13 22:56:30', 1),
@@ -216,7 +216,7 @@ INSERT INTO `website` (`website_content_id`, `heading_title`, `heading_paragraph
 (8, 'preity', 's', 0, 's', 's', 's', 'pngwing.com (3).png', '2024-01-13 23:00:17', 1),
 (9, 'ds', 'ds', 0, 'ds', 'ds', 'ds', '354475359_1455190078588653_4685493678536474527_n.jpg', '2024-01-13 23:01:06', 1),
 (10, 'c', 'c', 0, 'c', 'c', 'c', '354475359_1455190078588653_4685493678536474527_n.jpg', '2024-01-13 23:18:13', 1),
-(11, 'cd', 'd', 0, 'd', 'd', 'd', '354475359_1455190078588653_4685493678536474527_n.jpg', '2024-01-13 23:37:30', 1),
+(11, 'cd', 'd', 0, 'd', 'd', 'd', '354475359_1455190078588653_4685493678536474527_n.jpg', '2024-01-13 23:37:30', 0),
 (12, 'Capture every moment with us', ' At Lagring studio, we believe in the power of creativity, technology, and imagination. We are thrilled to introduce our cutting-edge digital studio, where we transform ideas into captivating digital experiences. Allow us to join you in your every adventure and milestones in life and together, lets treasure every moment.', 961399203, 'lagringstudio1@gmail.com', 'The following are our budget friendly but quality services. Contact us for more details. Book now!', 'A woman by the name of Alegria Garcia opened Lagring Studio, a photography studio in Salitran, back in 2010. Alegria \"Lagring\" Garcia has four children. Lagring\'s modest beginnings demonstrate the value of perseverance in achieving success.A tiny studio offering ID photos, photo packages, and video services for occasions was where it all began. They also offer frames in various sizes as well as photo enlargements. They make a name for themselves in the film industry, particularly in Imus, over years of operation. Currently, they serve over 70% of Imus\'s public schools, including Malagasang 1, 2, and 3 Elementary School, Gen. Emilio Aguinald National High School, and the large Imus National High School (INHS). The company has been expanding up to this point.', 'samplepic.jpg', '2024-01-13 23:55:20', 1);
 
 --

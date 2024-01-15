@@ -1,11 +1,11 @@
-function openDescriptionModal(description, imageUrl) {
+function openDescriptionModal(nameservice, description, imageUrl) {
     var modal = document.getElementById("readmore-myModal");
     var serviceName = document.getElementById("readmore-service-name");
     var serviceDescription = document.getElementById("readmore-service-description");
     var serviceImage = document.getElementById("readmore-service-image");
     
 
-    serviceName.innerHTML = servicename;
+    serviceName.innerHTML = nameservice;
     serviceDescription.innerHTML = description;
     serviceImage.src = imageUrl;
     modal.style.display = "block";
