@@ -111,7 +111,7 @@ mysqli_stmt_close($stmt);
                         $formattedTime2 = date('H:i:s', $startTime);
                         
                         $disabled = in_array($formattedTime2, $existingApprovedTimes) ? 'disabled' : ''; // Check if time is in the approved times array
-                        $disabledLabel = in_array($formattedTime2, $existingApprovedTimes) ? ' (Scheduled by someone)' : ''; // Check if time is in the approved times array
+                        $disabledLabel = in_array($formattedTime2, $existingApprovedTimes) ? ' (Not Available)' : ''; // Check if time is in the approved times array
                     ?>
 
                         <option value="<?php echo $formattedTime2; ?>" <?php echo $disabled; ?>><?php echo $formattedTime. ' '.$disabledLabel; ?></option>
