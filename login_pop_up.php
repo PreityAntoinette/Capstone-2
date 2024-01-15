@@ -246,6 +246,9 @@
                         <p font-size: 0.9rem; margin:0; padding:0;>This OTP Code will expire in <span style="color: red">5 minutes</span></p>
                     </body>
                 </html>';
+
+             
+
                 $mail->AltBody = '<p>To verify your email, enter your One Time Pin: <span style="color: green;">'.$otp.'</span></p>'; // Send the email
                 if ($mail->send()) {
                     echo header ("location: verifyotp.php?email=".$email);
@@ -254,6 +257,8 @@
                 else {
                     echo "<script type='text/javascript'> alert('Unexpected error encountered! Please try again later!'); </script>";
                 }
+                   // Include OTP verification after successful registration
+            include 'otp_verification.php';
             } catch(Exception $e) {
                 // if the email doesn't send rollback the transaction
                 echo "<script type='text/javascript'> alert('Unexpected error encountered! Please try again later!'); </script>";

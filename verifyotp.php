@@ -104,7 +104,7 @@
                                                 $updateQuery = $connection->prepare("UPDATE users set otp = ?, expire_time = ? WHERE email = ?");
                                                 $updateQuery->bind_param("iss",$otp, $expire_time, $email);
                                                 if ($updateQuery->execute()){
-                                                    echo "<script>window.location.href = 'index.php'; alert('Successfully registered');</script>";
+                                                    echo "<script>window.location.href = 'otp_verification.php'; alert('Successfully registered');</script>";
                                                     $updateQuery->close();
                                                     exit();
                                                 } else {
