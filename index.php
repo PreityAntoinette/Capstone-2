@@ -87,7 +87,7 @@ include 'submitreg.php';
                 <p><?php echo "<img class='img-fluid' src='../assets/images/" . $headingImage . "' alt='Heading Image'>";?></p>
                 </div>
                 <div class="header__image-sm">
-                <p><?php echo "<img class='img-fluid' src='/Lagring-Studio-Scheduling-System/assets/images/" . $headingImage . "' alt='Heading Image'>";?></p>
+                <p><?php echo "<img class='img-fluid' src='../assets/images/" . $headingImage . "' alt='Heading Image'>";?></p>
                 </div>
             </div>
             <div class="header__right">
