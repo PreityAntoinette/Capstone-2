@@ -81,7 +81,7 @@
     <!--============================End of nav bar=========================================-->
 
     <?php
-            $sql = "SELECT heading_title, heading_paragraph, services_paragraph, contact, email, about_paragraph FROM website";
+            $sql = "SELECT heading_title, heading_paragraph, services_paragraph, contact, email, about_paragraph, heading_image FROM website  ORDER BY website_content_id DESC LIMIT 1";
             $result = $connection->query($sql);
 
             if ($result->num_rows > 0) {
@@ -93,6 +93,8 @@
                 $contact=$row['contact'];
                 $email=$row['email'];
                 $aboutParagraph = $row['about_paragraph'];
+                $headingImage = $row ['heading_image'];
+
             } else {
                 // Default values if no rows are found
                 $headingTitle = "Default Header Title";
@@ -101,9 +103,9 @@
                 $contact = "Default Contact";
                 $email = "Default Email";
                 $aboutParagraph = "Default About Paragraph";
-            }
+                $headingImage = "Default Image";
 
-           
+            }
             ?>
 
     <header>
@@ -111,10 +113,10 @@
             <div class="header__left">
                 <div class="header__image-bg"></div>
                 <div class="header__image-lg">
-                    <img src="../assets/images/samplepic.JPG" alt="Header Image">
+                    <p><?php echo "<img class='img-fluid' src='../assets/images/" . $headingImage . "' alt='Heading Image'>";?></p>
                 </div>
                 <div class="header__image-sm">
-                    <img src="../assets/images/samplepic.JPG" alt="Header Image">
+                    <p><?php echo "<img class='img-fluid' src='../assets/images/" . $headingImage . "' alt='Heading Image'>";?></p>
                 </div>
             </div>
             <div class="header__right">
@@ -169,28 +171,50 @@
 </section>
 
 
-                <?php
+<?php
                
                 
-                // Fetch all data at once
-                $sql = mysqli_query($connection, "SELECT * FROM services WHERE archived_flag = 1") or die(mysqli_error($connection));
-             
-                ?>
+               // Fetch all data at once
+               $sql = mysqli_query($connection, "SELECT * FROM services WHERE archived_flag = 1") or die(mysqli_error($connection));
+            
+               ?>
 
-                <div class="card__container justify-content-left">
-                    <?php   
+               <div class="card__container justify-content-left">
+                   <?php   
                    while ($row = mysqli_fetch_array($sql)) {
-                    ?>
-                        <div class="card__index">
-                            <img src="../assets/global/services_img/<?php echo $row['service_image']; ?>" alt="">
-                            <div class="card__content p-3">
-                                <h3><?php echo $row['service_name']; ?></h3>
-                                <p><?php echo $row['service_description']; ?></p>
-                                <!-- Add your other content here -->
-                                <a href="" class="Btn">Read More</a>
-                            </div>
-                        </div>
-                    <?php } ?>
+                       $serviceId = $row['service_id']; // Assuming you have a unique identifier for each service
+                       $serviceDescription = htmlspecialchars($row['service_description']);
+                       $serviceName = htmlspecialchars($row['service_name']);
+
+                   ?>
+                       <div class="card__index justify-content-right">
+                           <img src="assets/global/services_img/<?php echo $row['service_image']; ?>" alt="">
+                           <div class="__content p-3">
+                               <h3><?php echo $row['service_name']; ?></h3>
+                               <!-- <p><?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?></p> -->
+                               <a href="#" class="Btn read-more-link" onclick="return openDescriptionModal('<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>', 'assets/global/services_img/<?php echo $row['service_image']; ?>')">Read More</a>
+                           </div>
+                       </div>
+                   <?php } ?>
+               </div>
+
+               <!-- Read more Modal container -->
+               <div class="readmore-modal-container" id="readmore-myModal">
+                    <div class="readmore-modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-content-wrapper">
+                        <img class="image_readmore" id="readmore-service-image" src="" alt="Service Image">
+                    <div class="text-container">
+                        <p id="readmore-service-name"></p>
+                        <p id="readmore-service-description"></p>
+
+                        <!-- <div class="add"> -->
+                <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
+                <!-- </div> -->
+                <?php include ('login_pop_up.php');?>
+                    </div>
+                    </div>
+                    </div>
                 </div>
 
 <!--=============================END OF SERVICES==========================-->
@@ -274,6 +298,7 @@
     <!--swiper js cnd-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="assets/js/read_more_modal.js"></script>
     <script src="../assets/global/js/services.js"></script>
      <script src="../assets/js/script.js"></script>
 </body>
