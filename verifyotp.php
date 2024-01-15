@@ -216,7 +216,7 @@
                                 }
                             }
                         }
-                    } catch (\Exception $e) {
+                    } catch (Exception $e) {
                         echo "<script type='text/javascript'> alert('Unexpected error encountered! Please try again!'); window.location.href = window.location.href; </script>";
 
                     }
