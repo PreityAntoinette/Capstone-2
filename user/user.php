@@ -55,7 +55,7 @@
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
-                            <a href="user_schedule.php">My schedule</a>
+                            <a href="history.php">My schedule</a>
                         </li>
                         <li class="sub-item">
                             <span class="material-icons-outlined">  </span>
