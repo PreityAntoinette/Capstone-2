@@ -27,8 +27,8 @@
     </div>
     <div class="header-left">Admin Page</div>
     <div class="header-right">
-        <span class="material-icons-outlined">notifications</span>
+        <!-- <span class="material-icons-outlined">notifications</span>
         <span class="material-icons-outlined">email</span>
-        <span class="material-icons-outlined">account_circle</span>
+        <span class="material-icons-outlined">account_circle</span> -->
     </div>
 </header>

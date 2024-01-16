@@ -99,7 +99,7 @@
                                 Excel
                             </button>
 
-                            <button class="btn1 btn btn-primary" type="submit" id="btn2" onclick="thisBtn2()" name="pdf2">
+                            <!-- <button class="btn1 btn btn-primary" type="submit" id="btn2" onclick="thisBtn2()" name="pdf2">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"
@@ -112,7 +112,7 @@
                                 </svg>
                                 PDF
                             </button>
-                           
+                            -->
                         </section>
                     </div>
                     </form>
