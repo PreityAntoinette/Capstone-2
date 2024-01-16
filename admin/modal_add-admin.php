@@ -90,6 +90,11 @@
         $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, contact, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)');
         $sql->bind_param('sssisss', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $role);
     
+
+        // Update archived_flag
+        $sql_update = $connection->prepare('UPDATE users SET archived_flag = ? WHERE email = ?');
+        $sql_update->bind_param('is', $archived_flag, $email);
+
         if ($sql->execute()) {
             echo "<script type='text/javascript'> alert('Admin added successfully'); </script>";
         } else {
