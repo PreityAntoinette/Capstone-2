@@ -84,16 +84,16 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $role = 'ADMIN';
-        $archived_flag = 1; // Set archived_flag to 1
+        //$archived_flag = 1; // Set archived_flag to 1
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
     
         $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, contact, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)');
         $sql->bind_param('sssisss', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $role);
     
 
-        // Update archived_flag
-        $sql_update = $connection->prepare('UPDATE users SET archived_flag = ? WHERE email = ?');
-        $sql_update->bind_param('is', $archived_flag, $email);
+        // // Update archived_flag
+        // $sql_update = $connection->prepare('UPDATE users SET archived_flag = ? WHERE email = ?');
+        // $sql_update->bind_param('is', $archived_flag, $email);
 
         if ($sql->execute()) {
             echo "<script type='text/javascript'> alert('Admin added successfully'); </script>";
