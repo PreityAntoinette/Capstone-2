@@ -74,7 +74,7 @@ mysqli_stmt_close($stmt);
                 <input type="date" class="form-control" min="<?php echo $selectedDate; ?>" value="<?php echo $selectedDate; ?>" id="date" name="date">
             </div>
             <div class="mb-2">
-                <label for="shootLocation" class=" text-nowrap">Shoot Location:</label>
+                <label for="shootLocation" class=" text-nowrap">Shoot Location: (State/Province/City/Region)</label>
                 <input type="text" class="form-control" id="shootLocation" name="shootLocation" placeholder="Enter the shoot location">
             </div>
             <div class="mb-2">
