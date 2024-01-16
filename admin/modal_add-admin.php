@@ -49,6 +49,11 @@
                         <input class="" type="password" name="password" required />
                     </div>
 
+                    <div class="form-group">
+                        <label for="password">Confirm Password:</label>
+                        <input class="" type="password" name="password" required />
+                    </div>
+
                     
 
                     <br />
