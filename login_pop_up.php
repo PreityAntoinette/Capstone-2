@@ -220,6 +220,13 @@
         $sql->bind_param('sssisssis', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $role, $otp, $expire_time);
 
         if ($sql->execute()) {
+
+            // Assuming the registration was successful
+                // Get the last inserted user ID
+                $id = mysqli_insert_id($connection);
+
+                // Set the user ID in the session
+                $_SESSION['user_id'] = $id;
             // echo "<script type='text/javascript'> alert('Registered successfully'); </script>";
             try {
                 // Configure SMTP settings for Outlook.com/Hotmail.com

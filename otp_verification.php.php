@@ -83,19 +83,26 @@ $connection->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="otp_verification.css">
     <title>OTP Verification</title>
 </head>
 <body>
-    <h2>OTP Verification</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <div class="otp-card">
+        <h2>OTP Verification</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <div class="otp-input">
         <label for="otp">Enter OTP:</label>
-        <input type="text" name="otp" required>
-        <br><br>
-        <input type="submit" value="Verify OTP">
-    </form>
+            <input type="text" name="otp" required>
+            <br><br>
+            <input type="submit" value="Verify OTP">
+        </div>
+            
+        </form>
 
-    <section class="footer">
-        <a href="index.php">Back to Login</a>
-    </section>
+        <section class="footer">
+            <a href="index.php">Back to Login</a>
+        </section>
+    </div>
+    
 </body>
 </html>
