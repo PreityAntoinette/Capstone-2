@@ -264,9 +264,9 @@
             <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
         </div>
     </div>
-    <div class="footerBottom">
+    <!-- <div class="footerBottom">
             <p>&copy;2024 Lagring Studio, All Rights Reserved.</p>
-        </div>
+        </div> -->
 </footer>
 
 <script>
