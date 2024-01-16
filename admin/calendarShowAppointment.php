@@ -101,7 +101,7 @@ function formatAppointmentDate($apt_datetime, $service_type) {
             <input type="text" id="occasionType" class="form-control" value="<?php echo $occasion_type ?>" disabled><br>
         </div>
         <div class="mb-2">
-            <label for="shootLocation">Shoot Location:</label>
+            <label for="shootLocation">Shoot Location (State/Province/City/Region):</label>
             <input type="text" id="shootLocation" class="form-control" value="<?php echo $shoot_location ?>" disabled><br>
         </div>
         
