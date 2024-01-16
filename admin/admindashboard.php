@@ -172,7 +172,7 @@ $doneCount = 0;
                     <div class="card" style="border: none;">
                         <div class="card-inner"  style="display: block !important; text-decoration:none" >
                         <a href="profile.php" class="link-label"style="text-decoration:none; text-align:center">
-                                <h3>Borrowers</h3>
+                                <h3>End User</h3>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     height="12"
@@ -257,7 +257,7 @@ $doneCount = 0;
             data = [{ event_name: 'No Data', event_status: 'No Data' }];
         }
 
-        const labels = ['Pending', 'Approved', 'Done', 'Declined'];
+        const labels = ['', 'Approved', 'Done', 'Declined'];
         const statuses = data.map(entry => entry.event_status.toUpperCase()); // Capitalize the event status values
 
         const pendingData = statuses.filter(event_status => event_status === 'PENDING').length;
