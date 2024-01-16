@@ -188,12 +188,14 @@
 
                    ?>
                        <div class="card__index justify-content-right">
-                           <img src="assets/global/services_img/<?php echo $row['service_image']; ?>" alt="">
-                           <div class="__content p-3">
-                               <h3><?php echo $row['service_name']; ?></h3>
-                               <!-- <p><?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?></p> -->
-                               <a href="#" class="Btn read-more-link" onclick="return openDescriptionModal('<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>', '../assets/global/services_img/<?php echo $row['service_image']; ?>')">Read More</a>
-                           </div>
+                        <img src="../assets/global/services_img/<?php echo $row['service_image']; ?>" alt="">
+                        <div class="__content p-3">
+                            <h3><?php echo $row['service_name']; ?></h3>
+                            <!-- <p><?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?></p> -->
+                            <a href="#" class="Btn read-more-link" onclick="return openDescriptionModal('<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>', '<?php echo $row['service_image']; ?>')">Read More</a>
+                        </div>
+                    </div>
+
                        </div>
                    <?php } ?>
                </div>
