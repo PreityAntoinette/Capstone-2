@@ -11,10 +11,11 @@
     <link href="../assets/images/logo.png" rel="icon" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/global/css/design.css" />
-    <link rel="stylesheet" href="../assets/admin/css/account.css" />
     <link rel="stylesheet" href="../assets/global/css/main.css" />
     <link rel="stylesheet" href="../assets/global/css/global.css" />
     <link rel="stylesheet" href="../assets/global/css/table.css" />
+    <link rel="stylesheet" href="../assets/css/user_profile.css" />
+
 
 
 </head>
