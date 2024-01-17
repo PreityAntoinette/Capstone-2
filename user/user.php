@@ -204,14 +204,13 @@
                         <p id="readmore-service-description"></p>
 
                         <!-- <div class="add"> -->
-                <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
+                <!-- <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button> -->
                 <!-- </div> -->
                 <?php include ('login_pop_up.php');?>
                     </div>
                     </div>
                     </div>
                 </div>
-
 <!--=============================END OF SERVICES==========================-->
 
 
