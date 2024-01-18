@@ -202,16 +202,10 @@
                     <div class="text-container">
                         <p id="readmore-service-name"></p>
                         <p id="readmore-service-description"></p>
-
-                        <!-- <div class="add"> -->
-                <a href="#" class="modal-trigger" data-modal-id="login_pop_up">Schedule now!</button>
-                <!-- </div> -->
-                <?php include ('login_pop_up.php');?>
                     </div>
                     </div>
                     </div>
                 </div>
-
 <!--=============================END OF SERVICES==========================-->
 
 
@@ -264,9 +258,9 @@
             <a href="mailto:lagringstudio@gmail.com" class="footer__btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="arrow"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M1 13 13 1M4 1h9v9"></path></g></svg></a>
         </div>
     </div>
-    <!-- <div class="footerBottom">
+    <div class="footerBottom">
             <p>&copy;2024 Lagring Studio, All Rights Reserved.</p>
-        </div> -->
+        </div>
 </footer>
 
 <script>
@@ -285,7 +279,7 @@
     <!--swiper js cnd-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../assets/js/main.js"></script>
-    <script src="assets/js/read_more_modal.js"></script>
+    <script src="../assets/js/read_more_modal.js"></script>
     <script src="../assets/global/js/services.js"></script>
      <script src="../assets/js/script.js"></script>
 </body>

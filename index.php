@@ -38,8 +38,8 @@ include 'submitreg.php';
         <span class="nav__title">Lagring Studio</span>
         <ul class="nav__links">
             <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#" class="modal-trigger" data-modal-id="login_pop_up">Log in</a>
             <?php include 'login_pop_up.php';?>  </li>
                 
