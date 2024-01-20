@@ -176,19 +176,19 @@ function formatAppointmentDate($apt_datetime, $service_type) {
             ?>
         <?php endif; ?>
         <?php if ($service_type === 'SMALL') : ?>
-            <option value="" selected disabled>Select a photographer..</option>
+            <option value="" selected disabled>Select a phodtographer..</option>
             <?php
-            function isPhotographerAvailable2($connection, $dateformat, $photographer_fullname)
+            function isPhotographerAvailable2($connection, $apt_datetime, $photographer_fullname)
             {
-                $availabilityQuery = mysqli_query($connection, "SELECT * FROM appointment WHERE DATE(apt_datetime) = '$dateformat' AND apt_occasion_type != 'N/A'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
-                return mysqli_num_rows($availabilityQuery) == 0;
+                $availabilityQuery2 = mysqli_query($connection, "SELECT * FROM appointment WHERE apt_datetime = '$apt_datetime'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
+                return mysqli_num_rows($availabilityQuery2) == 0;
             }
 
-            $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
+            $photographerQuery2 = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
 
-            while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
-                $photographer_fullname = $photographerRow['photographer_fullname'];
-                $isAvailable = isPhotographerAvailable2($connection, $dateformat, $photographer_fullname);
+            while ($photographerRow2 = mysqli_fetch_array($photographerQuery2)) {
+                $photographer_fullname = $photographerRow2['photographer_fullname'];
+                $isAvailable = isPhotographerAvailable2($connection, $apt_datetime, $photographer_fullname);
                 $marked = $isAvailable ? '' : 'disabled';
                 $labeled = $isAvailable ? '' : ' (Not available)';
             ?>
