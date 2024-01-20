@@ -1,5 +1,5 @@
 <?php
-require_once 'database.php';
+require_once '../database.php';
 session_start();
 
 require_once __DIR__ . '/assets/global/vendor/phpmailer/src/Exception.php';
