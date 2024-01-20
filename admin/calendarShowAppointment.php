@@ -13,6 +13,7 @@ if (isset($_GET['id'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $apt_datetime = $row['apt_datetime'];
+        $apt_datetime = $row['apt_datetime'];
         $dateformat = date('Y-m-d', strtotime($apt_datetime));
         $apt_date = formatAppointmentDate($apt_datetime, $row['service_type']);
         $service_name = ucwords(strtolower($row['service_name']));
@@ -180,7 +181,9 @@ function formatAppointmentDate($apt_datetime, $service_type) {
             <?php
             function isPhotographerAvailable2($connection, $apt_datetime, $photographer_fullname)
             {
-                $availabilityQuery2 = mysqli_query($connection, "SELECT * FROM appointment WHERE apt_datetime = '$apt_datetime'  AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED'") or die(mysqli_error($connection));
+                 $dateformat2 = date('Y-m-d 23:59:59', strtotime($apt_datetime));
+                $availabilityQuery2 = mysqli_query($connection, "SELECT * FROM appointment WHERE (apt_datetime = '$apt_datetime' OR apt_datetime = '$dateformat2') AND apt_photographer = '$photographer_fullname' AND apt_status = 'APPROVED';
+                ") or die(mysqli_error($connection));
                 return mysqli_num_rows($availabilityQuery2) == 0;
             }
 
