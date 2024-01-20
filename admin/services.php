@@ -148,7 +148,7 @@
                                     </tr>
                                     <?php
                                include ('edit_service.php');
-                               include('user_account_modals/archived_services_modal.php');
+                               include('archived_modals/archived_services_modal.php');
                                     }}
                                     else {echo '<tr><td colspan="6" style="text-align: center;">No records found.</td></tr>';}
                                 ?>

@@ -158,7 +158,7 @@ ini_set('display_errors', 1);
                                         </td>
                                     </tr>
                                     <?php
-                                        include('user_account_modals/archived_website_modal.php');
+                                        include('archived_modals/archived_website_modal.php');
                                     }}
                                     else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>

@@ -129,7 +129,7 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        include('user_account_modals/user_account_view_admin.php');
+                                        include('archived_modals/archived_admin_modal.php');
                                     }}
                                     else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
@@ -225,7 +225,7 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        include('user_account_modals/user_account_view_user.php');
+                                        include('archived_modals/archived_user_modal.php');
                                     }}
                                     else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
@@ -320,7 +320,7 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        include('user_account_modals/user_account_view_photographer.php');
+                                        include('archived_modals/archived_photographer_modal.php');
                                     }}
                                     else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>

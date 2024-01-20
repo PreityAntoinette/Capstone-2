@@ -129,7 +129,7 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        include('user_account_modals/unarchived_admin.php');
+                                        include('archived_modals/unarchived_admin.php');
                                     }}
                                     else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
@@ -225,7 +225,7 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        include('user_account_modals/unarchived_user.php');
+                                        include('archived_modals/unarchived_user.php');
                                     }}
                                     else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
@@ -320,7 +320,7 @@
                                         </td>
                                     </tr>
                                     <?php
-                                        include('user_account_modals/unarchived_photographer.php');
+                                        include('archived_modals/unarchived_photographer.php');
                                     }}
                                     else {echo '<tr><td colspan="7" style="text-align: center;">No records found.</td></tr>';}
                                 ?>
