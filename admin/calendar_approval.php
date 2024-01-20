@@ -112,7 +112,7 @@
 
                 if($status=='APPROVED'){
                 $jsCode = '<script>
-                document.addEventListener("DOMContentLoaded", function() {
+                document.addEventListener("", function() {
                         alert("Schedule Approved");
                 });
                 </script>';

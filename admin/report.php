@@ -86,6 +86,8 @@
                         </section>
                         <section class="export">
                             <button class="btn1 btn btn-primary" type="submit" id="btn1" onclick="thisBtn1()" name="excel">
+                            <!-- <button class="btn2 btn btn-primary" type="submit" id="btn2" onclick="thisBtn2()" name="pdf"> -->
+
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"
@@ -99,7 +101,7 @@
                                 Excel
                             </button>
 
-                            <!-- <button class="btn1 btn btn-primary" type="submit" id="btn2" onclick="thisBtn2()" name="pdf2">
+                            <button class="btn1 btn btn-primary" type="submit" id="btn2" onclick="thisBtn2()" name="pdf">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"
@@ -112,7 +114,7 @@
                                 </svg>
                                 PDF
                             </button>
-                            -->
+                           
                         </section>
                     </div>
                     </form>
@@ -220,7 +222,7 @@
                btn2 =  document.getElementById("btn2"); 
                form =  document.getElementById("form"); 
                if(btn2){
-                form.setAttribute('action', 'generate_pdf2.php');
+                form.setAttribute('action', 'generate_pdf.php');
                }
             }
      function fetchData() {

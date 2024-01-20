@@ -150,6 +150,7 @@ mysqli_stmt_close($stmt);
                         $startTime += 30 * 60; // Add 30 minutes
                     }
                     ?>
+                    
                 </select>
             </div>
 
@@ -180,7 +181,10 @@ mysqli_stmt_close($stmt);
             </select>
         </div>
 
-
+        <div id="timeNoteContainer" class="mt-3">
+        <!-- The note content will be dynamically added here -->
+        <label>Note: The services that will be held on the Studio will only take 30 mins.</label>
+    </div>
         </div>
        
     
