@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
         $response = sendSMS($phone, $message);
 
         if ($response) {
-            // echo "OTP sent successfully!";
+            //echo "OTP sent successfully!";
         } else {
             echo "Failed to send OTP. Please try again.";
         }

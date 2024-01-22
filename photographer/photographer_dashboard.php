@@ -61,9 +61,9 @@ $doneCount = 0;
     <body>
         <div class="grid-container">
             <!-- Header -->
-            <?php require "header/header.php"?>
+            <!-- <?php require "header/header.php"?> -->
             <!-- End Header -->
-            <?php require "navigation/sidebar.php"?>
+            <!-- <?php require "navigation/sidebar.php"?> -->
             <!-- Main -->
             <main class="main-container">
                 <div class="main-title">
