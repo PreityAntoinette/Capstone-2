@@ -306,22 +306,22 @@ include '../submitreg.php';
         if ($result->num_rows > 0) {
             $row = $result->fetch_object();
             if (password_verify($password, $row->password)) {
-                $_SESSION['user'] = $row;
+                $_SESSION['photographer'] = $row;
         
                 echo '<script>
-                    window.location.href = "index.php";
+                    window.location.href = "photographer_dashboard.php";
                 </script>';
                 exit();
             } else {
                 echo '<script>
                     alert("Wrong password."); 
-                    window.location.href = "index.php";
+                    window.location.href = "photographer_login.php";
                 </script>';
             }
         } else {
             echo '<script>
                 alert("Email does not exist."); 
-                window.location.href = "index.php";
+                window.location.href = "photographer_login.php";
             </script>';
         }
         
