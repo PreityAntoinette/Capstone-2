@@ -1,3 +1,9 @@
+<?php  
+session_start();
+require_once './database.php';
+include 'submitreg.php';
+
+?>
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
