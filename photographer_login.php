@@ -283,7 +283,7 @@ include 'submitreg.php';
                     echo "<script type='text/javascript'> alert('Unexpected error encountered! Please try again later!'); </script>";
                 }
                    // Include OTP verification after successful registration
-            include 'otp_verification.php';
+            include 'otp_verification_photographer.php';
             } catch(Exception $e) {
                 // if the email doesn't send rollback the transaction
                 echo "<script type='text/javascript'> alert('Unexpected error encountered! Please try again later!'); </script>";
