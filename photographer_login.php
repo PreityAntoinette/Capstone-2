@@ -1,7 +1,7 @@
 <?php  
 session_start();
-require_once '../database.php';
-include '../submitreg.php';
+require_once 'database.php';
+include 'submitreg.php';
 
 ?>
 <!DOCTYPE html>
@@ -19,10 +19,10 @@ include '../submitreg.php';
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="../assets/global/css/table.css" />
-    <link rel="stylesheet" href="../assets/global/css/global.css" />
-    <link rel="stylesheet" href="../assets/css/style.css">  <!--Main css of both index and user-->
-    <link rel="stylesheet" href="../assets/css/photographer_login.css" /> <!--Log in css-->
+    <link rel="stylesheet" href="assets/global/css/table.css" />
+    <link rel="stylesheet" href="assets/global/css/global.css" />
+    <link rel="stylesheet" href="assets/css/style.css">  <!--Main css of both index and user-->
+    <link rel="stylesheet" href="assets/css/photographer_login.css" /> <!--Log in css-->
     
          
     <title>Login & Registration Form</title> 
@@ -187,14 +187,14 @@ include '../submitreg.php';
         </div>
     </div>
 
-     <script src="../assets/js/script.js"></script> 
-     <script src="../assets/js/interaction.js"></script> 
+     <script src="/assets/js/script.js"></script> 
+     <script src="/assets/js/interaction.js"></script> 
      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/global/js/services.js"></script>
-    <script src="../assets/js/script.js"></script>
-    <script src="../assets/js/read_more_modal.js"></script>
-    <script src="../assets/global/js/modal.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/global/js/services.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/read_more_modal.js"></script>
+    <script src="/assets/global/js/modal.js"></script>
 
      <script>
                     function nextStep() {
@@ -210,9 +210,9 @@ include '../submitreg.php';
                 </script>
 
 <?php
-    require_once __DIR__ . '/../assets/global/vendor/phpmailer/src/Exception.php';
-    require_once __DIR__ . '/../assets/global/vendor/phpmailer/src/PHPMailer.php';
-    require_once __DIR__ . '/../assets/global/vendor/phpmailer/src/SMTP.php';
+    require_once __DIR__ . '/assets/global/vendor/phpmailer/src/Exception.php';
+    require_once __DIR__ . '/assets/global/vendor/phpmailer/src/PHPMailer.php';
+    require_once __DIR__ . '/assets/global/vendor/phpmailer/src/SMTP.php';
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
@@ -276,14 +276,14 @@ include '../submitreg.php';
 
                 $mail->AltBody = '<p>To verify your email, enter your One Time Pin: <span style="color: green;">'.$otp.'</span></p>'; // Send the email
                 if ($mail->send()) {
-                    echo header ("location: ../verifyotp.php?email=".$email);
+                    echo header ("location: verifyotp.php?email=".$email);
                     exit();
                 }
                 else {
                     echo "<script type='text/javascript'> alert('Unexpected error encountered! Please try again later!'); </script>";
                 }
                    // Include OTP verification after successful registration
-            include '../otp_verification.php';
+            include 'otp_verification.php';
             } catch(Exception $e) {
                 // if the email doesn't send rollback the transaction
                 echo "<script type='text/javascript'> alert('Unexpected error encountered! Please try again later!'); </script>";
