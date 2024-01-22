@@ -276,7 +276,7 @@ include 'submitreg.php';
 
                 $mail->AltBody = '<p>To verify your email, enter your One Time Pin: <span style="color: green;">'.$otp.'</span></p>'; // Send the email
                 if ($mail->send()) {
-                    echo header ("location: verifyotp.php?email=".$email);
+                    echo header ("location: verifyotp_photographer.php?email=".$email);
                     exit();
                 }
                 else {
