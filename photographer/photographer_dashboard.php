@@ -1,47 +1,4 @@
-<?php include('session.php');
-
-
-//approved to done
-$sql = "UPDATE appointment
-        SET apt_status = 'DONE'
-        WHERE apt_status = 'APPROVED' AND DATE(apt_datetime) < NOW()";
-
-$result = mysqli_query($connection, $sql);
-if ($result) {
-    echo "Appointments status updated successfully.";
-}
-
-
-//counter
-$sql = "SELECT
-SUM(CASE WHEN apt_status = 'PENDING' THEN 1 ELSE 0 END) AS pending_count,
-SUM(CASE WHEN apt_status = 'APPROVED' THEN 1 ELSE 0 END) AS approved_count,
-SUM(CASE WHEN apt_status = 'DECLINED' THEN 1 ELSE 0 END) AS declined_count,
-SUM(CASE WHEN apt_status = 'DONE' THEN 1 ELSE 0 END) AS done_count
-FROM appointment ";
-
-
-$result1 = $connection->query($sql);
-
-
-if ($result1->num_rows > 0) {
-$row1 = $result1->fetch_assoc();
-$pendingCount = $row1["pending_count"];
-$approvedCount = $row1["approved_count"];
-$declinedCount = $row1["declined_count"];
-$doneCount = $row1["done_count"];
-
-}
-
-else {
-// If no rows are returned, initialize the counts to 0
-$pendingCount = 0;
-$approvedCount = 0;
-$declinedCount = 0;
-$doneCount = 0;
-
-}
-?>
+<!--  -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
