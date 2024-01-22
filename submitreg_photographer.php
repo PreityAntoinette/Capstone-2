@@ -16,14 +16,15 @@
         $contact = $_POST['contact'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $role = 'USER';
+        $photographer_status = 'ACTIVE';
+        $archived_flag = 1;
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $otp = random_int(100000, 999999);// for otp generation
         date_default_timezone_set('Asia/Manila');// setting the default timezone to manila
         $expire_time = date('Y-m-d H:i:s', strtotime('+5 minutes'));// adding 5 minutes to the current timezone for email validation
 
-        $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, contact, email, password, role, otp, expire_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $sql->bind_param('sssisssis', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $role, $otp, $expire_time);
+        $sql = $connection->prepare('INSERT INTO photographer (firstname, middlename, surname, contact, email, password, photographer_status, archived_flag, otp, expire_time) VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?)');
+        $sql->bind_param('sssisssiis', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $photographer_status, $archived_flag, $otp, $expire_time);
 
         if ($sql->execute()) {
             // echo "<script type='text/javascript'> alert('Registered successfully'); </script>";
@@ -74,7 +75,7 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $selectQuery = $connection->prepare('SELECT * FROM users WHERE email = ?');
+        $selectQuery = $connection->prepare('SELECT * FROM photographer WHERE email = ?');
         $selectQuery->bind_param('s', $email);
         $selectQuery->execute();
         $result = $selectQuery->get_result();
@@ -82,39 +83,24 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_object();
             if (password_verify($password, $row->password)) {
-                if ($row->role == 'USER') {
-                
-                    $_SESSION['user'] = $row;
-                    header('Location: user/user.php');
-                    echo '<script>
-                    window.location.href = "index.php";
+                $_SESSION['photographer'] = $row;
+        
+                echo '<script>
+                    window.location.href = "photographer_dashboard.php";
                 </script>';
-                    exit();
-                } elseif ($row->role == 'ADMIN') {
-                
-                    $_SESSION['admin'] = $row;
-                    echo '<script>
-                    window.location.href = "index.php";
-                </script>';
-                    header('Location: admin/admindashboard.php');
-                    exit();
-                }
+                exit();
             } else {
                 echo '<script>
-                alert("Wrong password."); 
-                window.location.href = "index.php";
+                    alert("Wrong password."); 
+                    window.location.href = "photographer_login.php";
                 </script>';
-            
-                
             }
         } else {
-
-            echo '<script> alert("Email does not exist."); 
-            window.location.href = "index.php";
-            
+            echo '<script>
+                alert("Email does not exist."); 
+                window.location.href = "photographer_login.php";
             </script>';
-            
-
         }
+        
     }
 ?>
