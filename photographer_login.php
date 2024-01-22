@@ -1,7 +1,7 @@
 <?php  
 session_start();
 require_once 'database.php';
-include 'submitreg.php';
+include 'submitreg_photographer.php';
 
 ?>
 <!DOCTYPE html>
