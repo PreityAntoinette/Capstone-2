@@ -103,7 +103,7 @@
                                         <input type="checkbox" id="termCon">
                                         <!-- <label for="termCon" class="text">I accepted all terms and conditions</label> -->
                                         <span class="text">I accepted all
-                                        <a href="#" class="text terms-link">Terms and Conditions</a>
+                                        <a href="#" id="showTerms" class="text terms-link">Terms and Conditions</a>
                                         </span>
                                     </div>
                                 </div>
@@ -122,14 +122,37 @@
                             <div class="terms-text">
                                 <h2>Terms and Conditions</h2>
                                 <h4>1. Acceptance of Terms</h4>
-                                    <p>By accessing or using the scheduling system provided by Lagring Studio, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not use our scheduling services.</p>
+                                    <p>By accessing and using this website, you agree to comply with and be bound by these terms and conditions. If you do not agree to these terms, please do not use this site.</p>
 
                                 <h4>2. User Accounts</h4>
-                                    <p>2.1. To use certain features of the scheduling system, you may be required to create an account. You are responsible for maintaining the confidentiality of your account information, including your username and password.</p>
+                                    <p>You agree to use this website only for lawful purposes and in a manner consistent with all applicable local, national, and international laws and regulations.</p>
 
-                                    <p>2.2. You agree to provide accurate and up-to-date information when creating your account and using the scheduling system.</p>
+                                <h4>3. Privacy Policy</h4>
+                                    <p>By using our scheduling system, you agree to abide by these terms and conditions. </p>
 
-                                <h4>3. Scheduling Services</h4>
+                                <h4>4. Intellectual Property</h4>
+                                    <p>All content on this website, including but not limited to text, graphics, logos, images, audio clips, video clips, and data compilations, is the property of Lagring Studio and is protected by intellectual property laws.</p>
+
+                                <h4>5. Links to Third-Party Websites</h4>
+                                    <p>This website may contain links to third-party websites for your convenience. We do not endorse or make any representations about these websites. Your use of third-party websites is at your own risk.</p>
+
+                                <h4>6. Disclaimer of Warranties</h4>
+                                    <p>This website is provided "as is" without any warranties, express or implied. Lagring Studio makes no representations or warranties regarding the accuracy, completeness, or reliability of the content on this site.</p>
+
+                                <h4>7. Limitation of Liability</h4>
+                                    <p>Lagring Studio will not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your access to or use of this website.</p>
+
+                                <h4>8. Service Provider's Right to Cancel</h4>
+                                    <p>Lagring Studio reserves the right to cancel or reschedule appointments due to unforseen circumstances, in which case users will be notified promptly.</p>
+
+                                <h4>9. Communication</h4>
+                                    <p>Users are responsible for providing accurate contact information. Lagring Studio is not liable for missed comminications due to outdated or incorrect contact details.</p>
+                                
+                                <h4>10. Changes to Terms and Conditions</h4>
+                                    <p>Lagring Studio reserves the right to change these terms and conditions at any time. Your continued use of the website after such changes will constitute acceptance of the updated terms.</p>
+                                
+
+                                <!-- <h4>3. Scheduling Services</h4>
                                     <p>3.1. Lagring Studio provides a scheduling platform for users to book appointments.</p>
 
                                     <p>3.2. Users are solely responsible for the accuracy of the information provided during scheduling, including date, time, and any other relevant details.</p>
@@ -159,11 +182,9 @@
                                 <h4>10. Governing Law</h4>
                                     <p>10.1. These Terms and Conditions are governed by and construed in accordance with the laws of [Your Jurisdiction].</p>
 
-                                <p>By using our scheduling system, you agree to abide by these terms and conditions. If you have any questions or concerns, please contact Lagring Studio at [Contact Information].</p>
+                                <p>By using our scheduling system, you agree to abide by these terms and conditions. If you have any questions or concerns, please contact Lagring Studio at [Contact Information].</p> -->
 
-                                <p>Lagring Studio</p>
-
-                                <p>January 12,2024</p>
+                                <p>These terms and conditions were last updated on January 2024.</p>
 
                             </div>
                             <h4>I agree to the <span>Terms and Conditions</span>and I read the Privacy Notice.</h4>
@@ -326,6 +347,8 @@
 ?>
 </div>
 </body>
+
+
 
 
 

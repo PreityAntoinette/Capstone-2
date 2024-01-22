@@ -146,7 +146,7 @@ function formatAppointmentDate($apt_datetime, $service_type) {
 
             <div class="input-container pb-2" id="remarkContainer" style="display: none;">
                 <label for="remark" class="text-nowrap">Remark:</label>
-                <textarea name="remark" id="remark" class="form-control" maxlength="500" placeholder="Write your remark" ></textarea>
+                <textarea name="remark" id="remark" class="form-control" maxlength="500">Thank you for choosing Lagring Studio. Regrettably, we cannot accomodate your requested scheduling due to unforseen circumstances. We appologize for any inconvinience caused. You are welcome to set set an alternative schedule that suits you.</textarea>
             </div>
             
             <div class="input-container pb-2" id="photographerContainer" style="display: none;">
