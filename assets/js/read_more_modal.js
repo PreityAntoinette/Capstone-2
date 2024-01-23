@@ -1,4 +1,5 @@
 function openDescriptionModal(nameservice, description, imageUrl) {
+    console.log('Image URL:', imageUrl);
     var modal = document.getElementById("readmore-myModal");
     var serviceName = document.getElementById("readmore-service-name");
     var serviceDescription = document.getElementById("readmore-service-description");
@@ -18,3 +19,4 @@ function closeModal() {
     var modal = document.getElementById("readmore-myModal");
     modal.style.display = "none";
 }
+
