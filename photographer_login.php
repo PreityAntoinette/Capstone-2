@@ -309,7 +309,7 @@ include 'submitreg_photographer.php';
                 $_SESSION['photographer'] = $row;
         
                 echo '<script>
-                    window.location.href = "photographer_dashboard.php";
+                    window.location.href = "photographer/photographer_dashboard.php";
                 </script>';
                 exit();
             } else {

@@ -204,7 +204,7 @@
                                                 </html>';
                                             $mail->AltBody = '<p>To verify your email, enter your One Time Pin: <span style="color: green;">'.$newotp.'</span></p>'; // Send the email
                                             if($mail->send()){
-                                                echo "<script>window.location.href = 'verifyotp.php?email=$email';</script>";
+                                                echo "<script>window.location.href = 'verifyotp_photographer.php?email=$email';</script>";
                                             } else {
                                                 echo "<script type='text/javascript'> alert('Unexpected error encountered! Please try again!'); </script>";
                                             }

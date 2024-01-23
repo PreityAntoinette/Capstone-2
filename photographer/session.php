@@ -4,7 +4,7 @@
     if (isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
             $id = $user->photographer_id;
-            $query = $connection->prepare("SELECT * FROM users WHERE photographer_id = ?");
+            $query = $connection->prepare("SELECT * FROM photographer WHERE photographer_id = ?");
             $query->bind_param("i", $id);
             $query->execute();
             $queryResult = $query->get_result();
