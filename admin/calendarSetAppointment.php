@@ -183,7 +183,7 @@ mysqli_stmt_close($stmt);
 
         <div id="timeNoteContainer" class="mt-3">
         <!-- The note content will be dynamically added here -->
-        <label>Note: The services that will be held on the Studio will only take 30 mins.</label>
+        <label><h3>NOTE: Kindly be advised that the services conducted at the studio are designed to conclude within a duration of 30 minutes. Your understanding and cooperation are greatly appreciated.</h3></label>
     </div>
         </div>
        
