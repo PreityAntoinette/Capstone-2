@@ -299,7 +299,7 @@ include 'submitreg_photographer.php';
         } else {
             echo "<script type='text/javascript'> alert('Registration Failed'); </script>";
         }
-    }
+    
 
     if (isset($_POST['login'])) {
         
