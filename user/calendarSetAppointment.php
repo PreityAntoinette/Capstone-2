@@ -97,41 +97,45 @@ mysqli_stmt_close($stmt);
         </div>
 
         <div id="smallService" style="display: none;" class="mb-2">
-            <div class="mb-2">
-                <label for="date">Date:</label>
-                <input type="date" class="form-control" read-only  value="<?php echo $selectedDate; ?>" id="date" name="date">
-            </div>
-            <div class="mb-2">
-                <label for="dateTime">Time:</label>
-                <select class="form-control1" id="dateTime" name="dateTime">
-                    <option value="" disabled selected>Select time</option>
-                    <?php
-                    // Define start and end times
-                    $startTime = strtotime('08:00 AM');
-                    $endTime = strtotime('05:00 PM');
+    <div class="mb-2">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" read-only  value="<?php echo $selectedDate; ?>" id="date" name="date">
+    </div>
+    <div class="mb-2">
+        <label for="dateTime">Time:</label>
+        <select class="form-control1" id="dateTime" name="dateTime">
+            <option value="" disabled selected>Select time</option>
+            <?php
+            // Define start and end times
+            $startTime = strtotime('08:00 AM');
+            $endTime = strtotime('05:00 PM');
 
-                    // Loop through 30-minute intervals
-                    while ($startTime <= $endTime) {
-                        $formattedTime = date('h:i A', $startTime);
-                        $formattedTime2 = date('H:i:s', $startTime);
-                        
-                        $disabled = in_array($formattedTime2, $existingApprovedTimes) ? 'disabled' : ''; // Check if time is in the approved times array
-                        $disabledLabel = in_array($formattedTime2, $existingApprovedTimes) ? ' (Not Available)' : ''; // Check if time is in the approved times array
-                    ?>
+            // Loop through 30-minute intervals
+            while ($startTime <= $endTime) {
+                $formattedTime = date('h:i A', $startTime);
+                $nextTime = strtotime('+30 minutes', $startTime);
+                $formattedNextTime = date('h:i A', $nextTime);
+                $formattedTimeRange = $formattedTime . ' - ' . $formattedNextTime;
+                $formattedTime2 = date('H:i:s', $startTime);
 
-                        <option value="<?php echo $formattedTime2; ?>" <?php echo $disabled; ?>><?php echo $formattedTime. ' '.$disabledLabel; ?></option>
-                    <?php
-                        $startTime += 30 * 60; // Add 30 minutes
-                    }
-                    ?>
-                </select>
-            </div>
+                $disabled = in_array($formattedTime2, $existingApprovedTimes) ? 'disabled' : ''; // Check if time is in the approved times array
+                $disabledLabel = in_array($formattedTime2, $existingApprovedTimes) ? ' (Not Available)' : ''; // Check if time is in the approved times array
+            ?>
 
-            <div id="timeNoteContainer" class="mt-3">
-            <!-- The note content will be dynamically added here -->
-            <label><h3>NOTE: Kindly be advised that the services conducted at the studio are designed to conclude within a duration of 30 minutes. Your understanding and cooperation are greatly appreciated.</h3></label>
-        </div>
-        </div>
+                <option value="<?php echo $formattedTime2; ?>" <?php echo $disabled; ?>><?php echo $formattedTimeRange . ' ' . $disabledLabel; ?></option>
+            <?php
+                $startTime += 30 * 60; // Add 30 minutes
+            }
+            ?>
+        </select>
+    </div>
+
+    <div id="timeNoteContainer" class="mt-3">
+        <!-- The note content will be dynamically added here -->
+        <label><h3>NOTE: Kindly be advised that the services conducted at the studio are designed to conclude within a duration of 30 minutes. Your understanding and cooperation are greatly appreciated.</h3></label>
+    </div>
+</div>
+
 
         <div class="modal-footer">
             <button type="submit" name="submitt" id="submitting" class="btn btn-primary">Submit</button>
