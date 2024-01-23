@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../assets/global/css/main.css" />
     <link rel="stylesheet" href="../assets/global/css/global.css" />
     <link rel="stylesheet" href="../assets/global/css/table.css" />
+    <link rel="stylesheet" href="../assets/global/css/user_profile.css" />
+
 
 
 </head>
@@ -22,6 +24,56 @@
 <!-- Table CSS  -->
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+
+:root{
+    --color-primary: #000;
+    --color-primary: #000;
+    --color-primary-variant: #000;
+    --color-bg-1:#D8E2DC;
+    --color-bg-2:#D8E2DC;
+    --color-bg-3:#F7F7F0;
+    --color-bg-4:#D8E2DC;
+    --color-bg-5:#216c9e;
+    --color-light: #000;
+    --color-white:hsl(0, 0%, 0%);
+
+    --container-witdh-lg:88%;
+    --container-witdh-md: 92%;
+
+    --transition: all 400ms ease;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    margin: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-5);
+    height: 100vh;
+}
+
+.main-container{
+    text-align: center;
+    background-color: white;
+    width: 90rem;
+    height: 47rem;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px -20px black;
+}
         .table-group-container{
             max-height: 75vh;
         }

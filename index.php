@@ -184,6 +184,7 @@ include 'submitreg.php';
     </div>
 </section>
 
+<!--start of modal-->
 
                 <?php
                
@@ -234,7 +235,7 @@ include 'submitreg.php';
                     </div>
                     </div>
                 </div>
-
+<!-- end of modal-->
 
 <!--=============================END OF SERVICES==========================-->
 

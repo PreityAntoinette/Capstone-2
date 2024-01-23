@@ -57,10 +57,10 @@
                         </div>
                         <!-- Table for Users Account -->
                         <div id="table1" class="table-group-container active">
-                        <div class="add">
+                        <!-- <div class="add">
                             <button class="modal-trigger" data-modal-id="modal_add-admin">Add Admin</button>
                         </div>
-                        <?php include ('modal_add-admin.php');?>
+                        <?php include ('modal_add-admin.php');?> -->
                             <table id="table1" class="table table-striped table-bordered w-100">
                                 <thead>
                                     <tr>
@@ -236,10 +236,10 @@
 
                         <!-- Table for Photographers -->
                         <div id="table3" class="table-group-container">
-                        <div class="add">
+                        <!-- <div class="add">
                             <button class="modal-trigger" data-modal-id="add_photographer">Add Photographer</button>
                         </div>
-                        <?php include ('add_photographer.php');?>
+                        <?php include ('add_photographer.php');?> -->
                                     <table id="table3" class="table table-striped table-bordered w-100">
                                 <thead>
                                     <tr>
@@ -258,7 +258,7 @@
                                         $id = $row['photographer_id'];
                                         $fullname = $row['photographer_fullname'];
                                         $photographer_status = $row['photographer_status'];
-                                        $dateAdded = date("M j, Y", strtotime($row['date_added']));
+                                        $dateAdded = date("M j, Y", strtotime($row['registration_date']));
                                     ?>
                                     <tr>
                                         <td><?php echo $i++ ?></td>
