@@ -221,29 +221,29 @@ include 'submitreg_photographer.php';
 
     // ...
 
-    if (isset($_POST['register'])) {
-        // Registration code with prepared statement and password_hash
-        $firstname = $_POST['firstname'];
-        $middlename = $_POST['middlename'];
-        $surname = $_POST['surname'];
-        $contact = $_POST['contact'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $photographer_status = 'ACTIVE';
-        $archived_flag = 1;
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        $otp = random_int(100000, 999999); // for otp generation
-        date_default_timezone_set('Asia/Manila'); // setting the default timezone to manila
-        $expire_time = date('Y-m-d H:i:s', strtotime('+5 minutes')); // adding 5 minutes to the current timezone for email validation
+if (isset($_POST['register'])) {
+    // Registration code with prepared statement and password_hash
+    $firstname = $_POST['firstname'];
+    $middlename = $_POST['middlename'];
+    $surname = $_POST['surname'];
+    $contact = $_POST['contact'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $photographer_status = 'ACTIVE';
+    $archived_flag = 1;
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    $otp = random_int(100000, 999999); // for otp generation
+    date_default_timezone_set('Asia/Manila'); // setting the default timezone to manila
+    $expire_time = date('Y-m-d H:i:s', strtotime('+5 minutes')); // adding 5 minutes to the current timezone for email validation
 
-        // Concatenate firstname and surname to create photographer_fullname
-        $photographer_fullname = $firstname . ' ' . $surname;
+    // Concatenate firstname and surname to create photographer_fullname
+    $photographer_fullname = $firstname . ' ' . $surname;
 
-        $sql = $connection->prepare('INSERT INTO photographer (firstname, middlename, surname, photographer_fullname, contact, email, password, photographer_status, archived_flag, otp, expire_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $sql->bind_param('ssssisssiis', $firstname, $middlename, $surname, $photographer_fullname, $contact, $email, $hashed_password, $photographer_status, $archived_flag, $otp, $expire_time);
+    $sql = $connection->prepare('INSERT INTO photographer (firstname, middlename, surname, photographer_fullname, contact, email, password, photographer_status, archived_flag, otp, expire_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+    $sql->bind_param('ssssisssiis', $firstname, $middlename, $surname, $photographer_fullname, $contact, $email, $hashed_password, $photographer_status, $archived_flag, $otp, $expire_time);
 
-        // ...
-}
+    // ...
+
 
         if ($sql->execute()) {
 
@@ -299,7 +299,7 @@ include 'submitreg_photographer.php';
         } else {
             echo "<script type='text/javascript'> alert('Registration Failed'); </script>";
         }
-    
+    }
 
     if (isset($_POST['login'])) {
         
