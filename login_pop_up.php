@@ -1,4 +1,5 @@
 <body class= login-page>
+
 <div class="modal-overlay" id="login_pop_up">
      <div class="modal-container modal-form-size modal-sm">
         <div class="modal-header text-light">
@@ -48,7 +49,7 @@
                             </form>
                             <div class="login-signup">
                                 <span class="text">Not a member?
-                                    <a href="#" class="text signup-link">Signup Now</a>
+                                    <a href="register.php" class="text signup-link">Signup Now</a>
                                 </span>
                                 <span class="modal-exit" data-modal-id="login_pop_up">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -60,63 +61,7 @@
                             </div>
                         </div>
                         <!-- Registration Form -->
-                        <div class="form signup">
-                            <span class="title">Registration</span>
-                            <form method="POST">
-                                <div class="input-field">
-                                    <input type="text" name="firstname" id="firstname" placeholder="Enter your first name">
-                                    <i class="uil uil-user"></i>
-                                </div>
-
-                                <div class="input-field">
-                                    <input type="text" name="middlename" id="middlename" placeholder="Enter your middle name">
-                                    <i class="uil uil-user"></i>
-                                </div>
-
-                                <div class="input-field">
-                                    <input type="text" name="surname" id="surname" placeholder="Enter your surname">
-                                    <i class="uil uil-user"></i>
-                                </div>
-                                
-                                <div class="input-field">
-                                    <input type="int" name="contact" id="contact" onkeypress="return /[0-9]/i.test(event.key)" maxlength="11" placeholder="Enter your Contact Number">
-                                    <i class="uil uil-user"></i>
-                                </div>
-
-                                <div class="input-field">
-                                    <input type="text" name="email" id="email" placeholder="Enter your email">
-                                    <i class="uil uil-envelope icon"></i>
-                                </div>
-                                <div class="input-field">
-                                    <input type="password" name="password" id="password" class="password" placeholder="Create a password">
-                                    <i class="uil uil-lock icon"></i>
-                                </div>
-
-                                <div class="input-field">
-                                    <input type="password" name="repeat_password" id="repeat_password" class="password" placeholder="Confirm a password">
-
-                                    <i class="uil uil-lock icon"></i>
-                                    <i class="uil uil-eye-slash showHidePw"></i>
-                                </div>
-                                <div class="checkbox-text">
-                                    <div class="checkbox-content">
-                                        <input type="checkbox" id="termCon">
-                                        <!-- <label for="termCon" class="text">I accepted all terms and conditions</label> -->
-                                        <span class="text">I accepted all
-                                        <a href="#" id="showTerms" class="text terms-link">Terms and Conditions</a>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="input-field button">
-                                    <input type="submit" value="Signup" name="register" id="register">
-                                </div>
-                                <div class="login-signup">
-                                    <span class="text">Already a member?
-                                        <a href="#" class="text login-link">Login Now</a>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
+                       
                         <!-- Terms and Conditions -->
                         <div class="form terms">
                             <div class="terms-text">
@@ -152,38 +97,6 @@
                                     <p>Lagring Studio reserves the right to change these terms and conditions at any time. Your continued use of the website after such changes will constitute acceptance of the updated terms.</p>
                                 
 
-                                <!-- <h4>3. Scheduling Services</h4>
-                                    <p>3.1. Lagring Studio provides a scheduling platform for users to book appointments.</p>
-
-                                    <p>3.2. Users are solely responsible for the accuracy of the information provided during scheduling, including date, time, and any other relevant details.</p>
-
-                                <h4>4. Cancellations and Modifications</h4>
-                                    <p>4.1. Users may be allowed to cancel or modify scheduled appointments, subject to the rules and limitations specified in the scheduling system.</p>
-
-                                    <p>4.2. Lagring Studio reserves the right to modify or cancel appointments in exceptional circumstances and will make reasonable efforts to notify affected users.</p>
-
-                                <h4>5. User Conduct</h4>
-                                    <p>5.1. Users agree to use the scheduling system in compliance with applicable laws and regulations.</p>
-
-                                    <p>5.2. Users may not engage in any activity that disrupts or interferes with the proper functioning of the scheduling system.</p>
-
-                                <h4>6. Privacy and Data Security</h4>
-                                    <p>6.1. Lagring Studio takes user privacy seriously. Please refer to our Privacy Policy for details on how we collect, use, and protect your personal information.</p>
-
-                                <h4>7. Limitation of Liability</h4>
-                                    <p>7.1. Lagring Studio shall not be liable for any direct, indirect, incidental, special, or consequential damages arising out of the use or inability to use the scheduling system.</p>
-
-                                <h4>8. Termination</h4>
-                                    <p>8.1. Lagring Studio reserves the right to terminate or suspend access to the scheduling system at any time for violations of these Terms and Conditions.</p>
-
-                                <h4>9. Changes to Terms</h4>
-                                    <p>9.1. Lagring Studio reserves the right to modify these Terms and Conditions at any time. Users will be notified of significant changes, and continued use of the scheduling system constitutes acceptance of the modified terms.</p>
-
-                                <h4>10. Governing Law</h4>
-                                    <p>10.1. These Terms and Conditions are governed by and construed in accordance with the laws of [Your Jurisdiction].</p>
-
-                                <p>By using our scheduling system, you agree to abide by these terms and conditions. If you have any questions or concerns, please contact Lagring Studio at [Contact Information].</p> -->
-
                                 <p>These terms and conditions were last updated on January 2024.</p>
 
                             </div>
@@ -193,19 +106,46 @@
                                 <input type="submit" value="Decline" name="decline" id="decline">
                             </div>
                         </div>
+
                          <!-- end of terms and conditions -->
                     </div>
                 </div>
+                  <!-- jQuery -->
+                <script src="assets/plugins/jquery/jquery.min.js"></script>
+                <!-- jQuery UI 1.11.4 -->
+                <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
                 <script src="assets/js/script.js"></script>
                 <script src="assets/js/interaction.js"></script>
                 <script>
-                    function nextStep() {
-                        var currentStep = document.querySelector('.step.active');
-                        var nextStep = currentStep.nextElementSibling;
+                    var otpButtonp = $('#verifyEmailBtn');
+                    var otpInputp = $('#email');
 
-                        currentStep.classList.remove('active');
-                        nextStep.classList.add('active');
-                    }
+        // Initially disable the OTP button
+        otpButtonp.prop('disabled', true);
+
+        otpInputp.on('input', function () {
+            var email = otpInput.val();
+
+            // Check if the entered value is a valid email
+            if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                otpButton.prop('disabled', false);
+                $('#msg3').css('display', 'inline-block');
+                $('#msg3').css('color', 'green');
+                $('#msg3').text(' ✓');
+            } else {
+                otpButton.prop('disabled', true);
+                $('#msg3').css('display', 'inline-block');
+                $('#msg3').css('color', 'red');
+                $('#msg3').text(' (Inavlid format)');
+            }
+        });
+           // Verify Email button click
+           $('#verifyEmailBtn').click(function () {
+            var email = $('#email').val();
+            var button = $(this);
+            var timerSeconds = 5 * 60; // 5 minutes in seconds
+           });
+                   
                     if (window.history.replaceState) {
                         window.history.replaceState(null, null, window.location.href);
                     }
