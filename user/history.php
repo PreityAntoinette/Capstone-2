@@ -107,62 +107,81 @@
                                     <th>Submitted from</th>
                                    
                                     <th>Status</th>
+                                    <th>Action</th>
                                     <!-- <th>Email</th>
                                     <th>Contact Number</th> -->
                                     </tr>
                                 </thead>
-                                <tbody id="result-body">
-                                <?php
-                            $i = 1;
-                            $user = $_SESSION['user'];
-                            $currentUserId = $user->user_id;
-                            // $currentUserId = $_SESSION['user_id'];
-                            $sql = mysqli_query($connection, "SELECT * FROM appointment, services, users WHERE appointment.apt_status != 'ARCHIVED' AND appointment.service_id = services.service_id AND appointment.user_id = users.user_id AND appointment.user_id = $currentUserId") or die(mysqli_error($connection));
+                                <!-- ... Previous code ... -->
 
-                            if (mysqli_num_rows($sql) > 0) {
-                                while ($row = mysqli_fetch_array($sql)) {
-                                    $id = $row['apt_id'];
-                                    $serstat = $row['apt_status'];
-                                    $schedule_id = $row['schedule_id'];
-                                    $email = $row['email'];
-                                    $apt_submit_type = $row ['apt_submit_type'];
-                                    $clientFullname = $apt_submit_type == 'WALK-IN' ? ucwords(strtolower($row['walkin_fullname'])) : ucwords(strtolower($row['firstname'] . ' ' . $row['surname']));
-                                    $clientContact = $apt_submit_type == 'WALK-IN' ? $row['walkin_contact'] : $row['contact'];
+<tbody id="result-body">
+    <?php
+    $i = 1;
+    $user = $_SESSION['user'];
+    $currentUserId = $user->user_id;
+    $sql = mysqli_query($connection, "SELECT * FROM appointment, services, users WHERE appointment.apt_status != 'ARCHIVED' AND appointment.service_id = services.service_id AND appointment.user_id = users.user_id AND appointment.user_id = $currentUserId") or die(mysqli_error($connection));
 
-                                    $sername = strtoupper($row['service_name']);
-                                    $apt_occ = strtoupper($row['apt_occasion_type']);
-                                    $apt_loc = strtoupper($row['apt_location']);
-                                    $apt_submit_type = strtoupper($apt_submit_type);
-                                    $apt_date = $row['apt_datetime'];
-                                    
-                                    if ($row['service_type'] === 'BIG') {
-                                        $formatted_date = date("M j, Y", strtotime($apt_date));
-                                    } else {
-                                        $formatted_date = date("M j, Y - g:i A", strtotime($apt_date));
-                                    }
-                            ?>
-                                    <tr>
-                                        <td><?php echo $i++ ?></td>
-                                        <td><?php echo $schedule_id ?></td>
-                                        <td><?php echo $formatted_date; ?></td>
+    if (mysqli_num_rows($sql) > 0) {
+        while ($row = mysqli_fetch_array($sql)) {
+            $id = $row['apt_id'];
+            $serstat = $row['apt_status'];
+            $schedule_id = $row['schedule_id'];
+            $email = $row['email'];
+            $apt_submit_type = $row ['apt_submit_type'];
+            $clientFullname = $apt_submit_type == 'WALK-IN' ? ucwords(strtolower($row['walkin_fullname'])) : ucwords(strtolower($row['firstname'] . ' ' . $row['surname']));
+            $clientContact = $apt_submit_type == 'WALK-IN' ? $row['walkin_contact'] : $row['contact'];
 
-                                        <!-- <td><?php echo ($clientFullname); ?></td> -->
-                                        <td><?php echo strtoupper($sername); ?></td>
-                                        <td><?php echo strtoupper($apt_occ); ?></td>
-                                        <td><?php echo strtoupper($apt_loc); ?></td>
-                                        <td><?php echo strtoupper($apt_submit_type); ?></td>
-                                        <td><?php echo $serstat; ?></td>
-                                        <!-- <td><?php echo $email; ?></td>
-                                        <td><?php echo $clientContact; ?></td> -->
-                                        </tr>
-                                        <?php           
-                                                    }
-                                                    
-                                                } else {
-                                                    echo '<tr><td colspan="8" style="text-align: center;">No records found.</td></tr>';
-                                                }
-                                                ?>
-                                </tbody>
+            $sername = strtoupper($row['service_name']);
+            $apt_occ = strtoupper($row['apt_occasion_type']);
+            $apt_loc = strtoupper($row['apt_location']);
+            $apt_submit_type = strtoupper($apt_submit_type);
+            $apt_date = $row['apt_datetime'];
+
+            if ($row['service_type'] === 'BIG') {
+                $formatted_date = date("M j, Y", strtotime($apt_date));
+            } else {
+                $formatted_date = date("M j, Y - g:i A", strtotime($apt_date));
+            }
+
+            // Check if the status is "PENDING" before rendering the "Cancel" button
+            $cancelButton = ($serstat == 'PENDING') ? '<button class="cancel-button" data-schedule-id="' . $schedule_id . '">Cancel</button>' : '';
+
+            ?>
+            <tr>
+                <td><?php echo $i++ ?></td>
+                <td><?php echo $schedule_id ?></td>
+                <td><?php echo $formatted_date; ?></td>
+                <td><?php echo strtoupper($sername); ?></td>
+                <td><?php echo strtoupper($apt_occ); ?></td>
+                <td><?php echo strtoupper($apt_loc); ?></td>
+                <td><?php echo strtoupper($apt_submit_type); ?></td>
+                <td><?php echo $serstat; ?></td>
+                <td><?php echo $cancelButton; ?></td>
+            </tr>
+        <?php
+        }
+    } else {
+        echo '<tr><td colspan="8" style="text-align: center;">No records found.</td></tr>';
+    }
+    ?>
+</tbody>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var cancelButtons = document.querySelectorAll('.cancel-button');
+
+        cancelButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var scheduleId = button.getAttribute('data-schedule-id');
+                // Implement your cancel logic here, for example, redirecting to cancel page
+                window.location.href = 'cancel.php?schedule_id=' + scheduleId;
+            });
+        });
+    });
+</script>
+
+<!-- ... Remaining code ... -->
+
                             </table>
 
                             <!-- <div class="input-field button">
