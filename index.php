@@ -229,7 +229,7 @@ include 'submitreg.php';
                     <div class="readmore-modal-content">
                     <span class="close" onclick="closeModal()">&times;</span>
                     <div class="modal-content-wrapper">
-                        <img class="image_readmore" id="readmore-service-image" src="" alt="Service Image">
+                        <img class="image_readmore" id="readmore-service-image" src="/assets/global/services_img/" alt="Service Image">
                     <div class="text-container">
                         <p id="readmore-service-name"></p>
                         <p id="readmore-service-description"></p>
