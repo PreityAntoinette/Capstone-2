@@ -134,27 +134,34 @@ mysqli_stmt_close($stmt);
         <select class="form-control1" id="dateTime" name="dateTime">
             <option value="" disabled selected>Select time</option>
             <?php
-            // Define start and end times
-            $startTime = strtotime('08:00 AM');
-            $endTime = strtotime('05:00 PM');
+    // Define start and end times
+    $startTime = strtotime('08:00 AM');
+    $endTime = strtotime('05:00 PM');
 
-            // Loop through 30-minute intervals
-            while ($startTime <= $endTime) {
-                $formattedTime = date('h:i A', $startTime);
-                $nextTime = strtotime('+30 minutes', $startTime);
-                $formattedNextTime = date('h:i A', $nextTime);
-                $formattedTimeRange = $formattedTime . ' - ' . $formattedNextTime;
-                $formattedTime2 = date('H:i:s', $startTime);
+    // Loop through 30-minute intervals
+    while ($startTime < $endTime) {
+        $formattedTime = date('h:i A', $startTime);
+        $nextTime = strtotime('+30 minutes', $startTime);
+        
+        // Check if the next time exceeds the closing time
+        if ($nextTime > $endTime) {
+            break;
+        }
 
-                $disabled = in_array($formattedTime2, $existingApprovedTimes) ? 'disabled' : ''; // Check if time is in the approved times array
-                $disabledLabel = in_array($formattedTime2, $existingApprovedTimes) ? ' (Not Available)' : ''; // Check if time is in the approved times array
-            ?>
+        $formattedNextTime = date('h:i A', $nextTime);
+        $formattedTimeRange = $formattedTime . ' - ' . $formattedNextTime;
+        $formattedTime2 = date('H:i:s', $startTime);
 
-                <option value="<?php echo $formattedTime2; ?>" <?php echo $disabled; ?>><?php echo $formattedTimeRange . ' ' . $disabledLabel; ?></option>
-            <?php
-                $startTime += 30 * 60; // Add 30 minutes
-            }
-            ?>
+        $disabled = in_array($formattedTime2, $existingApprovedTimes) ? 'disabled' : ''; // Check if time is in the approved times array
+        $disabledLabel = in_array($formattedTime2, $existingApprovedTimes) ? ' (Not Available)' : ''; // Check if time is in the approved times array
+    ?>
+
+        <option value="<?php echo $formattedTime2; ?>" <?php echo $disabled; ?>><?php echo $formattedTimeRange . ' ' . $disabledLabel; ?></option>
+    <?php
+        $startTime += 30 * 60; // Add 30 minutes
+    }
+?>
+
         </select>
     </div>
 
