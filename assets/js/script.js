@@ -3,9 +3,23 @@ document.addEventListener("DOMContentLoaded", function () {
         pwShowHide = document.querySelectorAll(".showHidePw"),
         pwFields = document.querySelectorAll(".password"),
         signUp = document.querySelector(".signup-link"),
-        termsLink = document.querySelector(".terms-link"),
+        termsLink = document.querySelector("#showTerms"),
         login = document.querySelector(".login-link"),
-        termsForm = document.querySelector(".terms");
+        termsForm = document.querySelector(".form .terms");
+
+        // The first event listener for Terms and Condition
+        termsLink.addEventListener("click", (e) => {
+            console.log("Terms link clicked");
+            e.preventDefault();
+            termsForm.classList.add("active");
+        });
+
+        // The second event listener for Terms and Condition
+        termsLink.addEventListener("click", () => {
+            container.querySelector(".terms").classList.add("active");
+            console.log("Clicked");
+        });
+
 
     // js code to show/hide password and change icon
     pwShowHide.forEach((eyeIcon) => {
