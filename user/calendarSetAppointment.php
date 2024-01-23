@@ -74,7 +74,7 @@ mysqli_stmt_close($stmt);
                 <input type="date" class="form-control" min="<?php echo $selectedDate; ?>" value="<?php echo $selectedDate; ?>" id="date" name="date">
             </div>
             <div class="mb-2">
-                <label for="shootLocation" class=" text-nowrap">Shoot Location: (State/Province/City/Region)</label>
+                <label for="shootLocation" class=" text-nowrap">Shoot Location:</label>
                 <input type="text" class="form-control" id="shootLocation" name="shootLocation" placeholder="Enter the shoot location">
             </div>
             <div class="mb-2">
@@ -88,6 +88,11 @@ mysqli_stmt_close($stmt);
                     <!-- Add more occasion types as needed -->
                 </select>
             </div>
+
+            <div id="timeNoteContainer" class="mt-3">
+        <!-- The note content will be dynamically added here -->
+        <label><h3>NOTE: Kindly provide the precise shoot location for accurate coordination.</h3></label>
+    </div>
 
         </div>
 
