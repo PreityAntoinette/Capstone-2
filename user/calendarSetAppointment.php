@@ -73,6 +73,34 @@ mysqli_stmt_close($stmt);
                 <label for="date">Date:</label>
                 <input type="date" class="form-control" min="<?php echo $selectedDate; ?>" value="<?php echo $selectedDate; ?>" id="date" name="date">
             </div>
+
+            <div class="mb-2">
+                <label for="dateTime">Time:</label>
+                <select class="form-control1" id="dateTime" name="dateTime"  >
+                    <option value="" disabled selected>Select time</option>
+                    <?php
+                    // Define start and end times
+                    $startTime = strtotime('08:00 AM');
+                    $endTime = strtotime('05:00 PM');
+
+                    // Loop through 30-minute intervals
+                    while ($startTime <= $endTime) {
+                        $formattedTime = date('h:i A', $startTime);
+                        $formattedTime2 = date('H:i:s', $startTime);
+                        
+                        $disabled = in_array($formattedTime2, $existingApprovedTimes) ? 'disabled' : ''; // Check if time is in the approved times array
+                        $disabledLabel = in_array($formattedTime2, $existingApprovedTimes) ? ' (Not Available)' : ''; // Check if time is in the approved times array
+                    ?>
+
+                        <option value="<?php echo $formattedTime2; ?>" <?php echo $disabled; ?>><?php echo $formattedTime. ' '.$disabledLabel; ?></option>
+                    <?php
+                        $startTime += 30 * 60; // Add 30 minutes
+                    }
+                    ?>
+                    
+                </select>
+            </div>
+            
             <div class="mb-2">
                 <label for="shootLocation" class=" text-nowrap">Shoot Location:</label>
                 <input type="text" class="form-control" id="shootLocation" name="shootLocation" placeholder="Enter the shoot location">
