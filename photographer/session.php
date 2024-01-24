@@ -1,9 +1,10 @@
 <?php
     require_once('../database.php');
     session_start();
-    if (isset($_SESSION['user'])) {
-            $user = $_SESSION['user'];
+    if (isset($_SESSION['photographer'])) {
+            $user = $_SESSION['photographer'];
             $id = $user->photographer_id;
+            $fn = $user->photographer_fullname;
             $query = $connection->prepare("SELECT * FROM photographer WHERE photographer_id = ?");
             $query->bind_param("i", $id);
             $query->execute();

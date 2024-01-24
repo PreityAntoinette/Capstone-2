@@ -1,14 +1,96 @@
 <?php  
 session_start();
-    if (isset($_SESSION['user'])) {
-        header ('location: user/user.php');
-    }
-    if (isset($_SESSION['admin'])) {
-        header ('location: admin/admindashboard.php');
-    }
+if (isset($_SESSION['user'])) {
+    header ('location: user/user.php');
+}
+if (isset($_SESSION['admin'])) {
+    header ('location: admin/admindashboard.php');
+}
+if (isset($_SESSION['photographer'])) {
+    header ('location: photographer/photographer_dashboard.php');
+}
 require_once './database.php';
 include 'submitreg.php';
 
+
+//approved to done
+$sql = "UPDATE appointment
+        SET apt_status = 'DONE'
+        WHERE apt_status = 'APPROVED' AND DATE(apt_datetime) < NOW()";
+
+$result = mysqli_query($connection, $sql);
+if ($result) {
+    // echo "Appointments status updated successfully.";
+}
+
+$sql = "UPDATE appointment
+        SET apt_status = 'DECLINED'
+        WHERE apt_status = 'PENDING' AND DATE(apt_datetime) = DATE_ADD(CURDATE(), INTERVAL 1 DAY)";
+        
+$result = mysqli_query($connection, $sql);
+
+if ($result) {
+    // echo "Appointments status updated successfully.";
+}
+
+function getCountPendingRequests($connection, $aptDatetime)
+{
+    $sql = "SELECT COUNT(*) AS countPendingRequests FROM appointment WHERE apt_status = 'PENDING' AND DATE(apt_datetime) = '" . date('Y-m-d', strtotime($aptDatetime)) . "'";
+    $result = mysqli_query($connection, $sql);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['countPendingRequests'];
+    } else {
+        // Handle query error
+        return 0;
+    }
+}
+
+$sql = "SELECT apt_datetime
+FROM appointment
+WHERE DATE(apt_datetime) = DATE_ADD(CURDATE(), INTERVAL 2 DAY) AND apt_status = 'PENDING' AND apt_remark = 'WAITING' ";
+$result = mysqli_query($connection, $sql);
+
+if ($result) {
+    //  Loop through the selected rows and execute the cURL request
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        $aptDatetime = $row['apt_datetime'];
+        $sql = "UPDATE appointment
+        SET apt_remark = 'WAITING'
+        WHERE apt_status = 'PENDING' AND DATE(apt_datetime) = DATE_ADD(CURDATE(), INTERVAL 2 DAY)";
+        $result = mysqli_query($connection, $sql);
+
+            $countPendingRequests = getCountPendingRequests($connection, $aptDatetime);
+            // Execute the cURL request
+            $ch = curl_init();
+            $message = "Hello Admin, you have " . $countPendingRequests . " pending requests for " . date('Y-m-d', strtotime($aptDatetime)) . ". Please confirm it in the system, or else it will automatically be declined within 24 hours.";
+
+            $parameters = array(
+                'apikey' => '83786e0699022b9f6163e96e81c154ca', 
+                'number' => '09157050275',
+                'message' => $message,
+            );
+
+            curl_setopt($ch, CURLOPT_URL, 'https://semaphore.co/api/v4/messages');
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($parameters));
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_exec($ch);
+
+            // echo '<script>alert("Submitted successfully!");</script>';
+      
+    }
+
+    // Free the result set
+    mysqli_free_result($result);
+} else {
+    // Handle query error
+    echo "Error: " . mysqli_error($connection);
+}
 ?>
 <DOCTYPE html>
 <html lang="en">

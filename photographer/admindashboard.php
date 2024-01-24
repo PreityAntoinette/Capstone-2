@@ -249,13 +249,11 @@ $doneCount = 0;
             data = [{ event_name: 'No Data', event_status: 'No Data' }];
         }
 
-        const labels = ['', 'Approved', 'Done', 'Declined'];
+        const labels = ['Approved', 'Done'];
         const statuses = data.map(entry => entry.event_status.toUpperCase()); // Capitalize the event status values
 
-        const pendingData = statuses.filter(event_status => event_status === 'PENDING').length;
         const approvedData = statuses.filter(event_status => event_status === 'APPROVED').length;
         const doneData = statuses.filter(event_status => event_status === 'DONE').length;
-        const declinedData = statuses.filter(event_status => event_status === 'DECLINED').length;
         const event_log_chart = document.getElementById('event-log-chart');
 
         new Chart(event_log_chart, {

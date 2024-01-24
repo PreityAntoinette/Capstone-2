@@ -6,23 +6,23 @@ if (isset($_POST['register'])) {
     $firstname = $_POST['firstname'];
     $middlename = isset($_POST['middlename']) ? $_POST['middlename'] : ' ';
     $surname = $_POST['surname'];
+    $fullname =  ucwords(strtolower($_POST['firstname'].' '.$_POST['surname']));
     $contact = $_POST['contact'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $role = 'USER';
+    $role = 'PHOTOGRAPHER';
     $arc = 1;
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
     try {
-        $sql = $connection->prepare('INSERT INTO users (firstname, middlename, surname, contact, email, password, role, archived_flag) VALUES (?, ?, ?, ?, ?, ?, ?,?)');
+        $sql = $connection->prepare('INSERT INTO photographer (photographer_fullname, firstname, middlename, surname, contact, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)');
         if (!$sql) {
             throw new Exception($connection->error);
         }
 
-        $sql->bind_param('sssisssi', $firstname, $middlename, $surname, $contact, $email, $hashed_password, $role, $arc);
+        $sql->bind_param('ssssiss',$fullname, $firstname, $middlename, $surname, $contact, $email, $hashed_password);
 
         if ($sql->execute()) {
-           
             header('location: registered_success.php');
             exit; 
         } else {
@@ -51,7 +51,7 @@ if (isset($_POST['register'])) {
     <div class="container mt-5  w-50">
     <div class="card">
         <div class="card-header">
-            Register
+            Photographer Registration
         </div>
         <div class="card-body">
             <form  method="post">
@@ -151,7 +151,7 @@ if (isset($_POST['register'])) {
                 </div>
                 <div class="d-flex justify-content-center">
                 Already have an account?
-                <a href="index.php"> Login</a>
+                <a href="photographer_login.php"> Login</a>
 
                 </div>
             </form>
