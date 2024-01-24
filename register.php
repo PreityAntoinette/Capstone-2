@@ -111,39 +111,35 @@ if (isset($_POST['register'])) {
                     I have read and agree to the <a class="text-dark" href="#" id="showTermsLink1">Terms and Conditions</a>
                 </label>
                 <div class="terms-content1" style="display: none;">
-                    <h5>Terms and Conditions</h5>
+                   
+                    <h5>Terms and Conditions of Use</h5>
+
                     <h6>1. Acceptance of Terms</h6>
-                                    <p>By accessing and using this website, you agree to comply with and be bound by these terms and conditions. If you do not agree to these terms, please do not use this site.</p>
+                    <p>By accessing and using this website, you agree to comply with and be bound by these terms and conditions. If you do not agree to these terms, please do not use this site.</p>
 
-                                <h6>2. User Accounts</h6>
-                                    <p>You agree to use this website only for lawful purposes and in a manner consistent with all applicable local, national, and international laws and regulations.</p>
+                    <h6>2. User Conduct</h6>
+                    <p>You agree to use this website only for lawful purposes and in a manner consistent with all applicable local, national, and international laws and regulations.</p>
 
-                                <h6>3. Privacy Policy</h6>
-                                    <p>By using our scheduling system, you agree to abide by these terms and conditions. </p>
+                    <h6>3. Privacy Policy</h6>
+                    <p>By using this website, you consent to the terms of our Privacy Policy.</p>
 
-                                <h6>4. Intellectual Property</h6>
-                                    <p>All content on this website, including but not limited to text, graphics, logos, images, audio clips, video clips, and data compilations, is the property of Lagring Studio and is protected by intellectual property laws.</p>
+                    <h6>4. Intellectual Property</h6>
+                    <p>All content on this website, including but not limited to text, graphics, logos, images, audio clips, video clips, and data compilations, is the property of Lagring Studio and is protected by intellectual property laws.</p>
 
-                                <h6>5. Links to Third-Party Websites</h6>
-                                    <p>This website may contain links to third-party websites for your convenience. We do not endorse or make any representations about these websites. Your use of third-party websites is at your own risk.</p>
+                    <h6>5. Links to Third-Party Websites</h6>
+                    <p>This website may contain links to third-party websites for your convenience. We do not endorse or make any representations about these websites. Your use of third-party websites is at your own risk.</p>
 
-                                <h6>6. Disclaimer of Warranties</h6>
-                                    <p>This website is provided "as is" without any warranties, express or implied. Lagring Studio makes no representations or warranties regarding the accuracy, completeness, or reliability of the content on this site.</p>
+                    <h6>6. Disclaimer of Warranties</h6>
+                    <p>This website is provided "as is" without any warranties, express or implied. Lagring Studio makes no representations or warranties regarding the accuracy, completeness, or reliability of the content on this site.</p>
 
-                                <h6>7. Limitation of Liability</h6>
-                                    <p>Lagring Studio will not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your access to or use of this website.</p>
+                    <h6>7. Limitation of Liability</h6>
+                    <p>Lagring Studio will not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your access to or use of this website.</p>
 
-                                <h6>8. Service Provider's Right to Cancel</h6>
-                                    <p>Lagring Studio reserves the right to cancel or reschedule appointments due to unforseen circumstances, in which case users will be notified promptly.</p>
+                    <h6>8. Changes to Terms and Conditions</h6>
+                    <p>Lagring Studio reserves the right to change these terms and conditions at any time. Your continued use of the website after such changes will constitute acceptance of the updated terms.</p>
 
-                                <h6>9. Communication</h6>
-                                    <p>Users are responsible for providing accurate contact information. Lagring Studio is not liable for missed comminications due to outdated or incorrect contact details.</p>
-                                
-                                <h6>10. Changes to Terms and Conditions</h6>
-                                    <p>Lagring Studio reserves the right to change these terms and conditions at any time. Your continued use of the website after such changes will constitute acceptance of the updated terms.</p>
-                                
+                    <p>These terms and conditions were last updated on January 2024.</p>
 
-                                <p>These terms and conditions were last updated on January 2024.</p>
                 </div>
             </div>
                 <div class="form-group d-flex justify-content-end mb-0 pb-0">
