@@ -171,6 +171,17 @@ mysqli_stmt_close($stmt);
     </div>
 </div>
 
+<div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon" required>
+                            <label for="termCon" class="text">I accepted all terms and conditions</label>
+                        </div>
+                    </div>
+
+<a href="#" class="Btn read-more-link" onclick="return openDescriptionModal()">
+                                    Read Terms and conditions
+                                </a>
+
 
         <div class="modal-footer">
             <button type="submit" name="submitt" id="submitting" class="btn btn-primary">Submit</button>
@@ -179,3 +190,104 @@ mysqli_stmt_close($stmt);
     </form>
 </div>
 <?php }?>
+
+
+
+
+<style>
+
+    .readmore-modal-content {
+      overflow-y: scroll; /* Add a scrollbar for the modal content */
+      max-height: 500px; /* Set a maximum height for the modal content */
+    }
+
+    h1, h2 {
+        font-size: 15px;
+      margin: 0; /* Remove default margins for better spacing */
+      font-weight: bold;
+    }
+    p{
+        font-size: 15px;
+    }
+
+    ol {
+      padding-left: 20px; /* Add some left padding to the ordered list */
+    }
+  </style>
+                <!-- Read more Modal container -->
+                <div class="readmore-modal-container" id="readmore-myModal">
+                    <div class="readmore-modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-content-wrapper">
+                        <!-- <img class="image_readmore" id="readmore-service-image" src="" alt="Service Image"> -->
+                    <div class="text-container">
+                    <h1>Photography Scheduling System Terms and Conditions</h1>
+
+<ol>
+  <li>
+    <h2>Appointment Scheduling:</h2>
+    <p>1.1 Clients are required to accurately select and confirm the date and time of their photography session through our scheduling system.</p>
+  </li>
+
+  <li>
+    <h2>Punctuality:</h2>
+    <p>2.1 Clients must arrive at the exact time specified in their scheduled appointment.</p>
+    <p>2.2 Late arrivals may result in a shortened session duration, and the photographer is not obligated to extend the session.</p>
+  </li>
+
+  <li>
+    <h2>Preparation and Arrival:</h2>
+    <p>3.1 Clients are expected to arrive well-prepared and ready for their photography session.</p>
+    <p>3.2 Any delays caused by the client's lack of preparation may affect the overall session time.</p>
+  </li>
+
+  <li>
+    <h2>Rescheduling and Cancellations:</h2>
+    <p>4.1 To reschedule or cancel an appointment, clients must provide advance notice through the scheduling system.</p>
+    <p>4.2 Failure to provide sufficient notice may result in additional fees or forfeiture of the session.</p>
+  </li>
+
+  <li>
+    <h2>Photographer's Schedule:</h2>
+    <p>5.1 The photographer will adhere to the agreed-upon schedule and will make reasonable efforts to accommodate unforeseen circumstances.</p>
+    <p>5.2 In the event of unavoidable delays on the photographer's part, clients will be notified promptly.</p>
+  </li>
+
+  <li>
+    <h2>Session Duration:</h2>
+    <p>6.1 The scheduled session duration includes setup and breakdown time by the photographer.</p>
+    <p>6.2 Overtime beyond the agreed-upon session duration may be subject to additional charges.</p>
+  </li>
+
+  <li>
+    <h2>No-Shows:</h2>
+    <p>7.1 Clients who fail to appear for their scheduled appointment without prior notice may be charged a no-show fee.</p>
+    <p>7.2 Repeated no-shows may result in the suspension of scheduling privileges.</p>
+  </li>
+
+  <li>
+    <h2>Refunds and Compensation:</h2>
+    <p>8.1 Refunds or compensation will not be provided for time lost due to client delays, lack of preparation, or any other reasons beyond the photographer's control.</p>
+    <p>8.2 Refunds or compensation may be considered on a case-by-case basis for technical issues or unforeseen circumstances on the part of the photographer.</p>
+  </li>
+
+  <li>
+    <h2>Agreement Acceptance:</h2>
+    <p>9.1 By scheduling an appointment, clients acknowledge that they have read, understood, and agreed to these terms and conditions.</p>
+  </li>
+
+  <li>
+    <h2>Modification of Terms:</h2>
+    <p>10.1 These terms and conditions may be modified by the photographer with prior notice.</p>
+  </li>
+</ol>
+
+                        
+
+                      
+                
+                    </div>
+                    </div>
+                    </div>
+                </div>
+<!-- end of modal-->
