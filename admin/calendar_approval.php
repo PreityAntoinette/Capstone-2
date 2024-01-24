@@ -16,6 +16,7 @@
         if (isset($_POST['submit'])) {
             $apt_id = $_POST['apt_id'];
             $status = $_POST['approval'];
+            $date=$_POST['apt_date'];
             if ($status == 'APPROVED'){
                 $remark='N/A';
                 $photographer= $_POST['photographer'];
@@ -87,6 +88,34 @@
 
              // Check the email sending result
             if ($mailResult) {
+                if($status=='APPROVED'){
+                    $sql = "SELECT email, photographer_fullname, contact FROM photographer WHERE photographer_fullname='$photographer'";
+                    $result = mysqli_query($connection, $sql);
+            
+                    if ($result && $row = mysqli_fetch_assoc($result)) {
+                        $contact1 = $row['contact'];
+                        $fullname1 = $row['photographer_fullname'];
+                    } 
+                    $ch = curl_init();
+                    $message1 = "Hello  $fullname1, a new schedule has been  tasked to you by the Admin on $date.";
+                    
+            
+                    $parameters = array(
+                        'apikey' => '83786e0699022b9f6163e96e81c154ca', //Your API KEY
+                        'number' => $contact1,
+                        'message' => $message1,
+                    );
+                    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+                    curl_setopt( $ch, CURLOPT_POST, 1 );
+            
+                    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+                    // Set cURL options for SSL verification, disable this if using localhost, if hosting then enable
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            
+                    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+                    curl_exec( $ch );
+                    }
                 // Commit the transaction if the email was sent successfully
                 mysqli_commit($connection);
                 $ch = curl_init();

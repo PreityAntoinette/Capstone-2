@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
         $status = $row['apt_status'];
         $apt_submit_type = $row['apt_submit_type'];
         $walkin_fullname = $row['walkin_fullname'];
-        $walkin_contact = $row['walkin_contact'];
+        $walkin_contact = $row['contact'];
         $apt_photographer = $row['apt_photographer'];
     }
 }
@@ -126,6 +126,8 @@ function formatAppointmentDate($apt_datetime, $service_type) {
         <form method="POST">
             <div class="row px-4 mx-4">
                 <input type="hidden" name="apt_id" value="<?php echo $apt_id ?>">
+                <input type="hidden" name="apt_date" value="<?php echo $apt_date ?>">
+                <input type="hidden" name="contact" value="<?php echo $walkin_contact ?>">
                 
                 <label for="declined" class="radio-btn-label">
                     <input type="radio" id="declined" onclick="decline()"  name="approval" value="DECLINED" class="radio-btn" />
@@ -161,7 +163,7 @@ function formatAppointmentDate($apt_datetime, $service_type) {
                 return mysqli_num_rows($availabilityQuery) == 0;
             }
 
-            $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
+            $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'  and verified=1") or die(mysqli_error($connection));
 
             while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
                 $photographer_fullname = $photographerRow['photographer_fullname'];
@@ -177,7 +179,7 @@ function formatAppointmentDate($apt_datetime, $service_type) {
             ?>
         <?php endif; ?>
         <?php if ($service_type === 'SMALL') : ?>
-            <option value="" selected disabled>Select a phodtographer..</option>
+            <option value="" selected disabled>Select a photographer..</option>
             <?php
             function isPhotographerAvailable2($connection, $apt_datetime, $photographer_fullname)
             {
@@ -187,7 +189,7 @@ function formatAppointmentDate($apt_datetime, $service_type) {
                 return mysqli_num_rows($availabilityQuery2) == 0;
             }
 
-            $photographerQuery2 = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
+            $photographerQuery2 = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE' and verified=1") or die(mysqli_error($connection));
 
             while ($photographerRow2 = mysqli_fetch_array($photographerQuery2)) {
                 $photographer_fullname = $photographerRow2['photographer_fullname'];

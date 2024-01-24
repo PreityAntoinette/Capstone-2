@@ -68,8 +68,7 @@ body{
 .main-container{
     text-align: center;
     background-color: white;
-    width: 90rem;
-    height: 47rem;
+    
     border-radius: 20px;
     padding: 3rem;
     box-shadow: 0 10px 40px -20px black;
@@ -128,7 +127,7 @@ body{
                 </div>
 
                 <form method="post" id="form">
-                    <div class="controller">
+                    <div class="controller" >
                         <section class="date">
                             <div class="from">
                                 <label for="from">From: </label>
@@ -194,9 +193,9 @@ body{
             } else {
                 $formatted_date = date("M j, Y - g:i A", strtotime($apt_date));
             }
+            $cancelButton = ($serstat == 'PENDING') ? '<button onclick="changeVerificationStatus(\''.$schedule_id.'\')">Cancel</button>' : '';
 
-            // Check if the status is "PENDING" before rendering the "Cancel" button
-            $cancelButton = ($serstat == 'PENDING') ? '<button class="cancel-button" data-schedule-id="' . $schedule_id . '">Cancel</button>' : '';
+
 
             ?>
             <tr>
@@ -217,22 +216,23 @@ body{
     }
     ?>
 </tbody>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var cancelButtons = document.querySelectorAll('.cancel-button');
-
-        cancelButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                var scheduleId = button.getAttribute('data-schedule-id');
-                // Implement your cancel logic here, for example, redirecting to cancel page
-                window.location.href = 'cancel.php?schedule_id=' + scheduleId;
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script>
+        function changeVerificationStatus(schedule_id) {
+            $.ajax({
+                type: "POST",
+                url: "update_verification_status.php", // Replace with your update script
+                data: {schedule_id: schedule_id},
+                success: function(response) {
+                    // Handle the response if needed
+                    alert("Scheduled has been cancelled.")
+                    location.reload();
+                    console.log(response);
+                }
             });
-        });
-    });
-</script>
-
-<!-- ... Remaining code ... -->
+        }
+    </script>
 
                             </table>
 

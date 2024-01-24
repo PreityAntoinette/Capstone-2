@@ -156,11 +156,10 @@
                                         <td><?php echo $clientContact; ?></td>
                                         </tr>
                                         <?php           
-                                                    }
-                                                    
-                                                } else {
-                                                    echo '<tr><td colspan="8" style="text-align: center;">No records found.</td></tr>';
-                                                }
+                                        }
+                                    } else {
+                                        echo '<tr><td colspan="8" style="text-align: center;">No records found.</td></tr>';
+                                    }
                                                 ?>
                                 </tbody>
                             </table>
@@ -175,7 +174,7 @@
 
                 <script>
                     document.getElementById('cancel').addEventListener('click', function() {
-                    window.location.href = 'user.php';
+                   
                 });
 </script>
 

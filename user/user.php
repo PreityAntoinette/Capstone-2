@@ -327,12 +327,12 @@
             dateClick: function(info) {
             var selectedDate = new Date(info.dateStr);
             var today = new Date();
-            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (2 - today.getDay()));
+            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4);
 
                 if (selectedDate < lastDay) {
                 // Show a message in the modal for current week dates if the selected dates are later than 1 more current week
                 document.querySelector(".modal-h4-header").innerHTML = "Notice";
-                document.querySelector(".modalContent").innerHTML = "<p class='alert alert-danger'>Please choose a date one day before the reservation.</p>";
+                document.querySelector(".modalContent").innerHTML = "<p class='alert alert-danger'>Please choose a date 3 days in advance.</p>";
                 document.getElementById("myModal").style.display = "flex";
                 document.body.style.overflow = "hidden";
                 } 

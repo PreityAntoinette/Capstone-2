@@ -7,13 +7,20 @@ if ($connection->connect_error) {
 
 // Retrieve start and end dates from the AJAX request
 $start_date = date('Y-m-d', strtotime($_GET['start_date']));
+$status = $_GET['status'];
 $end_date = date('Y-m-d 23:59:59', strtotime($_GET['end_date']));
-
+if($status=='All'){
+    $apt_status = '';
+}
+else{
+    $apt_status = "AND apt_status = '$status'";
+}
 // Perform MySQL query with the provided dates
 $sql = "SELECT * FROM appointment, services, users 
         WHERE appointment.apt_status != 'ARCHIVED' 
         AND appointment.service_id = services.service_id 
         AND appointment.user_id = users.user_id
+        $apt_status
         AND appointment.apt_datetime >= '$start_date'
         AND appointment.apt_datetime <= '$end_date'";
 $result = $connection->query($sql);

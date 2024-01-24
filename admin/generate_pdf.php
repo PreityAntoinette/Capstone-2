@@ -6,8 +6,14 @@ ob_start(); // Start output buffering
 if (isset($_POST['pdf'])) {
     // Get input values
     $start_date = date('Y-m-d', strtotime($_POST['start_date']));
+    $status = $_POST['status'];
     $end_date = date('Y-m-d 23:59:59', strtotime($_POST['end_date']));
-
+    if($status=='All'){
+        $apt_status = '';
+    }
+    else{
+        $apt_status = "AND apt_status = '$status'";
+    }
     $year = date('Y', strtotime($start_date));
 
     if (date('Y', strtotime($_POST['start_date'])) != date('Y', strtotime($_POST['end_date']))) {
@@ -19,6 +25,7 @@ if (isset($_POST['pdf'])) {
             WHERE appointment.apt_status != 'ARCHIVED' 
             AND appointment.service_id = services.service_id 
             AND appointment.user_id = users.user_id
+            $apt_status
             AND appointment.apt_datetime >= '$start_date'
             AND appointment.apt_datetime <= '$end_date'") or die(mysqli_error($connection));
             

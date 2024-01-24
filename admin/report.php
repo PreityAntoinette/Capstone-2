@@ -83,6 +83,17 @@
                                 <label for="to">To:</label>
                                 <input type="date" id="end_date" class="ed" name="end_date" value="<?php echo date('Y-m-d', strtotime('last day of December')) ?>" name="startDate" required onchange="fetchData()">
                             </div>
+                            <div class="to">
+                                <label for="to">Status:</label>
+                                <select name="status"  class="py-2" required onchange="fetchData()" id="status">
+                                    <option value="All">All</option>
+                                    <option value="PENDING">Pending</option>
+                                    <option value="APPROVED">Approved</option>
+                                    <option value="DECLINED">Declined</option>
+                                    <option value="DONE">Done</option>
+
+                                </select>
+                            </div>
                         </section>
                         <section class="export">
                             <button class="btn1 btn btn-primary" type="submit" id="btn1" onclick="thisBtn1()" name="excel">
@@ -228,14 +239,16 @@
      function fetchData() {
             var startDate = document.getElementById("start_date").value;
             var endDate = document.getElementById("end_date").value;
+            var status = document.getElementById("status").value;
             var sd = document.getElementsByClassName("sd").value;
             var ed = document.getElementsByClassName("ed").value;
+            var st = document.getElementsByClassName("status").value;
             sd = startDate;
                     ed = endDate;
                     console.log(startDate);
                     console.log(endDate);
 
-            if(startDate && endDate){
+            if(startDate && endDate && status){
             // Make AJAX request to fetch data
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
@@ -247,7 +260,7 @@
             };
 
             // Send the request to the server
-            xhr.open("GET", "report_fetch.php?start_date=" + startDate + "&end_date=" + endDate, true);
+            xhr.open("GET", "report_fetch.php?start_date=" + startDate + "&end_date=" + endDate+ "&status=" + status, true);
             xhr.send();
         }
     }

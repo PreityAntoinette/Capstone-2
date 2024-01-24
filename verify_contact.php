@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			exit;
 		}
         else{
-            $ch = curl_init();
+        $ch = curl_init();
         $message = "OTP: ".$otp."";
         
 

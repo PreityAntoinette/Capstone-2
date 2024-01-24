@@ -120,17 +120,46 @@ if (isset($_POST['submitt'])) {
 
      // Check the email sending result
     if ($mailResult) {
+        if($apt_status=='APPROVED'){
+        $sql = "SELECT email, photographer_fullname FROM photographer WHERE photographer_fullname='$photographer'";
+        $result = mysqli_query($connection, $sql);
+
+        if ($result && $row = mysqli_fetch_assoc($result)) {
+            $contact1 = $row['contact'];
+            $fullname1 = $row['photographer_fullname'];
+        } 
+        $ch = curl_init();
+        $message1 = "Hello ". $fullname1 .", a new schedule has been  tasked to you by the Admin on $date.";
+        
+
+        $parameters = array(
+            'apikey' => '83786e0699022b9f6163e96e81c154ca', //Your API KEY
+            'number' => $contact1,
+            'message' => $message1,
+        );
+        curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+        curl_setopt( $ch, CURLOPT_POST, 1 );
+
+        curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+        // Set cURL options for SSL verification, disable this if using localhost, if hosting then enable
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        curl_exec( $ch );
+        }
+
         mysqli_stmt_execute($stmt1);
         mysqli_stmt_close($stmt1);
         // Commit the transaction if the email was sent successfully
         mysqli_commit($connection);
         $ch = curl_init();
-        $message = "Hello ". $adminFullname .", a customer set a schedule. Schedule ID: ".$schedule_id."";
+        $message = "Hello customer, you have set a  walk in schedule. ID: ".$schedule_id."";
         
 
         $parameters = array(
             'apikey' => '83786e0699022b9f6163e96e81c154ca', //Your API KEY
-            'number' => $adminContact,
+            'number' => $walkin_contact,
             'message' => $message,
         );
         curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );

@@ -16,17 +16,19 @@ if (isset($_POST['admin_login'])) {
       $row = $result->fetch_object();
       if (password_verify($password, $row->password) && $row->role == 'ADMIN') {
           $_SESSION['admin'] = $row;
-          header('Location: ../admin/admindashboard.php');
+          header('Location: ./admindashboard.php');
           exit();
       } else {
-          $_SESSION['error'] = 'Invalid email or password.';
-          header('Location: admin_login.php');
-          exit();
+        echo '<script>
+        alert("Wrong password."); 
+        window.location.href = "index.php";
+    </script>';
       }
   } else {
-      $_SESSION['error'] = 'email does not exist.';
-      header('Location: admin_login.php');
-      exit();
+    echo '<script>
+    alert("Account does not exist"); 
+    window.location.href = "index.php";
+</script>';
   }
 }
 ?>
@@ -43,7 +45,7 @@ if (isset($_POST['admin_login'])) {
     <div class="center">
       <img src="../assets/images/logo.png" alt="Lagring Studio Logo" class="logo">
       <h1>Lagring Studio</h1>
-      <form method="post" action="admin_login.php">
+      <form method="post" >
         <div class="txt_field">
           <input type="text" id = "email" name="email" required>
           <span></span>

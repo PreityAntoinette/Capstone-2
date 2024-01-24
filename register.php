@@ -164,8 +164,7 @@ if (isset($_POST['register'])) {
 
 
 <script src="assets/plugins/jquery/jquery.min.js"></script>
-                <!-- jQuery UI 1.11.4 -->
-                <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
 
                 <!-- <script src="assets/js/script.js"></script>

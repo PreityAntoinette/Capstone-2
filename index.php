@@ -33,6 +33,7 @@ if ($result) {
     // echo "Appointments status updated successfully.";
 }
 
+
 function getCountPendingRequests($connection, $aptDatetime)
 {
     $sql = "SELECT COUNT(*) AS countPendingRequests FROM appointment WHERE apt_status = 'PENDING' AND DATE(apt_datetime) = '" . date('Y-m-d', strtotime($aptDatetime)) . "'";

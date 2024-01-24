@@ -24,7 +24,7 @@ mysqli_stmt_bind_result($stmt, $numAppointments);
 mysqli_stmt_fetch($stmt);
 mysqli_stmt_close($stmt);
 
-$query = "SELECT COUNT(*) AS numPhotographer FROM photographer WHERE photographer_status = 'ACTIVE'";
+$query = "SELECT COUNT(*) AS numPhotographer FROM photographer WHERE photographer_status = 'ACTIVE'  and verified=1";
 $stmt = mysqli_prepare($connection, $query);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_bind_result($stmt, $numPhotographer);
@@ -131,7 +131,7 @@ mysqli_stmt_close($stmt);
                     return mysqli_num_rows($availabilityQuery) == 0;
                 }
 
-                $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'") or die(mysqli_error($connection));
+                $photographerQuery = mysqli_query($connection, "SELECT * FROM photographer WHERE photographer_status = 'ACTIVE'  and verified=1") or die(mysqli_error($connection));
 
                 while ($photographerRow = mysqli_fetch_array($photographerQuery)) {
                     $photographer_fullname = $photographerRow['photographer_fullname'];
