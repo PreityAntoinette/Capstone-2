@@ -170,19 +170,25 @@ mysqli_stmt_close($stmt);
                     $endTime = strtotime('05:00 PM');
 
                     // Loop through 30-minute intervals
-                    while ($startTime <= $endTime) {
+                    while ($startTime < $endTime) {
                         $formattedTime = date('h:i A', $startTime);
                         $formattedTime2 = date('H:i:s', $startTime);
-                        
+
                         $disabled = in_array($formattedTime2, $existingApprovedTimes) ? 'disabled' : ''; // Check if time is in the approved times array
                         $disabledLabel = in_array($formattedTime2, $existingApprovedTimes) ? ' (Not Available)' : ''; // Check if time is in the approved times array
                     ?>
 
-                        <option value="<?php echo $formattedTime2; ?>" <?php echo $disabled; ?>><?php echo $formattedTime. ' '.$disabledLabel; ?></option>
+                        <option value="<?php echo $formattedTime2; ?>" <?php echo $disabled; ?>><?php echo $formattedTime . ' ' . $disabledLabel; ?></option>
                     <?php
                         $startTime += 30 * 60; // Add 30 minutes
+
+                        // Check if the next time exceeds the closing time
+                        if ($startTime >= $endTime) {
+                            break;
+                        }
                     }
-                    ?>
+                ?>
+
                     
                 </select>
             </div>
