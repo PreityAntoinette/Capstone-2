@@ -100,15 +100,15 @@
                                     <th>No.</th>
                                     <th>Schedule ID</th>
                                     <th>Scheduled Date</th>
-                                    <!-- <th>Client Name</th> -->
+                                    <th>Client Name</th>
                                     <th>Service</th>
                                     <th>Ocassion Type</th>
                                     <th>Shoot Location</th>
                                     <th>Submitted from</th>
                                    
                                     <th>Status</th>
-                                    <!-- <th>Email</th>
-                                    <th>Contact Number</th> -->
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
                                     </tr>
                                 </thead>
                                 <tbody id="result-body">
@@ -146,14 +146,14 @@
                                         <td><?php echo $schedule_id ?></td>
                                         <td><?php echo $formatted_date; ?></td>
 
-                                        <!-- <td><?php echo ($clientFullname); ?></td> -->
+                                        <td><?php echo ($clientFullname); ?></td>
                                         <td><?php echo strtoupper($sername); ?></td>
                                         <td><?php echo strtoupper($apt_occ); ?></td>
                                         <td><?php echo strtoupper($apt_loc); ?></td>
                                         <td><?php echo strtoupper($apt_submit_type); ?></td>
                                         <td><?php echo $serstat; ?></td>
-                                        <!-- <td><?php echo $email; ?></td>
-                                        <td><?php echo $clientContact; ?></td> -->
+                                        <td><?php echo $email; ?></td>
+                                        <td><?php echo $clientContact; ?></td>
                                         </tr>
                                         <?php           
                                                     }
