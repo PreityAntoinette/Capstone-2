@@ -247,15 +247,11 @@ mysqli_stmt_close($stmt);
                 <p>6.2 Overtime beyond the agreed-upon session duration may be subject to additional charges.</p>
                 <p>6.3 Photo shoot sessions that will be done in the studio will only last 30 minutes max.</p>
 
-                <h6>7. No-Shows:</h6>
-                <p>7.1 Clients who fail to appear for their scheduled appointment without prior notice will be blocked and will be unable to book another appointment for 1 week.</p>
-                <p>7.2 Repeated no-shows may result in the suspension of scheduling privileges.</p>
+                <h6>7. Agreement Acceptance:</h6>
+                <p>7.1 By scheduling an appointment, clients acknowledge that they have read, understood, and agreed to these terms and conditions.</p>
 
-                <h6>8. Agreement Acceptance:</h6>
-                <p>8.1 By scheduling an appointment, clients acknowledge that they have read, understood, and agreed to these terms and conditions.</p>
-
-                <h6>10. Modification of Terms:</h6>
-                <p>10.1 These terms and conditions may be modified by the management with prior notice.</p>
+                <h6>8. Modification of Terms:</h6>
+                <p>8.1 These terms and conditions may be modified by the management with prior notice.</p>
                                         
 
                       
