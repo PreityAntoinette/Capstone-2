@@ -291,12 +291,13 @@ if ($result) {
                                 <h3><?php echo $row['service_name']; ?></h3>
                                 <!-- <p><?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?></p> -->
                                 <a href="#" class="Btn read-more-link" onclick="return openDescriptionModal(
-                                    '<?php echo htmlentities($row['service_description'], ENT_QUOTES, 'UTF-8'); ?>',
-                                    'lagring-studio-scheduling-system/assets/global/services_img/<?php echo $row['service_image']; ?>',
-                                    '<?php echo $row['service_name']; ?>'
+                                    '<?php echo htmlspecialchars($row['service_name']); ?>',
+                                    '<?php echo htmlspecialchars($row['service_description']); ?>',
+                                    'assets/global/services_img/<?php echo $row['service_image']; ?>'
                                 )">
                                     Read More
                                 </a>
+
 
                             </div>
                         </div>
