@@ -32,7 +32,7 @@
                     <div class="button-group">
                         <button class="btnClass active" onclick="showTable('table1')">Admin</button>
                         <button class="btnClass" onclick="showTable('table2')">Users</button>
-                        <button class="btnClass" onclick="showTable('table3')">Photographer</button>
+                        <!-- <button class="btnClass" onclick="showTable('table3')">Photographer</button> -->
 
                     </div>
                 </div>
