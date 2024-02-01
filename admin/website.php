@@ -26,7 +26,7 @@
         <!-- Main -->
         <main class="main-container">
             <div class="main-title">
-                <p class="font-weight-bold">WEBSITE</p>
+                <p class="font-weight-bold">WEBSITE CONTENT</p>
             </div>
             <div class="add">
                     <button class="modal-trigger" data-modal-id="add_website_content">Add Website Content</button>

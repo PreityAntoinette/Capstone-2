@@ -218,7 +218,7 @@
             <li <?php if ($current_page === 'website.php') echo 'class="navLinkActive"';?>>
                 <a href="website.php" id="facilityLink">
                     &#8226;
-                    Website
+                    Website Content
                 </a>
             </li>
         
